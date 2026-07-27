@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    cursor: default;
+    background-color: #52B788;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+}
+
+.dark body {
+  background-color: #081C15;
+  color: #F3F4F6;
+}
+
+/* Cream section background class */
+.bg-cream-theme {
+  background-color: #FFF9ED;
+  color: #1B4332;
+}
+
+.dark .bg-cream-theme {
+  background-color: #121620;
+  color: #F3F4F6;
+}
+
+/* Mint section background class */
+.bg-mint-theme {
+  background-color: #52B788;
+  color: #FFFFFF;
+}
+
+.dark .bg-mint-theme {
+  background-color: #1B4332;
+  color: #FFFFFF;
+}
+
+/* Custom Mint Pill Buttons */
+.mint-btn-white {
+  background: #FFFFFF;
+  color: #2D6A4F;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mint-btn-white:hover {
+  background: #FFF5E4;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.mint-btn-white:active {
+  transform: translateY(0);
+}
+
+.mint-btn-dark {
+  background: #1B4332;
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mint-btn-dark:hover {
+  background: #081C15;
+  transform: translateY(-2px);
+}
+
+.mint-btn-dark:active {
+  transform: translateY(0);
+}
+
+/* Wave Curve SVG styling */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Glass panel light & dark */
+.ref-card-light {
+  background: #FFFFFF;
+  border: 1px solid rgba(82, 183, 136, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.dark .ref-card-light {
+  background: rgba(22, 27, 38, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2D6A4F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFF9ED;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #74C69D;
+}
