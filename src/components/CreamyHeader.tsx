@@ -10,6 +10,22 @@ interface CreamyHeaderProps {
   onOpenResume: () => void;
 }
 
+const THEMES: { id: DesignTheme; name: string; color: string }[] = [
+  { id: 'mint',  name: 'Sage Green', color: '#52B788' },
+  { id: 'peach', name: 'Terracotta', color: '#D4845A' },
+  { id: 'coral', name: 'Dusty Rose', color: '#C0616A' },
+];
+
+const NAV_LINKS = [
+  { name: 'Home',      href: '#hero' },
+  { name: 'About',     href: '#about' },
+  { name: 'Services',  href: '#services' },
+  { name: 'Work',      href: '#projects' },
+  { name: 'Skills',    href: '#skills' },
+  { name: 'FAQ',       href: '#faqs' },
+  { name: 'Contact',   href: '#contact' },
+];
+
 export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
   activeTheme,
   setActiveTheme,
@@ -20,166 +36,192 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 220) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 200);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const themes: { id: DesignTheme; name: string; color: string }[] = [
-    { id: 'mint', name: 'Mint', color: '#52B788' },
-    { id: 'peach', name: 'Terracotta', color: '#C87D43' },
-    { id: 'coral', name: 'Coral', color: '#EE4D2D' },
-  ];
-
-  const navLinks = [
-    { name: 'HOME', href: '#hero' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'SERVICES', href: '#services' },
-    { name: 'PORTFOLIO', href: '#projects' },
-    { name: 'SKILLS', href: '#skills' },
-    { name: 'FAQS', href: '#faqs' },
-    { name: 'CONTACT', href: '#contact' },
-  ];
+  const activeColor = THEMES.find((t) => t.id === activeTheme)?.color ?? '#52B788';
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-3 pb-2 transition-all duration-500 transform ${
-        isScrolled
-          ? 'opacity-100 translate-y-0 pointer-events-auto'
-          : 'opacity-0 -translate-y-12 pointer-events-none'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center"
+      style={{
+        paddingTop: '10px',
+        pointerEvents: isScrolled ? 'auto' : 'none',
+      }}
     >
-      <div className="max-w-5xl mx-auto rounded-full px-3.5 sm:px-5 py-1.5 bg-black/85 backdrop-blur-xl border border-white/15 shadow-xl flex items-center justify-between">
-        
-        {/* Monogram Logo */}
-        <a href="#hero" className="flex items-center gap-2 group shrink-0">
-          <div className="w-7 h-7 rounded-xl bg-white text-[#2D6A4F] flex items-center justify-center font-heading font-black text-[11px] shadow-sm group-hover:scale-105 transition-transform">
-            NV
-          </div>
-          <span className="hidden sm:inline font-heading font-black text-[11px] uppercase tracking-wider text-white">
-            NANDINI
-          </span>
-        </a>
-
-        {/* Minimal Nav Links */}
-        <nav className="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="px-2.5 py-1 rounded-full text-[10px] font-heading font-extrabold text-white/90 hover:bg-white hover:text-gray-900 transition-all uppercase tracking-wider"
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={isScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+        style={{ display: 'inline-flex' }}
+      >
+        {/* ── Main pill bar ── */}
+        <div
+          className="rounded-full flex items-center gap-2 px-2.5"
+          style={{
+            backgroundColor: '#1C1917',
+            border: `1.5px solid ${activeColor}40`,
+            boxShadow: `0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05)`,
+            height: '36px',
+          }}
+        >
+          {/* Logo */}
+          <a href="#hero" className="flex items-center gap-1.5 shrink-0 group">
+            <div
+              className="w-5 h-5 rounded-md flex items-center justify-center font-black text-[9px] text-white shadow-sm group-hover:scale-110 transition-transform duration-200"
+              style={{ backgroundColor: activeColor }}
             >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-
-        {/* Minimal Action Controls */}
-        <div className="flex items-center gap-2 shrink-0">
-          
-          {/* Color Dots Palette Switcher */}
-          <div className="flex items-center gap-1 p-1 rounded-full bg-white/10 border border-white/15">
-            {themes.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setActiveTheme(t.id)}
-                className={`w-3.5 h-3.5 rounded-full transition-all ${
-                  activeTheme === t.id ? 'ring-2 ring-white scale-110' : 'opacity-60 hover:opacity-100'
-                }`}
-                style={{ backgroundColor: t.color }}
-                title={`Switch to ${t.name} Theme`}
-              />
-            ))}
-          </div>
-
-          {/* Resume Icon Button */}
-          <button
-            onClick={onOpenResume}
-            className="p-1.5 rounded-full bg-white/15 hover:bg-white hover:text-gray-900 text-white transition-all"
-            title="View Resume"
-          >
-            <FileText className="w-3.5 h-3.5" />
-          </button>
-
-          {/* Compact Hire Me CTA */}
-          <button
-            onClick={onOpenInquiry}
-            className="px-3.5 py-1.5 rounded-full bg-white text-[#2D6A4F] font-heading font-black text-[10px] uppercase tracking-wider shadow-md hover:bg-[#FFF9ED] hover:scale-105 active:scale-95 transition-all flex items-center gap-1"
-          >
-            <span>HIRE ME</span>
-            <Send className="w-3 h-3" />
-          </button>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1 text-white"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
-      </div>
-
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            className="lg:hidden mt-2 max-w-5xl mx-auto rounded-2xl p-5 bg-black/95 text-white backdrop-blur-2xl border border-white/15 shadow-2xl flex flex-col gap-3"
-          >
-            <div className="flex items-center justify-between border-b border-white/10 pb-2">
-              <span className="font-heading font-bold text-[10px] uppercase tracking-wider text-gray-400">Color Palette</span>
-              <div className="flex items-center gap-2">
-                {themes.map((t) => (
-                  <button
-                    key={t.id}
-                    onClick={() => setActiveTheme(t.id)}
-                    className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1.5 ${
-                      activeTheme === t.id ? 'bg-white text-black' : 'bg-white/20 text-white'
-                    }`}
-                  >
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: t.color }} />
-                    {t.name}
-                  </button>
-                ))}
-              </div>
+              NV
             </div>
+          </a>
 
-            {navLinks.map((link) => (
+          {/* Nav links — desktop */}
+          <nav className="hidden lg:flex items-center gap-0">
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xs font-heading font-extrabold uppercase tracking-wider text-white hover:text-emerald-400 py-1.5 border-b border-white/10"
+                className="px-2 py-1 text-[9px] font-semibold text-white/55 hover:text-white uppercase tracking-wider rounded-full hover:bg-white/10 transition-all duration-150"
               >
                 {link.name}
               </a>
             ))}
+          </nav>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-              className="w-full py-2.5 rounded-full bg-white/20 text-white font-heading font-bold text-xs uppercase"
+          {/* Right side */}
+          <div className="flex items-center gap-1 shrink-0">
+
+            {/* ── 3 Theme dots ── */}
+            <div
+              className="flex items-center gap-1 px-1.5 py-1 rounded-full"
+              style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}
             >
-              View Full Resume 📄
+              {THEMES.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setActiveTheme(t.id)}
+                  title={t.name}
+                  className="relative flex items-center justify-center w-3 h-3 rounded-full transition-transform duration-200 hover:scale-125 active:scale-95"
+                  style={{ backgroundColor: t.color }}
+                >
+                  {/* Active indicator */}
+                  {activeTheme === t.id && (
+                    <motion.span
+                      layoutId="theme-ring"
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        outline: `2.5px solid ${t.color}`,
+                        outlineOffset: '2.5px',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Resume */}
+            <button
+              onClick={onOpenResume}
+              title="View Resume"
+              className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all duration-150"
+            >
+              <FileText className="w-3.5 h-3.5" />
             </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            {/* Hire Me CTA */}
+            <button
+              onClick={onOpenInquiry}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full font-bold text-[9px] uppercase tracking-wider text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+              style={{ backgroundColor: activeColor }}
+            >
+              Hire <Send className="w-2 h-2" />
+            </button>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-7 h-7 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all"
+            >
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </div>
+        </div>
+
+        {/* ── Mobile drawer ── */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="lg:hidden mt-2 rounded-2xl p-4 flex flex-col gap-1"
+              style={{
+                backgroundColor: '#1C1917',
+                border: `1.5px solid ${activeColor}40`,
+                boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
+              }}
+            >
+              {/* Theme row */}
+              <div className="flex items-center gap-3 px-2 py-2 mb-1 rounded-xl" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-white/40">Theme</span>
+                <div className="flex gap-2">
+                  {THEMES.map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => setActiveTheme(t.id)}
+                      title={t.name}
+                      className="relative w-4 h-4 rounded-full transition-transform hover:scale-125 active:scale-95"
+                      style={{ backgroundColor: t.color }}
+                    >
+                      {activeTheme === t.id && (
+                        <span
+                          className="absolute inset-0 rounded-full"
+                          style={{ outline: `2px solid ${t.color}`, outlineOffset: '2px' }}
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
+                <span className="ml-auto text-[9px] font-semibold" style={{ color: activeColor }}>
+                  {THEMES.find(t => t.id === activeTheme)?.name}
+                </span>
+              </div>
+
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 text-sm font-semibold text-white/70 hover:text-white uppercase tracking-wider rounded-xl hover:bg-white/8 transition-all"
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              <div className="flex gap-2 mt-2">
+                <button
+                  onClick={() => { setMobileMenuOpen(false); onOpenResume(); }}
+                  className="flex-1 py-2 rounded-full text-[11px] font-bold uppercase text-white/70 border border-white/15 hover:border-white/30 transition-all"
+                >
+                  Resume
+                </button>
+                <button
+                  onClick={() => { setMobileMenuOpen(false); onOpenInquiry(); }}
+                  className="flex-1 py-2 rounded-full text-[11px] font-bold uppercase text-white transition-all"
+                  style={{ backgroundColor: activeColor }}
+                >
+                  Hire Me
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </header>
   );
 };

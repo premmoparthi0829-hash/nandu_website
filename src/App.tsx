@@ -27,8 +27,18 @@ export function App() {
     setIsInquiryOpen(true);
   };
 
+  const themeAccent = activeTheme === 'peach' ? '#C87D43' : activeTheme === 'coral' ? '#EE4D2D' : '#52B788';
+  const themeBg = activeTheme === 'peach' ? '#FFF5ED' : activeTheme === 'coral' ? '#FFF2F0' : '#FFF9ED';
+
   return (
-    <div className="min-h-screen bg-[#FFF9ED] dark:bg-[#081C15] text-[#1B4332] dark:text-white transition-colors duration-300 overflow-x-hidden font-sans selection:bg-[#52B788] selection:text-white">
+    <div
+      className="min-h-screen text-[#1B4332] dark:text-white transition-colors duration-300 overflow-x-hidden font-sans selection:text-white"
+      style={{
+        backgroundColor: themeBg,
+        '--theme-accent': themeAccent,
+        '--theme-bg': themeBg,
+      } as React.CSSProperties}
+    >
       {/* Custom Cursor */}
       <CustomCursor />
 
