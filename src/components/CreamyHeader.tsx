@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Menu, X, FileText, Send } from 'lucide-react';
+import { Menu, X, FileText, Send } from 'lucide-react';
 import { DesignTheme } from '../types/app';
 
 interface CreamyHeaderProps {
@@ -29,15 +29,15 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initial check
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const themes: { id: DesignTheme; name: string; emoji: string }[] = [
-    { id: 'mint', name: 'Mint', emoji: '🌿' },
-    { id: 'peach', name: 'Terracotta', emoji: '🍑' },
-    { id: 'coral', name: 'Coral', emoji: '🌺' },
+  const themes: { id: DesignTheme; name: string; color: string }[] = [
+    { id: 'mint', name: 'Mint', color: '#52B788' },
+    { id: 'peach', name: 'Terracotta', color: '#C87D43' },
+    { id: 'coral', name: 'Coral', color: '#EE4D2D' },
   ];
 
   const navLinks = [
@@ -52,88 +52,79 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 px-4 sm:px-12 pt-5 pb-3 transition-all duration-500 transform ${
+      className={`fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-3 pb-2 transition-all duration-500 transform ${
         isScrolled
           ? 'opacity-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 -translate-y-12 pointer-events-none'
       }`}
     >
-      <div className="max-w-7xl mx-auto rounded-full px-6 sm:px-8 py-3.5 bg-black/80 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center justify-between">
+      <div className="max-w-5xl mx-auto rounded-full px-3.5 sm:px-5 py-1.5 bg-black/85 backdrop-blur-xl border border-white/15 shadow-xl flex items-center justify-between">
         
-        {/* Monogram Brand Logo */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-2xl bg-white text-[#2D6A4F] flex items-center justify-center font-heading font-black text-xs shadow-md group-hover:scale-105 transition-transform">
+        {/* Monogram Logo */}
+        <a href="#hero" className="flex items-center gap-2 group shrink-0">
+          <div className="w-7 h-7 rounded-xl bg-white text-[#2D6A4F] flex items-center justify-center font-heading font-black text-[11px] shadow-sm group-hover:scale-105 transition-transform">
             NV
           </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="font-heading font-black text-xs uppercase tracking-wider text-white">
-              NANDINI VADDEPALLI
-            </span>
-            <span className="text-[10px] text-white/80 font-sans font-semibold">
-              Creative Brand Specialist
-            </span>
-          </div>
+          <span className="hidden sm:inline font-heading font-black text-[11px] uppercase tracking-wider text-white">
+            NANDINI
+          </span>
         </a>
 
-        {/* Floating Pill Nav Menu */}
-        <nav className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-inner">
+        {/* Minimal Nav Links */}
+        <nav className="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="px-3.5 py-1.5 rounded-full text-[11px] font-heading font-extrabold text-white hover:bg-white hover:text-gray-900 transition-all uppercase tracking-wider"
+              className="px-2.5 py-1 rounded-full text-[10px] font-heading font-extrabold text-white/90 hover:bg-white hover:text-gray-900 transition-all uppercase tracking-wider"
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        {/* Palette Selector & Action Buttons */}
-        <div className="flex items-center gap-3">
+        {/* Minimal Action Controls */}
+        <div className="flex items-center gap-2 shrink-0">
           
-          {/* Aesthetic Palette Switcher Pills */}
-          <div className="hidden sm:flex items-center gap-1 p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+          {/* Color Dots Palette Switcher */}
+          <div className="flex items-center gap-1 p-1 rounded-full bg-white/10 border border-white/15">
             {themes.map((t) => (
               <button
                 key={t.id}
                 onClick={() => setActiveTheme(t.id)}
-                className={`px-3 py-1 rounded-full text-[11px] font-heading font-extrabold transition-all flex items-center gap-1 ${
-                  activeTheme === t.id
-                    ? 'bg-white text-gray-900 shadow-md scale-105'
-                    : 'text-white/80 hover:text-white'
+                className={`w-3.5 h-3.5 rounded-full transition-all ${
+                  activeTheme === t.id ? 'ring-2 ring-white scale-110' : 'opacity-60 hover:opacity-100'
                 }`}
-                title={`Switch to ${t.name} Color Palette`}
-              >
-                <span>{t.emoji}</span>
-                <span className="hidden md:inline">{t.name}</span>
-              </button>
+                style={{ backgroundColor: t.color }}
+                title={`Switch to ${t.name} Theme`}
+              />
             ))}
           </div>
 
-          {/* Resume Modal Trigger */}
+          {/* Resume Icon Button */}
           <button
             onClick={onOpenResume}
-            className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/20 hover:bg-white hover:text-gray-900 text-white font-heading font-extrabold text-xs uppercase transition-all shadow-md"
+            className="p-1.5 rounded-full bg-white/15 hover:bg-white hover:text-gray-900 text-white transition-all"
+            title="View Resume"
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>RESUME</span>
           </button>
 
-          {/* Hire Me CTA Button */}
+          {/* Compact Hire Me CTA */}
           <button
             onClick={onOpenInquiry}
-            className="px-5 py-2.5 rounded-full bg-white text-[#2D6A4F] font-heading font-black text-xs uppercase tracking-wider shadow-xl hover:bg-[#FFF9ED] hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5"
+            className="px-3.5 py-1.5 rounded-full bg-white text-[#2D6A4F] font-heading font-black text-[10px] uppercase tracking-wider shadow-md hover:bg-[#FFF9ED] hover:scale-105 active:scale-95 transition-all flex items-center gap-1"
           >
             <span>HIRE ME</span>
-            <Send className="w-3.5 h-3.5" />
+            <Send className="w-3 h-3" />
           </button>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 text-white"
+            className="lg:hidden p-1 text-white"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
@@ -143,23 +134,24 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="xl:hidden mt-3 max-w-7xl mx-auto rounded-3xl p-6 bg-black/95 text-white backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-4"
+            exit={{ opacity: 0, y: -15 }}
+            className="lg:hidden mt-2 max-w-5xl mx-auto rounded-2xl p-5 bg-black/95 text-white backdrop-blur-2xl border border-white/15 shadow-2xl flex flex-col gap-3"
           >
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <span className="font-heading font-bold text-xs uppercase tracking-wider text-gray-400">Color Palette</span>
+            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+              <span className="font-heading font-bold text-[10px] uppercase tracking-wider text-gray-400">Color Palette</span>
               <div className="flex items-center gap-2">
                 {themes.map((t) => (
                   <button
                     key={t.id}
                     onClick={() => setActiveTheme(t.id)}
-                    className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1.5 ${
                       activeTheme === t.id ? 'bg-white text-black' : 'bg-white/20 text-white'
                     }`}
                   >
-                    {t.emoji} {t.name}
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: t.color }} />
+                    {t.name}
                   </button>
                 ))}
               </div>
@@ -170,7 +162,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-heading font-extrabold uppercase tracking-wider text-white hover:text-emerald-400 py-2 border-b border-white/10"
+                className="text-xs font-heading font-extrabold uppercase tracking-wider text-white hover:text-emerald-400 py-1.5 border-b border-white/10"
               >
                 {link.name}
               </a>
@@ -181,7 +173,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full py-3 rounded-full bg-white/20 text-white font-heading font-bold text-xs uppercase"
+              className="w-full py-2.5 rounded-full bg-white/20 text-white font-heading font-bold text-xs uppercase"
             >
               View Full Resume 📄
             </button>
