@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Menu, X, FileText, Send } from 'lucide-react';
 import { DesignTheme } from '../types/app';
@@ -17,6 +17,22 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
   onOpenResume,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 220) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const themes: { id: DesignTheme; name: string; emoji: string }[] = [
     { id: 'mint', name: 'Mint', emoji: '🌿' },
@@ -35,8 +51,14 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-12 pt-5 pb-3 transition-all duration-300">
-      <div className="max-w-7xl mx-auto rounded-full px-6 sm:px-8 py-3.5 bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 px-4 sm:px-12 pt-5 pb-3 transition-all duration-500 transform ${
+        isScrolled
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 -translate-y-12 pointer-events-none'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto rounded-full px-6 sm:px-8 py-3.5 bg-black/80 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center justify-between">
         
         {/* Monogram Brand Logo */}
         <a href="#hero" className="flex items-center gap-3 group">
@@ -54,7 +76,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
         </a>
 
         {/* Floating Pill Nav Menu */}
-        <nav className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/30 backdrop-blur-md border border-white/40 shadow-inner">
+        <nav className="hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-inner">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -70,7 +92,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
         <div className="flex items-center gap-3">
           
           {/* Aesthetic Palette Switcher Pills */}
-          <div className="hidden sm:flex items-center gap-1 p-1 rounded-full bg-black/20 backdrop-blur-md border border-white/30">
+          <div className="hidden sm:flex items-center gap-1 p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
             {themes.map((t) => (
               <button
                 key={t.id}
@@ -124,7 +146,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="xl:hidden mt-3 max-w-7xl mx-auto rounded-3xl p-6 bg-black/90 text-white backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-4"
+            className="xl:hidden mt-3 max-w-7xl mx-auto rounded-3xl p-6 bg-black/95 text-white backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-4"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span className="font-heading font-bold text-xs uppercase tracking-wider text-gray-400">Color Palette</span>

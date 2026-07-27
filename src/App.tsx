@@ -40,18 +40,18 @@ export function App() {
         onOpenResume={() => setIsResumeOpen(true)}
       />
 
-      {/* Hero Section (Matching Images 1, 2, 3 Layout for Nandini's Brand) */}
+      {/* Hero Section */}
       <CreamyHero
         activeTheme={activeTheme}
         setActiveTheme={setActiveTheme}
         onOpenInquiry={() => handleOpenInquiry()}
       />
 
-      {/* Explore Creative Services Section (Matching Image 4 Layout) */}
-      <CreamyMenu onOpenInquiry={handleOpenInquiry} />
-
-      {/* About Section */}
+      {/* About Section (Second Page) */}
       <AboutSection />
+
+      {/* Explore Creative Services Section */}
+      <CreamyMenu onOpenInquiry={handleOpenInquiry} />
 
       {/* Services Section */}
       <ServicesSection />
