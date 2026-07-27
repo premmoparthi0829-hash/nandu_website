@@ -38,6 +38,7 @@ export default {
       fontFamily: {
         heading: ['"Outfit"', '"Fredoka"', '"Plus Jakarta Sans"', 'sans-serif'],
         display: ['"Outfit"', '"Fredoka"', 'sans-serif'],
+        script: ['"Dancing Script"', 'cursive'],
         serif: ['"Outfit"', 'sans-serif'],
         sans: ['"Plus Jakarta Sans"', '"Outfit"', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', 'sans-serif'],

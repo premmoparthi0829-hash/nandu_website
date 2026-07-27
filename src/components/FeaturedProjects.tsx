@@ -6,6 +6,7 @@ import { CreamyShowcase } from './CreamyShowcase';
 import freyrImg from '../assets/project_freyr.png';
 import solarImg from '../assets/project_solar.png';
 import milkImg from '../assets/project_milk.png';
+import { SectionHeading } from './SectionHeading';
 
 export const FeaturedProjects: React.FC = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<any | null>(null);
@@ -65,12 +66,13 @@ export const FeaturedProjects: React.FC = () => {
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-14 gap-6">
           <div>
-            <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#2D6A4F] mb-2 block">
-              MY WORK &amp; SHOWCASE
-            </span>
-            <h2 className="font-heading font-black text-4xl sm:text-5xl text-[#1B4332] dark:text-white">
-              Featured <span className="text-[#52B788] underline decoration-[#52B788]/40 decoration-wavy underline-offset-8">Projects</span>
-            </h2>
+            <SectionHeading
+            overline="MY WORK & SHOWCASE"
+            title="FEATURED"
+            script="Projects"
+            align="left"
+            variant="light"
+          />
           </div>
 
           <a

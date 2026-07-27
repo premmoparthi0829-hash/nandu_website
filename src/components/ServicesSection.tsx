@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Palette, Smartphone, Megaphone, BookOpen, Video, Layout, X, CheckCircle } from 'lucide-react';
 import { OrganicWave } from './OrganicWave';
+import { SectionHeading } from './SectionHeading';
 
 export const ServicesSection: React.FC = () => {
   const [selectedService, setSelectedService] = useState<any | null>(null);
@@ -91,12 +92,13 @@ export const ServicesSection: React.FC = () => {
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-white/90 mb-2">
-            WHAT I DO
-          </span>
-          <h2 className="font-heading font-black text-4xl sm:text-5xl text-white">
-            Services I <span className="underline decoration-white/60 decoration-wavy underline-offset-8">Provide</span>
-          </h2>
+          <SectionHeading
+            overline="WHAT I DO"
+            title="SERVICES I"
+            script="Provide"
+            align="center"
+            variant="dark"
+          />
         </div>
 
         {/* 6 White Cards Grid */}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowUpRight, Palette, Sliders, Clock, Smile } from 'lucide-react';
 import aboutImg from '../assets/nandini_bw.png';
+import { SectionHeading } from './SectionHeading';
 
 export const AboutSection: React.FC = () => {
   const valueProps = [
@@ -79,16 +80,16 @@ export const AboutSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-4 flex flex-col items-start"
           >
-            {/* Subtitle */}
-            <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#2D6A4F] mb-3">
-              ABOUT ME
-            </span>
-
-            {/* Headline */}
-            <h2 className="font-heading font-black text-4xl sm:text-5xl text-[#1B4332] dark:text-white leading-[1.1] mb-6">
-              Turning Ideas Into Visual{' '}
-              <span className="text-[#52B788]">Masterpieces</span>
-            </h2>
+            {/* Poster-style editorial heading */}
+            <div className="mb-6">
+              <SectionHeading
+                overline="ABOUT ME"
+                title="TURNING IDEAS INTO"
+                script="Visual Masterpieces"
+                align="left"
+                variant="light"
+              />
+            </div>
 
             {/* Paragraph */}
             <p className="font-sans text-sm text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-semibold">

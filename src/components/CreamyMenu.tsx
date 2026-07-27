@@ -5,6 +5,7 @@ import { ServiceItem } from '../types/app';
 import freyrImg from '../assets/project_freyr.png';
 import solarImg from '../assets/project_solar.png';
 import milkImg from '../assets/project_milk.png';
+import { SectionHeading } from './SectionHeading';
 
 interface CreamyMenuProps {
   onOpenInquiry: (serviceName?: string) => void;
@@ -50,14 +51,13 @@ export const CreamyMenu: React.FC<CreamyMenuProps> = ({ onOpenInquiry }) => {
 
         {/* Section Header (Matching Image 4 Layout) */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#2D6A4F] mb-2 block">
-              MY CREATIVE SERVICES
-            </span>
-            <h2 className="font-heading font-black text-4xl sm:text-5xl text-[#1B4332] dark:text-white">
-              Explore My <span className="text-[#52B788] underline decoration-[#52B788]/40 decoration-wavy underline-offset-8">Creative Solutions</span>
-            </h2>
-          </div>
+          <SectionHeading
+            overline="MY CREATIVE SERVICES"
+            title="EXPLORE MY"
+            script="Creative Solutions"
+            align="left"
+            variant="light"
+          />
 
           <p className="font-sans text-xs sm:text-sm text-gray-600 dark:text-gray-300 max-w-md font-semibold">
             Tailored graphic design and visual brand solutions crafted to elevate your business and drive customer engagement.

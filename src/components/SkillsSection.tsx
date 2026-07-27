@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { OrganicWave } from './OrganicWave';
+import { SectionHeading } from './SectionHeading';
 
 const tools = [
   { abbr: 'Ps', name: 'Photoshop', bg: '#001E36', border: '#00A4E4', color: '#00A4E4', pct: 98 },
@@ -34,15 +35,13 @@ export const SkillsSection: React.FC = () => {
 
         {/* Section Header — compact */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white font-heading font-extrabold text-[10px] uppercase tracking-widest mb-2">
-              <Sparkles className="w-3 h-3" />
-              <span>TOOLKIT</span>
-            </div>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-white leading-tight">
-              Skills &amp; <span className="underline decoration-white/50 decoration-wavy underline-offset-6">Tools</span>
-            </h2>
-          </div>
+          <SectionHeading
+            overline="TOOLKIT"
+            title="SKILLS &"
+            script="Tools"
+            align="left"
+            variant="dark"
+          />
           <p className="text-xs text-white/80 max-w-xs font-semibold font-sans leading-relaxed">
             Industry-standard design software and AI tools used to craft premium brand visuals.
           </p>

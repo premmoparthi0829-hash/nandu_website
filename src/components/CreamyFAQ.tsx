@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, ArrowRight, Linkedin, Instagram, Dribbble, Github } from 'lucide-react';
 import { OrganicWave } from './OrganicWave';
+import { SectionHeading } from './SectionHeading';
 
 export const CreamyFAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -36,9 +37,13 @@ export const CreamyFAQ: React.FC = () => {
           
           {/* Left Side: Title & Description & Social Links (Image 5 Layout) */}
           <div className="lg:col-span-5 flex flex-col items-start space-y-6">
-            <h2 className="font-heading font-black text-5xl sm:text-6xl text-white tracking-tight">
-              FAQ's
-            </h2>
+            <SectionHeading
+              overline="GOT QUESTIONS?"
+              title="FREQUENTLY"
+              script="Asked Questions"
+              align="left"
+              variant="dark"
+            />
 
             <p className="font-sans text-xs sm:text-sm text-white/90 leading-relaxed font-semibold max-w-md">
               Got questions about working together? Here is everything you need to know about my design process, deliverables, and timelines.
