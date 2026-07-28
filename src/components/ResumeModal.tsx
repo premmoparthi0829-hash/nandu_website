@@ -52,7 +52,7 @@ Adobe Photoshop, Adobe Illustrator, Figma, Canva, Adobe Firefly, Sora AI, Brand 
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="max-w-2xl w-full rounded-3xl p-8 glass-panel-light dark:glass-panel-dark border border-white/20 shadow-2xl relative my-8"
+          className="max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-8 glass-panel-light dark:glass-panel-dark border border-white/20 shadow-2xl relative my-auto"
         >
           <button
             onClick={onClose}
@@ -66,7 +66,7 @@ Adobe Photoshop, Adobe Illustrator, Figma, Canva, Adobe Firefly, Sora AI, Brand 
               <FileText className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="font-heading font-extrabold text-2xl text-primary-light dark:text-primary-dark">
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-primary-light dark:text-primary-dark">
                 NANDINI VADDEPALLI
               </h3>
               <p className="text-xs text-accent font-semibold">
@@ -82,19 +82,19 @@ Adobe Photoshop, Adobe Illustrator, Figma, Canva, Adobe Firefly, Sora AI, Brand 
                 <span>Executive Experience Snapshot</span>
               </h4>
               <ul className="space-y-2 text-xs">
-                <li className="flex justify-between">
+                <li className="flex flex-col sm:flex-row justify-between">
                   <span className="font-semibold text-primary-light dark:text-primary-dark">All Hands Global — Lead Brand Strategist</span>
                   <span className="font-mono text-accent">2026</span>
                 </li>
-                <li className="flex justify-between">
+                <li className="flex flex-col sm:flex-row justify-between">
                   <span className="font-semibold text-primary-light dark:text-primary-dark">Freyr Energy — Sr. Visual Graphic Designer</span>
                   <span className="font-mono text-accent">2024</span>
                 </li>
-                <li className="flex justify-between">
+                <li className="flex flex-col sm:flex-row justify-between">
                   <span className="font-semibold text-primary-light dark:text-primary-dark">Mantra Technologies — UI/UX &amp; Brand Specialist</span>
                   <span className="font-mono text-accent">2024</span>
                 </li>
-                <li className="flex justify-between">
+                <li className="flex flex-col sm:flex-row justify-between">
                   <span className="font-semibold text-primary-light dark:text-primary-dark">Sharplogiec — Graphic Designer</span>
                   <span className="font-mono text-accent">2022</span>
                 </li>
@@ -116,7 +116,7 @@ Adobe Photoshop, Adobe Illustrator, Figma, Canva, Adobe Firefly, Sora AI, Brand 
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <span className="text-xs text-secondary-light dark:text-secondary-dark">
               Verified PDF Document • 4.5+ Yrs
             </span>

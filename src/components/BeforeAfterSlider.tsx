@@ -46,8 +46,9 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       onMouseUp={() => setIsDragging(false)}
       onMouseLeave={() => setIsDragging(false)}
       onMouseMove={handleMouseMove}
+      onTouchStart={(e) => handleMove(e.touches[0].clientX)}
       onTouchMove={handleTouchMove}
-      className="relative w-full h-[280px] sm:h-[380px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/20 shadow-2xl group"
+      className="relative w-full h-[240px] sm:h-[380px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/20 shadow-2xl group"
     >
       {/* After Image (Background) */}
       <img
@@ -57,7 +58,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       />
 
       {/* After Label Badge */}
-      <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[11px] font-mono font-bold border border-accent/40 shadow-lg">
+      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[9px] sm:text-[11px] font-mono font-bold border border-accent/40 shadow-lg">
         ✦ {afterLabel}
       </div>
 
@@ -73,7 +74,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%' }}
         />
         {/* Before Label Badge */}
-        <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-gray-300 text-[11px] font-mono border border-white/20 shadow-lg">
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/70 backdrop-blur-md text-gray-300 text-[9px] sm:text-[11px] font-mono border border-white/20 shadow-lg">
           {beforeLabel}
         </div>
       </div>
@@ -89,7 +90,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       </div>
 
       {/* Bottom Hint */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-mono uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
         Drag slider to compare
       </div>
     </div>

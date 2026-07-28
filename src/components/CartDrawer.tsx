@@ -46,13 +46,13 @@ export const CartDrawer: React.FC<InquiryDrawerProps> = ({
           />
 
           {/* Slide-over Panel */}
-          <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+          <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="w-screen max-w-md bg-white text-gray-900 shadow-2xl flex flex-col justify-between"
+              className="w-screen max-w-full sm:max-w-md bg-white text-gray-900 shadow-2xl flex flex-col justify-between"
             >
               {/* Header */}
               <div className="p-6 bg-[#1B4332] text-white flex items-center justify-between">

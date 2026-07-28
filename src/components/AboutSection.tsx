@@ -51,20 +51,19 @@ const AboutModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
           {/* ── LEFT: Portrait column ── */}
           <div
-            className="relative sm:w-56 shrink-0 flex flex-col items-center justify-end overflow-hidden"
-            style={{ minHeight: 260, background: 'linear-gradient(160deg, #D8F3DC 0%, #52B788 60%, #2D6A4F 100%)' }}
+            className="relative sm:w-56 shrink-0 flex flex-col items-center justify-end overflow-hidden h-48 sm:h-auto"
+            style={{ minHeight: 180, background: 'linear-gradient(160deg, #D8F3DC 0%, #52B788 60%, #2D6A4F 100%)' }}
           >
             <img
               src={aboutImgColor}
               alt="Nandini Vaddepalli"
-              className="w-full object-cover object-top"
-              style={{ height: 320 }}
+              className="w-full h-full object-cover object-top"
             />
             {/* Name overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4" style={{ background: 'linear-gradient(to top, rgba(29,67,50,0.92), transparent)' }}>
+            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4" style={{ background: 'linear-gradient(to top, rgba(29,67,50,0.92), transparent)' }}>
               <p className="text-emerald-200 text-[9px] font-bold uppercase tracking-[0.2em]">Creative Designer</p>
-              <p className="text-white font-heading font-black text-lg leading-tight">Nandini<br />Vaddepalli</p>
-              <p className="flex items-center gap-1 text-emerald-200 text-[10px] mt-1">
+              <p className="text-white font-heading font-black text-base sm:text-lg leading-tight">Nandini<br className="hidden sm:inline" /> Vaddepalli</p>
+              <p className="flex items-center gap-1 text-emerald-200 text-[10px] mt-0.5 sm:mt-1">
                 <MapPin className="w-2.5 h-2.5" /> Hyderabad, India
               </p>
             </div>

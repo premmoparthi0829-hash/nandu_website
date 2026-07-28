@@ -155,7 +155,7 @@ export const ServicesSection: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-2xl w-full rounded-3xl p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-8"
+              className="max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-auto"
             >
               <button
                 onClick={() => setSelectedService(null)}
@@ -172,7 +172,7 @@ export const ServicesSection: React.FC = () => {
                   <span className="text-xs font-heading font-extrabold uppercase text-[#2D6A4F] tracking-wider block">
                     Service Scope
                   </span>
-                  <h3 className="font-heading font-black text-2xl text-gray-900 dark:text-white">
+                  <h3 className="font-heading font-black text-xl sm:text-2xl text-gray-900 dark:text-white">
                     {selectedService.title}
                   </h3>
                 </div>
@@ -196,8 +196,8 @@ export const ServicesSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-2">
                   {selectedService.details.tools.map((t: string) => (
                     <span key={t} className="px-3 py-1 rounded-full bg-emerald-100 text-[#2D6A4F] text-[11px] font-bold">
                       {t}
@@ -208,7 +208,7 @@ export const ServicesSection: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={() => setSelectedService(null)}
-                  className="px-6 py-2.5 rounded-full mint-btn-dark text-white font-heading font-bold text-xs uppercase"
+                  className="px-6 py-2.5 rounded-full mint-btn-dark text-white font-heading font-bold text-xs uppercase text-center"
                 >
                   Request Service ↗
                 </a>

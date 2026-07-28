@@ -47,17 +47,17 @@ const Head = ({ line1, line2, script }: {
   <div className="text-center flex flex-col items-center">
     <motion.h2 variants={titleV}
       className="font-heading font-black uppercase text-white leading-[0.88] tracking-tight"
-      style={{ fontSize: 'clamp(2.4rem, 4.8vw, 4.8rem)' }}
+      style={{ fontSize: 'clamp(1.8rem, 4.8vw, 4.8rem)' }}
     >
       {line1}{line2 && <><br />{line2}</>}
     </motion.h2>
     <motion.span variants={scriptV}
       className="font-script italic block -mt-1 mx-auto"
-      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.5rem, 3vw, 2.6rem)', color: '#F59E0B' }}
+      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.3rem, 3vw, 2.6rem)', color: '#F59E0B' }}
     >
       {script}
     </motion.span>
-    <WavyDeco color="#F59E0B" className="w-28 sm:w-32 mt-1.5 opacity-75 mx-auto" />
+    <WavyDeco color="#F59E0B" className="w-24 sm:w-32 mt-1.5 opacity-75 mx-auto" />
   </div>
 );
 

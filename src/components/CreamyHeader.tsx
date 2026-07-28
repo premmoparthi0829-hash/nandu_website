@@ -56,11 +56,11 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
         initial={{ opacity: 0, y: -20 }}
         animate={isScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
-        style={{ display: 'inline-flex' }}
+        className="inline-flex flex-col items-center max-w-[calc(100vw-1rem)]"
       >
         {/* ── Main pill bar ── */}
         <div
-          className="rounded-full flex items-center gap-2 px-2.5"
+          className="rounded-full flex items-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 max-w-full"
           style={{
             backgroundColor: '#1C1917',
             border: `1.5px solid ${activeColor}40`,
@@ -159,7 +159,7 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.97 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="lg:hidden mt-2 rounded-2xl p-4 flex flex-col gap-1"
+              className="lg:hidden mt-2 rounded-2xl p-4 flex flex-col gap-1 w-72 max-w-[calc(100vw-2rem)] max-h-[80vh] overflow-y-auto"
               style={{
                 backgroundColor: '#1C1917',
                 border: `1.5px solid ${activeColor}40`,

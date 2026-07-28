@@ -169,7 +169,7 @@ export const FeaturedProjects: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-3xl w-full rounded-3xl p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-8"
+              className="max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-auto"
             >
               <button
                 onClick={() => setSelectedCaseStudy(null)}
