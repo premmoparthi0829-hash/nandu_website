@@ -151,21 +151,113 @@ const SlideSkills = () => (
   </div>
 );
 
-/* Screen 3 — PORTFOLIO */
+/* Screen 1 — HIGH-IMPACT EDITORIAL POSTER STYLE FOR NANDINI VADDEPALLI */
 const SlidePortfolio = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
-    <motion.p variants={itemV} custom={0}
-      className="text-xs sm:text-sm text-[#F59E0B] font-heading font-black uppercase tracking-[0.35em]">
-      Graphic Designer Portfolio
-    </motion.p>
-    <Head line1="PORT" line2="FOLIO" script="Graphic Design" />
+  <div className="w-full h-full flex flex-col items-center justify-center text-center relative overflow-hidden py-4 px-4 max-w-5xl mx-auto select-none">
+    
+    {/* Angled Diagonal Accent Stripe behind cutout */}
+    <motion.div
+      initial={{ scaleX: 0, rotate: -6 }}
+      animate={{ scaleX: 1, rotate: -6 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="absolute w-[120%] h-28 sm:h-36 bg-gradient-to-r from-[#F59E0B] via-[#EE4D2D] to-[#F59E0B] opacity-25 z-0 transform -rotate-6 top-[38%] pointer-events-none rounded-2xl filter blur-sm"
+    />
 
-    <motion.div variants={itemV} custom={2} className="flex items-center justify-center gap-3 sm:gap-4 mt-3">
-      <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.2} />
-      <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.4} />
-      <Badge abbr="Pr" bg="#00005C" border="#9999FF" color="#9999FF" delay={0.6} />
-      <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.8} />
+    {/* Top Editorial Header Info Line */}
+    <motion.div variants={itemV} custom={0} className="z-10 flex items-center gap-3 mb-1 sm:mb-2">
+      <span className="px-2.5 py-0.5 rounded-full bg-[#F59E0B] text-black font-mono font-black text-[10px] sm:text-xs uppercase tracking-widest shadow-md">
+        2026 CREATIVE EDITION
+      </span>
+      <span className="text-[10px] sm:text-xs font-mono text-white/70 tracking-widest uppercase font-bold">
+        • GRAPHIC DESIGNER & BRAND SPECIALIST •
+      </span>
     </motion.div>
+
+    {/* HUGE BOLD OVERLAPPING BACKGROUND TYPOGRAPHY WITH PHOTO CUTOUT */}
+    <div className="relative w-full flex flex-col items-center justify-center my-1">
+
+      {/* Layer 1: HUGE BACKDROP TEXT "NANDINI" */}
+      <motion.h1
+        variants={titleV}
+        className="font-heading font-black uppercase text-white/90 leading-none tracking-tighter drop-shadow-2xl z-0 pointer-events-none"
+        style={{ fontSize: 'clamp(3.8rem, 14vw, 11rem)', letterSpacing: '-0.04em' }}
+      >
+        NANDINI
+      </motion.h1>
+
+      {/* Layer 2: Photo Cutout + Diagonal Slash Banner */}
+      <div className="relative -mt-8 sm:-mt-16 sm:-mb-12 z-10 flex items-center justify-center">
+        {/* Angled solid banner badge overlay behind image */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
+          animate={{ opacity: 1, rotate: -12, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="absolute -left-6 sm:-left-16 top-1/2 -translate-y-1/2 bg-[#EE4D2D] text-white px-4 py-1 sm:px-6 sm:py-2 rounded-xl font-heading font-black text-xs sm:text-sm uppercase tracking-wider shadow-2xl z-20 border-2 border-white"
+        >
+          4.5+ YRS EXP
+        </motion.div>
+
+        {/* Center Photo Portrait with Glowing Ring & Frame */}
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="w-36 h-36 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-[#F59E0B] shadow-[0_0_50px_rgba(245,158,11,0.4)] relative z-10 bg-[#121620]"
+        >
+          <img
+            src={nandiniImg}
+            alt="Nandini Vaddepalli"
+            className="w-full h-full object-cover object-top filter contrast-[1.08] saturate-[1.1]"
+          />
+        </motion.div>
+
+        {/* Floating Tool Badges right side */}
+        <motion.div
+          initial={{ opacity: 0, rotate: 12, scale: 0.8 }}
+          animate={{ opacity: 1, rotate: 12, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="absolute -right-6 sm:-right-16 top-1/2 -translate-y-1/2 bg-[#F59E0B] text-black px-4 py-1 sm:px-6 sm:py-2 rounded-xl font-heading font-black text-xs sm:text-sm uppercase tracking-wider shadow-2xl z-20 border-2 border-black"
+        >
+          VISUAL ARTIST
+        </motion.div>
+      </div>
+
+      {/* Layer 3: HUGE FRONT TEXT "VADDEPALLI" + STENCIL EFFECT */}
+      <motion.h1
+        variants={titleV}
+        className="font-heading font-black uppercase text-[#F59E0B] leading-none tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] z-20 pointer-events-none -mt-4 sm:-mt-8"
+        style={{
+          fontSize: 'clamp(3.2rem, 11.5vw, 9rem)',
+          letterSpacing: '-0.03em',
+          textShadow: '0 4px 20px rgba(245,158,11,0.3)',
+        }}
+      >
+        VADDEPALLI
+      </motion.h1>
+
+      {/* Overlapping Gold Script Signature Line */}
+      <motion.span
+        variants={scriptV}
+        className="font-script italic block -mt-4 sm:-mt-8 z-30 pointer-events-none"
+        style={{
+          fontFamily: '"Dancing Script", cursive',
+          fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)',
+          color: '#FFFFFF',
+          textShadow: '0 4px 15px rgba(0,0,0,0.9)',
+        }}
+      >
+        Nandini Vaddepalli Portfolio
+      </motion.span>
+    </div>
+
+    {/* Bottom Floating Stats & Tool Pills */}
+    <motion.div variants={itemV} custom={3} className="flex items-center justify-center gap-2.5 sm:gap-4 mt-2 z-30">
+      <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.2} />
+      <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.3} />
+      <Badge abbr="Fg" bg="#FFFFFF" border="#F24E1E" color="#1B4332" delay={0.4} />
+      <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.5} />
+    </motion.div>
+
   </div>
 );
 
