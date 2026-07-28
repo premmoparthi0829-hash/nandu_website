@@ -357,46 +357,59 @@ export const AboutSection: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* 3. YELLOW 2D ILLUSTRATION STICKER — REAL PENCIL SHAPE! */}
+                {/* 3. YELLOW 2D ILLUSTRATION STICKER — PERFECT SVG VECTOR PENCIL */}
                 <motion.div
                   whileHover={{ scale: 1.08, rotate: -1 }}
-                  className="w-[104%] relative flex items-center transform -rotate-3 cursor-pointer z-20 shadow-lg"
+                  className="w-[105%] relative flex items-center transform -rotate-3 cursor-pointer z-20 shadow-lg"
                 >
                   {/* Pink Eraser Tip Left */}
-                  <div className="w-4 h-8 rounded-l-md bg-[#F472B6] border-2 border-r-0 border-[#BE123C] shrink-0" />
+                  <div className="w-5 h-8 rounded-l-full bg-[#F472B6] border-2 border-r-0 border-[#BE123C] shrink-0" />
                   {/* Metal Ferrule Band */}
-                  <div className="w-2.5 h-8 bg-[#94A3B8] border-y-2 border-[#475569] shrink-0" />
+                  <div className="w-3 h-8 bg-[#CBD5E1] border-y-2 border-slate-600 shrink-0 flex items-center justify-center">
+                    <div className="w-0.5 h-full bg-slate-400" />
+                  </div>
                   {/* Yellow Pencil Shaft */}
                   <div className="flex-1 py-1.5 bg-[#FACC15] border-y-2 border-[#CA8A04] text-[#713F12] font-heading font-black text-[11px] uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
                     <span className="text-xs">✏</span>
                     <span>2D ILLUSTRATION</span>
                   </div>
-                  {/* Wood Cone Right */}
-                  <div className="w-0 h-0 border-y-[16px] border-y-transparent border-l-[16px] border-l-[#FDE047] border-y-[#FACC15] shrink-0" />
-                  {/* Lead Graphite Tip */}
-                  <div className="w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-[#334155] shrink-0 -ml-1" />
+                  {/* Sharpened Wood Cone & Graphite Lead Tip SVG */}
+                  <svg width="22" height="32" viewBox="0 0 22 32" fill="none" className="shrink-0 -ml-[1px]">
+                    <path d="M0 0 L22 16 L0 32 Z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2" strokeLinejoin="round" />
+                    <path d="M14 10.2 L22 16 L14 21.8 Z" fill="#1E293B" />
+                  </svg>
                 </motion.div>
 
-                {/* 4. MINT GREEN MASCOT DESIGN STICKER — Cartoon Glove Notch */}
+                {/* 4. MINT GREEN MASCOT DESIGN STICKER — Soft Rounded Glove Cut */}
                 <motion.div
-                  whileHover={{ scale: 1.06, rotate: 3 }}
-                  className="w-full relative transform rotate-5 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: 2 }}
+                  className="w-full py-2.5 px-6 rounded-2xl rounded-tr-3xl bg-[#DCFCE7] border-2 border-[#15803D] text-[#15803D] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5 transform rotate-5 cursor-pointer relative overflow-hidden"
                 >
-                  <div className="w-full py-2.5 px-6 rounded-2xl rounded-tr-3xl bg-[#DCFCE7] border-2 border-[#15803D] text-[#15803D] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5 relative overflow-hidden">
-                    {/* Glove Notch Cut Right */}
-                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-cream-theme border-2 border-[#15803D]" />
-                    <span>MASCOT DESIGN</span>
-                  </div>
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-cream-theme border-2 border-[#15803D]" />
+                  <span>MASCOT DESIGN</span>
                 </motion.div>
 
-                {/* 5. LIME LOGO DESIGN STICKER — Cloud Lobe Shape */}
+                {/* 5. LIME LOGO DESIGN STICKER — REVERSE VECTOR LIME PENCIL (Pointing Left) */}
                 <motion.div
-                  whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="w-full relative transform -rotate-4 cursor-pointer"
+                  whileHover={{ scale: 1.08, rotate: -2 }}
+                  className="w-[105%] relative flex items-center transform -rotate-4 cursor-pointer z-20 shadow-lg"
                 >
-                  <div className="w-full py-2.5 px-6 rounded-[28px] rounded-bl-none bg-[#ECFCCB] border-2 border-[#3F6212] text-[#3F6212] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md">
+                  {/* Sharpened Wood Cone & Graphite Lead Tip SVG (Pointing Left) */}
+                  <svg width="22" height="32" viewBox="0 0 22 32" fill="none" className="shrink-0 -mr-[1px]">
+                    <path d="M22 0 L0 16 L22 32 Z" fill="#ECFCCB" stroke="#65A30D" strokeWidth="2" strokeLinejoin="round" />
+                    <path d="M8 10.2 L0 16 L8 21.8 Z" fill="#1E293B" />
+                  </svg>
+                  {/* Lime Pencil Shaft */}
+                  <div className="flex-1 py-1.5 bg-[#BEF264] border-y-2 border-[#65A30D] text-[#3F6212] font-heading font-black text-[11px] uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
+                    <span className="text-xs">✒️</span>
                     <span>LOGO DESIGN</span>
                   </div>
+                  {/* Metal Ferrule Band */}
+                  <div className="w-3 h-8 bg-[#CBD5E1] border-y-2 border-slate-600 shrink-0 flex items-center justify-center">
+                    <div className="w-0.5 h-full bg-slate-400" />
+                  </div>
+                  {/* Lime Eraser Tip Right */}
+                  <div className="w-5 h-8 rounded-r-full bg-[#A3E635] border-2 border-l-0 border-[#3F6212] shrink-0" />
                 </motion.div>
 
                 {/* 6. ORANGE MANIPULATION STICKER — Slanted Tab */}
@@ -409,12 +422,16 @@ export const AboutSection: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* 7. SOFT BLUE GRAPHIC DESIGN STICKER — Pill Card */}
+                {/* 7. SOFT BLUE GRAPHIC DESIGN STICKER — Circular Loop Badge on Right (Matching Branding Style) */}
                 <motion.div
                   whileHover={{ scale: 1.06, rotate: -2 }}
-                  className="w-full relative transform -rotate-3 cursor-pointer"
+                  className="w-full relative flex items-center transform -rotate-3 cursor-pointer"
                 >
-                  <div className="w-full py-2.5 px-6 rounded-2xl bg-[#DBEAFE] border-2 border-[#1D4ED8] text-[#1D4ED8] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md">
+                  <div className="w-full py-2.5 pl-4 pr-10 rounded-full bg-[#DBEAFE] border-2 border-[#1D4ED8] text-[#1D4ED8] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md relative">
+                    {/* Right Circular Loop Badge */}
+                    <div className="absolute -right-1 -top-1.5 bottom-0 w-9 h-9 rounded-full bg-[#DBEAFE] border-2 border-[#1D4ED8] flex items-center justify-center text-[#1D4ED8] shadow-sm">
+                      <span className="text-xs font-black">🎨</span>
+                    </div>
                     <span>GRAPHIC DESIGN</span>
                   </div>
                 </motion.div>
