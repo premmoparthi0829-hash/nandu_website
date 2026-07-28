@@ -207,10 +207,50 @@ export const AboutSection: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   const valueProps = [
-    { title: 'Creative & Unique',   desc: 'Designs that stand out',    icon: Palette },
-    { title: 'Brand Focused',       desc: 'Consistent and impactful',  icon: Sliders },
-    { title: 'On-Time Delivery',    desc: 'Committed to deadlines',    icon: Clock   },
-    { title: 'Client Satisfaction', desc: 'Quality that builds trust', icon: Smile   },
+    {
+      step: '01',
+      title: 'Creative & Unique',
+      desc: 'Bespoke designs that stand out',
+      icon: Palette,
+      badge: '100% Custom',
+      gradient: 'from-[#52B788] to-[#2D6A4F]',
+      lightBg: 'bg-emerald-100/70 dark:bg-emerald-950/50',
+      textColor: 'text-[#2D6A4F] dark:text-[#74C69D]',
+      borderColor: 'hover:border-[#52B788]',
+    },
+    {
+      step: '02',
+      title: 'Brand Focused',
+      desc: 'Consistent & impactful visuals',
+      icon: Sliders,
+      badge: 'Strategic',
+      gradient: 'from-[#D4845A] to-[#A0522D]',
+      lightBg: 'bg-orange-100/70 dark:bg-orange-950/50',
+      textColor: 'text-[#C87D43] dark:text-[#E09F67]',
+      borderColor: 'hover:border-[#D4845A]',
+    },
+    {
+      step: '03',
+      title: 'On-Time Delivery',
+      desc: 'Committed to project deadlines',
+      icon: Clock,
+      badge: 'Prompt',
+      gradient: 'from-[#1B4332] to-[#081C15]',
+      lightBg: 'bg-teal-100/70 dark:bg-teal-950/50',
+      textColor: 'text-[#1B4332] dark:text-[#52B788]',
+      borderColor: 'hover:border-[#1B4332]',
+    },
+    {
+      step: '04',
+      title: 'Client Satisfaction',
+      desc: 'Quality that builds lasting trust',
+      icon: Smile,
+      badge: '5★ Quality',
+      gradient: 'from-[#F59E0B] to-[#D97706]',
+      lightBg: 'bg-amber-100/70 dark:bg-amber-950/50',
+      textColor: 'text-[#D97706] dark:text-[#FBBF24]',
+      borderColor: 'hover:border-[#F59E0B]',
+    },
   ];
 
   return (
@@ -277,7 +317,7 @@ export const AboutSection: React.FC = () => {
               </button>
             </motion.div>
 
-            {/* Value props */}
+            {/* Value props — Premium Stylized Glass Cards */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -288,18 +328,38 @@ export const AboutSection: React.FC = () => {
               {valueProps.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
-                    className="p-4 rounded-2xl bg-white border border-emerald-100 shadow-soft-card flex items-center gap-4 hover:border-[#52B788] transition-colors"
+                    whileHover={{ scale: 1.02, y: -4 }}
+                    transition={{ type: 'spring', stiffness: 350, damping: 22 }}
+                    className={`relative p-4 rounded-3xl bg-white/95 dark:bg-[#121620]/95 backdrop-blur-md border border-stone-200/80 dark:border-stone-800 shadow-soft-card hover:shadow-xl ${item.borderColor} transition-all duration-300 group overflow-hidden flex items-center justify-between gap-3`}
                   >
-                    <div className="p-3 rounded-xl bg-emerald-100 text-[#2D6A4F] shrink-0">
-                      <Icon className="w-5 h-5" />
+                    {/* Hover Glow Pill background */}
+                    <div className={`absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-15 blur-xl transition-opacity duration-500 pointer-events-none`} />
+
+                    <div className="flex items-center gap-3.5 z-10">
+                      {/* Vibrant Gradient Icon Badge */}
+                      <div className={`p-3 rounded-2xl bg-gradient-to-br ${item.gradient} text-white shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shrink-0`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+
+                      <div>
+                        <h4 className="font-heading font-black text-sm text-[#1B4332] dark:text-white leading-tight mb-0.5">
+                          {item.title}
+                        </h4>
+                        <p className="text-[11px] text-gray-500 dark:text-gray-400 font-semibold leading-tight">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-heading font-extrabold text-sm text-[#1B4332]">{item.title}</h4>
-                      <p className="text-xs text-gray-500 font-semibold">{item.desc}</p>
+
+                    {/* Feature Badge Pill */}
+                    <div className="flex flex-col items-end shrink-0 z-10">
+                      <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${item.lightBg} ${item.textColor}`}>
+                        {item.badge}
+                      </span>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </motion.div>

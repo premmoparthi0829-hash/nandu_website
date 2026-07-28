@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Dribbble, Instagram, Linkedin, Github } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Dribbble, Instagram, Linkedin, Github } from 'lucide-react';
 import { DesignTheme } from '../types/app';
 import { OrganicWave } from './OrganicWave';
 import freyrImg from '../assets/project_freyr.png';
@@ -21,7 +21,7 @@ const WavyDeco = ({ color = '#F59E0B', className = '' }: { color?: string; class
   </svg>
 );
 
-const SLIDES = ['portfolio','hello','social','print','skills','branding','thankyou'];
+const SLIDES = ['portfolio', 'hello', 'social', 'print', 'branding', 'skills', 'explore'];
 const SLIDE_DURATION = 3500;
 
 const titleV = {
@@ -40,24 +40,24 @@ const itemV = {
   exit:   { opacity: 0 },
 };
 
-/* ── Reusable heading block: compact & centered ── */
+/* ── Reusable heading block: prominent & focused ── */
 const Head = ({ line1, line2, script }: {
   line1: string; line2?: string; script: string;
 }) => (
   <div className="text-center flex flex-col items-center">
     <motion.h2 variants={titleV}
-      className="font-heading font-black uppercase text-white leading-[0.88] tracking-tight"
-      style={{ fontSize: 'clamp(1.8rem, 4.8vw, 4.8rem)' }}
+      className="font-heading font-black uppercase text-white leading-[0.88] tracking-tight drop-shadow-lg"
+      style={{ fontSize: 'clamp(2.5rem, 6.2vw, 5.5rem)' }}
     >
       {line1}{line2 && <><br />{line2}</>}
     </motion.h2>
     <motion.span variants={scriptV}
       className="font-script italic block -mt-1 mx-auto"
-      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.3rem, 3vw, 2.6rem)', color: '#F59E0B' }}
+      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.6rem, 3.8vw, 3rem)', color: '#F59E0B' }}
     >
       {script}
     </motion.span>
-    <WavyDeco color="#F59E0B" className="w-24 sm:w-32 mt-1.5 opacity-75 mx-auto" />
+    <WavyDeco color="#F59E0B" className="w-32 sm:w-44 mt-2 opacity-85 mx-auto" />
   </div>
 );
 
@@ -69,7 +69,7 @@ const Badge = ({ abbr, bg, border, color, delay = 0 }: {
     initial={{ scale: 0, rotate: -12 }}
     animate={{ scale: 1, rotate: 0, y: [0, -6, 0] }}
     transition={{ type: 'spring', delay, y: { duration: 3 + delay, repeat: Infinity, ease: 'easeInOut' } }}
-    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center font-mono font-black text-sm shadow-xl border-2"
+    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center font-mono font-black text-base shadow-2xl border-2"
     style={{ background: bg, borderColor: border, color }}
   >
     {abbr}
@@ -77,108 +77,47 @@ const Badge = ({ abbr, bg, border, color, delay = 0 }: {
 );
 
 /* ══════════════════════════════════════════════════════
-   SLIDES — COMPACT & PERFECTLY CENTERED IN VIEWPORT
+   1ST PAGE ALL SCREENS IN SEQUENCE
 ══════════════════════════════════════════════════════ */
 
-/* Slide 1 — PORTFOLIO */
-const SlidePortfolio = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
+/* Screen 1 — BRANDING */
+const SlideBranding = () => (
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <motion.p variants={itemV} custom={0}
-      className="text-[10px] text-white/45 font-heading font-extrabold uppercase tracking-[0.3em]">
+      className="text-xs sm:text-sm text-[#F59E0B] font-heading font-black uppercase tracking-[0.35em]">
       Graphic Designer Portfolio
     </motion.p>
-    <Head line1="PORT" line2="FOLIO" script="Graphic Design" />
+    <Head line1="BRAND" line2="ING" script="Graphic & Visual Design" />
 
-    <motion.div variants={itemV} custom={2} className="flex items-center justify-center gap-3 mt-2">
-      <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.2} />
-      <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.4} />
-      <Badge abbr="Pr" bg="#00005C" border="#9999FF" color="#9999FF" delay={0.6} />
-      <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.8} />
-    </motion.div>
-  </div>
-);
-
-/* Slide 2 — HELLO I'AM */
-const SlideHello = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
-    <Head line1="HELLO" line2="I'AM" script="Nandini" />
-
-    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-1">
-      <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden border-2 border-white/15 shadow-2xl shrink-0">
-        <img src={nandiniImg} alt="Nandini" className="w-full h-full object-cover object-top" />
+    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+      <div className="w-44 h-28 sm:w-56 sm:h-36 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl shrink-0">
+        <img src={freyrImg} alt="Branding" className="w-full h-full object-cover" />
       </div>
-      <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 max-w-xs">
-        <p className="text-xs text-white/70 font-sans leading-relaxed font-semibold">
-          Creative Graphic Designer &amp; Visual Brand Specialist with 4.5+ years crafting impactful brands.
-        </p>
-        <div className="flex gap-5 justify-center sm:justify-start">
-          {[['4.5+','Yrs Exp'],['100+','Projects'],['45+','Clients']].map(([v,l]) => (
-            <div key={l}>
-              <span className="font-heading font-black text-xl text-white">{v}</span>
-              <span className="block text-[9px] text-white/45 font-semibold uppercase tracking-wider">{l}</span>
-            </div>
+      <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+        <ul className="space-y-2 text-left">
+          {['Logo & Brand Identity','Brand Style Guidelines','Corporate Stationery','Packaging Dielines'].map(s => (
+            <li key={s} className="flex items-center gap-2.5 text-sm sm:text-base text-white/90 font-bold">
+              <span className="w-2 h-2 shrink-0 rounded-full bg-[#F59E0B]" />{s}
+            </li>
           ))}
+        </ul>
+        <div className="flex items-center gap-2.5 mt-1">
+          <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.1} />
+          <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.2} />
+          <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.3} />
         </div>
       </div>
     </motion.div>
   </div>
 );
 
-/* Slide 3 — SOCIAL MEDIA */
-const SlideSocial = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
-    <Head line1="SOCIAL" line2="MEDIA" script="Design" />
-
-    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-1">
-      <div className="grid grid-cols-3 gap-1.5 shrink-0">
-        {[solarImg, freyrImg, milkImg, solarImg, freyrImg, milkImg].map((src, i) => (
-          <div key={i} className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden border border-white/10 shadow-md">
-            <img src={src} alt="" className="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
-      <ul className="space-y-1.5 text-left">
-        {['Instagram Creatives','Ad Banners & Carousels','Brand Story Sets','Motion Reels'].map(s => (
-          <li key={s} className="flex items-center gap-2 text-xs text-white/75 font-semibold">
-            <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-[#F59E0B]" />{s}
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  </div>
-);
-
-/* Slide 4 — PRINT MEDIA */
-const SlidePrint = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
-    <Head line1="PRINT" line2="MEDIA" script="Design" />
-
-    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-1">
-      <div className="flex gap-2.5 shrink-0">
-        {[milkImg, freyrImg].map((src, i) => (
-          <div key={i} className="w-28 h-20 sm:w-32 sm:h-22 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={src} alt="" className="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
-      <ul className="space-y-1.5 text-left">
-        {['Brochures & Flyers','Product Packaging','Trade Show Banners','Business Cards'].map(s => (
-          <li key={s} className="flex items-center gap-2 text-xs text-white/75 font-semibold">
-            <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-[#F59E0B]" />{s}
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  </div>
-);
-
-/* Slide 5 — SKILLS & TOOLS */
+/* Screen 2 — SKILLS & TOOLS */
 const SlideSkills = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
-    <Head line1="SKILLS &" line2="TOOLS" script="My Arsenal" />
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+    <Head line1="SKILLS &" line2="TOOLS" script="My Creative Arsenal" />
 
-    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-lg mt-1">
-      <div className="flex flex-wrap gap-2 max-w-[160px] justify-center">
+    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-8 w-full max-w-xl mt-2">
+      <div className="flex flex-wrap gap-2.5 max-w-[200px] justify-center">
         {[
           { abbr:'Ps', bg:'#001E36', border:'#00A4E4', color:'#00A4E4' },
           { abbr:'Ai', bg:'#330000', border:'#FF9A00', color:'#FF9A00' },
@@ -190,18 +129,18 @@ const SlideSkills = () => (
           <motion.div key={t.abbr}
             initial={{ scale: 0 }} animate={{ scale: 1 }}
             transition={{ type: 'spring', delay: 0.2 + i * 0.06 }}
-            className="w-10 h-10 rounded-xl flex items-center justify-center font-mono font-black text-xs shadow-xl border-2"
+            className="w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-black text-sm shadow-xl border-2"
             style={{ background: t.bg, borderColor: t.border, color: t.color }}
           >{t.abbr}</motion.div>
         ))}
       </div>
-      <div className="flex-1 w-full flex flex-col gap-2">
+      <div className="flex-1 w-full flex flex-col gap-3">
         {[['Brand Identity',98],['Social Media Design',96],['Print & Packaging',92],['Motion Design',85]].map(([label,pct]) => (
           <div key={label as string} className="text-left">
-            <div className="flex justify-between text-[10px] text-white/60 font-semibold mb-0.5">
+            <div className="flex justify-between text-xs text-white/80 font-bold mb-1">
               <span>{label}</span><span>{pct}%</span>
             </div>
-            <div className="w-full h-1 bg-white/12 rounded-full overflow-hidden">
+            <div className="w-full h-2.5 bg-white/15 rounded-full overflow-hidden">
               <motion.div initial={{width:0}} animate={{width:`${pct}%`}}
                 transition={{duration:0.8,delay:0.4}} className="h-full bg-[#F59E0B] rounded-full" />
             </div>
@@ -212,19 +151,67 @@ const SlideSkills = () => (
   </div>
 );
 
-/* Slide 6 — BRANDING */
-const SlideBranding = () => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-3xl mx-auto py-2">
-    <Head line1="BRAND" line2="ING" script="Design" />
+/* Screen 3 — PORTFOLIO */
+const SlidePortfolio = () => (
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+    <motion.p variants={itemV} custom={0}
+      className="text-xs sm:text-sm text-[#F59E0B] font-heading font-black uppercase tracking-[0.35em]">
+      Graphic Designer Portfolio
+    </motion.p>
+    <Head line1="PORT" line2="FOLIO" script="Graphic Design" />
 
-    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-1">
-      <div className="w-36 h-24 sm:w-40 sm:h-26 rounded-2xl overflow-hidden border border-white/10 shadow-xl shrink-0">
-        <img src={freyrImg} alt="Branding" className="w-full h-full object-cover" />
+    <motion.div variants={itemV} custom={2} className="flex items-center justify-center gap-3 sm:gap-4 mt-3">
+      <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.2} />
+      <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.4} />
+      <Badge abbr="Pr" bg="#00005C" border="#9999FF" color="#9999FF" delay={0.6} />
+      <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.8} />
+    </motion.div>
+  </div>
+);
+
+/* Screen 4 — HELLO I'AM */
+const SlideHello = () => (
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+    <Head line1="HELLO" line2="I'AM" script="Nandini" />
+
+    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+      <div className="w-28 h-32 sm:w-36 sm:h-40 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl shrink-0">
+        <img src={nandiniImg} alt="Nandini" className="w-full h-full object-cover object-top" />
       </div>
-      <ul className="space-y-1.5 text-left">
-        {['Logo & Brand Identity','Brand Style Guidelines','Corporate Stationery','Packaging Dielines'].map(s => (
-          <li key={s} className="flex items-center gap-2 text-xs text-white/75 font-semibold">
-            <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-[#F59E0B]" />{s}
+      <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3 max-w-sm">
+        <p className="text-sm sm:text-base text-white/85 font-sans leading-relaxed font-semibold">
+          Creative Graphic Designer &amp; Visual Brand Specialist with 4.5+ years crafting impactful brands.
+        </p>
+        <div className="flex gap-6 justify-center sm:justify-start">
+          {[['4.5+','Yrs Exp'],['100+','Projects'],['45+','Clients']].map(([v,l]) => (
+            <div key={l}>
+              <span className="font-heading font-black text-2xl sm:text-3xl text-[#F59E0B]">{v}</span>
+              <span className="block text-[10px] text-white/60 font-extrabold uppercase tracking-wider">{l}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  </div>
+);
+
+/* Screen 5 — SOCIAL MEDIA */
+const SlideSocial = () => (
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+    <Head line1="SOCIAL" line2="MEDIA" script="Design" />
+
+    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+      <div className="grid grid-cols-3 gap-2 shrink-0">
+        {[solarImg, freyrImg, milkImg, solarImg, freyrImg, milkImg].map((src, i) => (
+          <div key={i} className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-white/15 shadow-lg">
+            <img src={src} alt="" className="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+      <ul className="space-y-2 text-left">
+        {['Instagram Creatives','Ad Banners & Carousels','Brand Story Sets','Motion Reels'].map(s => (
+          <li key={s} className="flex items-center gap-2.5 text-sm sm:text-base text-white/85 font-bold">
+            <span className="w-2 h-2 shrink-0 rounded-full bg-[#F59E0B]" />{s}
           </li>
         ))}
       </ul>
@@ -232,37 +219,103 @@ const SlideBranding = () => (
   </div>
 );
 
-/* Slide 7 — THANK YOU */
+/* Screen 6 — PRINT MEDIA */
+const SlidePrint = () => (
+  <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+    <Head line1="PRINT" line2="MEDIA" script="Design" />
+
+    <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+      <div className="flex gap-3 shrink-0">
+        {[milkImg, freyrImg].map((src, i) => (
+          <div key={i} className="w-32 h-24 sm:w-40 sm:h-28 rounded-2xl overflow-hidden border border-white/15 shadow-xl">
+            <img src={src} alt="" className="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+      <ul className="space-y-2 text-left">
+        {['Brochures & Flyers','Product Packaging','Trade Show Banners','Business Cards'].map(s => (
+          <li key={s} className="flex items-center gap-2.5 text-sm sm:text-base text-white/85 font-bold">
+            <span className="w-2 h-2 shrink-0 rounded-full bg-[#F59E0B]" />{s}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  </div>
+);
+
+/* Screen 7 — THANK YOU */
 const SlideThankYou = ({ onOpenInquiry }: { onOpenInquiry: () => void }) => (
-  <div className="w-full flex flex-col items-center justify-center text-center gap-2.5 px-4 max-w-3xl mx-auto py-2">
+  <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-4xl mx-auto py-4">
     <motion.p variants={scriptV}
       className="font-script italic text-[#F59E0B]"
-      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.2rem,2.2vw,1.8rem)' }}
+      style={{ fontFamily: '"Dancing Script",cursive', fontSize: 'clamp(1.6rem, 3.2vw, 2.4rem)' }}
     >
       For Attention
     </motion.p>
     <motion.h2 variants={titleV}
-      className="font-heading font-black uppercase text-white leading-[0.9]"
-      style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)' }}
+      className="font-heading font-black uppercase text-white leading-[0.88] drop-shadow-xl"
+      style={{ fontSize: 'clamp(4rem, 9vw, 7.5rem)' }}
     >
       THANK<br />YOU
     </motion.h2>
-    <WavyDeco color="#F59E0B" className="w-32 opacity-75 mx-auto" />
+    <WavyDeco color="#F59E0B" className="w-40 opacity-85 mx-auto" />
 
     <motion.button variants={itemV} custom={2} onClick={onOpenInquiry}
-      className="mt-1 px-7 py-2.5 rounded-full border-2 border-white/40 text-white font-heading font-black text-xs uppercase tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2 mx-auto"
+      className="mt-2 px-8 py-3 rounded-full border-2 border-white/50 text-white font-heading font-black text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2 mx-auto shadow-2xl"
     >
-      <span>CONTACT</span><ArrowUpRight className="w-3.5 h-3.5" />
+      <span>CONTACT</span><ArrowUpRight className="w-4 h-4" />
     </motion.button>
-    <motion.div variants={itemV} custom={3} className="flex items-center justify-center gap-3 mt-1">
+    <motion.div variants={itemV} custom={3} className="flex items-center justify-center gap-4 mt-2">
       {[Dribbble,Instagram,Linkedin,Github].map((Icon,i) => (
-        <a key={i} href="#" className="p-2 rounded-full border border-white/20 text-white/55 hover:text-white hover:border-white/50 transition-all">
-          <Icon className="w-3.5 h-3.5" />
+        <a key={i} href="#" className="p-2.5 rounded-full border border-white/25 text-white/70 hover:text-white hover:border-white/60 transition-all">
+          <Icon className="w-4 h-4" />
         </a>
       ))}
     </motion.div>
   </div>
 );
+
+/* Screen 8 — EXPLORE MORE SCREEN WITH DOWN ARROW & AUTO-SCROLL TO 2ND PAGE */
+const SlideExplore = () => {
+  const handleScrollToAbout = () => {
+    const aboutEl = document.getElementById('about');
+    if (aboutEl) {
+      aboutEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
+      <motion.p variants={itemV} custom={0}
+        className="text-xs sm:text-sm text-[#F59E0B] font-heading font-black uppercase tracking-[0.35em]">
+        Next Chapter
+      </motion.p>
+
+      <Head line1="EXPLORE" line2="MORE" script="Discover My Story & Work" />
+
+      <motion.div variants={itemV} custom={2} className="flex flex-col items-center gap-4 mt-2">
+        <p className="text-sm sm:text-base text-white/85 font-semibold max-w-md">
+          Click below or wait a moment to automatically scroll down to my background, experience, and projects!
+        </p>
+
+        {/* Animated Bouncing Down Arrow Button */}
+        <motion.button
+          onClick={handleScrollToAbout}
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="mt-2 p-4 rounded-full bg-[#F59E0B] text-black shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center cursor-pointer group"
+          title="Scroll to About Me Section"
+        >
+          <ArrowDown className="w-7 h-7 stroke-[3]" />
+        </motion.button>
+
+        <span className="text-[11px] uppercase font-extrabold tracking-widest text-[#F59E0B] animate-pulse">
+          Auto Scrolling to 2nd Page...
+        </span>
+      </motion.div>
+    </div>
+  );
+};
 
 /* ══════════════════════════════════════════════════════
    MAIN COMPONENT
@@ -275,18 +328,31 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const tm = setTimeout(() => setCurrent(p => (p + 1) % SLIDES.length), SLIDE_DURATION);
+    const tm = setTimeout(() => {
+      setCurrent((prev) => {
+        const next = (prev + 1) % SLIDES.length;
+        if (prev === SLIDES.length - 1) {
+          // Reached the explore screen, auto scroll to 2nd page (#about)
+          const aboutSection = document.getElementById('about');
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+        return next;
+      });
+    }, SLIDE_DURATION);
     return () => clearTimeout(tm);
   }, [current]);
 
   const slideMap: Record<string, React.ReactNode> = {
+    branding:  <SlideBranding />,
+    skills:    <SlideSkills />,
     portfolio: <SlidePortfolio />,
     hello:     <SlideHello />,
     social:    <SlideSocial />,
     print:     <SlidePrint />,
-    skills:    <SlideSkills />,
-    branding:  <SlideBranding />,
     thankyou:  <SlideThankYou onOpenInquiry={onOpenInquiry} />,
+    explore:   <SlideExplore />,
   };
 
   return (
@@ -330,7 +396,7 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
         </div>
       </div>
 
-      {/* ── ORGANIC WAVE TRANSITION TO CREAM (No text/names inside) ── */}
+      {/* ── ORGANIC WAVE TRANSITION TO CREAM ── */}
       <OrganicWave fillColor="#FFF9ED" />
 
     </section>

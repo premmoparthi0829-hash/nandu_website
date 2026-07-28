@@ -11,6 +11,7 @@ import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { CreamyFAQ } from './components/CreamyFAQ';
 import { ContactSection } from './components/ContactSection';
+import { ThankYouSection } from './components/ThankYouSection';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { ResumeModal } from './components/ResumeModal';
@@ -83,6 +84,9 @@ export function App() {
 
       {/* Contact Section */}
       <ContactSection />
+
+      {/* Thank You Section (Last Page) */}
+      <ThankYouSection onOpenInquiry={() => handleOpenInquiry()} />
 
       {/* Footer */}
       <Footer />
