@@ -19,9 +19,9 @@ const AboutModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const milestones = [
     { year: '2019', label: 'BSc Visual Communication', sub: 'Osmania University', icon: GraduationCap },
-    { year: '2020', label: 'Junior Graphic Designer',   sub: 'Creative Studio, Hyderabad', icon: Briefcase },
-    { year: '2022', label: 'Senior Brand Designer',     sub: 'Digital Agency', icon: Star },
-    { year: '2024', label: 'Freelance Creative Lead',   sub: 'Global · 50+ Brands', icon: Globe },
+    { year: '2020', label: 'Junior Graphic Designer', sub: 'Creative Studio, Hyderabad', icon: Briefcase },
+    { year: '2022', label: 'Senior Brand Designer', sub: 'Digital Agency', icon: Star },
+    { year: '2024', label: 'Freelance Creative Lead', sub: 'Global · 50+ Brands', icon: Globe },
   ];
 
   return (
@@ -90,7 +90,7 @@ const AboutModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-3">
-                {[['4.5+','Years'],['50+','Brands'],['200+','Projects']].map(([v, l]) => (
+                {[['4.5+', 'Years'], ['50+', 'Brands'], ['200+', 'Projects']].map(([v, l]) => (
                   <div key={l} className="rounded-2xl p-3.5 text-center border border-stone-100" style={{ background: '#F6F2EC' }}>
                     <p className="font-heading font-black text-xl text-[#1B4332]">{v}</p>
                     <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400 mt-0.5">{l}</p>
@@ -317,7 +317,7 @@ export const AboutSection: React.FC = () => {
               </button>
             </motion.div>
 
-            {/* Right Column — CLEAN VERTICAL STACK OF 7 COLORFUL PILL BADGES (Matching User Crop Image) */}
+            {/* Right Column — EXACT VECTOR STICKER GRAPHIC SHAPES (Matching User Reference Image) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -325,76 +325,98 @@ export const AboutSection: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="lg:col-span-3 flex flex-col items-center justify-center relative select-none py-2"
             >
-              {/* Floating Sparkle Accents */}
-              <div className="absolute -top-4 -left-2 text-[#38BDF8] text-lg font-black animate-pulse">✦</div>
+              {/* Subtle Floating Sparkles */}
+              <div className="absolute -top-4 -left-2 text-[#38BDF8] text-lg font-black">✦</div>
               <div className="absolute -bottom-4 -right-2 text-[#F43F5E] text-lg font-black">✦</div>
 
               {/* Vertical Stack Container */}
-              <div className="flex flex-col items-center gap-3.5 w-full max-w-[260px]">
+              <div className="flex flex-col items-center gap-3 w-full max-w-[270px]">
                 
-                {/* 1. PINK BRANDING STICKER */}
+                {/* 1. PINK BRANDING STICKER — Scallop Badge Left + Pill Right */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-full bg-[#FCE7F3] border border-[#F43F5E]/30 text-[#BE123C] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center gap-2 transform -rotate-3 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: -2 }}
+                  className="w-full relative flex items-center transform -rotate-4 cursor-pointer"
                 >
-                  <span className="text-sm">⚙</span>
-                  <span>BRANDING</span>
+                  <div className="w-full py-2.5 pl-10 pr-4 rounded-full bg-[#FCE7F3] border-2 border-[#BE123C] text-[#BE123C] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md relative">
+                    {/* Left Scalloped Starburst Badge */}
+                    <div className="absolute -left-1 -top-1.5 bottom-0 w-9 h-9 rounded-full bg-[#FCE7F3] border-2 border-[#BE123C] flex items-center justify-center text-[#BE123C] shadow-sm">
+                      <span className="text-xs font-black">⚙</span>
+                    </div>
+                    <span>BRANDING</span>
+                  </div>
                 </motion.div>
 
-                {/* 2. PURPLE E-COMMERCE STICKER */}
+                {/* 2. PURPLE E-COMMERCE STICKER — Arch Top Dome Cutout */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-t-full rounded-b-2xl bg-[#EDE9FE] border border-[#7C3AED]/30 text-[#6D28D9] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center gap-2 transform rotate-4 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: 2 }}
+                  className="w-full relative transform rotate-4 cursor-pointer"
                 >
-                  <span>★ E-COMMERCE</span>
+                  <div className="w-full py-2.5 px-6 rounded-t-[28px] rounded-b-xl bg-[#EDE9FE] border-2 border-[#6D28D9] text-[#6D28D9] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-2">
+                    <span className="text-[#38BDF8] text-sm">★</span>
+                    <span>E-COMMERCE</span>
+                  </div>
                 </motion.div>
 
-                {/* 3. YELLOW 2D ILLUSTRATION STICKER */}
+                {/* 3. YELLOW 2D ILLUSTRATION STICKER — REAL PENCIL SHAPE! */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3.5 px-6 rounded-full bg-[#FEF08A] border border-[#CA8A04]/30 text-[#854D0E] font-heading font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform -rotate-2 cursor-pointer z-10"
+                  whileHover={{ scale: 1.08, rotate: -1 }}
+                  className="w-[104%] relative flex items-center transform -rotate-3 cursor-pointer z-20 shadow-lg"
                 >
-                  <span className="text-sm">✏</span>
-                  <span>2D ILLUSTRATION</span>
+                  {/* Pink Eraser Tip Left */}
+                  <div className="w-4 h-8 rounded-l-md bg-[#F472B6] border-2 border-r-0 border-[#BE123C] shrink-0" />
+                  {/* Metal Ferrule Band */}
+                  <div className="w-2.5 h-8 bg-[#94A3B8] border-y-2 border-[#475569] shrink-0" />
+                  {/* Yellow Pencil Shaft */}
+                  <div className="flex-1 py-1.5 bg-[#FACC15] border-y-2 border-[#CA8A04] text-[#713F12] font-heading font-black text-[11px] uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
+                    <span className="text-xs">✏</span>
+                    <span>2D ILLUSTRATION</span>
+                  </div>
+                  {/* Wood Cone Right */}
+                  <div className="w-0 h-0 border-y-[16px] border-y-transparent border-l-[16px] border-l-[#FDE047] border-y-[#FACC15] shrink-0" />
+                  {/* Lead Graphite Tip */}
+                  <div className="w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-[#334155] shrink-0 -ml-1" />
                 </motion.div>
 
-                {/* 4. MINT GREEN MASCOT DESIGN STICKER */}
+                {/* 4. MINT GREEN MASCOT DESIGN STICKER — Cartoon Glove Notch */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-2xl bg-[#DCFCE7] border border-[#16A34A]/30 text-[#15803D] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform rotate-5 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: 3 }}
+                  className="w-full relative transform rotate-5 cursor-pointer"
                 >
-                  <span>MASCOT DESIGN</span>
+                  <div className="w-full py-2.5 px-6 rounded-2xl rounded-tr-3xl bg-[#DCFCE7] border-2 border-[#15803D] text-[#15803D] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-1.5 relative overflow-hidden">
+                    {/* Glove Notch Cut Right */}
+                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-cream-theme border-2 border-[#15803D]" />
+                    <span>MASCOT DESIGN</span>
+                  </div>
                 </motion.div>
 
-                {/* 5. LIME LOGO DESIGN STICKER */}
+                {/* 5. LIME LOGO DESIGN STICKER — Cloud Lobe Shape */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-3xl bg-[#ECFCCB] border border-[#65A30D]/30 text-[#3F6212] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform -rotate-4 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: -2 }}
+                  className="w-full relative transform -rotate-4 cursor-pointer"
                 >
-                  <span>LOGO DESIGN</span>
+                  <div className="w-full py-2.5 px-6 rounded-[28px] rounded-bl-none bg-[#ECFCCB] border-2 border-[#3F6212] text-[#3F6212] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md">
+                    <span>LOGO DESIGN</span>
+                  </div>
                 </motion.div>
 
-                {/* 6. ORANGE MANIPULATION STICKER */}
+                {/* 6. ORANGE MANIPULATION STICKER — Slanted Tab */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-full bg-[#FFEDD5] border border-[#EA580C]/30 text-[#C2410C] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform rotate-6 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: 2 }}
+                  className="w-full relative transform rotate-6 cursor-pointer"
                 >
-                  <span>MANIPULATION</span>
+                  <div className="w-full py-2.5 px-6 rounded-t-xl rounded-b-full bg-[#FFEDD5] border-2 border-[#C2410C] text-[#C2410C] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md">
+                    <span>MANIPULATION</span>
+                  </div>
                 </motion.div>
 
-                {/* 7. SOFT BLUE GRAPHIC DESIGN STICKER */}
+                {/* 7. SOFT BLUE GRAPHIC DESIGN STICKER — Pill Card */}
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-                  className="w-full py-3 px-6 rounded-2xl bg-[#DBEAFE] border border-[#2563EB]/30 text-[#1D4ED8] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform -rotate-3 cursor-pointer"
+                  whileHover={{ scale: 1.06, rotate: -2 }}
+                  className="w-full relative transform -rotate-3 cursor-pointer"
                 >
-                  <span>GRAPHIC DESIGN</span>
+                  <div className="w-full py-2.5 px-6 rounded-2xl bg-[#DBEAFE] border-2 border-[#1D4ED8] text-[#1D4ED8] font-heading font-black text-xs uppercase tracking-wider text-center shadow-md">
+                    <span>GRAPHIC DESIGN</span>
+                  </div>
                 </motion.div>
 
               </div>
