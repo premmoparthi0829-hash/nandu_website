@@ -317,51 +317,87 @@ export const AboutSection: React.FC = () => {
               </button>
             </motion.div>
 
-            {/* Value props — Premium Stylized Glass Cards */}
+            {/* Right Column — CLEAN VERTICAL STACK OF 7 COLORFUL PILL BADGES (Matching User Crop Image) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-3 space-y-4"
+              className="lg:col-span-3 flex flex-col items-center justify-center relative select-none py-2"
             >
-              {valueProps.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-                    className={`relative p-4 rounded-3xl bg-white/95 dark:bg-[#121620]/95 backdrop-blur-md border border-stone-200/80 dark:border-stone-800 shadow-soft-card hover:shadow-xl ${item.borderColor} transition-all duration-300 group overflow-hidden flex items-center justify-between gap-3`}
-                  >
-                    {/* Hover Glow Pill background */}
-                    <div className={`absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-15 blur-xl transition-opacity duration-500 pointer-events-none`} />
+              {/* Floating Sparkle Accents */}
+              <div className="absolute -top-4 -left-2 text-[#38BDF8] text-lg font-black animate-pulse">✦</div>
+              <div className="absolute -bottom-4 -right-2 text-[#F43F5E] text-lg font-black">✦</div>
 
-                    <div className="flex items-center gap-3.5 z-10">
-                      {/* Vibrant Gradient Icon Badge */}
-                      <div className={`p-3 rounded-2xl bg-gradient-to-br ${item.gradient} text-white shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shrink-0`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
+              {/* Vertical Stack Container */}
+              <div className="flex flex-col items-center gap-3.5 w-full max-w-[260px]">
+                
+                {/* 1. PINK BRANDING STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-full bg-[#FCE7F3] border border-[#F43F5E]/30 text-[#BE123C] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center gap-2 transform -rotate-3 cursor-pointer"
+                >
+                  <span className="text-sm">⚙</span>
+                  <span>BRANDING</span>
+                </motion.div>
 
-                      <div>
-                        <h4 className="font-heading font-black text-sm text-[#1B4332] dark:text-white leading-tight mb-0.5">
-                          {item.title}
-                        </h4>
-                        <p className="text-[11px] text-gray-500 dark:text-gray-400 font-semibold leading-tight">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
+                {/* 2. PURPLE E-COMMERCE STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-t-full rounded-b-2xl bg-[#EDE9FE] border border-[#7C3AED]/30 text-[#6D28D9] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center gap-2 transform rotate-4 cursor-pointer"
+                >
+                  <span>★ E-COMMERCE</span>
+                </motion.div>
 
-                    {/* Feature Badge Pill */}
-                    <div className="flex flex-col items-end shrink-0 z-10">
-                      <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${item.lightBg} ${item.textColor}`}>
-                        {item.badge}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                {/* 3. YELLOW 2D ILLUSTRATION STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3.5 px-6 rounded-full bg-[#FEF08A] border border-[#CA8A04]/30 text-[#854D0E] font-heading font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform -rotate-2 cursor-pointer z-10"
+                >
+                  <span className="text-sm">✏</span>
+                  <span>2D ILLUSTRATION</span>
+                </motion.div>
+
+                {/* 4. MINT GREEN MASCOT DESIGN STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-2xl bg-[#DCFCE7] border border-[#16A34A]/30 text-[#15803D] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform rotate-5 cursor-pointer"
+                >
+                  <span>MASCOT DESIGN</span>
+                </motion.div>
+
+                {/* 5. LIME LOGO DESIGN STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-3xl bg-[#ECFCCB] border border-[#65A30D]/30 text-[#3F6212] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform -rotate-4 cursor-pointer"
+                >
+                  <span>LOGO DESIGN</span>
+                </motion.div>
+
+                {/* 6. ORANGE MANIPULATION STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-full bg-[#FFEDD5] border border-[#EA580C]/30 text-[#C2410C] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform rotate-6 cursor-pointer"
+                >
+                  <span>MANIPULATION</span>
+                </motion.div>
+
+                {/* 7. SOFT BLUE GRAPHIC DESIGN STICKER */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                  className="w-full py-3 px-6 rounded-2xl bg-[#DBEAFE] border border-[#2563EB]/30 text-[#1D4ED8] font-heading font-black text-xs uppercase tracking-wider shadow-md hover:shadow-xl flex items-center justify-center transform -rotate-3 cursor-pointer"
+                >
+                  <span>GRAPHIC DESIGN</span>
+                </motion.div>
+
+              </div>
             </motion.div>
 
           </div>
