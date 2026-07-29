@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, Dribbble, Instagram, Linkedin, Github } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Dribbble, Instagram, Linkedin, Github, RefreshCw, Pause, Play } from 'lucide-react';
 import { DesignTheme } from '../types/app';
 import { OrganicWave } from './OrganicWave';
 import freyrImg from '../assets/project_freyr.png';
 import solarImg from '../assets/project_solar.png';
 import milkImg from '../assets/project_milk.png';
 import nandiniImg from '../assets/nandini_coral.png';
+import { AnimationHeroScreen } from './AnimationHeroScreen';
+import { YouthRecordHeroScreen } from './YouthRecordHeroScreen';
+import { Production2026HeroScreen } from './Production2026HeroScreen';
+import { PinterestManifestivalHeroScreen } from './PinterestManifestivalHeroScreen';
+import { AppleGlassRibbonHeroScreen } from './AppleGlassRibbonHeroScreen';
+import { PS5GamingHeroScreen } from './PS5GamingHeroScreen';
+import { CartoonNetworkHeroScreen } from './CartoonNetworkHeroScreen';
+import { CerealBoxBrandHeroScreen } from './CerealBoxBrandHeroScreen';
+import { ComicBookExplosionHeroScreen } from './ComicBookExplosionHeroScreen';
 
 interface CreamyHeroProps {
   activeTheme: DesignTheme;
@@ -21,8 +30,7 @@ const WavyDeco = ({ color = '#F59E0B', className = '' }: { color?: string; class
   </svg>
 );
 
-const SLIDES = ['portfolio', 'hello', 'social', 'print', 'branding', 'skills', 'explore'];
-const SLIDE_DURATION = 3500;
+const SLIDES = ['comic_explosion', 'cereal_brand', 'cartoon_network', 'ps5_gaming', 'apple_glass', 'pinterest_manifestival', 'production_2026', 'youth_record', 'graphic_design', 'portfolio', 'hello', 'social', 'print', 'branding', 'skills', 'explore'];
 
 const titleV = {
   hidden: { opacity: 0, y: 40, skewY: 2 },
@@ -40,7 +48,7 @@ const itemV = {
   exit:   { opacity: 0 },
 };
 
-/* ── Reusable heading block: prominent & focused ── */
+/* ── Reusable heading block ── */
 const Head = ({ line1, line2, script }: {
   line1: string; line2?: string; script: string;
 }) => (
@@ -77,10 +85,184 @@ const Badge = ({ abbr, bg, border, color, delay = 0 }: {
 );
 
 /* ══════════════════════════════════════════════════════
-   1ST PAGE ALL SCREENS IN SEQUENCE
+   1ST PAGE SCREEN 1 — GRAPHIC DESIGN PORTFOLIO POSTER
+   (PERSONALIZED FOR NANDINI VADDEPALLI)
 ══════════════════════════════════════════════════════ */
+const SlideGraphicDesignFirst = () => {
+  const [lang, setLang] = useState<'EN' | 'ID'>('EN');
 
-/* Screen 1 — BRANDING */
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 max-w-4xl mx-auto select-none my-auto">
+      {/* Outer Poster Frame matching reference screenshot */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full max-h-[84vh] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-emerald-800/40 bg-[#050D07] flex flex-col"
+      >
+        {/* ── TOP SECTION: GRAPHIC DESIGN NEON BANNER ── */}
+        <div className="relative w-full h-[210px] sm:h-[280px] md:h-[320px] bg-[#030905] overflow-hidden flex items-center justify-center border-b-2 border-emerald-950 shrink-0">
+          
+          {/* Radiant Neon Green Ambient Glow & Radial Lighting */}
+          <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_75%_50%,_rgba(0,255,102,0.28)_0%,_rgba(11,60,29,0.45)_45%,_transparent_75%)]" />
+          
+          {/* Glowing Green Bokeh Circles */}
+          <div className="absolute top-1/4 right-[16%] w-36 h-36 sm:w-52 sm:h-52 rounded-full bg-[#00FF66]/20 blur-2xl z-0 animate-pulse pointer-events-none" />
+          <div className="absolute bottom-8 right-[36%] w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-emerald-500/15 blur-xl z-0 pointer-events-none" />
+
+          {/* Top Frame Line decorative header outline line */}
+          <div className="absolute top-3 left-6 right-6 h-6 border-t-2 border-x-2 border-white/20 rounded-t-xl z-10 pointer-events-none" />
+
+          {/* 3D Floating Glowing Photoshop (Ps) & Illustrator (Ai) Badges on Right */}
+          <motion.div
+            animate={{ y: [0, -10, 0], rotate: [0, 6, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute right-4 sm:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-none"
+          >
+            <div className="relative w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-cyan-950/80 border-2 border-cyan-400/80 flex items-center justify-center shadow-[0_0_40px_rgba(0,229,255,0.7)] backdrop-blur-md">
+              <span className="font-sans font-black text-2xl sm:text-4xl text-cyan-400 drop-shadow-[0_0_12px_#00E5FF]">Ps</span>
+              <div className="absolute -inset-2 rounded-full border border-emerald-400/40 blur-[2px] animate-ping" style={{ animationDuration: '3s' }} />
+            </div>
+          </motion.div>
+
+          {/* Background Blurred Secondary Badges */}
+          <div className="absolute right-12 bottom-6 w-14 h-14 rounded-full bg-amber-500/20 blur-md border border-amber-300/30 flex items-center justify-center font-bold text-xs text-amber-200 z-10 pointer-events-none">
+            Ai
+          </div>
+
+          {/* Center Background Typography "GRAPHIC DESIGN" */}
+          <div className="relative z-10 flex flex-col items-start sm:items-center justify-center pl-28 sm:pl-48 md:pl-56 text-left sm:text-center w-full">
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="font-heading font-black uppercase text-white tracking-tight leading-[0.82] text-4xl sm:text-7xl md:text-8xl drop-shadow-[0_8px_18px_rgba(0,0,0,0.95)]"
+            >
+              GRAPHIC
+            </motion.h1>
+
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-heading font-black uppercase text-transparent tracking-tight leading-[0.82] text-4xl sm:text-7xl md:text-8xl drop-shadow-2xl -mt-1 sm:-mt-3"
+              style={{
+                WebkitTextStroke: '2px #FFFFFF',
+              }}
+            >
+              DESIGN
+            </motion.h1>
+          </div>
+
+          {/* Left Foreground Cutout Portrait of Nandini */}
+          <motion.div
+            initial={{ x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="absolute left-0 bottom-0 z-30 h-[92%] sm:h-[98%] w-auto flex items-end pointer-events-none"
+          >
+            <img
+              src={nandiniPosterCutout}
+              alt="Nandini Vaddepalli"
+              className="h-full w-auto object-contain object-bottom filter contrast-105 drop-shadow-[12px_0_24px_rgba(0,0,0,0.9)]"
+            />
+          </motion.div>
+        </div>
+
+        {/* ── BOTTOM SECTION: WRINKLED PAPER BIO CARD FOR NANDINI ── */}
+        <div
+          className="relative w-full p-4 sm:p-6 flex-1 flex flex-col justify-between text-left border-t border-emerald-900/30 overflow-y-auto"
+          style={{
+            backgroundImage: `url(${wrinkledPaper})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundColor: '#E7ECE8',
+          }}
+        >
+          {/* Paper Texture Overlay Tint */}
+          <div className="absolute inset-0 bg-[#DDF0E3]/75 mix-blend-multiply pointer-events-none" />
+
+          <div className="relative z-10 space-y-2 sm:space-y-3">
+            {/* Header Greeting & Name */}
+            <div className="flex items-start justify-between">
+              <div>
+                <h2 className="font-heading font-black text-2xl sm:text-4xl text-[#0B3C1D] tracking-tight leading-none">
+                  {lang === 'EN' ? 'Hello,' : 'Halo,'}
+                </h2>
+                <div className="flex items-center gap-2 mt-1">
+                  <p className="font-heading font-extrabold text-base sm:text-2xl text-[#0B3C1D]">
+                    {lang === 'EN' ? 'My name is Nandini Vaddepalli' : 'Nama saya Nandini Vaddepalli'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Language Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setLang(prev => prev === 'EN' ? 'ID' : 'EN')}
+                  className="px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold bg-[#0B3C1D] text-white hover:bg-[#165a2d] transition-all cursor-pointer shadow-md border border-emerald-700"
+                >
+                  🌐 {lang === 'EN' ? 'EN' : 'ID'}
+                </button>
+              </div>
+            </div>
+
+            {/* Bio Paragraph Text for Nandini */}
+            <p className="font-sans font-bold text-xs sm:text-sm md:text-base text-[#0d3b1f] leading-relaxed sm:leading-relaxed max-w-3xl">
+              {lang === 'EN' ? (
+                <>
+                  I am a Senior Graphic Designer &amp; Visual Brand Specialist with 4.5+ years of experience crafting creative, impactful, and functional visual identities. My specialization includes logo design, brand systems, social media graphics, print media, and packaging. I have deep expertise in using industry-standard tools like Photoshop, Illustrator, Figma, InDesign, and Canva, driven by a passion for visual aesthetics and brand storytelling.
+                </>
+              ) : (
+                <>
+                  Saya adalah seorang Senior Graphic Designer &amp; Visual Brand Specialist dengan 4,5+ tahun pengalaman dalam menciptakan karya visual yang kreatif, berdampak, dan fungsional. Spesialisasi saya meliputi desain logo, branding, media sosial, cetak, dan kemasan. Saya memiliki keahlian mendalam dalam menggunakan Photoshop, Illustrator, Figma, InDesign, dan Canva, serta pemahaman mendalam tentang estetika visual.
+                </>
+              )}
+            </p>
+
+            {/* Software Tools Bar Pill */}
+            <div className="pt-2">
+              <div className="inline-flex items-center gap-3 sm:gap-4 bg-gradient-to-r from-[#032313] via-[#094025] to-[#032313] px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl border border-emerald-500/30 shadow-2xl">
+                <span className="font-heading font-black text-white text-base sm:text-2xl tracking-tight">
+                  Software
+                </span>
+
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {/* Photoshop Ps Badge */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#001E36] border border-[#00A4E4] flex items-center justify-center shadow-md font-mono font-black text-xs sm:text-sm text-[#00A4E4]" title="Adobe Photoshop">
+                    Ps
+                  </div>
+
+                  {/* Illustrator Ai Badge */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#330000] border border-[#FF9A00] flex items-center justify-center shadow-md font-mono font-black text-xs sm:text-sm text-[#FF9A00]" title="Adobe Illustrator">
+                    Ai
+                  </div>
+
+                  {/* Figma Fg Badge */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white border border-[#F24E1E] flex items-center justify-center shadow-md font-mono font-black text-xs sm:text-sm text-[#1B4332]" title="Figma">
+                    Fg
+                  </div>
+
+                  {/* InDesign Id Badge */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#49021F] border border-[#FF3366] flex items-center justify-center shadow-md font-mono font-black text-xs sm:text-sm text-[#FF3366]" title="Adobe InDesign">
+                    Id
+                  </div>
+
+                  {/* Canva Cn Badge */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#00C4CC]/20 border border-[#00C4CC] flex items-center justify-center shadow-md font-mono font-black text-xs sm:text-sm text-[#00C4CC]" title="Canva">
+                    Cn
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+/* Screen 2 — BRANDING */
 const SlideBranding = () => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <motion.p variants={itemV} custom={0}
@@ -111,7 +293,7 @@ const SlideBranding = () => (
   </div>
 );
 
-/* Screen 2 — SKILLS & TOOLS */
+/* Screen 3 — SKILLS & TOOLS */
 const SlideSkills = () => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <Head line1="SKILLS &" line2="TOOLS" script="My Creative Arsenal" />
@@ -151,7 +333,7 @@ const SlideSkills = () => (
   </div>
 );
 
-/* Screen 1 — HIGH-IMPACT EDITORIAL POSTER STYLE FOR NANDINI VADDEPALLI */
+/* Screen 4 — HIGH-IMPACT EDITORIAL POSTER STYLE */
 const SlidePortfolio = () => (
   <div className="w-full h-full flex flex-col items-center justify-center text-center relative overflow-hidden py-4 px-4 max-w-5xl mx-auto select-none">
     
@@ -187,7 +369,6 @@ const SlidePortfolio = () => (
 
       {/* Layer 2: Photo Cutout + Diagonal Slash Banner */}
       <div className="relative -mt-8 sm:-mt-16 sm:-mb-12 z-10 flex items-center justify-center">
-        {/* Angled solid banner badge overlay behind image */}
         <motion.div
           initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
           animate={{ opacity: 1, rotate: -12, scale: 1 }}
@@ -197,7 +378,6 @@ const SlidePortfolio = () => (
           4.5+ YRS EXP
         </motion.div>
 
-        {/* Center Photo Portrait with Glowing Ring & Frame */}
         <motion.div
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -211,7 +391,6 @@ const SlidePortfolio = () => (
           />
         </motion.div>
 
-        {/* Floating Tool Badges right side */}
         <motion.div
           initial={{ opacity: 0, rotate: 12, scale: 0.8 }}
           animate={{ opacity: 1, rotate: 12, scale: 1 }}
@@ -222,7 +401,6 @@ const SlidePortfolio = () => (
         </motion.div>
       </div>
 
-      {/* Layer 3: HUGE FRONT TEXT "VADDEPALLI" + STENCIL EFFECT */}
       <motion.h1
         variants={titleV}
         className="font-heading font-black uppercase text-[#F59E0B] leading-none tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] z-20 pointer-events-none -mt-4 sm:-mt-8"
@@ -235,7 +413,6 @@ const SlidePortfolio = () => (
         VADDEPALLI
       </motion.h1>
 
-      {/* Overlapping Gold Script Signature Line */}
       <motion.span
         variants={scriptV}
         className="font-script italic block -mt-4 sm:-mt-8 z-30 pointer-events-none"
@@ -250,18 +427,16 @@ const SlidePortfolio = () => (
       </motion.span>
     </div>
 
-    {/* Bottom Floating Stats & Tool Pills */}
     <motion.div variants={itemV} custom={3} className="flex items-center justify-center gap-2.5 sm:gap-4 mt-2 z-30">
       <Badge abbr="Ps" bg="#001E36" border="#00A4E4" color="#00A4E4" delay={0.2} />
       <Badge abbr="Ai" bg="#330000" border="#FF9A00" color="#FF9A00" delay={0.3} />
       <Badge abbr="Fg" bg="#FFFFFF" border="#F24E1E" color="#1B4332" delay={0.4} />
       <Badge abbr="Id" bg="#49021F" border="#FF3366" color="#FF3366" delay={0.5} />
     </motion.div>
-
   </div>
 );
 
-/* Screen 4 — HELLO I'AM */
+/* Screen 5 — HELLO I'AM */
 const SlideHello = () => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <Head line1="HELLO" line2="I'AM" script="Nandini" />
@@ -287,7 +462,7 @@ const SlideHello = () => (
   </div>
 );
 
-/* Screen 5 — SOCIAL MEDIA */
+/* Screen 6 — SOCIAL MEDIA */
 const SlideSocial = () => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <Head line1="SOCIAL" line2="MEDIA" script="Design" />
@@ -311,7 +486,7 @@ const SlideSocial = () => (
   </div>
 );
 
-/* Screen 6 — PRINT MEDIA */
+/* Screen 7 — PRINT MEDIA */
 const SlidePrint = () => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-4 px-4 max-w-4xl mx-auto py-4">
     <Head line1="PRINT" line2="MEDIA" script="Design" />
@@ -335,7 +510,7 @@ const SlidePrint = () => (
   </div>
 );
 
-/* Screen 7 — THANK YOU */
+/* Screen 8 — THANK YOU */
 const SlideThankYou = ({ onOpenInquiry }: { onOpenInquiry: () => void }) => (
   <div className="w-full flex flex-col items-center justify-center text-center gap-3 px-4 max-w-4xl mx-auto py-4">
     <motion.p variants={scriptV}
@@ -353,7 +528,7 @@ const SlideThankYou = ({ onOpenInquiry }: { onOpenInquiry: () => void }) => (
     <WavyDeco color="#F59E0B" className="w-40 opacity-85 mx-auto" />
 
     <motion.button variants={itemV} custom={2} onClick={onOpenInquiry}
-      className="mt-2 px-8 py-3 rounded-full border-2 border-white/50 text-white font-heading font-black text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2 mx-auto shadow-2xl"
+      className="mt-2 px-8 py-3 rounded-full border-2 border-white/50 text-white font-heading font-black text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2 mx-auto shadow-2xl cursor-pointer"
     >
       <span>CONTACT</span><ArrowUpRight className="w-4 h-4" />
     </motion.button>
@@ -367,7 +542,7 @@ const SlideThankYou = ({ onOpenInquiry }: { onOpenInquiry: () => void }) => (
   </div>
 );
 
-/* Screen 8 — EXPLORE MORE SCREEN WITH DOWN ARROW & AUTO-SCROLL TO 2ND PAGE */
+/* Screen 9 — EXPLORE MORE SCREEN WITH DOWN ARROW & AUTO-SCROLL TO 2ND PAGE */
 const SlideExplore = () => {
   const handleScrollToAbout = () => {
     const aboutEl = document.getElementById('about');
@@ -390,18 +565,17 @@ const SlideExplore = () => {
           Click below or wait a moment to automatically scroll down to my background, experience, and projects!
         </p>
 
-        {/* Animated Bouncing Down Arrow Button */}
         <motion.button
           onClick={handleScrollToAbout}
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="mt-2 p-4 rounded-full bg-[#F59E0B] text-black shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center cursor-pointer group"
+          className="mt-2 p-4 rounded-full bg-[#00FF66] text-black shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center cursor-pointer group"
           title="Scroll to About Me Section"
         >
           <ArrowDown className="w-7 h-7 stroke-[3]" />
         </motion.button>
 
-        <span className="text-[11px] uppercase font-extrabold tracking-widest text-[#F59E0B] animate-pulse">
+        <span className="text-[11px] uppercase font-extrabold tracking-widest text-[#00FF66] animate-pulse">
           Auto Scrolling to 2nd Page...
         </span>
       </motion.div>
@@ -418,13 +592,18 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
   onOpenInquiry,
 }) => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
+    if (isPaused) return;
+
+    // Slide 0 gets 8 seconds duration so user can admire the 1st screen design!
+    const duration = current === 0 ? 8000 : 4500;
+
     const tm = setTimeout(() => {
       setCurrent((prev) => {
         const next = (prev + 1) % SLIDES.length;
         if (prev === SLIDES.length - 1) {
-          // Reached the explore screen, auto scroll to 2nd page (#about)
           const aboutSection = document.getElementById('about');
           if (aboutSection) {
             aboutSection.scrollIntoView({ behavior: 'smooth' });
@@ -432,60 +611,98 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
         }
         return next;
       });
-    }, SLIDE_DURATION);
+    }, duration);
     return () => clearTimeout(tm);
-  }, [current]);
+  }, [current, isPaused]);
 
   const slideMap: Record<string, React.ReactNode> = {
-    branding:  <SlideBranding />,
-    skills:    <SlideSkills />,
-    portfolio: <SlidePortfolio />,
-    hello:     <SlideHello />,
-    social:    <SlideSocial />,
-    print:     <SlidePrint />,
-    thankyou:  <SlideThankYou onOpenInquiry={onOpenInquiry} />,
-    explore:   <SlideExplore />,
+    comic_explosion: <ComicBookExplosionHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    cereal_brand: <CerealBoxBrandHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    cartoon_network: <CartoonNetworkHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    ps5_gaming: <PS5GamingHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    apple_glass: <AppleGlassRibbonHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    pinterest_manifestival: <PinterestManifestivalHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    production_2026: <Production2026HeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    youth_record:   <YouthRecordHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    graphic_design: <AnimationHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    branding:       <SlideBranding />,
+    skills:         <SlideSkills />,
+    portfolio:      <SlidePortfolio />,
+    hello:          <SlideHello />,
+    social:         <SlideSocial />,
+    print:          <SlidePrint />,
+    thankyou:       <SlideThankYou onOpenInquiry={onOpenInquiry} />,
+    explore:        <SlideExplore />,
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-[#0A0A0A] text-white flex flex-col justify-between"
+    <section id="hero" className="relative overflow-hidden bg-[#070D08] text-white flex flex-col justify-between"
       style={{ minHeight: '100dvh' }}>
 
       {/* BG dot grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.025]"
-        style={{ backgroundImage:'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize:'36px 36px' }} />
+      <div className="absolute inset-0 z-0 opacity-[0.03]"
+        style={{ backgroundImage:'radial-gradient(circle, #00FF66 1px, transparent 1px)', backgroundSize:'36px 36px' }} />
 
-      {/* Golden ambient glow centered */}
+      {/* Neon Green Ambient Glow centered */}
       <motion.div className="absolute inset-0 z-0 pointer-events-none"
         animate={{ background:[
-          'radial-gradient(circle at 50% 48%, rgba(245,158,11,0.12) 0%, transparent 60%)',
-          'radial-gradient(circle at 50% 45%, rgba(245,158,11,0.14) 0%, transparent 60%)',
-          'radial-gradient(circle at 50% 52%, rgba(245,158,11,0.10) 0%, transparent 60%)',
+          'radial-gradient(circle at 50% 48%, rgba(0,255,102,0.12) 0%, transparent 65%)',
+          'radial-gradient(circle at 50% 45%, rgba(0,255,102,0.16) 0%, transparent 65%)',
+          'radial-gradient(circle at 50% 52%, rgba(0,255,102,0.10) 0%, transparent 65%)',
         ]}}
-        transition={{ duration: 9, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Corner wavy accents */}
-      <div className="absolute top-8 right-8 opacity-[0.10] z-0 rotate-12 pointer-events-none">
-        <WavyDeco color="#F59E0B" className="w-24" />
+      {/* Corner accents */}
+      <div className="absolute top-8 right-8 opacity-[0.15] z-0 rotate-12 pointer-events-none">
+        <WavyDeco color="#00FF66" className="w-24" />
       </div>
-      <div className="absolute bottom-20 left-8 opacity-[0.08] z-0 -rotate-6 pointer-events-none">
-        <WavyDeco color="#F59E0B" className="w-20" />
+      <div className="absolute bottom-20 left-8 opacity-[0.12] z-0 -rotate-6 pointer-events-none">
+        <WavyDeco color="#00FF66" className="w-20" />
       </div>
 
       {/* ── SLIDE STAGE ── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center items-center">
-        <div className="flex-1 w-full relative overflow-hidden flex items-center justify-center">
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2 sm:py-6">
+        <div className="flex-1 w-full relative overflow-hidden flex items-center justify-center min-h-[550px] sm:min-h-[620px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={SLIDES[current]}
-              className="absolute inset-0 flex flex-col justify-center items-center text-center"
+              className="absolute inset-0 flex flex-col justify-center items-center text-center p-2"
               initial="hidden" animate="show" exit="exit"
             >
               {slideMap[SLIDES[current]]}
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {/* Slide indicators removed per user request */}
       </div>
 
       {/* ── ORGANIC WAVE TRANSITION TO CREAM ── */}

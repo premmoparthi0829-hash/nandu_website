@@ -23,6 +23,18 @@
   color: #F3F4F6;
 }
 
+.font-caveat {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+.font-handwriting {
+  font-family: 'Reenie Beanie', 'Caveat', cursive;
+}
+
+.font-script-tall {
+  font-family: 'Covered By Your Grace', 'Patrick Hand', cursive, sans-serif;
+}
+
 /* Cream section background class */
 .bg-cream-theme {
   background-color: #FFF9ED;
