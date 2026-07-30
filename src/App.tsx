@@ -1,77 +1,42 @@
 import React, { useState } from 'react';
-import { DesignTheme } from './types/app';
-import { CreamyHeader } from './components/CreamyHeader';
-import { CreamyHero } from './components/CreamyHero';
-import { CreamyMenu } from './components/CreamyMenu';
+import { CustomCursor } from './components/CustomCursor';
+import { Navbar } from './components/Navbar';
+import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
+import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { FeaturedProjects } from './components/FeaturedProjects';
-import { SkillsSection } from './components/SkillsSection';
 import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
-import { CreamyFAQ } from './components/CreamyFAQ';
 import { ContactSection } from './components/ContactSection';
-import { ThankYouSection } from './components/ThankYouSection';
 import { Footer } from './components/Footer';
-import { CartDrawer } from './components/CartDrawer';
 import { ResumeModal } from './components/ResumeModal';
-import { CustomCursor } from './components/CustomCursor';
 
 export function App() {
-  const [activeTheme, setActiveTheme] = useState<DesignTheme>('mint');
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('Brand Identity Systems');
-
-  const handleOpenInquiry = (serviceName?: string) => {
-    if (serviceName) setSelectedService(serviceName);
-    setIsInquiryOpen(true);
-  };
-
-  const themeAccent = activeTheme === 'peach' ? '#C87D43' : activeTheme === 'coral' ? '#EE4D2D' : '#52B788';
-  const themeBg = activeTheme === 'peach' ? '#FFF5ED' : activeTheme === 'coral' ? '#FFF2F0' : '#FFF9ED';
 
   return (
-    <div
-      className="min-h-screen text-[#1B4332] dark:text-white transition-colors duration-300 overflow-x-hidden font-sans selection:text-white"
-      style={{
-        backgroundColor: themeBg,
-        '--theme-accent': themeAccent,
-        '--theme-bg': themeBg,
-      } as React.CSSProperties}
-    >
-      {/* Custom Cursor */}
+    <div className="min-h-screen w-full max-w-full bg-[#090909] text-white selection:bg-[#88D900] selection:text-black overflow-x-hidden font-body">
+      {/* Dual Ring Glowing Custom Cursor */}
       <CustomCursor />
 
-      {/* Header */}
-      <CreamyHeader
-        activeTheme={activeTheme}
-        setActiveTheme={setActiveTheme}
-        onOpenInquiry={() => handleOpenInquiry()}
-        onOpenResume={() => setIsResumeOpen(true)}
-      />
+      {/* Glassmorphic Top Navbar */}
+      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Hero Section */}
-      <CreamyHero
-        activeTheme={activeTheme}
-        setActiveTheme={setActiveTheme}
-        onOpenInquiry={() => handleOpenInquiry()}
-      />
+      {/* High-Fashion Editorial Hero Section (Inspired by Image 2 - Lamoda Layout) */}
+      <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* About Section (Second Page) */}
-      <AboutSection />
+      {/* About Section */}
+      <AboutSection onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Explore Creative Services Section */}
-      <CreamyMenu onOpenInquiry={handleOpenInquiry} />
+      {/* Skills Matrix */}
+      <SkillsSection />
 
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Featured Projects & Case Studies */}
+      {/* Portfolio Projects & Case Studies */}
       <FeaturedProjects />
-
-      {/* Skills Matrix */}
-      <SkillsSection />
 
       {/* Experience Timeline */}
       <TimelineSection />
@@ -79,24 +44,11 @@ export function App() {
       {/* Testimonials Marquee */}
       <TestimonialsSection />
 
-      {/* FAQ Accordion (Matching Image 5 Layout) */}
-      <CreamyFAQ />
-
       {/* Contact Section */}
       <ContactSection />
 
-      {/* Thank You Section (Last Page) */}
-      <ThankYouSection onOpenInquiry={() => handleOpenInquiry()} />
-
       {/* Footer */}
       <Footer />
-
-      {/* Interactive Project Inquiry Drawer */}
-      <CartDrawer
-        isOpen={isInquiryOpen}
-        onClose={() => setIsInquiryOpen(false)}
-        selectedService={selectedService}
-      />
 
       {/* Resume Modal */}
       <ResumeModal

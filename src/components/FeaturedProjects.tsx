@@ -1,233 +1,119 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Sparkles, X, CheckCircle } from 'lucide-react';
-import { MockupFrame } from './MockupFrame';
-import { CreamyShowcase } from './CreamyShowcase';
-import freyrImg from '../assets/project_freyr.png';
-import solarImg from '../assets/project_solar.png';
-import milkImg from '../assets/project_milk.png';
-import { SectionHeading } from './SectionHeading';
+import { motion } from 'framer-motion';
+import { Sparkles, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { PROJECTS } from '../data/portfolioData';
+import { Project } from '../types/app';
+import { ProjectDetailModal } from './ProjectDetailModal';
 
 export const FeaturedProjects: React.FC = () => {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<any | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const projects = [
-    {
-      id: 'freyr-energy',
-      title: 'Freyr Energy Brand Identity',
-      client: 'Freyr Energy',
-      category: 'Branding',
-      previewImg: freyrImg,
-      badge: 'Branding',
-      bgClass: 'bg-gradient-to-br from-[#D89B48] to-[#B37829]',
-      summary: 'Complete brand identity guidelines, stationary design, and corporate collaterals for a leading solar energy company.',
-      caseStudy: {
-        challenge: 'Freyr Energy needed a unified visual brand system to represent their renewable clean energy solutions.',
-        solution: 'Nandini created a clean yellow-gold visual identity, complete with brand style guidelines, mugs, and corporate letterheads.',
-        deliverables: ['Logo & Brand Guidelines', 'Stationary Mockups', 'Investor Pitch Decks', 'Print Media Collaterals'],
-      },
-    },
-    {
-      id: 'solar-campaign',
-      title: 'Solar Energy Campaign',
-      client: 'Clean Tech Global',
-      category: 'Social Media Design',
-      previewImg: solarImg,
-      badge: 'Social Media Design',
-      bgClass: 'bg-gradient-to-br from-[#0B62A4] to-[#053D69]',
-      summary: 'High-converting mobile app interface and social media advertising campaign graphics.',
-      caseStudy: {
-        challenge: 'Boost app downloads and user engagement across digital advertising channels.',
-        solution: 'Designed ocean-blue digital campaign graphics alongside intuitive mobile app screens in Figma.',
-        deliverables: ['Mobile App UI Design', '30+ Social Media Posts', 'Digital Banner Ads', 'App Store Renders'],
-      },
-    },
-    {
-      id: 'milk-packaging',
-      title: 'Milk Product Packaging',
-      client: 'Daily Fresh Dairy',
-      category: 'Packaging Design',
-      previewImg: milkImg,
-      badge: 'Packaging Design',
-      bgClass: 'bg-gradient-to-br from-[#9D84B7] to-[#715491]',
-      summary: 'Delightful milk pouch packaging design featuring custom cartoon cow illustrations.',
-      caseStudy: {
-        challenge: 'Create a friendly, trustworthy dairy packaging brand identity that appeals to families.',
-        solution: 'Nandini illustrated the cute Daily Fresh mascot and clean pastel purple packaging pouch layout.',
-        deliverables: ['Pouch Packaging Renders', 'Character Illustration', 'Point-of-Sale Posters', 'Print Files'],
-      },
-    },
-  ];
+  const categories = ['All', 'Branding', 'Packaging', 'UI/UX'];
+
+  const filteredProjects = activeFilter === 'All'
+    ? PROJECTS
+    : PROJECTS.filter(p => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-12 relative bg-cream-theme">
+    <section id="projects" className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">
+      <div className="absolute top-1/4 left-1/3 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-[#88D900]/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto">
 
-        {/* Header Row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-14 gap-6">
-          <div>
-            <SectionHeading
-            overline="MY WORK & SHOWCASE"
-            title="FEATURED"
-            script="Projects"
-            align="left"
-            variant="light"
-          />
+        {/* Section Title */}
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span>FEATURED PORTFOLIO</span>
           </div>
-
-          <a
-            href="#contact"
-            className="px-7 py-3.5 rounded-full bg-[#1B4332] text-white font-heading font-extrabold text-xs uppercase tracking-wider hover:bg-black transition-all flex items-center gap-2 shadow-md"
-          >
-            <span>View All Projects</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+          <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
+            SELECTED <span className="text-[#88D900]">DESIGN CASE STUDIES</span>
+          </h2>
+          <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
+            Explore high-impact brand identity systems, packaging dielines, and UI/UX design case studies.
+          </p>
         </div>
 
-        {/* FLAGSHIP DRIBBBLE/FRAMER MOCKUP CANVAS SHOWCASE */}
-        <div className="mb-16">
-          <MockupFrame
-            tags={['Tutorial', 'Figma', 'Motion', 'Web Design']}
-            author="@nandini.design"
-            bgColor="bg-[#52B788]"
-          >
-            <CreamyShowcase />
-          </MockupFrame>
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-14">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-button text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                activeFilter === cat
+                  ? 'bg-[#88D900] text-[#090909] shadow-[0_0_25px_rgba(136,217,0,0.4)]'
+                  : 'bg-[#151515] text-[#9CA3AF] hover:text-white border border-white/10'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
-        {/* 3 Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        {/* Portfolio Cards Grid — 1 col mobile, 2 col md, 3 col lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ y: -8 }}
-              className="group rounded-[32px] overflow-hidden bg-white dark:bg-[#121620] border border-emerald-100 dark:border-gray-800 shadow-soft-card flex flex-col justify-between cursor-pointer"
-              onClick={() => setSelectedCaseStudy(project)}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="luxury-card group flex flex-col justify-between overflow-hidden cursor-pointer"
+              onClick={() => setSelectedProject(project)}
             >
-              {/* Card Image Area with Custom Color Tone Background */}
-              <div className={`relative h-[300px] sm:h-[340px] overflow-hidden p-6 flex flex-col justify-between ${project.bgClass}`}>
-                {/* Overlay Text Header */}
-                <div className="z-10 flex items-start justify-between">
-                  <h3 className="font-heading font-black text-xl text-white max-w-[200px] drop-shadow-md">
-                    {project.title}
-                  </h3>
-                </div>
-
-                {/* Main Product Screenshot */}
+              {/* Image Frame */}
+              <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-t-[30px]">
                 <img
-                  src={project.previewImg}
+                  src={project.heroImage}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-
-                {/* Bottom Pill Badge */}
-                <div className="z-10 self-start">
-                  <span className="px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-gray-900 font-heading font-extrabold text-[11px] shadow-md">
-                    {project.badge}
-                  </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-80" />
+                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 rounded-full bg-[#090909]/80 backdrop-blur-md border border-[#88D900]/40 text-[#88D900] text-[9px] sm:text-[10px] font-heading font-extrabold uppercase tracking-wider">
+                  {project.category}
                 </div>
               </div>
 
-              {/* Card Footer Info */}
-              <div className="p-6 flex items-center justify-between">
-                <div>
-                  <h4 className="font-heading font-black text-base text-[#1B4332] dark:text-white group-hover:text-[#52B788] transition-colors">
-                    {project.title}
-                  </h4>
-                  <span className="text-xs text-gray-500 font-semibold">
-                    {project.client}
-                  </span>
-                </div>
-
-                <div className="w-9 h-9 rounded-full bg-emerald-100 text-[#2D6A4F] flex items-center justify-center group-hover:bg-[#2D6A4F] group-hover:text-white transition-colors">
-                  <ArrowUpRight className="w-4.5 h-4.5" />
+              {/* Card Content */}
+              <div className="p-4 sm:p-6">
+                <h3 className="font-heading font-bold text-xl sm:text-2xl text-white mb-2 group-hover:text-[#88D900] transition-colors flex items-center justify-between gap-2">
+                  <span className="line-clamp-1">{project.title}</span>
+                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 opacity-0 group-hover:opacity-100 shrink-0 transition-all text-[#88D900]" />
+                </h3>
+                <p className="font-body text-[11px] sm:text-sm text-[#9CA3AF] leading-relaxed mb-4 sm:mb-6 line-clamp-2">
+                  {project.shortDescription}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span key={tech} className="px-2 sm:px-2.5 py-1 rounded-md bg-[#090909] border border-white/10 text-[#88D900] text-[9px] sm:text-[10px] font-mono font-semibold">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
+              {/* Card Footer */}
+              <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 flex items-center justify-between border-t border-white/5">
+                <span className="text-[10px] sm:text-xs font-button font-bold text-[#88D900] group-hover:underline">
+                  Explore Case Study →
+                </span>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#090909] border border-white/10 text-white flex items-center justify-center group-hover:border-[#88D900] group-hover:text-[#88D900] transition-colors shrink-0">
+                  <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
 
       </div>
 
-      {/* Case Study Modal */}
-      <AnimatePresence>
-        {selectedCaseStudy && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
-            onClick={() => setSelectedCaseStudy(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-auto"
-            >
-              <button
-                onClick={() => setSelectedCaseStudy(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:text-[#52B788]"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-2 text-xs font-mono text-[#2D6A4F] uppercase tracking-widest mb-2 font-extrabold">
-                <span>Case Study</span>
-              </div>
-
-              <h3 className="font-heading font-black text-3xl text-gray-900 dark:text-white mb-4">
-                {selectedCaseStudy.title}
-              </h3>
-
-              <div className="space-y-6 text-sm text-gray-600 dark:text-gray-300">
-                <div>
-                  <h4 className="font-heading font-extrabold text-gray-900 dark:text-white text-base mb-2">
-                    The Challenge
-                  </h4>
-                  <p className="leading-relaxed font-semibold">{selectedCaseStudy.caseStudy.challenge}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-heading font-extrabold text-gray-900 dark:text-white text-base mb-2">
-                    The Design Solution
-                  </h4>
-                  <p className="leading-relaxed font-semibold">{selectedCaseStudy.caseStudy.solution}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-heading font-extrabold text-gray-900 dark:text-white text-base mb-2">
-                    Key Deliverables
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {selectedCaseStudy.caseStudy.deliverables.map((item: string, i: number) => (
-                      <div key={i} className="flex items-center gap-2 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-800/60 text-xs font-semibold">
-                        <CheckCircle className="w-4 h-4 text-[#2D6A4F] shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-gray-200 dark:border-gray-800 flex justify-end">
-                <button
-                  onClick={() => setSelectedCaseStudy(null)}
-                  className="px-6 py-2.5 rounded-full mint-btn-dark text-white font-heading font-extrabold text-xs uppercase"
-                >
-                  Close Case Study
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <ProjectDetailModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };

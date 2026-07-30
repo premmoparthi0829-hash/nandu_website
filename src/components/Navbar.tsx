@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, ArrowUpRight, Menu, X, FileText } from 'lucide-react';
+import { ArrowUpRight, Menu, X, FileText } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
-  darkMode: boolean;
-  setDarkMode: (val: boolean) => void;
   onOpenResume: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenResume }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('Home');
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -24,84 +22,68 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Portfolio', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
 
+  if (!scrolled) return null;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-12 pt-5 pb-3 transition-all duration-300">
-      <div
-        className={`max-w-7xl mx-auto rounded-full px-6 sm:px-8 py-3.5 transition-all duration-300 flex items-center justify-between ${
-          scrolled
-            ? 'bg-[#2D6A4F]/90 dark:bg-[#121620]/90 shadow-2xl backdrop-blur-xl border border-white/20'
-            : 'bg-white/15 dark:bg-[#121620]/50 backdrop-blur-md border border-white/25'
-        }`}
-      >
-        {/* Brand Logo */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-2xl bg-white text-[#2D6A4F] flex items-center justify-center font-serif font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
-            NV
+    <header className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-6 md:px-8 pt-3 pb-2 transition-all duration-500 w-full max-w-full">
+      <div className="max-w-7xl mx-auto rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 luxury-glass-nav shadow-2xl border border-white/10 flex items-center justify-between w-full">
+        
+        {/* Brand Monogram */}
+        <a href="#hero" className="flex items-center gap-2 shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-[#090909] border border-[#88D900] text-[#88D900] flex items-center justify-center font-heading font-extrabold text-xs shadow-[0_0_15px_rgba(136,217,0,0.3)]">
+            {PERSONAL_INFO.logoText}
           </div>
-          <div className="flex flex-col">
-            <span className="font-serif font-extrabold text-base tracking-wide text-white leading-none">
-              NANDINI
-            </span>
-            <span className="font-sans text-[10px] text-white/80 font-bold tracking-widest uppercase mt-0.5">
-              VADDEPALLI
-            </span>
-          </div>
+          <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-white uppercase truncate max-w-[120px] min-[400px]:max-w-[170px] sm:max-w-none">
+            {PERSONAL_INFO.name}
+          </span>
         </a>
 
-        {/* Floating Pill Navigation Header */}
-        <nav className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.name;
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setActiveSection(link.name)}
-                className={`px-4 py-1.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all ${
-                  isActive
-                    ? 'bg-black text-white shadow-md'
-                    : 'text-white/90 hover:text-white hover:bg-white/20'
-                }`}
-              >
-                {link.name}
-              </a>
-            );
-          })}
+        {/* Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="px-3 py-1 rounded-full text-xs font-button font-bold text-[#9CA3AF] hover:text-white hover:bg-white/5 transition-all"
+            >
+              {link.name}
+            </a>
+          ))}
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-3">
-          {/* Hire Me White Pill Button */}
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full mint-btn-white font-sans font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all"
-          >
-            <span>Hire Me</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-
-          {/* Theme Toggle Button */}
+        <div className="flex items-center gap-2 shrink-0">
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white hover:text-[#2D6A4F] transition-all"
-            aria-label="Toggle theme"
+            onClick={onOpenResume}
+            className="hidden sm:flex items-center gap-1 px-3.5 py-1.5 rounded-full border border-white/20 text-xs font-button font-bold text-white hover:border-[#88D900] hover:text-[#88D900] transition-all"
           >
-            {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            <FileText className="w-3.5 h-3.5" />
+            <span>Resume</span>
           </button>
 
-          {/* Mobile Menu Toggle */}
+          <a
+            href="#contact"
+            className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] px-3.5 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-button uppercase tracking-wider font-extrabold"
+          >
+            <span>Hire</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+
+          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-white"
+            className="lg:hidden p-2 rounded-xl bg-[#151515] border border-white/10 text-white hover:text-[#88D900] transition-colors shrink-0"
+            aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
@@ -110,20 +92,17 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden mt-3 max-w-7xl mx-auto rounded-3xl p-6 bg-[#2D6A4F] text-white border border-white/20 shadow-2xl flex flex-col gap-4"
+            exit={{ opacity: 0, y: -10 }}
+            className="lg:hidden mt-2 max-w-7xl mx-auto rounded-[20px] p-4 bg-[#151515] text-white border border-[#88D900]/40 shadow-2xl flex flex-col gap-1.5 w-full"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => {
-                  setActiveSection(link.name);
-                  setMobileMenuOpen(false);
-                }}
-                className="text-sm font-bold uppercase tracking-wider text-white hover:text-black py-2 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xs font-button font-bold uppercase tracking-wider text-[#9CA3AF] hover:text-[#88D900] py-2 border-b border-white/5 transition-colors"
               >
                 {link.name}
               </a>
@@ -134,15 +113,16 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
                   setMobileMenuOpen(false);
                   onOpenResume();
                 }}
-                className="flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full border border-white/40"
+                className="flex items-center gap-1.5 text-xs font-button font-bold px-3 py-1.5 rounded-full border border-white/20 text-white"
               >
-                <FileText className="w-4 h-4" />
-                <span>Resume</span>
+                <FileText className="w-3.5 h-3.5" />
+                <span>Resume PDF</span>
               </button>
+
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-6 py-2 rounded-full bg-white text-[#2D6A4F] font-bold text-xs uppercase"
+                className="btn-neon bg-[#88D900] text-black font-extrabold text-xs uppercase px-3 py-1.5"
               >
                 Hire Me ↗
               </a>

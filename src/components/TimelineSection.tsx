@@ -1,119 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, Award, ArrowDown } from 'lucide-react';
+import { Briefcase, MapPin, CheckCircle2 } from 'lucide-react';
+import { EXPERIENCES } from '../data/portfolioData';
 
 export const TimelineSection: React.FC = () => {
-  const experiences = [
-    {
-      year: '2026',
-      company: 'All Hands Global',
-      role: 'Lead Brand & Visual Strategist',
-      location: 'Hyderabad / Global Remote',
-      desc: 'Steering end-to-end brand identities, creative direction, and digital asset architecture for global client campaigns.',
-      achievements: ['Redesigned flagship brand identity increasing client engagement by 40%', 'Pioneered Generative AI asset pipelines for global social launches'],
-    },
-    {
-      year: '2024',
-      company: 'Freyr Energy',
-      role: 'Senior Visual Graphic Designer',
-      location: 'Hyderabad, India',
-      desc: 'Spearheaded renewable energy brand collateral, interactive UI kits, digital pitch decks, and high-impact marketing visuals.',
-      achievements: ['Built standardized 120+ asset design system for clean energy campaigns', 'Designed high-converting executive pitch decks for Series B investors'],
-    },
-    {
-      year: '2024',
-      company: 'Mantra Technologies',
-      role: 'Creative UI/UX & Brand Specialist',
-      location: 'Hyderabad, India',
-      desc: 'Designed sleek enterprise SaaS interfaces, dark mode web portals, vector iconography, and marketing visual identities.',
-      achievements: ['Transformed complex tech products into intuitive, Apple-grade visual experiences', 'Authored component libraries in Figma and Illustrator'],
-    },
-    {
-      year: '2022',
-      company: 'Sharplogiec',
-      role: 'Graphic Designer & Brand Associate',
-      location: 'Hyderabad, India',
-      desc: 'Initiated professional graphic design career creating custom vector logos, social media visual branding, print layouts, and digital ads.',
-      achievements: ['Delivered 50+ client brand projects with 100% satisfaction score', 'Mastered advanced Photoshop manipulation and vector typography'],
-    },
-  ];
-
   return (
-    <section id="experience" className="py-24 px-4 sm:px-8 relative overflow-hidden">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+
       <div className="max-w-5xl mx-auto">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent font-semibold text-xs uppercase tracking-widest mb-4">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Career Journey</span>
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
+            <Briefcase className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span>CAREER TIMELINE</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-primary-light dark:text-primary-dark">
-            Experience <span className="text-gradient">Timeline</span>
+          <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
+            DESIGN <span className="text-[#88D900]">EXPERIENCE</span>
           </h2>
-          <p className="text-secondary-light dark:text-secondary-dark text-sm sm:text-base max-w-xl mt-3">
-            4.5+ years of driving creative strategy across high-growth startups and tech enterprises.
+          <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
+            4.5+ years of driving creative visual strategy across agencies, clean tech enterprises, and global brands.
           </p>
         </div>
 
-        {/* Timeline Path */}
-        <div className="relative border-l-2 border-dashed border-accent/40 ml-4 sm:ml-32 pl-6 sm:pl-10 space-y-12">
+        {/* Vertical Timeline */}
+        {/* On mobile: simple stacked cards. On sm+: left-border timeline with absolute date pills */}
+        <div className="flex flex-col gap-6 sm:gap-10 relative sm:ml-28 sm:pl-10 sm:border-l-2 sm:border-dashed sm:border-[#88D900]/30">
 
-          {experiences.map((item, index) => (
+          {EXPERIENCES.map((item, index) => (
             <motion.div
-              key={index}
+              key={item.id}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="relative group"
             >
-              {/* Year Pill (Positioned to the left on Desktop) */}
-              <div className="sm:absolute sm:-left-36 sm:top-1 flex items-center gap-2 mb-2 sm:mb-0">
-                <span className="px-3.5 py-1 rounded-full accent-gradient-bg text-white font-mono font-bold text-xs shadow-md">
-                  {item.year}
+              {/* Duration Pill — stacked on mobile, absolute on sm+ */}
+              <div className="mb-3 sm:mb-0 sm:absolute sm:-left-36 sm:top-2.5 flex">
+                <span className="px-3 py-1 rounded-full bg-[#F472B6] text-black font-button font-extrabold text-[10px] sm:text-xs shadow-[0_0_15px_rgba(244,114,182,0.3)] uppercase">
+                  {item.duration}
                 </span>
               </div>
 
-              {/* Glowing Dot Node */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-accent border-4 border-white dark:border-gray-900 shadow-md group-hover:scale-125 transition-transform" />
+              {/* Neon Node Marker — only visible on sm+ */}
+              <div className="hidden sm:block absolute -left-[47px] top-2.5 w-5 h-5 rounded-full bg-[#88D900] border-4 border-[#090909] shadow-[0_0_15px_#88D900] group-hover:scale-125 transition-transform" />
 
               {/* Experience Card */}
-              <div className="p-6 rounded-3xl glass-panel-light dark:glass-panel-dark border border-gray-200/80 dark:border-gray-800/80 hover:border-accent/60 shadow-xl transition-all duration-300">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <h3 className="font-heading font-bold text-xl text-primary-light dark:text-primary-dark group-hover:text-accent transition-colors">
+              <div className="luxury-card p-5 sm:p-8 hover:border-[#88D900]/50 transition-all">
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-1 sm:mb-2">
+                  <h3 className="font-heading font-bold text-lg sm:text-2xl text-white group-hover:text-[#88D900] transition-colors">
                     {item.company}
                   </h3>
-                  <div className="flex items-center gap-1 text-xs font-mono text-secondary-light dark:text-secondary-dark">
-                    <MapPin className="w-3.5 h-3.5 text-accent" />
+                  <div className="flex items-center gap-1 text-[10px] sm:text-xs text-[#9CA3AF] shrink-0">
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#88D900]" />
                     <span>{item.location}</span>
                   </div>
                 </div>
 
-                <h4 className="text-sm font-semibold text-accent mb-4">
+                <h4 className="text-xs sm:text-sm font-heading font-bold text-[#88D900] mb-3 sm:mb-4">
                   {item.role}
                 </h4>
 
-                <p className="text-xs sm:text-sm text-secondary-light dark:text-secondary-dark mb-4 leading-relaxed">
-                  {item.desc}
-                </p>
-
-                {/* Achievements List */}
-                <div className="space-y-1.5 pt-3 border-t border-gray-100 dark:border-gray-800">
-                  {item.achievements.map((ach, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-primary-light dark:text-primary-dark">
-                      <span className="text-accent font-bold">↓</span>
-                      <span>{ach}</span>
+                <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+                  {item.responsibilities.map((resp, i) => (
+                    <div key={i} className="flex items-start gap-2 text-[11px] sm:text-sm text-[#9CA3AF]">
+                      <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D900] shrink-0 mt-0.5" />
+                      <span className="font-body leading-relaxed text-white/90">{resp}</span>
                     </div>
                   ))}
                 </div>
-              </div>
 
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-3 sm:pt-4 border-t border-white/10">
+                  {item.techStack.map((tech) => (
+                    <span key={tech} className="px-2.5 sm:px-3 py-1 rounded-full bg-[#090909] border border-[#88D900]/30 text-[#88D900] text-[9px] sm:text-xs font-mono font-semibold">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
 
         </div>
-
       </div>
     </section>
   );

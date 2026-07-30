@@ -47,28 +47,29 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Inner dot */}
+      {/* Central Lime Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#88D900] rounded-full pointer-events-none z-50 hidden md:block shadow-[0_0_15px_#88D900]"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
-          scale: isHovered ? 0.5 : 1,
+          scale: isHovered ? 0.6 : 1,
         }}
-        transition={{ type: 'spring', damping: 30, stiffness: 450, mass: 0.1 }}
+        transition={{ type: 'spring', damping: 35, stiffness: 500, mass: 0.1 }}
       />
 
-      {/* Glowing outer ring */}
+      {/* Outer Glowing Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-accent/60 rounded-full pointer-events-none z-50 hidden md:block"
+        className="fixed top-0 left-0 w-12 h-12 border border-[#88D900]/60 rounded-full pointer-events-none z-50 hidden md:block"
         animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
-          scale: isHovered ? 1.8 : 1,
-          backgroundColor: isHovered ? 'rgba(255, 138, 61, 0.15)' : 'transparent',
-          borderColor: isHovered ? '#FF8A3D' : 'rgba(255, 138, 61, 0.4)',
+          x: mousePosition.x - 24,
+          y: mousePosition.y - 24,
+          scale: isHovered ? 2.2 : 1,
+          backgroundColor: isHovered ? 'rgba(136, 217, 0, 0.15)' : 'transparent',
+          borderColor: isHovered ? '#88D900' : 'rgba(136, 217, 0, 0.4)',
+          boxShadow: isHovered ? '0 0 30px rgba(136, 217, 0, 0.4)' : '0 0 10px rgba(136, 217, 0, 0.1)',
         }}
-        transition={{ type: 'spring', damping: 25, stiffness: 250, mass: 0.2 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 220, mass: 0.2 }}
       />
     </>
   );

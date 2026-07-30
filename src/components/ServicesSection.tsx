@@ -1,143 +1,129 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Palette, Smartphone, Megaphone, BookOpen, Video, Layout, X, CheckCircle } from 'lucide-react';
-import { OrganicWave } from './OrganicWave';
-import { SectionHeading } from './SectionHeading';
+import {
+  Sparkles, Smartphone, Layers, Flame, Figma, LayoutDashboard,
+  Globe, Cpu, MapPin, CreditCard, Cloud, ArrowUpRight, CheckCircle2, X
+} from 'lucide-react';
+import { SERVICES } from '../data/portfolioData';
+import { ServiceItem } from '../types/app';
 
-export const ServicesSection: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<any | null>(null);
+const getServiceIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'Smartphone': return Smartphone;
+    case 'Layers': return Layers;
+    case 'Flame': return Flame;
+    case 'Figma': return Figma;
+    case 'LayoutDashboard': return LayoutDashboard;
+    case 'Globe': return Globe;
+    case 'Cpu': return Cpu;
+    case 'MapPin': return MapPin;
+    case 'CreditCard': return CreditCard;
+    case 'Cloud': return Cloud;
+    default: return Figma;
+  }
+};
 
-  const services = [
-    {
-      id: 'brand-identity',
-      title: 'Brand Identity Design',
-      desc: 'Logos, brand guidelines and visual identity designs.',
-      icon: Palette,
-      details: {
-        headline: 'Crafting Iconic Visual Identity Systems',
-        overview: 'We construct full brand guidelines, vector logos, typography hierarchies, and color token systems that command authority across digital and print.',
-        deliverables: ['Vector Logo Guidelines', 'Typography & Color Tokens', 'Brand Usage Guideline PDF', 'Social Media Templates'],
-        tools: ['Adobe Illustrator', 'Figma', 'Adobe Photoshop'],
-      },
-    },
-    {
-      id: 'social-media',
-      title: 'Social Media Design',
-      desc: 'Engaging posts and campaigns that connect with your audience.',
-      icon: Smartphone,
-      details: {
-        headline: 'High-Converting Digital Campaign Assets',
-        overview: 'Designing carousel graphics, story templates, ad banners, and promotional visual posts tailored for Instagram, LinkedIn, and Twitter.',
-        deliverables: ['Carousel Post Kits', 'Story Templates', 'Ad Creative Sets', 'Animated Motion Banners'],
-        tools: ['Photoshop', 'Canva', 'Figma'],
-      },
-    },
-    {
-      id: 'advertising',
-      title: 'Advertising Design',
-      desc: 'High-converting ads for digital platforms and print.',
-      icon: Megaphone,
-      details: {
-        headline: 'Data-Driven Advertising Visuals',
-        overview: 'Creating performance marketing banners, Google Display ads, print billboards, and promotional flyers optimized for maximum CTR.',
-        deliverables: ['Google Display Banners', 'Print Flyers & Posters', 'Billboard Collaterals', 'Ad Variant Tests'],
-        tools: ['Illustrator', 'Photoshop', 'Firefly AI'],
-      },
-    },
-    {
-      id: 'print-design',
-      title: 'Print Design',
-      desc: 'Brochures, flyers, banners, and other print materials.',
-      icon: BookOpen,
-      details: {
-        headline: 'Tactile Print & Packaging Collaterals',
-        overview: 'Designing CMYK print-ready corporate brochures, product packaging boxes, food pouches, and trade show banners with exact bleed specifications.',
-        deliverables: ['Corporate Brochure (16+ pages)', 'Packaging Box Dielines', 'Trade Show Banners', 'Business Card Sets'],
-        tools: ['InDesign', 'Illustrator', 'Photoshop'],
-      },
-    },
-    {
-      id: 'motion-design',
-      title: 'Video & Motion Design',
-      desc: 'Reel videos, promo videos and motion graphics.',
-      icon: Video,
-      details: {
-        headline: 'Dynamic Motion Reels & Generative AI Video',
-        overview: 'Bringing brand visual assets to life through Sora motion video prompts, animated logo reveals, and high-impact reel transitions.',
-        deliverables: ['Animated Logo Reveal', 'Instagram Reel Videos', 'Promo Campaign Trailer', 'GIF Micro-interactions'],
-        tools: ['Sora AI', 'After Effects', 'Premiere Pro'],
-      },
-    },
-    {
-      id: 'web-design',
-      title: 'UI/UX & Web Design',
-      desc: 'Modern, user-friendly designs for websites and apps.',
-      icon: Layout,
-      details: {
-        headline: 'Apple & Linear Grade Web & App Interfaces',
-        overview: 'Crafting responsive design component libraries, dark/light mode UI screens, interactive web prototypes, and mobile app layouts.',
-        deliverables: ['Figma Design Component Library', 'Responsive Mobile & Desktop Screens', 'Interactive Prototypes', 'Developer Handoff Tokens'],
-        tools: ['Figma', 'Framer', 'Tailwind CSS'],
-      },
-    },
-  ];
+interface ServicesSectionProps {
+  onOpenInquiry?: (serviceName?: string) => void;
+}
+
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry }) => {
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
+  const handleInquire = (serviceTitle: string) => {
+    if (onOpenInquiry) {
+      onOpenInquiry(serviceTitle);
+    } else {
+      const contactEl = document.getElementById('contact');
+      if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section id="services" className="relative bg-mint-theme text-white overflow-hidden">
-      
-      {/* Top Wave Divider from Cream */}
-      <OrganicWave fillColor="#FFF9ED" flipY={true} />
+    <section id="services" className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">
+      <div className="absolute top-1/2 right-10 w-72 sm:w-[450px] h-72 sm:h-[450px] bg-[#88D900]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="py-20 px-4 sm:px-12 max-w-7xl mx-auto z-10 relative">
+      <div className="max-w-7xl mx-auto">
 
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <SectionHeading
-            overline="WHAT I DO"
-            title="SERVICES I"
-            script="Provide"
-            align="center"
-            variant="dark"
-          />
+        {/* Section Title */}
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span>SOLUTIONS &amp; EXPERTISE</span>
+          </div>
+          <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
+            SPECIALIZED <span className="text-[#88D900]">DESIGN SERVICES</span>
+          </h2>
+          <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-2xl px-2">
+            From complete brand identity design guidelines to tactile print packaging and interactive UI systems.
+          </p>
         </div>
 
-        {/* 6 White Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+        {/* Services Grid — 1 col mobile, 2 col md, 3 col lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {SERVICES.map((service, index) => {
+            const IconComp = getServiceIcon(service.icon);
             return (
               <motion.div
-                key={service.title}
+                key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -6 }}
-                onClick={() => setSelectedService(service)}
-                className="group p-6 rounded-3xl bg-white text-gray-900 shadow-2xl hover:bg-[#FFF9ED] transition-all flex flex-col justify-between cursor-pointer"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="luxury-card p-5 sm:p-6 flex flex-col justify-between group relative overflow-hidden"
               >
+                <div className="absolute top-0 right-0 w-24 sm:w-28 h-24 sm:h-28 bg-[#88D900]/5 rounded-full blur-2xl group-hover:bg-[#88D900]/15 transition-all duration-500 pointer-events-none" />
+
                 <div>
-                  <div className="p-3.5 rounded-2xl bg-emerald-100 text-[#2D6A4F] w-fit mb-6 group-hover:scale-110 transition-transform">
-                    <Icon className="w-6 h-6" />
+                  {/* Icon & Category */}
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#090909] border border-[#88D900]/30 text-[#88D900] flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-[#88D900] transition-all shrink-0">
+                      <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <span className="text-[9px] sm:text-[10px] font-heading font-extrabold px-2.5 sm:px-3 py-1 rounded-full bg-[#090909] border border-white/10 text-[#88D900] uppercase tracking-wider ml-2 text-right leading-tight">
+                      {service.category}
+                    </span>
                   </div>
 
-                  <h3 className="font-heading font-extrabold text-lg text-gray-900 mb-3 group-hover:text-[#2D6A4F] transition-colors">
+                  {/* Title & Description */}
+                  <h3 className="font-heading font-bold text-lg sm:text-xl text-white mb-2 sm:mb-3 group-hover:text-[#88D900] transition-colors">
                     {service.title}
                   </h3>
-
-                  <p className="text-xs text-gray-600 leading-relaxed mb-6 font-semibold">
-                    {service.desc}
+                  <p className="font-body text-[11px] sm:text-sm text-[#9CA3AF] leading-relaxed mb-4 sm:mb-6">
+                    {service.description}
                   </p>
+
+                  {/* Deliverables */}
+                  <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+                    {service.deliverables.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-[11px] sm:text-xs text-white">
+                        <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D900] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="w-8 h-8 rounded-full bg-emerald-100 text-[#2D6A4F] flex items-center justify-center group-hover:bg-[#2D6A4F] group-hover:text-white transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
+                {/* Bottom Actions */}
+                <div className="pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between">
+                  <button
+                    onClick={() => setSelectedService(service)}
+                    className="text-[11px] sm:text-xs font-button font-bold text-[#88D900] hover:underline"
+                  >
+                    View Deliverables
+                  </button>
+                  <button
+                    onClick={() => handleInquire(service.title)}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#090909] border border-white/10 text-white hover:bg-[#88D900] hover:text-[#090909] hover:border-[#88D900] flex items-center justify-center transition-all shrink-0"
+                    title="Inquire"
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
 
       {/* Service Detail Modal */}
@@ -147,81 +133,65 @@ export const ServicesSection: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto text-gray-900"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
             onClick={() => setSelectedService(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative w-full max-w-xl bg-[#151515] border border-[#88D900]/40 rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 text-white max-h-[85vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
-              className="max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-8 bg-white dark:bg-[#121620] border border-emerald-100 shadow-2xl relative my-auto"
             >
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:text-[#52B788]"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-[#090909] text-white hover:text-[#88D900]"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-emerald-100 text-[#2D6A4F]">
-                  {React.createElement(selectedService.icon, { className: 'w-6 h-6' })}
-                </div>
-                <div>
-                  <span className="text-xs font-heading font-extrabold uppercase text-[#2D6A4F] tracking-wider block">
-                    Service Scope
-                  </span>
-                  <h3 className="font-heading font-black text-xl sm:text-2xl text-gray-900 dark:text-white">
-                    {selectedService.title}
-                  </h3>
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#88D900]/10 text-[#88D900] text-[10px] sm:text-xs font-bold mb-3 sm:mb-4">
+                {selectedService.category}
               </div>
 
-              <p className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                {selectedService.details.overview}
+              <h3 className="font-heading font-bold text-xl sm:text-2xl mb-3 sm:mb-4 text-[#88D900]">
+                {selectedService.title}
+              </h3>
+
+              <p className="font-body text-xs sm:text-sm text-[#9CA3AF] mb-4 sm:mb-6 leading-relaxed">
+                {selectedService.description}
               </p>
 
-              <div className="space-y-4 border-t border-b border-gray-100 dark:border-gray-800 py-4 mb-6">
-                <h4 className="font-heading font-extrabold text-xs uppercase text-gray-900 dark:text-white tracking-wider">
-                  Deliverables Included
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedService.details.deliverables.map((item: string, i: number) => (
-                    <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 dark:bg-gray-800 text-xs font-semibold">
-                      <CheckCircle className="w-4 h-4 text-[#2D6A4F] shrink-0" />
+              <div className="p-4 rounded-2xl bg-[#090909] border border-white/10 mb-4 sm:mb-6">
+                <span className="font-heading font-bold text-xs text-white uppercase block mb-2 sm:mb-3">
+                  Key Deliverables:
+                </span>
+                <div className="space-y-2">
+                  {selectedService.deliverables.map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-[11px] sm:text-xs text-white">
+                      <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D900] shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  {selectedService.details.tools.map((t: string) => (
-                    <span key={t} className="px-3 py-1 rounded-full bg-emerald-100 text-[#2D6A4F] text-[11px] font-bold">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  onClick={() => setSelectedService(null)}
-                  className="px-6 py-2.5 rounded-full mint-btn-dark text-white font-heading font-bold text-xs uppercase text-center"
+              <div className="flex justify-end">
+                <button
+                  onClick={() => {
+                    const s = selectedService.title;
+                    setSelectedService(null);
+                    handleInquire(s);
+                  }}
+                  className="btn-neon bg-[#88D900] text-black font-extrabold text-xs uppercase"
                 >
-                  Request Service ↗
-                </a>
+                  Book Service ↗
+                </button>
               </div>
-
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Bottom Wave Divider back into Cream */}
-      <OrganicWave fillColor="#FFF9ED" />
-
     </section>
   );
 };

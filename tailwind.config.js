@@ -8,46 +8,51 @@ export default {
   theme: {
     extend: {
       colors: {
-        mint: {
-          DEFAULT: "#52B788",
-          light: "#74C69D",
-          soft: "#D8F3DC",
-          dark: "#2D6A4F",
-          deep: "#1B4332",
-          black: "#081C15",
-        },
-        cream: {
-          DEFAULT: "#FFF9ED",
-          card: "#FFF5E4",
-          soft: "#FFFAEE",
-          dark: "#F4EAD3",
-        },
-        coral: {
-          DEFAULT: "#FF6B4A",
-          light: "#FF8F75",
-          soft: "#FFF0EC",
-          dark: "#E85635",
-        },
-        accent: {
-          DEFAULT: "#52B788",
-          peach: "#FF987E",
-          yellow: "#FFB84D",
-          dark: "#2D6A4F"
+        luxury: {
+          bg: "#090909",
+          card: "#151515",
+          cardHover: "#1F1F1F",
+          border: "#262626",
+          accent: "#88D900", // Vibrant Lime Green (Image 2)
+          lime: "#88D900",
+          pink: "#F472B6", // Fashion Pink (Image 2)
+          accentGlow: "rgba(136, 217, 0, 0.3)",
+          accentSoft: "rgba(136, 217, 0, 0.12)",
+          muted: "#9CA3AF",
+          subtle: "#6B7280"
         }
       },
       fontFamily: {
-        heading: ['"Outfit"', '"Fredoka"', '"Plus Jakarta Sans"', 'sans-serif'],
-        display: ['"Outfit"', '"Fredoka"', 'sans-serif'],
-        script: ['"Dancing Script"', 'cursive'],
-        serif: ['"Instrument Serif"', '"Playfair Display"', 'serif'],
-        editorial: ['"Instrument Serif"', '"Playfair Display"', 'serif'],
-        sans: ['"Plus Jakarta Sans"', '"Outfit"', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        heading: ['"Space Grotesk"', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['"Inter"', 'sans-serif'],
+        sans: ['"Inter"', 'sans-serif'],
+        button: ['"Manrope"', 'sans-serif'],
+      },
+      borderRadius: {
+        '3xl': '30px',
+        'luxury': '30px',
       },
       boxShadow: {
-        'mint-glow': '0 20px 40px rgba(82, 183, 136, 0.25)',
-        'soft-card': '0 15px 35px rgba(0, 0, 0, 0.06)',
-        'luxury': '0 25px 60px -15px rgba(0, 0, 0, 0.12)',
+        'lime-glow': '0 0 30px rgba(136, 217, 0, 0.3)',
+        'pink-glow': '0 0 30px rgba(244, 114, 182, 0.3)',
+        'card-glow': '0 20px 40px rgba(0, 0, 0, 0.8)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+        'spin-slow': 'spin 12s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.08)' },
+        }
       }
     },
   },
