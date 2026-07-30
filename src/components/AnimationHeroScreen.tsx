@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Edit2, Check, Plus } from 'lucide-react';
 import { ScooterRiderSVG } from './ScooterRiderSVG';
 import { FishLogoSVG } from './FishLogoSVG';
+import blueBg from '../assets/blue_gradient_bg.png';
 
 interface AnimationHeroScreenProps {
   onScrollNext?: () => void;
@@ -22,10 +23,13 @@ export const AnimationHeroScreen: React.FC<AnimationHeroScreenProps> = ({ onScro
   };
 
   return (
-    <div className="relative w-full h-full min-h-[540px] sm:min-h-[620px] md:min-h-[680px] bg-[#004DE6] text-white flex flex-col justify-between items-center overflow-hidden select-none px-4 sm:px-8 py-3 sm:py-6 rounded-2xl sm:rounded-3xl border border-blue-400/20 shadow-2xl">
+    <div className="relative w-full h-full min-h-[540px] sm:min-h-[620px] md:min-h-[680px] text-white flex flex-col justify-between items-center overflow-hidden select-none px-4 sm:px-8 py-3 sm:py-6 rounded-2xl sm:rounded-3xl border border-blue-400/20 shadow-2xl">
       
-      {/* ── 1. BACKGROUND GRADIENT & FINE TECH BLUEPRINT GRID ── */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_75%_25%,_#0062FF_0%,_#0042D9_50%,_#001C75_100%)] pointer-events-none" />
+      {/* ── 1. UPLOADED BLUE GRAINY GRADIENT BACKDROP ── */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
+        style={{ backgroundImage: `url(${blueBg})` }}
+      />
 
       {/* Blueprint Grid Lines (Fine white technical grid) */}
       <div

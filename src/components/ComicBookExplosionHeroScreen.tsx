@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, RefreshCw } from 'lucide-react';
+import blueBg from '../assets/blue_gradient_bg.png';
 
 interface ComicBookExplosionHeroScreenProps {
   onScrollNext?: () => void;
@@ -14,13 +15,16 @@ export const ComicBookExplosionHeroScreen: React.FC<ComicBookExplosionHeroScreen
   };
 
   return (
-    <div className="relative w-full h-full min-h-[580px] sm:min-h-[640px] md:min-h-[720px] bg-[#E61A2B] text-white flex flex-col justify-between items-center overflow-hidden select-none p-3 sm:p-6 rounded-2xl sm:rounded-3xl border-4 border-black shadow-2xl">
+    <div className="relative w-full h-full min-h-[580px] sm:min-h-[640px] md:min-h-[720px] text-white flex flex-col justify-between items-center overflow-hidden select-none p-3 sm:p-6 rounded-2xl sm:rounded-3xl border-4 border-blue-400/40 shadow-2xl">
       
-      {/* ── 1. EXACT COMIC BOOK EXPLOSION BACKDROP (100% PURE SVG & CSS) ── */}
+      {/* ── 1. UPLOADED BLUE GRAINY GRADIENT BACKDROP ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
-        {/* Crimson Red Sky Base */}
-        <div className="absolute inset-0 bg-[#E61A2B]" />
+        {/* Uploaded Blue Image Base */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${blueBg})` }}
+        />
 
         {/* White Comic Halftone Dot Matrix Pattern */}
         <div

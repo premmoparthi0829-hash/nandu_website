@@ -7,6 +7,9 @@ import freyrImg from '../assets/project_freyr.png';
 import solarImg from '../assets/project_solar.png';
 import milkImg from '../assets/project_milk.png';
 import nandiniImg from '../assets/nandini_coral.png';
+import blueBg from '../assets/blue_gradient_bg.png';
+import nandiniPosterCutout from '../assets/nandini_poster_cutout.png';
+import wrinkledPaper from '../assets/wrinkled_paper.png';
 import { AnimationHeroScreen } from './AnimationHeroScreen';
 import { YouthRecordHeroScreen } from './YouthRecordHeroScreen';
 import { Production2026HeroScreen } from './Production2026HeroScreen';
@@ -16,6 +19,9 @@ import { PS5GamingHeroScreen } from './PS5GamingHeroScreen';
 import { CartoonNetworkHeroScreen } from './CartoonNetworkHeroScreen';
 import { CerealBoxBrandHeroScreen } from './CerealBoxBrandHeroScreen';
 import { ComicBookExplosionHeroScreen } from './ComicBookExplosionHeroScreen';
+import { Y2KPopHeroScreen } from './Y2KPopHeroScreen';
+import { NTTRibbonHeroScreen } from './NTTRibbonHeroScreen';
+import { PeopleDesignHeroScreen } from './PeopleDesignHeroScreen';
 
 interface CreamyHeroProps {
   activeTheme: DesignTheme;
@@ -30,7 +36,7 @@ const WavyDeco = ({ color = '#F59E0B', className = '' }: { color?: string; class
   </svg>
 );
 
-const SLIDES = ['comic_explosion', 'cereal_brand', 'cartoon_network', 'ps5_gaming', 'apple_glass', 'pinterest_manifestival', 'production_2026', 'youth_record', 'graphic_design', 'portfolio', 'hello', 'social', 'print', 'branding', 'skills', 'explore'];
+const SLIDES = ['people_design', 'ntt_ribbon', 'y2k_pop', 'comic_explosion', 'cereal_brand', 'cartoon_network', 'ps5_gaming', 'apple_glass', 'pinterest_manifestival', 'production_2026', 'youth_record', 'graphic_design', 'portfolio', 'hello', 'social', 'print', 'branding', 'skills', 'explore'];
 
 const titleV = {
   hidden: { opacity: 0, y: 40, skewY: 2 },
@@ -616,6 +622,18 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
   }, [current, isPaused]);
 
   const slideMap: Record<string, React.ReactNode> = {
+    people_design: <PeopleDesignHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    ntt_ribbon: <NTTRibbonHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
+    y2k_pop: <Y2KPopHeroScreen onScrollNext={() => {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }} />,
     comic_explosion: <ComicBookExplosionHeroScreen onScrollNext={() => {
       const el = document.getElementById('about');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -662,39 +680,54 @@ export const CreamyHero: React.FC<CreamyHeroProps> = ({
     explore:        <SlideExplore />,
   };
 
+  const isPeopleDesign = SLIDES[current] === 'people_design';
+
   return (
-    <section id="hero" className="relative overflow-hidden bg-[#070D08] text-white flex flex-col justify-between"
-      style={{ minHeight: '100dvh' }}>
+    <section id="hero" className={`relative overflow-hidden flex flex-col justify-between transition-colors duration-500 ${isPeopleDesign ? 'bg-[#0047FF]' : 'bg-[#030712]'}`}
+      style={{
+        minHeight: '100dvh',
+        backgroundImage: isPeopleDesign ? 'none' : `url(${blueBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
 
       {/* BG dot grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.03]"
-        style={{ backgroundImage:'radial-gradient(circle, #00FF66 1px, transparent 1px)', backgroundSize:'36px 36px' }} />
+      {!isPeopleDesign && (
+        <div className="absolute inset-0 z-0 opacity-[0.03]"
+          style={{ backgroundImage:'radial-gradient(circle, #00FF66 1px, transparent 1px)', backgroundSize:'36px 36px' }} />
+      )}
 
       {/* Neon Green Ambient Glow centered */}
-      <motion.div className="absolute inset-0 z-0 pointer-events-none"
-        animate={{ background:[
-          'radial-gradient(circle at 50% 48%, rgba(0,255,102,0.12) 0%, transparent 65%)',
-          'radial-gradient(circle at 50% 45%, rgba(0,255,102,0.16) 0%, transparent 65%)',
-          'radial-gradient(circle at 50% 52%, rgba(0,255,102,0.10) 0%, transparent 65%)',
-        ]}}
-        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-      />
+      {!isPeopleDesign && (
+        <motion.div className="absolute inset-0 z-0 pointer-events-none"
+          animate={{ background:[
+            'radial-gradient(circle at 50% 48%, rgba(0,255,102,0.12) 0%, transparent 65%)',
+            'radial-gradient(circle at 50% 45%, rgba(0,255,102,0.16) 0%, transparent 65%)',
+            'radial-gradient(circle at 50% 52%, rgba(0,255,102,0.10) 0%, transparent 65%)',
+          ]}}
+          transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+        />
+      )}
 
       {/* Corner accents */}
-      <div className="absolute top-8 right-8 opacity-[0.15] z-0 rotate-12 pointer-events-none">
-        <WavyDeco color="#00FF66" className="w-24" />
-      </div>
-      <div className="absolute bottom-20 left-8 opacity-[0.12] z-0 -rotate-6 pointer-events-none">
-        <WavyDeco color="#00FF66" className="w-20" />
-      </div>
+      {!isPeopleDesign && (
+        <>
+          <div className="absolute top-8 right-8 opacity-[0.15] z-0 rotate-12 pointer-events-none">
+            <WavyDeco color="#00FF66" className="w-24" />
+          </div>
+          <div className="absolute bottom-20 left-8 opacity-[0.12] z-0 -rotate-6 pointer-events-none">
+            <WavyDeco color="#00FF66" className="w-20" />
+          </div>
+        </>
+      )}
 
       {/* ── SLIDE STAGE ── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2 sm:py-6">
+      <div className={`relative z-10 flex-1 flex flex-col justify-center items-center ${isPeopleDesign ? 'p-0' : 'py-2 sm:py-6'}`}>
         <div className="flex-1 w-full relative overflow-hidden flex items-center justify-center min-h-[550px] sm:min-h-[620px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={SLIDES[current]}
-              className="absolute inset-0 flex flex-col justify-center items-center text-center p-2"
+              className={`absolute inset-0 flex flex-col justify-center items-center text-center ${isPeopleDesign ? 'p-0' : 'p-2'}`}
               initial="hidden" animate="show" exit="exit"
             >
               {slideMap[SLIDES[current]]}
