@@ -55,7 +55,7 @@ export function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
-    </div>
+      </div>
   );
 }
 

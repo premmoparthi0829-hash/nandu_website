@@ -1,5 +1,5 @@
 import { Project, Skill, ServiceItem, ExperienceItem, Testimonial } from '../types/app';
-import heroImg from '../assets/nandini_coral.png';
+import heroImg from '../assets/designer_portrait.png';
 
 export const PERSONAL_INFO = {
   name: "Nandini Vaddepalli",

@@ -32,7 +32,13 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center mb-10 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3.5 h-3.5" />
             <span>START A CREATIVE PROJECT</span>
@@ -43,7 +49,7 @@ export const ContactSection: React.FC = () => {
           <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl">
             Have a new brand identity project, print packaging, digital campaign, or design system query? Send a message directly.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start w-full">
           

@@ -11,7 +11,13 @@ export const TimelineSection: React.FC = () => {
       <div className="max-w-5xl mx-auto">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center mb-10 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Briefcase className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>CAREER TIMELINE</span>
@@ -22,7 +28,7 @@ export const TimelineSection: React.FC = () => {
           <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
             4.5+ years of driving creative visual strategy across agencies, clean tech enterprises, and global brands.
           </p>
-        </div>
+        </motion.div>
 
         {/* Vertical Timeline */}
         {/* On mobile: simple stacked cards. On sm+: left-border timeline with absolute date pills */}

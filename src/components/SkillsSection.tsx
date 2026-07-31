@@ -40,7 +40,13 @@ export const SkillsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* Section Title */}
-        <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center mb-8 sm:mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>DESIGN &amp; TECHNICAL MATRIX</span>
@@ -51,10 +57,16 @@ export const SkillsSection: React.FC = () => {
           <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
             Mastery of industry-standard Adobe Creative Cloud tools, Figma UI design systems, and digital publishing frameworks.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Filter Pills — wraps cleanly on mobile */}
-        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-1">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-1"
+        >
           {categories.map((cat) => (
             <button
               key={cat}
@@ -68,7 +80,7 @@ export const SkillsSection: React.FC = () => {
               {cat}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Skills Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

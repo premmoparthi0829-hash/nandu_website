@@ -46,7 +46,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
       <div className="max-w-7xl mx-auto">
 
         {/* Section Title */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center mb-10 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>SOLUTIONS &amp; EXPERTISE</span>
@@ -57,7 +63,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
           <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-2xl px-2">
             From complete brand identity design guidelines to tactile print packaging and interactive UI systems.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid — 1 col mobile, 2 col md, 3 col lg */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

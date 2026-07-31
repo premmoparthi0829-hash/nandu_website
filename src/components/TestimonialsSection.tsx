@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Star, Sparkles, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../data/portfolioData';
 
@@ -8,7 +9,13 @@ export const TestimonialsSection: React.FC = () => {
       <div className="absolute top-1/2 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-7xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12"
+      >
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
@@ -21,7 +28,7 @@ export const TestimonialsSection: React.FC = () => {
             Praise from product leaders, founders, and marketing executives who experienced Nandini's visual design leadership firsthand.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Infinite Marquee Slider — hidden scrollbar, mask fades edges */}
       <div className="flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">

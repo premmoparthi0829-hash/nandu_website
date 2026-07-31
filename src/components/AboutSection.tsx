@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Sparkles, FileText, Smartphone, Flame, Code, Layers,
-  CheckCircle2, X, MapPin, Briefcase, Award, Zap, Palette, Figma
+  Sparkles, FileText, Smartphone, Layers,
+  CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import gallery2 from '../assets/gallery_2.png';
+import gallery3 from '../assets/gallery_3.jpg';
+import gallery5 from '../assets/gallery_5.jpg';
+import gallery6 from '../assets/gallery_6.png';
+import gallery7 from '../assets/gallery_7.png';
 
 interface AboutSectionProps {
   onOpenResume: () => void;
@@ -12,12 +17,45 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
+
+  const galleryImages = [
+    { src: gallery5, title: 'Ultra HD Floral Portrait', borderColor: '#F59E0B' },
+    { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
+    { src: gallery6, title: 'Ocean Waves Beach Walk', borderColor: '#00A4E4' },
+    { src: gallery2, title: 'Sunset Beach Portrait', borderColor: '#F472B6' },
+    { src: gallery3, title: 'Picking Flowers Outdoor Aesthetic', borderColor: '#88D900' },
+  ];
+
+  const currentImage = galleryImages[activePhoto];
+  const nextPhotoIndex = (activePhoto + 1) % galleryImages.length;
+  const nextImage = galleryImages[nextPhotoIndex];
+
+  // Auto-play gallery images with smooth card moving animation
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setActivePhoto((prev) => (prev + 1) % galleryImages.length);
+    }, 3800);
+    return () => clearInterval(timer);
+  }, [galleryImages.length]);
+
+  const handleNextPhoto = () => {
+    setDirection(1);
+    setActivePhoto((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const handlePrevPhoto = () => {
+    setDirection(-1);
+    setActivePhoto((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
 
   const roles = [
-    { title: 'Brand Identity Design', desc: 'Crafting iconic logos, visual guidelines, and vector color systems.', icon: Palette, color: '#88D900' },
-    { title: 'Print & Packaging', desc: 'CMYK print brochures, box dielines, pouches, and trade show collaterals.', icon: Layers, color: '#88D900' },
-    { title: 'Social Media & Ads', desc: 'High-converting ad campaign graphics, carousels, and promotional banners.', icon: Smartphone, color: '#88D900' },
-    { title: 'UI/UX Design', desc: 'Modern luxury Figma component libraries, wireframes, and design systems.', icon: Figma, color: '#88D900' },
+    { title: 'Brand Identity Design', desc: 'Crafting iconic logos, visual guidelines, and vector color systems.', icon: Palette },
+    { title: 'Print & Packaging', desc: 'CMYK print brochures, box dielines, pouches, and trade show collaterals.', icon: Layers },
+    { title: 'Social Media & Ads', desc: 'High-converting ad campaign graphics, carousels, and promotional banners.', icon: Smartphone },
+    { title: 'UI/UX Design', desc: 'Modern luxury Figma component libraries, wireframes, and design systems.', icon: Figma },
   ];
 
   return (
@@ -26,65 +64,148 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
       <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center mb-10 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>ABOUT NANDINI VADDEPALLI</span>
+            <span>About Nandini</span>
           </div>
-          <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight">
-            CRAFTING ICONIC <span className="text-[#88D900]">VISUAL IDENTITIES</span>
+          <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-white mb-4">
+            Visual Storyteller & <span className="text-[#88D900]">Brand Strategist</span>
           </h2>
-        </div>
+          <p className="font-body text-[#9CA3AF] text-sm sm:text-base max-w-2xl text-center leading-relaxed">
+            Combining strategic thinking with bold artistic vision to shape brands that make a lasting impression.
+          </p>
+        </motion.div>
 
-        {/* Split Layout */}
+        {/* Main Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Luxury Portrait Card */}
+
+          {/* Left Column: Interactive 3D Card Stack Carousel with Moving Animation */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 relative flex justify-center"
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 relative w-full flex justify-center py-2"
           >
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] h-[400px] sm:h-[480px] rounded-[24px] sm:rounded-[30px] bg-[#151515] border border-white/10 overflow-hidden shadow-2xl group">
-              <img
-                src={PERSONAL_INFO.heroImage}
-                alt={PERSONAL_INFO.name}
-                className="w-full h-full object-cover filter contrast-[1.05] group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-90" />
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] h-[440px] sm:h-[500px] group">
 
-              {/* Floating Role Pill */}
-              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#88D900] text-black font-button font-bold text-[11px] sm:text-xs shadow-lg flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 fill-black" />
-                <span>4.5+ Yrs Pro</span>
-              </div>
+              {/* 2ND BACKGROUND CARD (Displays NEXT IMAGE sticking out behind main card) */}
+              <motion.div
+                key={`bg-${nextPhotoIndex}`}
+                initial={{ scale: 0.9, rotate: -10, opacity: 0 }}
+                animate={{ scale: 0.95, rotate: -6, opacity: 0.85 }}
+                transition={{ duration: 0.5 }}
+                style={{ borderColor: `${nextImage.borderColor}AA` }}
+                className="absolute inset-0 rounded-[28px] bg-[#151515] border-2 shadow-2xl overflow-hidden pointer-events-none"
+              >
+                <img
+                  src={nextImage.src}
+                  alt={nextImage.title}
+                  className="w-full h-full object-cover object-[center_15%] opacity-75 filter saturate-90 brightness-90"
+                />
+              </motion.div>
 
-              {/* Bottom Card Summary */}
-              <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6">
-                <span className="text-[11px] sm:text-xs font-heading font-extrabold text-[#88D900] uppercase tracking-wider block mb-1">
-                  NANDINI VADDEPALLI
-                </span>
-                <h3 className="font-heading font-bold text-base sm:text-lg text-white leading-tight mb-2">
-                  Creative Graphic Designer &amp; Brand Specialist
-                </h3>
-                <div className="flex items-center gap-2 text-xs text-[#9CA3AF]">
-                  <MapPin className="w-3.5 h-3.5 text-[#88D900]" />
-                  <span>{PERSONAL_INFO.location}</span>
+              {/* ACTIVE FRONT IMAGE CARD (Lifts up -45px and tucks behind stack, while background card steps forward) */}
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={activePhoto}
+                  custom={direction}
+                  initial={(dir: number) => ({
+                    x: 0,
+                    y: dir > 0 ? 12 : -45,
+                    scale: dir > 0 ? 0.95 : 1.02,
+                    rotate: dir > 0 ? -6 : 0,
+                    opacity: 0.85,
+                    zIndex: 10,
+                  })}
+                  animate={{
+                    x: 0,
+                    y: 0,
+                    scale: 1,
+                    rotate: 2,
+                    opacity: 1,
+                    zIndex: 20,
+                    transition: {
+                      duration: 0.55,
+                      ease: [0.22, 1, 0.36, 1],
+                    }
+                  }}
+                  exit={(dir: number) => ({
+                    x: 0,
+                    y: dir > 0 ? [-10, -45, 12] : 12,
+                    scale: dir > 0 ? [1, 1.02, 0.94] : 0.94,
+                    rotate: dir > 0 ? [2, 0, -6] : -6,
+                    opacity: [1, 0.9, 0],
+                    zIndex: 5,
+                    transition: {
+                      duration: 0.55,
+                      ease: [0.22, 1, 0.36, 1],
+                    }
+                  })}
+                  style={{ borderColor: `${currentImage.borderColor}CC` }}
+                  className="absolute inset-0 rounded-[28px] bg-[#151515] border-2 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between"
+                >
+                  <img
+                    src={currentImage.src}
+                    alt={currentImage.title}
+                    className="w-full h-full object-cover object-[center_15%] rounded-[26px] shadow-2xl"
+                  />
+                </motion.div>
+              </AnimatePresence>
+
+                {/* Left / Right Carousel Control Arrows */}
+                <button
+                  onClick={handlePrevPhoto}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white hover:text-[#88D900] border border-white/20 flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95"
+                  aria-label="Previous Photo"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={handleNextPhoto}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white hover:text-[#88D900] border border-white/20 flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95"
+                  aria-label="Next Photo"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Bottom Thumbnail Dots Indicator */}
+                <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-30 pointer-events-auto">
+                  {galleryImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setDirection(idx > activePhoto ? 1 : -1);
+                        setActivePhoto(idx);
+                      }}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        activePhoto === idx
+                          ? 'w-6 bg-[#88D900] shadow-[0_0_10px_#88D900]'
+                          : 'w-2 bg-white/40 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
                 </div>
-              </div>
+
             </div>
           </motion.div>
 
           {/* Right Column: Bio & Core Roles Grid */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 flex flex-col items-start"
           >
             <h3 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl text-white mb-4 leading-snug">
@@ -95,13 +216,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
               With 4.5+ years of experience steering brand direction, packaging dielines, digital campaign graphics, and UI design systems, I help companies build memorable identity systems that drive growth and command market authority.
             </p>
 
-            {/* 4 Roles Grid */}
+            {/* 4 Roles Grid — staggered entrance */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full mb-6 sm:mb-8">
               {roles.map((r, idx) => {
                 const IconComp = r.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.15 + idx * 0.08, duration: 0.5 }}
                     className="luxury-card p-4 sm:p-5 flex items-start gap-3 sm:gap-4 hover:border-[#88D900]/50 transition-all"
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#090909] border border-[#88D900]/30 text-[#88D900] flex items-center justify-center shrink-0">
@@ -115,13 +240,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                         {r.desc}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
 
             {/* Action Bar */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.45, duration: 0.5 }}
+              className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto"
+            >
               <button
                 onClick={onOpenResume}
                 className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center"
@@ -136,7 +267,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
               >
                 <span>Read Full Biography</span>
               </button>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>
