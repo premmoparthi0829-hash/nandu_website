@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Smartphone, Sparkles, ChevronRight, Palette } from 'lucide-react';
-import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { Sparkles, ChevronRight, Palette, Pen, Package, Monitor, Printer, Star } from 'lucide-react';
+import { PROJECTS } from '../data/portfolioData';
 
 interface HeroSectionProps {
   onOpenResume: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
-  // Top 4 Rounded Thumbnails
+  // Top 4 category tiles (icon-only, no images)
   const topThumbnails = [
-    { title: 'Branding', img: 'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=200&q=80' },
-    { title: 'Packaging', img: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=200&q=80' },
-    { title: 'Print', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=200&q=80' },
-    { title: 'UI/UX', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=200&q=80' },
+    { title: 'Branding', icon: <Pen className="w-3.5 h-3.5" />, bg: 'bg-[#F472B6]', text: 'text-black' },
+    { title: 'Packaging', icon: <Package className="w-3.5 h-3.5" />, bg: 'bg-[#88D900]', text: 'text-black' },
+    { title: 'Print', icon: <Printer className="w-3.5 h-3.5" />, bg: 'bg-black', text: 'text-white' },
+    { title: 'UI/UX', icon: <Monitor className="w-3.5 h-3.5" />, bg: 'bg-[#090909]', text: 'text-[#88D900]' },
   ];
 
   // 3 Bottom Showcase Cards
@@ -44,17 +44,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </span>
               </a>
 
-              {/* 4 Rounded Square Thumbnails */}
+              {/* 4 Icon Tiles (no images) */}
               <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                 {topThumbnails.map((item, idx) => (
                   <div
                     key={idx}
-                    className="relative w-7 h-7 min-[380px]:w-8 min-[380px]:h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl overflow-hidden border border-black/10 shadow-sm shrink-0 cursor-pointer hover:scale-105 transition-transform"
+                    className={`relative w-7 h-7 min-[380px]:w-8 min-[380px]:h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl border border-black/10 shadow-sm shrink-0 cursor-pointer hover:scale-105 transition-transform flex flex-col items-center justify-center gap-0.5 ${item.bg} ${item.text}`}
                     title={item.title}
                   >
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/20" />
-                    <span className="absolute bottom-0.5 left-0.5 text-[6px] sm:text-[8px] font-bold text-white uppercase tracking-tighter truncate max-w-[26px]">
+                    {item.icon}
+                    <span className="text-[5px] sm:text-[6px] font-bold uppercase tracking-tighter">
                       {item.title}
                     </span>
                   </div>
@@ -100,43 +99,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
           </div>
 
-          {/* GIANT DISPLAY TYPOGRAPHY BEHIND MODEL */}
-          <div className="relative w-full flex items-center justify-center py-2 sm:py-4 my-1 select-none overflow-hidden max-w-full">
+          {/* GIANT DISPLAY TYPOGRAPHY — pure text, no portrait */}
+          <div className="relative w-full flex flex-col items-center justify-center py-4 sm:py-8 my-1 select-none overflow-hidden max-w-full gap-2">
             <h1 className="font-heading font-black text-[40px] min-[360px]:text-[52px] min-[480px]:text-[76px] sm:text-[120px] md:text-[170px] lg:text-[230px] leading-none text-[#090909] tracking-tighter text-center uppercase whitespace-nowrap opacity-95 max-w-full">
               NANDINI
             </h1>
 
-            {/* CENTER MODEL/DESIGNER PORTRAIT OVERLAPPING TEXT */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] min-[360px]:w-[170px] min-[480px]:w-[220px] sm:w-[320px] md:w-[380px] lg:w-[420px] h-[200px] min-[360px]:h-[240px] min-[480px]:h-[300px] sm:h-[420px] md:h-[480px] z-20 pointer-events-auto group">
-              <img
-                src={PERSONAL_INFO.heroImage}
-                alt={PERSONAL_INFO.name}
-                className="w-full h-full object-cover object-top rounded-[20px] sm:rounded-[36px] shadow-[0_15px_40px_rgba(0,0,0,0.35)] border-2 sm:border-4 border-white filter contrast-[1.05] group-hover:scale-105 transition-transform duration-700"
-              />
-
-              {/* Floating Verified Badge */}
-              <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 p-1.5 sm:p-3 rounded-lg sm:rounded-2xl bg-black/85 backdrop-blur-md text-white border border-white/20 flex items-center justify-between shadow-xl">
-                <div>
-                  <span className="text-[8px] sm:text-[10px] font-heading font-bold text-[#88D900] uppercase tracking-wider block">
-                    Nandini Vaddepalli
-                  </span>
-                  <span className="text-[8px] sm:text-[11px] text-gray-300 font-body font-medium truncate max-w-[80px] sm:max-w-none block">
-                    Creative Graphic Designer
-                  </span>
-                </div>
-                <div className="flex items-center gap-0.5 sm:gap-1 bg-[#88D900] text-black px-1.5 sm:px-2.5 py-0.5 rounded-full text-[8px] sm:text-[10px] font-bold shrink-0">
-                  <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-black" />
-                  <span>5.0</span>
-                </div>
-              </div>
+            {/* Subtitle line */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              <span className="h-px w-8 sm:w-16 bg-[#090909]/30" />
+              <span className="font-button font-bold text-[10px] sm:text-sm uppercase tracking-[0.25em] text-[#090909]/60">
+                Creative Graphic Designer · 4.5+ Years
+              </span>
+              <span className="h-px w-8 sm:w-16 bg-[#090909]/30" />
             </div>
 
-            {/* Floating Top Left Client Review Stack */}
+            {/* Floating Left: Client count badge (initials, no photos) */}
             <div className="absolute bottom-2 left-2 sm:left-6 z-20 hidden md:flex items-center gap-3 p-3 rounded-2xl bg-white/90 backdrop-blur-md shadow-xl border border-black/10">
               <div className="flex -space-x-2">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                {['A','B','C'].map((init, i) => (
+                  <div key={i} className={`w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-[9px] font-black text-white ${
+                    ['bg-[#F472B6]','bg-[#88D900]','bg-black'][i]
+                  } ${ i === 1 ? 'text-black' : '' }`}>{init}</div>
+                ))}
               </div>
               <div>
                 <span className="text-xs font-bold text-[#090909] block leading-none">100+ Brands Designed</span>
@@ -144,26 +129,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               </div>
             </div>
 
-            {/* Floating Right Product / Design Badge */}
+            {/* Floating Right: Design badge */}
             <div className="absolute bottom-6 right-4 sm:right-10 z-20 hidden sm:block">
-              <div className="p-3 rounded-2xl bg-black text-white shadow-2xl border border-white/20 flex items-center gap-3 group hover:scale-105 transition-transform">
-                <div className="w-10 h-10 rounded-xl bg-[#88D900] text-black flex items-center justify-center font-bold">
+              <div className="p-3 rounded-2xl bg-black text-white shadow-2xl border border-white/20 flex items-center gap-3 hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-[#88D900] text-black flex items-center justify-center">
                   <Palette className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] font-bold text-[#88D900] uppercase tracking-wider block">
-                    BRAND SUITE
-                  </span>
-                  <span className="text-xs font-bold text-white block leading-tight">
-                    Vector Design
-                  </span>
+                  <span className="text-[9px] font-bold text-[#88D900] uppercase tracking-wider block">BRAND SUITE</span>
+                  <span className="text-xs font-bold text-white block leading-tight">Vector Design</span>
                 </div>
                 <span className="px-2 py-1 rounded-md bg-[#F472B6] text-black text-[9px] font-extrabold uppercase ml-1">
                   4.5+ YRS
                 </span>
               </div>
             </div>
-
           </div>
 
         </div>
@@ -249,54 +229,62 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </span>
               </div>
 
-              {/* 3 Showcase Cards Grid */}
+              {/* 3 Showcase Cards Grid — gradient backgrounds, no images */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full">
-                {heroProjects.map((proj) => (
-                  <motion.div
-                    key={proj.id}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className="relative w-full h-56 sm:h-72 rounded-[20px] sm:rounded-[28px] overflow-hidden bg-black text-white border border-white/20 shadow-2xl cursor-pointer group flex flex-col justify-between p-4 sm:p-5"
-                    onClick={() => {
-                      const el = document.getElementById('projects');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    {/* Background Screenshot */}
-                    <img
-                      src={proj.heroImage}
-                      alt={proj.title}
-                      className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] group-hover:scale-110 transition-transform duration-700 opacity-60"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                {heroProjects.map((proj, idx) => {
+                  const gradients = [
+                    'from-[#F472B6] via-[#c026d3] to-[#7c3aed]',
+                    'from-[#88D900] via-[#22c55e] to-[#0ea5e9]',
+                    'from-[#f97316] via-[#ef4444] to-[#ec4899]',
+                  ];
+                  return (
+                    <motion.div
+                      key={proj.id}
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="relative w-full h-56 sm:h-72 rounded-[20px] sm:rounded-[28px] overflow-hidden text-white border border-white/20 shadow-2xl cursor-pointer group flex flex-col justify-between p-4 sm:p-5"
+                      onClick={() => {
+                        const el = document.getElementById('projects');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      {/* Gradient background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${gradients[idx % 3]} opacity-90`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                    {/* Top Pill Tag */}
-                    <div className="relative z-10 flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/20 backdrop-blur-md text-[#88D900] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                        {proj.category}
-                      </span>
-                      <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#88D900] text-black flex items-center justify-center font-bold text-xs group-hover:rotate-45 transition-transform">
-                        ↗
-                      </span>
-                    </div>
-
-                    {/* Bottom Info */}
-                    <div className="relative z-10">
-                      <h4 className="font-heading font-bold text-base sm:text-lg text-white mb-1 group-hover:text-[#88D900] transition-colors">
-                        {proj.title}
-                      </h4>
-                      <p className="font-body text-[10px] sm:text-[11px] text-gray-300 line-clamp-2 mb-2">
-                        {proj.shortDescription}
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {proj.technologies.slice(0, 2).map((t) => (
-                          <span key={t} className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-black/80 text-[#88D900]">
-                            {t}
-                          </span>
-                        ))}
+                      {/* Decorative letter */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-heading font-black text-[90px] sm:text-[120px] leading-none text-white/10 select-none pointer-events-none">
+                        {proj.title.charAt(0)}
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+
+                      {/* Top Pill Tag */}
+                      <div className="relative z-10 flex items-center justify-between">
+                        <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/30 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
+                          {proj.category}
+                        </span>
+                        <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs group-hover:rotate-45 transition-transform">
+                          ↗
+                        </span>
+                      </div>
+
+                      {/* Bottom Info */}
+                      <div className="relative z-10">
+                        <h4 className="font-heading font-bold text-base sm:text-lg text-white mb-1 group-hover:text-[#88D900] transition-colors">
+                          {proj.title}
+                        </h4>
+                        <p className="font-body text-[10px] sm:text-[11px] text-white/80 line-clamp-2 mb-2">
+                          {proj.shortDescription}
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {proj.technologies.slice(0, 2).map((t) => (
+                            <span key={t} className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-black/40 text-white">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* Progress Slider Line */}
