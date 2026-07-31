@@ -21,9 +21,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
 
   const galleryImages = [
+    { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
     { src: gallery3, title: 'Picking Flowers Outdoor Aesthetic', borderColor: '#88D900' },
     { src: gallery5, title: 'Ultra HD Floral Portrait', borderColor: '#F59E0B' },
-    { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
     { src: gallery6, title: 'Ocean Waves Beach Walk', borderColor: '#00A4E4' },
     { src: gallery2, title: 'Sunset Beach Portrait', borderColor: '#F472B6' },
   ];
