@@ -5,6 +5,7 @@ import {
   CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import gallery1 from '../assets/gallery_1.jpg';
 import gallery2 from '../assets/gallery_2.png';
 import gallery3 from '../assets/gallery_3.jpg';
 import gallery5 from '../assets/gallery_5.jpg';
@@ -21,6 +22,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
 
   const galleryImages = [
+    { src: gallery1, title: 'Creative Workstation Portrait', borderColor: '#88D900' },
     { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
     { src: gallery3, title: 'Picking Flowers Outdoor Aesthetic', borderColor: '#88D900' },
     { src: gallery5, title: 'Ultra HD Floral Portrait', borderColor: '#F59E0B' },
