@@ -125,7 +125,7 @@ export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [page, setPage] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(9);
+  const [visibleCount, setVisibleCount] = useState<number>(6);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const { projects: dynamicProjects } = useData();
@@ -149,7 +149,7 @@ export const FeaturedProjects: React.FC = () => {
     ? combinedProjects
     : combinedProjects.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
 
-  const ITEMS_PER_PAGE = 9;
+  const ITEMS_PER_PAGE = 6;
   const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE) || 1;
   const currentPage = Math.min(page, totalPages - 1);
 
@@ -168,9 +168,9 @@ export const FeaturedProjects: React.FC = () => {
 
   const handleLoadMore = () => {
     if (visibleCount < filteredProjects.length) {
-      setVisibleCount(prev => prev + 3);
+      setVisibleCount(prev => prev + 6);
     } else {
-      setVisibleCount(9);
+      setVisibleCount(6);
     }
   };
 
@@ -234,7 +234,7 @@ export const FeaturedProjects: React.FC = () => {
                 onClick={() => {
                   setActiveCategory(cat);
                   setPage(0);
-                  setVisibleCount(9);
+                  setVisibleCount(6);
                 }}
                 className="relative py-1 px-1 transition-colors duration-200 focus:outline-none"
               >
@@ -276,8 +276,8 @@ export const FeaturedProjects: React.FC = () => {
             <ChevronsRight className="w-6 h-6 stroke-[3]" />
           </button>
 
-          {/* 3x3 Project Grid (Same 3-column layout on mobile & web) */}
-          <motion.div layout className="grid grid-cols-3 gap-2.5 sm:gap-6">
+          {/* 3x2 Project Grid — 6 per page (3 top + 3 bottom) */}
+          <motion.div layout className="grid grid-cols-3 gap-2.5 sm:gap-5">
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((item) => (
                 <motion.div
