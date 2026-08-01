@@ -4,7 +4,7 @@ import {
   Sparkles, Smartphone, Layers, Flame, Figma, LayoutDashboard,
   Globe, Cpu, MapPin, CreditCard, Cloud, ArrowUpRight, CheckCircle2, X
 } from 'lucide-react';
-import { SERVICES } from '../data/portfolioData';
+import { useData } from '../context/DataContext';
 import { ServiceItem } from '../types/app';
 
 const getServiceIcon = (iconName: string) => {
@@ -28,6 +28,7 @@ interface ServicesSectionProps {
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry }) => {
+  const { services } = useData();
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   const handleInquire = (serviceTitle: string) => {
@@ -67,7 +68,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
 
         {/* Services Grid — 1 col mobile, 2 col md, 3 col lg */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {SERVICES.map((service, index) => {
+          {services.map((service, index) => {
             const IconComp = getServiceIcon(service.icon);
             return (
               <motion.div

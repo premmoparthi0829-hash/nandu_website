@@ -4,7 +4,7 @@ import {
   Sparkles, Code, Smartphone, Flame, Atom, Globe,
   Server, Cpu, Network, GitBranch, Figma, Image, PenTool, Layers
 } from 'lucide-react';
-import { SKILLS } from '../data/portfolioData';
+import { useData } from '../context/DataContext';
 
 const getSkillIcon = (iconName: string) => {
   switch (iconName) {
@@ -26,12 +26,13 @@ const getSkillIcon = (iconName: string) => {
 };
 
 export const SkillsSection: React.FC = () => {
+  const { skills } = useData();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const categories = ['All', 'Design & Tools', 'Branding & Visuals', 'UI/UX & Print'];
 
   const filteredSkills = selectedCategory === 'All'
-    ? SKILLS
-    : SKILLS.filter(s => s.category.includes(selectedCategory));
+    ? skills
+    : skills.filter(s => s.category.includes(selectedCategory));
 
   return (
     <section id="skills" className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">

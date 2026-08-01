@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+import { getAnalytics, isSupported } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB1KSdsG0228aZHEnSVPLgMvtkJ44RtYyk",
@@ -11,6 +11,16 @@ const firebaseConfig = {
   measurementId: "G-XGXM8RHP12"
 };
 
-// Initialize Firebase
+// Initialize Firebase safely
 export const app = initializeApp(firebaseConfig);
-export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+
+// Safe Analytics Initialization to prevent any browser runtime crashes
+if (typeof window !== 'undefined') {
+  isSupported().then((supported) => {
+    if (supported) {
+      getAnalytics(app);
+    }
+  }).catch((err) => {
+    console.warn('Firebase Analytics load skipped:', err);
+  });
+}

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronsLeft, ChevronsRight, ExternalLink, Sparkles } from 'lucide-react';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { Project } from '../types/app';
+import { useData } from '../context/DataContext';
 
 // ─── Graphic Design & Packaging Asset Imports ─────────────────────────────────
 import pFreyr from '../assets/project_freyr.png';
@@ -147,10 +148,26 @@ export const FeaturedProjects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(9);
 
+  const { projects: dynamicProjects } = useData();
+
+  // Combine dynamic projects from Admin Panel + default portfolio assets
+  const combinedProjects: ProjectItem[] = [
+    ...dynamicProjects.map((dp) => ({
+      id: dp.id,
+      title: dp.title,
+      category: dp.category,
+      filterCategory: dp.category === 'Branding' ? 'Branding' : dp.category === 'Packaging' ? 'Packaging' : dp.category === 'Print' ? 'Print' : 'Graphic',
+      image: dp.heroImage,
+      description: dp.shortDescription,
+      technologies: dp.technologies,
+    })),
+    ...ALL_PROJECTS.filter((ap) => !dynamicProjects.some((dp) => dp.id === ap.id)),
+  ];
+
   // Filter projects by selected category
   const filteredProjects = activeCategory === 'All'
-    ? ALL_PROJECTS
-    : ALL_PROJECTS.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
+    ? combinedProjects
+    : combinedProjects.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
 
   const ITEMS_PER_PAGE = 9;
   const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE) || 1;

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Sparkles, Linkedin, Github } from 'lucide-react';
+import { useData } from '../context/DataContext';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
+  const { addMessage, personalInfo } = useData();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,10 +21,18 @@ export const ContactSection: React.FC = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     setLoading(true);
+    
+    addMessage({
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject || formData.service,
+      message: `[Service: ${formData.service}] ${formData.message}`
+    });
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 800);
+    }, 600);
   };
 
   return (
