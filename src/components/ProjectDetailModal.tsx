@@ -6,9 +6,10 @@ import { Project } from '../types/app';
 interface ProjectDetailModalProps {
   project: Project | null;
   onClose: () => void;
+  onImageClick?: (img: string) => void;
 }
 
-export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClose }) => {
+export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClose, onImageClick }) => {
   if (!project) return null;
 
   return (
@@ -54,14 +55,23 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             {project.fullOverview}
           </p>
 
-          {/* Hero Banner */}
-          <div className="relative w-full h-48 sm:h-72 rounded-[20px] sm:rounded-[24px] overflow-hidden border border-white/10 mb-6 sm:mb-8 group">
+          {/* Hero Banner — Full Resolution */}
+          <div
+            className="relative w-full rounded-[20px] sm:rounded-[24px] overflow-hidden border border-white/10 mb-6 sm:mb-8 bg-[#0a0a0a] cursor-zoom-in group"
+            onClick={() => onImageClick?.(project.heroImage)}
+            title="Click to view in Ultra HD"
+          >
             <img
               src={project.heroImage}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className="w-full object-contain max-h-[75vh] group-hover:scale-[1.02] transition-transform duration-700"
+              style={{ imageRendering: 'high-quality' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-60" />
+            {/* HD click hint */}
+            <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 border border-[#88D900]/30 text-[#88D900] text-[9px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+              ✦ Click for Ultra HD
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/40 via-transparent to-transparent opacity-60 pointer-events-none" />
           </div>
 
           {/* Tools Stack Pills */}
@@ -116,8 +126,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               <h4 className="font-heading font-bold text-[10px] sm:text-xs uppercase text-white tracking-wider mb-3">Project Visual Showcase:</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {project.screenshots.map((img, idx) => (
-                  <div key={idx} className="h-40 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10">
-                    <img src={img} alt={`Screenshot ${idx}`} className="w-full h-full object-cover" />
+                  <div
+                    key={idx}
+                    className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] cursor-zoom-in group"
+                    onClick={() => onImageClick?.(img)}
+                    title="Click to view in Ultra HD"
+                  >
+                    <img
+                      src={img}
+                      alt={`Screenshot ${idx}`}
+                      className="w-full object-contain max-h-[60vh] group-hover:scale-[1.02] transition-transform duration-500"
+                      style={{ imageRendering: 'high-quality' }}
+                    />
                   </div>
                 ))}
               </div>
