@@ -1,131 +1,345 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, ExternalLink, ArrowUpRight } from 'lucide-react';
-import { PROJECTS } from '../data/portfolioData';
-import { Project } from '../types/app';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronsLeft, ChevronsRight, ExternalLink, Sparkles } from 'lucide-react';
 import { ProjectDetailModal } from './ProjectDetailModal';
+import { Project } from '../types/app';
+
+// ─── Graphic Design & Packaging Asset Imports ─────────────────────────────────
+import pFreyr from '../assets/project_freyr.png';
+import pSolar from '../assets/project_solar.png';
+import pMilk from '../assets/project_milk.png';
+import pCreamy from '../assets/project_creamy.png';
+import p1 from '../assets/project_1.png';
+import p2 from '../assets/project_2.png';
+import cMint from '../assets/creamy_mint.png';
+import g1 from '../assets/gallery_1.png';
+import g3 from '../assets/gallery_3.png';
+import g4 from '../assets/gallery_4.png';
+import g6 from '../assets/gallery_6.png';
+import g7 from '../assets/gallery_7.png';
+
+interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  filterCategory: string;
+  image: string;
+  description: string;
+  technologies: string[];
+}
+
+const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'nugget-crispy',
+    title: 'Nugget Crispy Social Ad',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: p1,
+    description: 'Promotional food packaging and social media poster with vibrant color grading.',
+    technologies: ['Photoshop', 'Canva', 'Social Media'],
+  },
+  {
+    id: 'tsaqofah-islamiyyah',
+    title: 'Tsaqofah Islamiyyah Poster',
+    category: 'Dakwah',
+    filterCategory: 'Dakwah',
+    image: g1,
+    description: 'Islamic seminar poster design featuring clean typography and emerald motifs.',
+    technologies: ['Illustrator', 'Photoshop', 'Poster Design'],
+  },
+  {
+    id: 'ikhlas-leaves',
+    title: 'Ikhlas Quote Poster',
+    category: 'Typho',
+    filterCategory: 'Typho',
+    image: g3,
+    description: 'Calligraphy typography poster with botanical artwork background.',
+    technologies: ['Canva', 'Typography', 'Social Graphics'],
+  },
+  {
+    id: 'ramadhan-charity',
+    title: 'Paket Kebaikan Ramadhan',
+    category: 'Flat',
+    filterCategory: 'Flat',
+    image: g4,
+    description: 'Flat vector social campaign design for Ramadhan charity initiative.',
+    technologies: ['Illustrator', 'Flat Design', 'Infographic'],
+  },
+  {
+    id: 'perhiasan-dunia',
+    title: 'Lumina Luxury Packaging',
+    category: 'Packaging',
+    filterCategory: 'Flat',
+    image: pMilk,
+    description: 'Tactile luxury packaging design with gold foil embossing dielines.',
+    technologies: ['Photoshop', 'Dieline CAD', 'Packaging'],
+  },
+  {
+    id: 'pesantren-kilat',
+    title: 'Pesantren Kilat Online',
+    category: 'Dakwah',
+    filterCategory: 'Dakwah',
+    image: g6,
+    description: 'Educational program poster layout with modern schedule grid.',
+    technologies: ['Canva', 'Layout', 'Print Design'],
+  },
+  {
+    id: 'lala-syukur',
+    title: 'Lalai Dari Rasa Syukur',
+    category: 'Typho',
+    filterCategory: 'Typho',
+    image: g7,
+    description: 'Dynamic typography poster with leaf accents and gradient shadows.',
+    technologies: ['Photoshop', 'Typography', 'Poster Art'],
+  },
+  {
+    id: 'bratva-brotherhood',
+    title: 'Bratva Branding Identity',
+    category: '3D',
+    filterCategory: '3D',
+    image: p2,
+    description: '3D emblem vector mark with dark blue textured background.',
+    technologies: ['Illustrator', '3D Design', 'Logo'],
+  },
+  {
+    id: 'creamy-branding',
+    title: 'Creamy Dessert Brand',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: pCreamy,
+    description: 'Full visual identity and packaging suite for gourmet dessert brand.',
+    technologies: ['Illustrator', 'Branding', 'Packaging'],
+  },
+  {
+    id: 'freyr-energy',
+    title: 'Freyr Clean Energy Kit',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: pFreyr,
+    description: 'Corporate brand identity and print collaterals for clean energy company.',
+    technologies: ['Photoshop', 'Illustrator', 'Branding'],
+  },
+  {
+    id: 'solar-campaign',
+    title: 'Solar Power Marketing',
+    category: '3D',
+    filterCategory: '3D',
+    image: pSolar,
+    description: '3D rendered solar panel campaign ad with metallic finishes.',
+    technologies: ['Canva', '3D Render', 'Marketing'],
+  },
+  {
+    id: 'creamy-mint-box',
+    title: 'Creamy Mint Product Box',
+    category: 'Flat',
+    filterCategory: 'Flat',
+    image: cMint,
+    description: 'Mint green retail box dieline and promotional product mockups.',
+    technologies: ['Illustrator', 'Packaging', 'Flat Art'],
+  },
+];
+
+const CATEGORIES = ['All', 'Graphic', 'Flat', 'Typho', '3D', 'Dakwah'];
 
 export const FeaturedProjects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [page, setPage] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(9);
 
-  const categories = ['All', 'Branding', 'Packaging', 'UI/UX'];
+  // Filter projects by selected category
+  const filteredProjects = activeCategory === 'All'
+    ? ALL_PROJECTS
+    : ALL_PROJECTS.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
 
-  const filteredProjects = activeFilter === 'All'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.category === activeFilter);
+  const ITEMS_PER_PAGE = 9;
+  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE) || 1;
+  const currentPage = Math.min(page, totalPages - 1);
+
+  const displayedProjects = filteredProjects.slice(
+    currentPage * ITEMS_PER_PAGE,
+    (currentPage * ITEMS_PER_PAGE) + visibleCount
+  );
+
+  const handlePrevPage = () => {
+    setPage(prev => (prev > 0 ? prev - 1 : totalPages - 1));
+  };
+
+  const handleNextPage = () => {
+    setPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
+
+  const handleLoadMore = () => {
+    if (visibleCount < filteredProjects.length) {
+      setVisibleCount(prev => prev + 3);
+    } else {
+      setVisibleCount(9);
+    }
+  };
+
+  const openModal = (item: ProjectItem) => {
+    const proj: Project = {
+      id: item.id,
+      title: item.title,
+      category: item.category,
+      shortDescription: item.description,
+      fullOverview: item.description,
+      technologies: item.technologies,
+      features: ['High Resolution Print Ready Dielines', 'Custom Typography Hierarchy', 'Vector Icon Set'],
+      heroImage: item.image,
+      screenshots: [item.image],
+    };
+    setSelectedProject(proj);
+  };
 
   return (
-    <section id="projects" className="relative py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">
-      <div className="absolute top-1/4 left-1/3 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-[#88D900]/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+    <section
+      id="projects"
+      className="relative py-16 sm:py-24 px-4 sm:px-8 bg-[#090909] text-white overflow-hidden border-t border-white/5 font-sans"
+    >
+      <div className="absolute top-1/3 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto">
-
-        {/* Section Title */}
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        
+        {/* Header matching site design system */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="flex flex-col items-center text-center mb-8 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            <span>FEATURED PORTFOLIO</span>
+            <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
-            SELECTED <span className="text-[#88D900]">DESIGN CASE STUDIES</span>
+            MY <span className="text-[#88D900]">PROJECTS</span>
           </h2>
           <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
-            Explore high-impact brand identity systems, packaging dielines, and UI/UX design case studies.
+            Explore selected graphic design, branding, 3D visualization, and digital packaging projects.
           </p>
         </motion.div>
 
-        {/* Category Filter Pills */}
+        {/* Category Navigation Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-10 text-base sm:text-lg font-medium"
+        >
+          {CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setPage(0);
+                  setVisibleCount(9);
+                }}
+                className="relative py-1 px-1 transition-colors duration-200 focus:outline-none"
+              >
+                <span className={isActive ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}>
+                  {cat}
+                </span>
+
+                {/* Active indicator bar matching neon green brand theme */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTabUnderline"
+                    className="absolute left-0 right-0 -bottom-1 h-[3px] bg-[#88D900] rounded-full shadow-[0_0_10px_rgba(136,217,0,0.5)]"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </motion.div>
+
+        {/* Grid Container with Left & Right Circular Arrow Buttons */}
+        <div className="relative w-full max-w-4xl px-4 sm:px-14">
+          
+          {/* Left Circular Arrow Button (<<) */}
+          <button
+            onClick={handlePrevPage}
+            aria-label="Previous Projects"
+            className="absolute left-0 sm:-left-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+          >
+            <ChevronsLeft className="w-6 h-6 stroke-[3]" />
+          </button>
+
+          {/* Right Circular Arrow Button (>>) */}
+          <button
+            onClick={handleNextPage}
+            aria-label="Next Projects"
+            className="absolute right-0 sm:-right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+          >
+            <ChevronsRight className="w-6 h-6 stroke-[3]" />
+          </button>
+
+          {/* 3x3 Project Grid */}
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            <AnimatePresence mode="popLayout">
+              {displayedProjects.map((item) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => openModal(item)}
+                  className="group relative aspect-square rounded-md overflow-hidden bg-[#151515] shadow-md border border-white/5 cursor-pointer hover:shadow-2xl hover:border-[#88D900]/50 transition-all duration-300"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  
+                  {/* Subtle Dark Overlay on Hover */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span className="text-[#88D900] text-xs font-bold uppercase tracking-wider mb-1">
+                      {item.category}
+                    </span>
+                    <h3 className="text-white text-sm font-bold line-clamp-1 flex items-center justify-between gap-1">
+                      {item.title}
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#88D900]" />
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+
+        {/* Load More Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-14"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12"
         >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-button text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeFilter === cat
-                  ? 'bg-[#88D900] text-[#090909] shadow-[0_0_25px_rgba(136,217,0,0.4)]'
-                  : 'bg-[#151515] text-[#9CA3AF] hover:text-white border border-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          <button
+            onClick={handleLoadMore}
+            className="px-10 py-3 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(136,217,0,0.3)] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+          >
+            {visibleCount < filteredProjects.length ? 'LOAD MORE' : 'SHOW LESS'}
+          </button>
         </motion.div>
-
-        {/* Portfolio Cards Grid — 1 col mobile, 2 col md, 3 col lg */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="luxury-card group flex flex-col justify-between overflow-hidden cursor-pointer"
-              onClick={() => setSelectedProject(project)}
-            >
-              {/* Image Frame */}
-              <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-t-[30px]">
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-80" />
-                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 rounded-full bg-[#090909]/80 backdrop-blur-md border border-[#88D900]/40 text-[#88D900] text-[9px] sm:text-[10px] font-heading font-extrabold uppercase tracking-wider">
-                  {project.category}
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-4 sm:p-6">
-                <h3 className="font-heading font-bold text-xl sm:text-2xl text-white mb-2 group-hover:text-[#88D900] transition-colors flex items-center justify-between gap-2">
-                  <span className="line-clamp-1">{project.title}</span>
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 opacity-0 group-hover:opacity-100 shrink-0 transition-all text-[#88D900]" />
-                </h3>
-                <p className="font-body text-[11px] sm:text-sm text-[#9CA3AF] leading-relaxed mb-4 sm:mb-6 line-clamp-2">
-                  {project.shortDescription}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span key={tech} className="px-2 sm:px-2.5 py-1 rounded-md bg-[#090909] border border-white/10 text-[#88D900] text-[9px] sm:text-[10px] font-mono font-semibold">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Card Footer */}
-              <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 flex items-center justify-between border-t border-white/5">
-                <span className="text-[10px] sm:text-xs font-button font-bold text-[#88D900] group-hover:underline">
-                  Explore Case Study →
-                </span>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#090909] border border-white/10 text-white flex items-center justify-center group-hover:border-[#88D900] group-hover:text-[#88D900] transition-colors shrink-0">
-                  <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
       </div>
 
-      <ProjectDetailModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <ProjectDetailModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };

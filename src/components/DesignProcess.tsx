@@ -1,156 +1,168 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, PenTool, Palette, PlayCircle, Rocket, Sparkles, ArrowRight } from 'lucide-react';
+import { FileSearch, Palette, Layers, SlidersHorizontal, PackageCheck, Sparkles } from 'lucide-react';
+
+interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ElementType;
+}
+
+const STEPS: ProcessStep[] = [
+  {
+    number: '01',
+    title: 'BRIEF',
+    description: 'Understanding client goals, target market & brand strategy.',
+    icon: FileSearch,
+  },
+  {
+    number: '02',
+    title: 'CONCEPT',
+    description: 'Exploring visual styles, color themes & creative moodboards.',
+    icon: Palette,
+  },
+  {
+    number: '03',
+    title: 'CREATE',
+    description: 'Crafting bespoke logos, typography, vectors & packaging.',
+    icon: Layers,
+  },
+  {
+    number: '04',
+    title: 'REFINE',
+    description: 'Perfecting composition, color profiles & client feedback.',
+    icon: SlidersHorizontal,
+  },
+  {
+    number: '05',
+    title: 'DELIVER',
+    description: 'Exporting print-ready files, master assets & brand guides.',
+    icon: PackageCheck,
+  },
+];
 
 export const DesignProcess: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const steps = [
-    {
-      number: '01',
-      title: 'Research',
-      icon: Search,
-      subtitle: 'Market Intelligence & Brand Audit',
-      desc: 'Analyzing target demographics, competitor brand ecosystems, typography trends, and strategic product positioning.',
-      deliverables: ['Competitor Benchmark Matrix', 'User Persona Cards', 'Visual Moodboards'],
-    },
-    {
-      number: '02',
-      title: 'Sketch',
-      icon: PenTool,
-      subtitle: 'Conceptual Exploration & Wireframes',
-      desc: 'Iterating through hundreds of vector logo sketches, grid layouts, component abstractions, and brand mark geometry.',
-      deliverables: ['Vector Logo Concepts', 'Wireframe Layouts', 'Typography Pairings'],
-    },
-    {
-      number: '03',
-      title: 'Design',
-      icon: Palette,
-      subtitle: 'High-Fidelity Visual Identity & Systems',
-      desc: 'Transforming approved concepts into pixel-perfect Illustrator vectors, Photoshop renders, and Figma design tokens.',
-      deliverables: ['Brand Guidelines Book', 'Color System Tokens', 'Asset Libraries'],
-    },
-    {
-      number: '04',
-      title: 'Prototype',
-      icon: PlayCircle,
-      subtitle: 'Interactive Micro-Interactions & AI Renders',
-      desc: 'Bringing visual designs to life with Sora motion prompts, responsive Framer/Figma prototypes, and micro-animations.',
-      deliverables: ['Framer Web Prototype', 'Motion Reel Video', 'Generative AI Renders'],
-    },
-    {
-      number: '05',
-      title: 'Deliver',
-      icon: Rocket,
-      subtitle: 'Handoff & Asset Optimization',
-      desc: 'Packaging vector files, SVG exports, developer handoff tokens, and brand usage documentation for seamless rollout.',
-      deliverables: ['Production SVG/PNG Assets', 'Developer Stylekit', 'Launch Support'],
-    },
-  ];
-
   return (
-    <section id="process" className="py-24 px-4 sm:px-8 relative overflow-hidden">
+    <section id="process" className="py-16 sm:py-24 px-4 sm:px-8 bg-[#090909] text-white relative overflow-hidden border-t border-white/5 font-sans">
+      <div className="absolute top-1/2 left-10 w-72 sm:w-[450px] h-72 sm:h-[450px] bg-[#88D900]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto">
-
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent font-semibold text-xs uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Methodology</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-primary-light dark:text-primary-dark">
-            Design <span className="text-gradient">Process</span>
-          </h2>
-          <p className="text-secondary-light dark:text-secondary-dark text-sm sm:text-base max-w-xl mt-3">
-            Apple and Framer standard 5-step creative pipeline delivering zero-friction brand perfection.
-          </p>
-        </div>
-
-        {/* Horizontal Pipeline Steps Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-12">
-          {steps.map((step, idx) => {
-            const Icon = step.icon;
-            const isActive = activeStep === idx;
-            return (
-              <button
-                key={step.title}
-                onClick={() => setActiveStep(idx)}
-                className={`relative p-4 rounded-2xl flex flex-col items-center text-center transition-all duration-300 ${
-                  isActive
-                    ? 'accent-gradient-bg text-white shadow-xl scale-105 z-10'
-                    : 'glass-panel-light dark:glass-panel-dark text-secondary-light dark:text-secondary-dark hover:text-accent border border-gray-200 dark:border-gray-800'
-                }`}
-              >
-                <span className={`text-[10px] font-mono font-bold uppercase tracking-widest mb-2 ${isActive ? 'text-white/80' : 'text-accent'}`}>
-                  Step {step.number}
-                </span>
-                <div className={`p-2.5 rounded-xl mb-2 ${isActive ? 'bg-white/20 text-white' : 'bg-accent/10 text-accent'}`}>
-                  <Icon className="w-5 h-5" />
-                </div>
-                <span className="font-heading font-bold text-sm uppercase tracking-wider">
-                  {step.title}
-                </span>
-
-                {/* Connector Arrow on Desktop */}
-                {idx < steps.length - 1 && (
-                  <div className="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 text-gray-300 dark:text-gray-700 z-20">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active Step Detail Card */}
-        <motion.div
-          key={activeStep}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="p-8 rounded-3xl glass-panel-light dark:glass-panel-dark border border-gray-200/80 dark:border-gray-800/80 shadow-2xl relative overflow-hidden"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            
-            <div className="md:col-span-8">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="px-3 py-1 rounded-full bg-accent/20 text-accent font-mono font-bold text-xs">
-                  PHASE {steps[activeStep].number}
-                </span>
-                <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-primary-light dark:text-primary-dark">
-                  {steps[activeStep].title} — <span className="text-accent">{steps[activeStep].subtitle}</span>
-                </h3>
-              </div>
-
-              <p className="text-sm text-secondary-light dark:text-secondary-dark mt-4 mb-6 leading-relaxed">
-                {steps[activeStep].desc}
-              </p>
-
-              <div>
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-primary-light dark:text-primary-dark mb-3">
-                  Phase Deliverables
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {steps[activeStep].deliverables.map((item, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-xs font-semibold text-primary-light dark:text-primary-dark border border-gray-200 dark:border-gray-700"
-                    >
-                      ✦ {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+        
+        {/* Main Content Layout: Header on Left, 5 Steps on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+          
+          {/* Left Title Box */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 flex flex-col items-start relative pr-0 lg:pr-6"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>CREATIVE WORKFLOW</span>
             </div>
 
-            <div className="md:col-span-4 flex items-center justify-center">
-              <div className="w-36 h-36 rounded-full accent-gradient-bg flex items-center justify-center text-white shadow-2xl animate-pulse">
-                {React.createElement(steps[activeStep].icon, { className: 'w-16 h-16' })}
-              </div>
+            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-none text-white">
+              MY WORKING <br />
+              <span className="text-[#88D900]">PROCESS</span>
+            </h2>
+
+            {/* Neon Green Brush Underline Scribble */}
+            <div className="mt-3 relative w-48 sm:w-56 h-4">
+              <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#88D900]">
+                <path
+                  d="M3 14C50 4 120 2 197 12C150 16 70 18 10 16"
+                  stroke="currentColor"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
 
+            {/* Curved Hand-Drawn Arrow pointing right towards Step 01 */}
+            <div className="hidden lg:block absolute -right-6 top-16 text-white/80 w-14 h-14">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/60">
+                <path
+                  d="M10 15 Q 35 10, 45 35 M 45 35 L 35 30 M 45 35 L 42 22"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </motion.div>
+
+          {/* Right Horizontal 5-Step Pipeline */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-2 relative">
+              
+              {STEPS.map((step, idx) => {
+                const IconComponent = step.icon;
+                const isLaunch = step.number === '05';
+
+                return (
+                  <motion.div
+                    key={step.number}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="relative flex flex-col items-center text-center group"
+                  >
+                    {/* Dotted Line Connector to Next Step */}
+                    {idx < STEPS.length - 1 && (
+                      <div className="hidden sm:block absolute top-9 left-[60%] right-[-40%] h-[2px] border-b-2 border-dashed border-[#88D900]/30 z-0 pointer-events-none" />
+                    )}
+
+                    {/* Icon Badge Container */}
+                    <div className="relative z-10 mb-3">
+                      
+                      {/* High-Impact Circle Badge with Hover Glow */}
+                      <div
+                        className={`w-16 h-16 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+                          isLaunch
+                            ? 'bg-[#88D900] text-black shadow-[0_0_25px_rgba(136,217,0,0.5)] border-2 border-[#88D900]'
+                            : 'bg-[#151515] text-[#88D900] border-2 border-[#88D900]/50 shadow-[0_0_15px_rgba(136,217,0,0.15)] group-hover:bg-[#88D900] group-hover:text-black group-hover:border-[#88D900] group-hover:shadow-[0_0_25px_rgba(136,217,0,0.5)]'
+                        }`}
+                      >
+                        <IconComponent className="w-7 h-7 stroke-[2.2]" />
+                      </div>
+
+                      {/* Small Dark Number Circle Badge (01, 02, etc.) */}
+                      <div className="absolute -bottom-2 -left-1 w-7 h-7 rounded-full bg-[#090909] border-2 border-[#88D900]/60 text-[#88D900] text-xs font-mono font-bold flex items-center justify-center shadow-md">
+                        {step.number}
+                      </div>
+
+                      {/* Energy Rays on Step 05 (DELIVER) */}
+                      {isLaunch && (
+                        <div className="absolute -top-2 -right-2 text-[#88D900] animate-pulse">
+                          <Sparkles className="w-5 h-5 fill-[#88D900]" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Step Title */}
+                    <h3 className="font-heading font-extrabold text-sm sm:text-base text-white tracking-wider mb-1.5 uppercase">
+                      {step.title}
+                    </h3>
+
+                    {/* Step Description */}
+                    <p className="text-xs text-gray-400 leading-relaxed max-w-[150px] font-sans">
+                      {step.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+
+            </div>
           </div>
-        </motion.div>
+
+        </div>
 
       </div>
     </section>

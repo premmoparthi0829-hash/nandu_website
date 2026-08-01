@@ -6,6 +6,7 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { FeaturedProjects } from './components/FeaturedProjects';
+import { DesignProcess } from './components/DesignProcess';
 import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
@@ -16,7 +17,7 @@ export function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen w-full max-w-full bg-[#090909] text-white selection:bg-[#88D900] selection:text-black overflow-x-hidden font-body">
+    <div className="min-h-screen w-full max-w-full bg-[#090909] text-white selection:bg-[#EC4899] selection:text-white overflow-x-hidden font-body">
       {/* Dual Ring Glowing Custom Cursor */}
       <CustomCursor />
 
@@ -37,6 +38,9 @@ export function App() {
 
       {/* Portfolio Projects & Case Studies */}
       <FeaturedProjects />
+
+      {/* Working Process */}
+      <DesignProcess />
 
       {/* Experience Timeline */}
       <TimelineSection />

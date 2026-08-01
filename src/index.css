@@ -152,23 +152,23 @@
 
 /* Pink Accent Buttons */
 .btn-pink {
-  background-color: #F472B6;
+  background-color: #EC4899;
   color: #090909;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 9999px;
   padding: 12px 28px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 0 20px rgba(244, 114, 182, 0.25);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
   max-width: 100%;
 }
 
 .btn-pink:hover {
-  background-color: #f687c1;
+  background-color: #F472B6;
   transform: translateY(-2px);
-  box-shadow: 0 0 35px rgba(244, 114, 182, 0.5);
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.6);
 }
 
 .btn-neon-outline {

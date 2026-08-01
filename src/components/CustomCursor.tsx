@@ -47,9 +47,9 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Central Lime Dot */}
+      {/* Central Pink Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#88D900] rounded-full pointer-events-none z-50 hidden md:block shadow-[0_0_15px_#88D900]"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#EC4899] rounded-full pointer-events-none z-50 hidden md:block shadow-[0_0_15px_#EC4899]"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
@@ -58,16 +58,16 @@ export const CustomCursor: React.FC = () => {
         transition={{ type: 'spring', damping: 35, stiffness: 500, mass: 0.1 }}
       />
 
-      {/* Outer Glowing Ring */}
+      {/* Outer Glowing Pink Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border border-[#88D900]/60 rounded-full pointer-events-none z-50 hidden md:block"
+        className="fixed top-0 left-0 w-12 h-12 border border-[#EC4899]/60 rounded-full pointer-events-none z-50 hidden md:block"
         animate={{
           x: mousePosition.x - 24,
           y: mousePosition.y - 24,
           scale: isHovered ? 2.2 : 1,
-          backgroundColor: isHovered ? 'rgba(136, 217, 0, 0.15)' : 'transparent',
-          borderColor: isHovered ? '#88D900' : 'rgba(136, 217, 0, 0.4)',
-          boxShadow: isHovered ? '0 0 30px rgba(136, 217, 0, 0.4)' : '0 0 10px rgba(136, 217, 0, 0.1)',
+          backgroundColor: isHovered ? 'rgba(236, 72, 153, 0.2)' : 'transparent',
+          borderColor: isHovered ? '#EC4899' : 'rgba(236, 72, 153, 0.4)',
+          boxShadow: isHovered ? '0 0 30px rgba(236, 72, 153, 0.6)' : '0 0 10px rgba(236, 72, 153, 0.2)',
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 220, mass: 0.2 }}
       />

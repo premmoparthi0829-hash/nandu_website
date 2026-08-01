@@ -34,7 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             {/* Logo + tiles */}
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">
               <a href="#hero" className="flex items-center gap-2 group shrink-0">
-                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-black text-[#88D900] flex items-center justify-center font-heading font-black text-xs sm:text-sm">
+                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-black text-[#EC4899] flex items-center justify-center font-heading font-black text-xs sm:text-sm shadow-sm">
                   NV
                 </span>
                 <span className="font-heading font-black text-sm min-[380px]:text-base sm:text-xl md:text-2xl tracking-tighter text-[#090909]">
