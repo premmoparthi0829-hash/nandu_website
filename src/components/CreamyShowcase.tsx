@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, ArrowLeft, ArrowRight, Star, Heart, CheckCircle2 } from 'lucide-react';
-import creamyImg from '../assets/project_creamy.png';
+import creamyImg from '../assets/designers_not_machine.jpg';
 
 export const CreamyShowcase: React.FC = () => {
   const [selectedWeight, setSelectedWeight] = useState('100g');

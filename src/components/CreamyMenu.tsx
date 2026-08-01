@@ -2,9 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Palette, Send, Sparkles, CheckCircle2 } from 'lucide-react';
 import { ServiceItem } from '../types/app';
-import freyrImg from '../assets/project_freyr.png';
-import solarImg from '../assets/project_solar.png';
-import milkImg from '../assets/project_milk.png';
+import designersPoster from '../assets/designers_not_machine.jpg';
 import { SectionHeading } from './SectionHeading';
 
 interface CreamyMenuProps {
@@ -21,7 +19,7 @@ export const CreamyMenu: React.FC<CreamyMenuProps> = ({ onOpenInquiry }) => {
       badgeBg: 'bg-[#52B788]',
       description: 'Logo design, vector style guidelines, color palettes, and corporate brand books.',
       deliverables: ['Vector Logo Guidelines', 'Color & Typography Tokens', 'Brand Usage PDF'],
-      image: freyrImg,
+      image: designersPoster,
     },
     {
       id: 'social-ad-creatives',
@@ -31,7 +29,7 @@ export const CreamyMenu: React.FC<CreamyMenuProps> = ({ onOpenInquiry }) => {
       badgeBg: 'bg-[#EE4D2D]',
       description: 'High-converting carousel graphics, Instagram story sets, and performance ad banners.',
       deliverables: ['Carousel Post Kits', 'Ad Banner Variants', 'Motion Reels'],
-      image: solarImg,
+      image: designersPoster,
     },
     {
       id: 'print-packaging',
@@ -41,7 +39,7 @@ export const CreamyMenu: React.FC<CreamyMenuProps> = ({ onOpenInquiry }) => {
       badgeBg: 'bg-[#C87D43]',
       description: 'CMYK print-ready product packaging boxes, food pouches, and trade show banners.',
       deliverables: ['Box Packaging Dielines', 'Brochures & Flyers', 'Print Bleed Specs'],
-      image: milkImg,
+      image: designersPoster,
     },
   ];
 

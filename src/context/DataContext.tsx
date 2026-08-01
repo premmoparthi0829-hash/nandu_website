@@ -44,7 +44,7 @@ interface DataContextType {
   resetToDefaults: () => void;
 }
 
-const STORAGE_KEY = 'nandu_portfolio_data_v2';
+const STORAGE_KEY = 'nandu_portfolio_data_v6';
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 

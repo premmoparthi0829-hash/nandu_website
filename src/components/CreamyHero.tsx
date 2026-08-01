@@ -3,9 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, Dribbble, Instagram, Linkedin, Github, RefreshCw, Pause, Play } from 'lucide-react';
 import { DesignTheme } from '../types/app';
 import { OrganicWave } from './OrganicWave';
-import freyrImg from '../assets/project_freyr.png';
-import solarImg from '../assets/project_solar.png';
-import milkImg from '../assets/project_milk.png';
+import designersPoster from '../assets/designers_not_machine.jpg';
 import nandiniImg from '../assets/nandini_coral.png';
 import blueBg from '../assets/blue_gradient_bg.png';
 import nandiniPosterCutout from '../assets/nandini_poster_cutout.png';
@@ -279,7 +277,7 @@ const SlideBranding = () => (
 
     <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
       <div className="w-44 h-28 sm:w-56 sm:h-36 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl shrink-0">
-        <img src={freyrImg} alt="Branding" className="w-full h-full object-cover" />
+        <img src={designersPoster} alt="Branding" className="w-full h-full object-cover" />
       </div>
       <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
         <ul className="space-y-2 text-left">
@@ -475,7 +473,7 @@ const SlideSocial = () => (
 
     <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
       <div className="grid grid-cols-3 gap-2 shrink-0">
-        {[solarImg, freyrImg, milkImg, solarImg, freyrImg, milkImg].map((src, i) => (
+        {[designersPoster, designersPoster, designersPoster, designersPoster, designersPoster, designersPoster].map((src, i) => (
           <div key={i} className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-white/15 shadow-lg">
             <img src={src} alt="" className="w-full h-full object-cover" />
           </div>
@@ -499,7 +497,7 @@ const SlidePrint = () => (
 
     <motion.div variants={itemV} custom={2} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
       <div className="flex gap-3 shrink-0">
-        {[milkImg, freyrImg].map((src, i) => (
+        {[designersPoster, designersPoster].map((src, i) => (
           <div key={i} className="w-32 h-24 sm:w-40 sm:h-28 rounded-2xl overflow-hidden border border-white/15 shadow-xl">
             <img src={src} alt="" className="w-full h-full object-cover" />
           </div>

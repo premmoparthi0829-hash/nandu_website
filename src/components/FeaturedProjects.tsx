@@ -5,19 +5,16 @@ import { ProjectDetailModal } from './ProjectDetailModal';
 import { Project } from '../types/app';
 import { useData } from '../context/DataContext';
 
-// ─── Graphic Design & Packaging Asset Imports ─────────────────────────────────
-import pFreyr from '../assets/project_freyr.png';
-import pSolar from '../assets/project_solar.png';
-import pMilk from '../assets/project_milk.png';
-import pCreamy from '../assets/project_creamy.png';
-import p1 from '../assets/project_1.png';
-import p2 from '../assets/project_2.png';
-import cMint from '../assets/creamy_mint.png';
-import g1 from '../assets/gallery_1.png';
-import g3 from '../assets/gallery_3.png';
-import g4 from '../assets/gallery_4.png';
-import g6 from '../assets/gallery_6.png';
-import g7 from '../assets/gallery_7.png';
+import designersPoster from '../assets/designers_not_machine.jpg';
+import dominatePoster from '../assets/dominate_attention.jpg';
+import rollTheDice from '../assets/roll_the_dice.jpg';
+import trustBranding from '../assets/trust_begins_with_branding.jpg';
+import brandStandOut from '../assets/brand_stand_out.jpg';
+import creativityOverheats from '../assets/creativity_overheats.jpg';
+import friendshipDay from '../assets/friendship_day.jpg';
+import youGotAMail from '../assets/you_got_a_mail.jpg';
+import digitalMarketing from '../assets/digital_marketing.jpg';
+import admissionOpen from '../assets/admission_open.jpg';
 
 interface ProjectItem {
   id: string;
@@ -31,116 +28,98 @@ interface ProjectItem {
 
 const ALL_PROJECTS: ProjectItem[] = [
   {
-    id: 'nugget-crispy',
-    title: 'Nugget Crispy Social Ad',
-    category: 'Graphic',
+    id: 'designers-are-not-design-machine',
+    title: 'Designers Are Not Design Machine',
+    category: 'Poster',
     filterCategory: 'Graphic',
-    image: p1,
-    description: 'Promotional food packaging and social media poster with vibrant color grading.',
-    technologies: ['Photoshop', 'Canva', 'Social Media'],
-  },
-  {
-    id: 'tsaqofah-islamiyyah',
-    title: 'Tsaqofah Islamiyyah Poster',
-    category: 'Dakwah',
-    filterCategory: 'Dakwah',
-    image: g1,
-    description: 'Islamic seminar poster design featuring clean typography and emerald motifs.',
-    technologies: ['Illustrator', 'Photoshop', 'Poster Design'],
-  },
-  {
-    id: 'ikhlas-leaves',
-    title: 'Ikhlas Quote Poster',
-    category: 'Typho',
-    filterCategory: 'Typho',
-    image: g3,
-    description: 'Calligraphy typography poster with botanical artwork background.',
-    technologies: ['Canva', 'Typography', 'Social Graphics'],
-  },
-  {
-    id: 'ramadhan-charity',
-    title: 'Paket Kebaikan Ramadhan',
-    category: 'Flat',
-    filterCategory: 'Flat',
-    image: g4,
-    description: 'Flat vector social campaign design for Ramadhan charity initiative.',
-    technologies: ['Illustrator', 'Flat Design', 'Infographic'],
-  },
-  {
-    id: 'perhiasan-dunia',
-    title: 'Lumina Luxury Packaging',
-    category: 'Packaging',
-    filterCategory: 'Flat',
-    image: pMilk,
-    description: 'Tactile luxury packaging design with gold foil embossing dielines.',
-    technologies: ['Photoshop', 'Dieline CAD', 'Packaging'],
-  },
-  {
-    id: 'pesantren-kilat',
-    title: 'Pesantren Kilat Online',
-    category: 'Dakwah',
-    filterCategory: 'Dakwah',
-    image: g6,
-    description: 'Educational program poster layout with modern schedule grid.',
-    technologies: ['Canva', 'Layout', 'Print Design'],
-  },
-  {
-    id: 'lala-syukur',
-    title: 'Lalai Dari Rasa Syukur',
-    category: 'Typho',
-    filterCategory: 'Typho',
-    image: g7,
-    description: 'Dynamic typography poster with leaf accents and gradient shadows.',
+    image: designersPoster,
+    description: 'Working under pressure concept poster featuring high-impact visual manipulation and typography.',
     technologies: ['Photoshop', 'Typography', 'Poster Art'],
   },
   {
-    id: 'bratva-brotherhood',
-    title: 'Bratva Branding Identity',
-    category: '3D',
-    filterCategory: '3D',
-    image: p2,
-    description: '3D emblem vector mark with dark blue textured background.',
-    technologies: ['Illustrator', '3D Design', 'Logo'],
-  },
-  {
-    id: 'creamy-branding',
-    title: 'Creamy Dessert Brand',
-    category: 'Graphic',
+    id: 'dominate-attention',
+    title: 'Dominate Attention - Shark Brand Poster',
+    category: 'Poster',
     filterCategory: 'Graphic',
-    image: pCreamy,
-    description: 'Full visual identity and packaging suite for gourmet dessert brand.',
-    technologies: ['Illustrator', 'Branding', 'Packaging'],
+    image: dominatePoster,
+    description: 'High-impact advertising poster with breaching shark photomontage and brand slogan typography.',
+    technologies: ['Photoshop', 'Advertising Design', 'Photo Manipulation'],
   },
   {
-    id: 'freyr-energy',
-    title: 'Freyr Clean Energy Kit',
-    category: 'Graphic',
-    filterCategory: 'Graphic',
-    image: pFreyr,
-    description: 'Corporate brand identity and print collaterals for clean energy company.',
-    technologies: ['Photoshop', 'Illustrator', 'Branding'],
+    id: 'roll-the-dice',
+    title: 'Roll the Dice',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: rollTheDice,
+    description: 'Bold typographic poster design with wooden dice photomontage on a vibrant lime green background. A striking visual metaphor — "Roll the Dice, but We\'ve Already Stacked the Odds in Your Favor."',
+    technologies: ['Photoshop', 'Typography', 'Photo Manipulation', 'Poster Design'],
   },
   {
-    id: 'solar-campaign',
-    title: 'Solar Power Marketing',
-    category: '3D',
-    filterCategory: '3D',
-    image: pSolar,
-    description: '3D rendered solar panel campaign ad with metallic finishes.',
-    technologies: ['Canva', '3D Render', 'Marketing'],
+    id: 'trust-begins-with-branding',
+    title: 'Trust Begins With Branding',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: trustBranding,
+    description: 'Bold branding manifesto poster on a deep red radial background. "Trust Begins With Branding — Built to Be Remembered." Features layered typographic labels: Earn Loyalty, Stay Memorable, Gain Trust, Grow Faster.',
+    technologies: ['Photoshop', 'Branding', 'Typography', 'Poster Design'],
   },
   {
-    id: 'creamy-mint-box',
-    title: 'Creamy Mint Product Box',
-    category: 'Flat',
-    filterCategory: 'Flat',
-    image: cMint,
-    description: 'Mint green retail box dieline and promotional product mockups.',
-    technologies: ['Illustrator', 'Packaging', 'Flat Art'],
+    id: 'brand-stand-out',
+    title: 'Make Your Brand Stand Out',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: brandStandOut,
+    description: 'Vibrant yellow grid-background branding poster featuring a standout red matchstick among black ones — a powerful visual metaphor for differentiation. "We Know What It Takes to Make Your Brand Stand Out."',
+    technologies: ['Photoshop', 'Branding', 'Photo Manipulation', 'Poster Design'],
+  },
+  {
+    id: 'creativity-overheats',
+    title: 'When Creativity Overheats',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: creativityOverheats,
+    description: 'Dark green atmospheric poster featuring a smoking, overheated computer mouse under a spotlight. "When Creativity Overheats — We Don\'t Quit. We Create." A bold statement on relentless creative drive.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Poster Design'],
+  },
+  {
+    id: 'friendship-day-makeup',
+    title: 'Happy Friendship Day',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: friendshipDay,
+    description: 'Warm beige friendship day social media poster featuring an animated makeup compact and brush with cartoon arms. "On this special day, let\'s celebrate the bond of friendship and together make more beautiful memories."',
+    technologies: ['Photoshop', 'Illustration', 'Social Media Design', 'Photo Manipulation'],
+  },
+  {
+    id: 'you-got-a-mail',
+    title: "It's Weekend — You Just Got a Mail",
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: youGotAMail,
+    description: 'Clean white editorial social media poster featuring a 3D red envelope with floating notification cards — Job Offer, Successful Transaction, and Scholarship. "It\'s Weekend. You Just Got a Mail — Kindly Check Your Inbox."',
+    technologies: ['Photoshop', '3D Mockup', 'Social Media Design', 'Typography'],
+  },
+  {
+    id: 'digital-marketing-accelerate',
+    title: 'Accelerate Your Success with Digital Marketing',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: digitalMarketing,
+    description: 'Vibrant pink grid-background social media poster featuring a speeding turtle on a skateboard — a witty metaphor for how digital marketing accelerates even the slowest growth. Bold red and yellow typography with sparkle accents.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Social Media Design', 'Typography'],
+  },
+  {
+    id: 'admission-open-school',
+    title: 'Admission Open — Where Young Minds Grow',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: admissionOpen,
+    description: 'Vibrant purple school admission poster featuring a cheerful uniformed student looking up through bold oversized typography. "Admission Open — Where Young Minds Dream, Discover & Grow." Paper airplane accents add a playful education theme.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Social Media Design'],
   },
 ];
 
-const CATEGORIES = ['All', 'Graphic', 'Flat', 'Typho', '3D', 'Dakwah'];
+const CATEGORIES = ['All', 'Graphic', 'Poster', 'Branding', 'Social Media'];
 
 export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');

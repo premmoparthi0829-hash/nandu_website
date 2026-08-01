@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Play, Sparkles, Star } from 'lucide-react';
 import { PS5ControllerSVG } from './PS5ControllerSVG';
-import freyrImg from '../assets/project_freyr.png';
-import solarImg from '../assets/project_solar.png';
-import milkImg from '../assets/project_milk.png';
+import designersPoster from '../assets/designers_not_machine.jpg';
 import nandiniImg from '../assets/nandini_coral.png';
 
 interface PS5GamingHeroScreenProps {
@@ -12,17 +10,17 @@ interface PS5GamingHeroScreenProps {
 }
 
 const PROJECT_CARDS = [
-  { id: 1, title: 'GTA V BRANDING', category: 'Brand System', img: freyrImg, rotate: -24, scale: 0.9, top: '10%' },
-  { id: 2, title: 'WWE 2K26 POSTER', category: 'Key Visual', img: solarImg, rotate: -12, scale: 0.95, top: '4%' },
-  { id: 3, title: 'FORZA HORIZON 5', category: 'Packaging', img: milkImg, rotate: 0, scale: 1.0, top: '2%' },
-  { id: 4, title: 'TEKKEN 8 MOTION', category: 'Motion Graphic', img: freyrImg, rotate: 12, scale: 0.95, top: '4%' },
-  { id: 5, title: 'GHOST RECON UI', category: 'UI/UX Concept', img: solarImg, rotate: 24, scale: 0.9, top: '10%' },
+  { id: 1, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Concept Poster', img: designersPoster, rotate: -24, scale: 0.9, top: '10%' },
+  { id: 2, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Key Visual', img: designersPoster, rotate: -12, scale: 0.95, top: '4%' },
+  { id: 3, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Poster Art', img: designersPoster, rotate: 0, scale: 1.0, top: '2%' },
+  { id: 4, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Visual Metaphor', img: designersPoster, rotate: 12, scale: 0.95, top: '4%' },
+  { id: 5, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Distressed Typho', img: designersPoster, rotate: 24, scale: 0.9, top: '10%' },
   
   // Inner Arc (4 Cards)
-  { id: 6, title: 'UNCHARTED EDITORIAL', category: 'Print Media', img: milkImg, rotate: -16, scale: 0.88, top: '38%' },
-  { id: 7, title: 'FARCRY 6 CAMPAIGN', category: 'Social Ads', img: freyrImg, rotate: -5, scale: 0.92, top: '34%' },
-  { id: 8, title: 'GHOST OF TSUSHIMA', category: 'Visual Art', img: nandiniImg, rotate: 5, scale: 0.92, top: '34%' },
-  { id: 9, title: 'EA FIFA 26 SPORTS', category: 'Brand Identity', img: solarImg, rotate: 16, scale: 0.88, top: '38%' },
+  { id: 6, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Graphic Poster', img: designersPoster, rotate: -16, scale: 0.88, top: '38%' },
+  { id: 7, title: 'DESIGNERS ARE NOT DESIGN MACHINE', category: 'Social Campaign', img: designersPoster, rotate: -5, scale: 0.92, top: '34%' },
+  { id: 8, title: 'ARTWORK BY #nandini.V', category: 'Visual Art', img: designersPoster, rotate: 5, scale: 0.92, top: '34%' },
+  { id: 9, title: 'WORKING UNDER PRESSURE', category: 'Concept Art', img: designersPoster, rotate: 16, scale: 0.88, top: '38%' },
 ];
 
 export const PS5GamingHeroScreen: React.FC<PS5GamingHeroScreenProps> = ({ onScrollNext }) => {

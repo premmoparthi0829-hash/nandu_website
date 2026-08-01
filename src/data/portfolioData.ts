@@ -87,83 +87,57 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
+import designersPoster from '../assets/designers_not_machine.jpg';
+import dominatePoster from '../assets/dominate_attention.jpg';
+
 export const PROJECTS: Project[] = [
   {
-    id: 'freyr-energy',
-    title: 'Freyr Energy Brand System',
-    category: 'Branding',
-    shortDescription: 'Comprehensive clean energy brand identity, print packaging, 120+ asset design kit, and executive pitch decks.',
-    fullOverview: 'Complete visual identity transformation for Freyr Energy, standardizing brand guidelines, executive investor pitch decks, digital marketing templates, and renewable energy product brochures.',
-    technologies: ['Photoshop', 'Illustrator', 'Figma', 'InDesign', 'Brand Guidelines'],
+    id: 'designers-are-not-design-machine',
+    title: 'Designers Are Not Design Machine',
+    category: 'Poster Design',
+    shortDescription: 'High-impact concept poster expressing visual designer pressure, artistic dedication, and bold typography.',
+    fullOverview: 'A powerful graphic poster design created for #nandini.V, expressing the pressure visual artists face under intense client demands. Features custom claw scratching composition and distressed typography.',
+    technologies: ['Photoshop', 'Typography', 'Poster Art', 'Visual Composition'],
     features: [
-      'Full Vector Logo Redesign & Multi-theme Palette',
-      '120+ Component Figma Design System for Marketing Teams',
-      'CMYK Print-Ready Corporate Brochures & Trade Show Banners',
-      'Series B Investor Pitch Deck Layouts'
+      'High-Impact Distressed Typography Layout',
+      'Creative Cat Paw & Computer Mouse Composition',
+      'Original Artwork Signed #nandini.V'
     ],
-    heroImage: 'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=1000&q=80',
+    heroImage: designersPoster,
     screenshots: [
-      'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
+      designersPoster
     ],
-    liveDemoUrl: 'https://freyrenergy.com',
-    githubUrl: 'https://behance.net',
+    liveDemoUrl: '',
+    githubUrl: '',
     caseStudy: {
-      problem: 'Inconsistent brand representation across regional energy hubs led to diluted market recognition.',
-      solution: 'Created an all-inclusive 120+ asset design system with strict color and typography usage rules.',
-      impact: 'Boosted brand engagement by 40% and streamlined collateral production timeline by 50%.'
+      problem: 'Expressing the overwhelming pressure designers face under mechanical expectations.',
+      solution: 'Crafted a visceral visual metaphor with dramatic lighting and scratching claws.',
+      impact: 'Highly praised concept art reflecting creative integrity.'
     },
     featured: true
   },
   {
-    id: 'lumina-paris',
-    title: 'Lumina Luxury Packaging',
-    category: 'Packaging',
-    shortDescription: 'Luxury perfume packaging box dielines, foil stamp typography, and high-end e-commerce visual assets.',
-    fullOverview: 'Designed tactile luxury packaging for Lumina Paris, featuring custom embossed dielines, metallic gold foil stamping, and editorial photography assets.',
-    technologies: ['Illustrator', 'Photoshop', 'Dieline CAD', 'Packaging Print'],
+    id: 'dominate-attention',
+    title: 'Dominate Attention - Shark Brand Poster',
+    category: 'Poster Design',
+    shortDescription: 'High-impact brand poster featuring breaching shark visual manipulation and motivational brand typography.',
+    fullOverview: 'A bold, commanding brand advertising poster: "DOMINATE ATTENTION - Strong brands don\'t compete for visibility. They own it." Created with photo manipulation of a breaching shark and striking blue water graphics.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Advertising Design'],
     features: [
-      'Custom Dieline Packaging & Box Architecture',
-      'Gold Foil Stamping & Embossing Specification',
-      'E-Commerce Product Visual Photography Styling',
-      'Social Media Launch Campaign Kit'
+      'Breaching Great White Shark Photomontage & Water Splash FX',
+      'Bold Slanted Modern Typography',
+      'Brand Identity Messaging: "Strong brands don\'t compete for visibility. They own it."'
     ],
-    heroImage: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=80',
+    heroImage: dominatePoster,
     screenshots: [
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80'
+      dominatePoster
     ],
-    liveDemoUrl: 'https://behance.net',
-    githubUrl: 'https://behance.net',
+    liveDemoUrl: '',
+    githubUrl: '',
     caseStudy: {
-      problem: 'Premium pricing required high-end tactile packaging that stood out on luxury boutique shelves.',
-      solution: 'Crafted velvet-matte texture dielines with metallic gold accent highlights.',
-      impact: 'Brand valuation doubled post-launch with 100% sold-out initial production run.'
-    },
-    featured: true
-  },
-  {
-    id: 'mantra-tech',
-    title: 'Mantra SaaS Design System',
-    category: 'UI/UX',
-    shortDescription: 'Dark mode UI/UX component library, vector iconography, and marketing portal for enterprise software.',
-    fullOverview: 'Designed Apple-grade UI interfaces and dark mode design tokens for Mantra Technologies enterprise SaaS suite.',
-    technologies: ['Figma', 'Photoshop', 'UI/UX Design', 'Design Tokens'],
-    features: [
-      'Figma Component Library with Auto-Layout 5.0',
-      'Dark Mode & High-Contrast Visual Themes',
-      'Custom Vector Iconography Set (80+ Icons)',
-      'High-Converting Landing Page Layouts'
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80',
-    screenshots: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
-    ],
-    liveDemoUrl: 'https://mantra.tech',
-    githubUrl: 'https://behance.net',
-    caseStudy: {
-      problem: 'Legacy dashboard suffered from poor visual hierarchy and low user retention.',
-      solution: 'Overhauled UI layout with sleek dark glassmorphism and clear visual tokens.',
-      impact: 'Increased user session duration by 65% and reduced onboarding drop-offs.'
+      problem: 'Creating an aggressive, high-converting campaign poster that conveys market dominance.',
+      solution: 'Combined breaching marine predator imagery with razor-sharp brand slogan hierarchy.',
+      impact: 'Drives maximum engagement and immediate visual impact.'
     },
     featured: true
   }
