@@ -279,8 +279,8 @@ export const FeaturedProjects: React.FC = () => {
             <ChevronsRight className="w-6 h-6 stroke-[3]" />
           </button>
 
-          {/* 3x3 Project Grid */}
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          {/* 3x3 Project Grid (Same 3-column layout on mobile & web) */}
+          <motion.div layout className="grid grid-cols-3 gap-2.5 sm:gap-6">
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((item) => (
                 <motion.div
