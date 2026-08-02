@@ -44,7 +44,18 @@ interface DataContextType {
   resetToDefaults: () => void;
 }
 
-const STORAGE_KEY = 'nandu_portfolio_data_v6';
+const STORAGE_KEY = 'nandu_portfolio_data_v11';
+
+// Clear legacy cached portfolio data keys to force fresh state
+try {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith('nandu_portfolio_data_') && !key.startsWith(STORAGE_KEY)) {
+        localStorage.removeItem(key);
+      }
+    });
+  }
+} catch {}
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 

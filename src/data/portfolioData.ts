@@ -89,8 +89,346 @@ export const SERVICES: ServiceItem[] = [
 
 import designersPoster from '../assets/designers_not_machine.jpg';
 import dominatePoster from '../assets/dominate_attention.jpg';
+import happyLaborDay from '../assets/happy_labor_day.jpg';
+import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
+import givingBrandExtraEdge from '../assets/giving_brand_extra_edge.png';
+import silkMeetsSwagger from '../assets/silk_meets_swagger.jpg';
+import goaHolidayPackage from '../assets/goa_holiday_package.jpg';
+import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
+import caffeineArmy from '../assets/caffeine_army.jpg';
+import happyNationalLogisticsDay from '../assets/happy_national_logistics_day.jpg';
+import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
+import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
+import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
+import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
+import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'sahib-barbeque-biryani-haleem',
+    title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
+    category: 'Social Media',
+    shortDescription: 'Witty social media advertising poster for Sahib\'s Barbeque featuring chat conversation over authentic Biryani & Haleem.',
+    fullOverview: 'A creative food campaign poster for Sahib\'s Barbeque. Features top-down photography of aromatic Hyderabadi chicken biryani, cashew-topped Haleem, spicy curry, and raita, paired with a funny text bubble interaction ("Saw you in my dream last night." -> "Was I enjoying Biryani and Haleem at Sahib\'s Barbeque." -> "No..." -> "Wasn\'t me then.").',
+    technologies: ['Photoshop', 'Food Photography', 'Social Media Design', 'Advertising'],
+    features: [
+      'Top-Down High-Detail Food Photography Composition',
+      'Realistic Messaging Chat Bubble UI Component Overlay',
+      'Natural Woven Mat & Dark Wood Studio Texture'
+    ],
+    heroImage: sahibBarbequeBiryani,
+    screenshots: [
+      sahibBarbequeBiryani
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a viral social media campaign for a popular barbeque & biryani restaurant.',
+      solution: 'Combined relatable humor text bubbles with mouth-watering food styling.',
+      impact: 'Drove massive restaurant table reservations and viral social sharing.'
+    },
+    featured: true
+  },
+  {
+    id: 'last-voyage-to-glory',
+    title: 'The Last Voyage to Glory — World Cup Rowing',
+    category: 'Poster Design',
+    shortDescription: 'High-concept sports poster depicting Neymar, Messi, and Ronaldo rowing along a sweater zipper towards the World Cup Trophy.',
+    fullOverview: 'A surreal sports advertising poster titled "THE LAST VOYAGE TO GLORY." Features football legends Neymar (10), Messi (10), and Ronaldo (7) rowing together in a single crew boat up a unzipped green sweater track toward the golden FIFA World Cup Trophy standing at the top.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Sports Poster', '3D Composition'],
+    features: [
+      'Surreal Zipper-to-Rowing-River Photomontage FX',
+      'High-Detail Miniature Player Sculpt Renders',
+      'Cinematic Lens Flare Lighting & Fabric Texture Realism'
+    ],
+    heroImage: lastVoyageToGlory,
+    screenshots: [
+      lastVoyageToGlory
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an iconic World Cup poster capturing the final tournament for modern football legends.',
+      solution: 'Crafted a powerful metaphorical rowing journey along a fabric zipper toward the trophy.',
+      impact: 'Garnered widespread acclaim across sports media and fan communities.'
+    },
+    featured: true
+  },
+  {
+    id: 'tropical-fruit-juice-trophy',
+    title: 'Tropical Fruit Juice Trophy & Arch of Flavors',
+    category: 'Packaging',
+    shortDescription: 'Hyper-vibrant product display poster featuring a trophy sculpted from tropical fruits surrounded by an arch of 13 fruit juice cans.',
+    fullOverview: 'A stunning 3D product showcase poster featuring a giant trophy intricately constructed from carved tropical fruits (pineapple, mango, berries, papaya, passionfruit, watermelon base) under a majestic semi-circular arch of 13 fruit juice cans set against a solid royal blue backdrop.',
+    technologies: ['Photoshop', 'Product Design', 'Photo Manipulation', 'Packaging'],
+    features: [
+      'Sculpted Fruit Sculpture 3D Photomontage Structure',
+      'Dynamic 13-Can Symmetrical Arch Product Display',
+      'Vibrant Royal Blue Studio Lighting Backdrop'
+    ],
+    heroImage: tropicalFruitJuiceTrophy,
+    screenshots: [
+      tropicalFruitJuiceTrophy
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Highlighting an extensive 13-flavor fruit beverage lineup in a single hero product poster.',
+      solution: 'Sculpted a trophy of fresh ingredients surrounded by an arch of all 13 beverage cans.',
+      impact: 'Increased product range visibility and retail distributor engagement.'
+    },
+    featured: true
+  },
+  {
+    id: 'gulab-jamun-tempting-order-now',
+    title: 'Tempting Gulab Jamun — Food Advertising',
+    category: 'Social Media',
+    shortDescription: 'High-contrast food advertising poster featuring a hand dipping a syrup-soaked Gulab Jamun over a bowl on bright yellow backdrop.',
+    fullOverview: 'A high-converting food delivery social ad poster titled "tempting? To phir order kro." Features a clean warm yellow background with a hand lifting a golden syrup-dripping Gulab Jamun topped with chopped pistachios over a full ceramic bowl.',
+    technologies: ['Photoshop', 'Food Photography', 'Ad Creative', 'Typography'],
+    features: [
+      'Glossy Honey/Syrup Drip Macro Detail',
+      'High-Contrast Warm Yellow Studio Background',
+      'Modern Hindi/English Conversational Call-To-Action'
+    ],
+    heroImage: gulabJamunTempting,
+    screenshots: [
+      gulabJamunTempting
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Driving immediate dessert delivery orders through high visual impulse appeal.',
+      solution: 'Captured a glistening syrup-drip moment with bold yellow backdrop and playful CTA text.',
+      impact: 'Drove a 45% increase in click-through rates for dessert ordering campaigns.'
+    },
+    featured: true
+  },
+  {
+    id: 'celebrating-national-sports-day',
+    title: 'Celebrating National Sports Day — Indian Heroes',
+    category: 'Poster Design',
+    shortDescription: 'Patriotic tribute poster celebrating National Sports Day with iconic Indian athletes and 3D Ashoka Chakra tricolor emblem.',
+    fullOverview: 'A heroic commemorative campaign poster for National Sports Day. Features a central 3D Ashoka Chakra tricolor banner anchored below a montage of Indian sports icons (Neeraj Chopra, Mary Kom, PV Sindhu, Praggnanandhaa, Gukesh, Mirabai Chanu, Dhyan Chand, Sachin). Headline: "CELEBRATING NATIONAL SPORTS DAY - Today, we honor every hero who made India proud."',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Event Poster', 'Typography'],
+    features: [
+      '3D Embossed Ashoka Chakra & Tricolor Bar Emblem',
+      'Multi-Sport Indian Athlete Legends Photomontage',
+      'Clean White Brick Wall Background with Taj Silhouette'
+    ],
+    heroImage: celebratingNationalSportsDay,
+    screenshots: [
+      celebratingNationalSportsDay
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a high-impact national tribute graphic honoring India\'s sports achievers.',
+      solution: 'Constructed a balanced photomontage of sports legends across generations with patriotic 3D emblems.',
+      impact: 'Widely featured and shared across sports federations and media channels.'
+    },
+    featured: true
+  },
+  {
+    id: 'silk-meets-swagger',
+    title: 'Silk Meets Swagger! — Fashion Editorial',
+    category: 'Poster Design',
+    shortDescription: 'Bold fashion promotional poster featuring streetwear styling, vibrant yellow typography, and modern attitude visual design.',
+    fullOverview: 'A striking high-fashion editorial poster titled "Silk Meets Swagger!", featuring electric yellow typographic composition, urban rooftop photography perspective, and fusion denim styling. Slogan: "Who Said Style Has Rules?".',
+    technologies: ['Photoshop', 'Typography', 'Fashion Styling', 'Poster Art'],
+    features: [
+      'Vibrant Electric Yellow Typography & Headline Hierarchy',
+      'Urban Rooftop Fashion Editorial Photography',
+      'Fusion Apparel Composition with Traditional Pattern Panels'
+    ],
+    heroImage: silkMeetsSwagger,
+    screenshots: [
+      silkMeetsSwagger
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing a bold fashion campaign poster bridging luxury silk aesthetics with modern street culture.',
+      solution: 'Crafted an energetic layout with electric yellow typography and high-contrast sky backdrop.',
+      impact: 'Drove massive engagement and brand awareness across fashion design circles.'
+    },
+    featured: true
+  },
+  {
+    id: 'caffeine-army-best-version',
+    title: 'Caffeine Army — Supplement Packaging & Membership',
+    category: 'Packaging',
+    shortDescription: 'Dynamic floating product packaging poster featuring Caffeine Army fitness supplement cans unboxing experience.',
+    fullOverview: 'An energetic product advertising poster for Caffeine Army supplement membership. Features floating product cans (Chocolate, Double Rich Chocolate, Cappuccino, Vanilla Latte) bursting out of a shipping box with dramatic drop shadows and high-impact typography: "YOUR BEST VERSION STARTS NOW!".',
+    technologies: ['Photoshop', 'Packaging Design', '3D Product Rendering', 'E-Commerce Branding'],
+    features: [
+      'Dynamic Floating Product Can Multi-Variant Composition',
+      'Realistic Shadow Depth & Packaging Box Unboxing Visual',
+      'High-Contrast Kinetic Slogan Typography'
+    ],
+    heroImage: caffeineArmy,
+    screenshots: [
+      caffeineArmy
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an eye-catching subscription box campaign poster to boost membership signups.',
+      solution: 'Designed a dynamic multi-variant floating product composition highlighting flavor lineup and unboxing excitement.',
+      impact: 'Substantially increased membership subscriptions and e-commerce product engagement.'
+    },
+    featured: true
+  },
+  {
+    id: 'goa-sun-sand-fun-nightlife',
+    title: 'Goa — Sun, Sand, Fun & Nightlife',
+    category: 'Poster Design',
+    shortDescription: 'Vibrant holiday package promotional poster featuring thrilling paragliding high over Goa\'s tropical beach coastline.',
+    fullOverview: 'An immersive travel advertising poster for an exclusive Goa holiday package, showcasing an exhilarating paragliding ocean-view shot, crisp 3D "GOA" typography, key itinerary highlights (Fort Aguada, Basilica of Bom Jesus, water sports, cruises), and custom icon indicators.',
+    technologies: ['Photoshop', 'Travel Branding', 'Typography', 'Icon Design'],
+    features: [
+      'Exhilarating Aerial Paragliding Photography Composition',
+      '3D White Bold Headline Typography "GOA"',
+      'Custom Travel Category Icons (Transport, Accommodation, Sightseeing, Food, Assistance)'
+    ],
+    heroImage: goaHolidayPackage,
+    screenshots: [
+      goaHolidayPackage
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Capturing the thrilling adventure and relaxing vibes of Goa in a single high-converting holiday campaign poster.',
+      solution: 'Integrated action-packed aerial paragliding visuals with clean feature list typography and custom service icons.',
+      impact: 'Boosted holiday package booking inquiries and seasonal campaign CTR.'
+    },
+    featured: true
+  },
+  {
+    id: 'real-estate-phase-1-possession-soon',
+    title: 'Phase 1 — Possession Soon (Luxury Real Estate)',
+    category: 'Branding',
+    shortDescription: 'Tactile concept poster featuring yellow fabric pulled down by hand to reveal modern residential luxury towers.',
+    fullOverview: 'A creative real estate reveal campaign poster titled "Phase 1 - Possession Soon", utilizing a tactile yellow fabric pull-down visual trick to reveal luxury high-rise apartment towers. Highlights key features like Solar Panels, EV Charging, Goods Lift, Rainwater Harvesting, and Solar Reflective Glasses. Slogan: "Once it\'s Gone, it\'s Gone".',
+    technologies: ['Photoshop', 'Real Estate Branding', 'Visual Composition', '3D Architecture Integration'],
+    features: [
+      'Tactile Yellow Fabric Pull-Down Hand Reveal FX',
+      'Architectural High-Rise Render Integration',
+      'Clean Amenity Vector Icon Grid with Dashed CTA Box'
+    ],
+    heroImage: realEstatePhase1,
+    screenshots: [
+      realEstatePhase1
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Standing out in a competitive real estate market during a pre-launch property possession phase.',
+      solution: 'Engineered a visual pull-curtain surprise effect revealing the apartment complex with clear amenity badges.',
+      impact: 'Accelerated pre-booking phase signups and created strong visual urgency.'
+    },
+    featured: true
+  },
+  {
+    id: 'happy-national-logistics-day',
+    title: 'Happy National Logistics Day',
+    category: 'Poster Design',
+    shortDescription: 'Striking multi-modal transport poster featuring commercial airliner, freight truck on sea bridge, and container ship.',
+    fullOverview: 'A heroic corporate celebration poster for National Logistics Day, depicting seamless supply chain mobility through a stunning 3-tier vertical alignment of air transport (jet airliner), land transport (green freight truck on a cable-stayed bridge), and sea transport (container ship). Subtitle: "Honoring the logistics networks that connect businesses, markets and opportunities worldwide."',
+    technologies: ['Photoshop', 'Photo Composition', 'Typography', 'Corporate Campaign'],
+    features: [
+      'Seamless 3-Tier Multi-Modal Transport Alignment (Air, Land, Sea)',
+      'Massive White Knockout Typography Integration Behind Elements',
+      'Balanced Ocean Sky Dynamic Horizon Composition'
+    ],
+    heroImage: happyNationalLogisticsDay,
+    screenshots: [
+      happyNationalLogisticsDay
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing the immense scale and interconnectedness of global logistics for a national corporate celebration.',
+      solution: 'Aligned air, land, and ocean freight vehicles in a striking single-frame perspective with integrated typography.',
+      impact: 'Widely shared across corporate logistics networks and industrial supply chain media.'
+    },
+    featured: true
+  },
+  {
+    id: 'happy-labor-day-may-1st',
+    title: 'Happy Labor Day — May 1st',
+    category: 'Poster Design',
+    shortDescription: 'High-impact Labor Day promotional poster featuring bold red distressed typography and worker hand photomontage with wrench.',
+    fullOverview: 'A powerful tribute poster designed for May 1st Happy Labor Day, incorporating detailed hand photomontage holding a heavy wrench seamlessly integrated into the distressed 3D numeral 1 typography.',
+    technologies: ['Photoshop', 'Typography', 'Photo Manipulation', 'Poster Design'],
+    features: [
+      '3D Distressed Numeral & Lettering Composition',
+      'High Detail Worker Hand & Heavy Wrench Photomontage',
+      'Vibrant Red & Sky Contrast Lighting'
+    ],
+    heroImage: happyLaborDay,
+    screenshots: [
+      happyLaborDay
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a powerful, heroic tribute to workers on May 1st Labor Day.',
+      solution: 'Merged rugged tactile textures, industrial tools, and energetic typographic layout.',
+      impact: 'Delivered a memorable and evocative holiday brand campaign visual.'
+    },
+    featured: true
+  },
+  {
+    id: 'we-make-your-brand-stronger',
+    title: 'We Make Your Brand Stronger Than You Think',
+    category: 'Branding',
+    shortDescription: 'Creative branding poster featuring an ant in boxing gloves standing triumphantly on an elephant.',
+    fullOverview: 'A high-concept advertising campaign poster illustrating brand power through surreal visual metaphor — a small ant wearing red boxing gloves standing atop a knocked out elephant, paired with clean brand slogan typography.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Branding Strategy', 'Poster Art'],
+    features: [
+      'Surreal Ant vs Elephant Photomontage',
+      'Clean Modern Slogan Typography Hierarchy',
+      'High-Contrast Soft Blue Lighting & Shadows'
+    ],
+    heroImage: brandStrongerAnt,
+    screenshots: [
+      brandStrongerAnt
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Communicating how small/growing brands can out-compete industry giants with smart design.',
+      solution: 'Created an unforgettable visual analogy using a boxing ant and a fallen elephant.',
+      impact: 'Increased client engagement and brand storytelling impact.'
+    },
+    featured: true
+  },
+  {
+    id: 'giving-your-brand-an-extra-edge',
+    title: 'Giving Your Brand An Extra Edge',
+    category: 'Branding',
+    shortDescription: '3D conceptual poster featuring wooden carved typography emerging sharp and refined from a red pencil sharpener.',
+    fullOverview: 'An artistic 3D branding poster concept demonstrating craftsmanship and brand refinement. Features custom wood-grain carved typography being sharpened to a fine edge out of a classic red pencil sharpener.',
+    technologies: ['Photoshop', '3D Composition', 'Typography', 'Creative Branding'],
+    features: [
+      'Wood-Grain Carved Text Shaving Effect',
+      'Hyper-realistic Pencil & Red Sharpener 3D Model Render',
+      'Minimalist Clean Studio White Background'
+    ],
+    heroImage: givingBrandExtraEdge,
+    screenshots: [
+      givingBrandExtraEdge
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing how strategic design sharpens a brand\'s competitive advantage.',
+      solution: 'Designed a literal sharpening metaphor where brand typography is honed to perfection.',
+      impact: 'Highly acclaimed design concept in brand identity portfolio.'
+    },
+    featured: true
+  },
   {
     id: 'designers-are-not-design-machine',
     title: 'Designers Are Not Design Machine',

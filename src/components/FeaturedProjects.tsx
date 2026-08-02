@@ -7,6 +7,19 @@ import { useData } from '../context/DataContext';
 
 import designersPoster from '../assets/designers_not_machine.jpg';
 import dominatePoster from '../assets/dominate_attention.jpg';
+import happyLaborDay from '../assets/happy_labor_day.jpg';
+import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
+import givingBrandExtraEdge from '../assets/giving_brand_extra_edge.png';
+import silkMeetsSwagger from '../assets/silk_meets_swagger.jpg';
+import goaHolidayPackage from '../assets/goa_holiday_package.jpg';
+import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
+import caffeineArmy from '../assets/caffeine_army.jpg';
+import happyNationalLogisticsDay from '../assets/happy_national_logistics_day.jpg';
+import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
+import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
+import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
+import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
+import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
 import rollTheDice from '../assets/roll_the_dice.jpg';
 import trustBranding from '../assets/trust_begins_with_branding.jpg';
 import brandStandOut from '../assets/brand_stand_out.jpg';
@@ -37,6 +50,123 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'sahib-barbeque-biryani-haleem',
+    title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: sahibBarbequeBiryani,
+    description: 'Witty social media campaign poster featuring funny chat text bubbles over authentic Biryani & Haleem.',
+    technologies: ['Photoshop', 'Food Photography', 'Social Media Design', 'Advertising'],
+  },
+  {
+    id: 'last-voyage-to-glory',
+    title: 'The Last Voyage to Glory — World Cup Rowing',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: lastVoyageToGlory,
+    description: 'Surreal sports poster depicting Neymar, Messi, and Ronaldo rowing along a sweater zipper toward the FIFA World Cup Trophy.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Sports Poster', '3D Composition'],
+  },
+  {
+    id: 'tropical-fruit-juice-trophy',
+    title: 'Tropical Fruit Juice Trophy & Arch of Flavors',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: tropicalFruitJuiceTrophy,
+    description: 'Vibrant product display poster featuring a trophy sculpted from tropical fruits under an arch of 13 fruit juice cans.',
+    technologies: ['Photoshop', 'Product Design', 'Photo Manipulation', 'Packaging'],
+  },
+  {
+    id: 'gulab-jamun-tempting-order-now',
+    title: 'Tempting Gulab Jamun — Food Advertising',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: gulabJamunTempting,
+    description: 'High-contrast food delivery poster featuring a hand dipping a syrup-soaked Gulab Jamun on bright yellow backdrop. "tempting? To phir order kro."',
+    technologies: ['Photoshop', 'Food Photography', 'Ad Creative', 'Typography'],
+  },
+  {
+    id: 'celebrating-national-sports-day',
+    title: 'Celebrating National Sports Day — Indian Heroes',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: celebratingNationalSportsDay,
+    description: 'Patriotic tribute poster celebrating National Sports Day with iconic Indian sports heroes and 3D Ashoka Chakra emblem.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Event Poster', 'Typography'],
+  },
+  {
+    id: 'silk-meets-swagger',
+    title: 'Silk Meets Swagger! — Fashion Editorial',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: silkMeetsSwagger,
+    description: 'Bold fashion promotional poster featuring streetwear styling, electric yellow typography, and modern attitude visual design.',
+    technologies: ['Photoshop', 'Typography', 'Fashion Styling', 'Poster Art'],
+  },
+  {
+    id: 'caffeine-army-best-version',
+    title: 'Caffeine Army — Packaging & Membership',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: caffeineArmy,
+    description: 'Dynamic floating product packaging poster featuring Caffeine Army supplement cans unboxing experience. "YOUR BEST VERSION STARTS NOW!".',
+    technologies: ['Photoshop', 'Packaging Design', '3D Product Rendering', 'E-Commerce Branding'],
+  },
+  {
+    id: 'goa-sun-sand-fun-nightlife',
+    title: 'Goa — Sun, Sand, Fun & Nightlife',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: goaHolidayPackage,
+    description: 'Vibrant holiday package promotional poster featuring thrilling paragliding ocean-view shot and itinerary highlights.',
+    technologies: ['Photoshop', 'Travel Branding', 'Typography', 'Icon Design'],
+  },
+  {
+    id: 'real-estate-phase-1-possession-soon',
+    title: 'Phase 1 — Possession Soon (Luxury Real Estate)',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: realEstatePhase1,
+    description: 'Tactile concept poster featuring yellow fabric pulled down by hand revealing modern residential luxury towers. "Once it\'s Gone, it\'s Gone".',
+    technologies: ['Photoshop', 'Real Estate Branding', 'Visual Composition', '3D Architecture'],
+  },
+  {
+    id: 'happy-national-logistics-day',
+    title: 'Happy National Logistics Day',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyNationalLogisticsDay,
+    description: 'Striking multi-modal transport poster featuring commercial airliner, freight truck on sea bridge, and container ship.',
+    technologies: ['Photoshop', 'Photo Composition', 'Typography', 'Corporate Campaign'],
+  },
+  {
+    id: 'happy-labor-day-may-1st',
+    title: 'Happy Labor Day — May 1st',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyLaborDay,
+    description: 'High-impact Labor Day promotional poster featuring bold red distressed typography and detailed worker hand photomontage with wrench.',
+    technologies: ['Photoshop', 'Typography', 'Photo Manipulation', 'Poster Design'],
+  },
+  {
+    id: 'we-make-your-brand-stronger',
+    title: 'We Make Your Brand Stronger Than You Think',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: brandStrongerAnt,
+    description: 'Creative branding poster featuring an ant in boxing gloves standing triumphantly on a knocked out elephant. "We Make Your BRAND Stronger Than You Think."',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Branding Strategy', 'Poster Art'],
+  },
+  {
+    id: 'giving-your-brand-an-extra-edge',
+    title: 'Giving Your Brand An Extra Edge',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: givingBrandExtraEdge,
+    description: '3D conceptual poster featuring wooden carved typography emerging sharp and refined from a red pencil sharpener. "Giving Your Brand An Extra Edge."',
+    technologies: ['Photoshop', '3D Composition', 'Typography', 'Creative Branding'],
+  },
   {
     id: 'designers-are-not-design-machine',
     title: 'Designers Are Not Design Machine',
