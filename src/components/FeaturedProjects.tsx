@@ -15,6 +15,16 @@ import friendshipDay from '../assets/friendship_day.jpg';
 import youGotAMail from '../assets/you_got_a_mail.jpg';
 import digitalMarketing from '../assets/digital_marketing.jpg';
 import admissionOpen from '../assets/admission_open.jpg';
+import workCreatively from '../assets/work_creatively_brand_strategically.jpg';
+import bestDigitalAgency from '../assets/best_digital_marketing_agency.jpg';
+import socialMediaAdsCreative from '../assets/social_media_ads_creative.jpg';
+import happyIndependenceDay from '../assets/happy_independence_day.jpg';
+import teamIndiaT20 from '../assets/team_india_t20_victory.jpg';
+import socialMediaFlyers from '../assets/social_media_flyer_designs.jpg';
+import socialMediaManagement from '../assets/social_media_marketing_management.jpg';
+import postingEveryday from '../assets/posting_everyday_build_brand.jpg';
+import takeWhatYouNeed from '../assets/take_what_you_need.jpg';
+import surprisedByResults from '../assets/surprised_by_the_results.jpg';
 
 interface ProjectItem {
   id: string;
@@ -117,6 +127,96 @@ const ALL_PROJECTS: ProjectItem[] = [
     description: 'Vibrant purple school admission poster featuring a cheerful uniformed student looking up through bold oversized typography. "Admission Open — Where Young Minds Dream, Discover & Grow." Paper airplane accents add a playful education theme.',
     technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Social Media Design'],
   },
+  {
+    id: 'work-creatively-brand-strategically',
+    title: 'Work Creatively, Brand Strategically',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: workCreatively,
+    description: 'Flat lay top-down desktop poster design on deep red textured background. "Work Creatively, Brand Strategically. Avadesign helps you build a brand that not only looks good, but also leaves a lasting impression on your audience."',
+    technologies: ['Photoshop', 'Branding Strategy', 'Graphic Design', 'Typography'],
+  },
+  {
+    id: 'best-digital-marketing-agency',
+    title: 'Best Digital Marketing Agency',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: bestDigitalAgency,
+    description: 'Vibrant cobalt blue editorial creative featuring a woman reading Business Times with headline "Where is the best digital marketing agency?". Slogan: "She is still searching! But you don\'t have to because WE ARE HERE!!"',
+    technologies: ['Photoshop', 'Typography', 'Social Media Design', 'Photo Manipulation'],
+  },
+  {
+    id: 'social-media-ads-creative',
+    title: 'Social Media Ads Creative',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: socialMediaAdsCreative,
+    description: 'High-concept red studio ad creative featuring a classical Greek philosopher statue working on a MacBook. Glassmorphic UI cards showcase Micro and Nano ad strategy packages.',
+    technologies: ['Photoshop', '3D Composition', 'Ad Creative', 'Glassmorphism'],
+  },
+  {
+    id: 'happy-independence-day-india-gate',
+    title: 'Happy Independence Day — India Gate',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyIndependenceDay,
+    description: 'Majestic blue sky architectural poster featuring India Gate wrapped with a floating 3D Indian tricolor ribbon. "Happy Independence Day — Building a Stronger India, One Structure at a Time."',
+    technologies: ['Photoshop', 'Photo Manipulation', '3D Ribbon Design', 'Poster Design'],
+  },
+  {
+    id: 'team-india-t20-world-cup-victory',
+    title: 'Congratulations Team India — T20 World Cup',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: teamIndiaT20,
+    description: 'High-impact sports celebration poster featuring Virat Kohli and Rohit Sharma celebrating with the ICC Men\'s T20 World Cup trophy wrapped in the Indian flag. "Congratulations Team India — We achieved the Target 2nd time!!"',
+    technologies: ['Photoshop', 'Sports Poster Design', 'Photo Manipulation', 'Typography'],
+  },
+  {
+    id: 'social-media-flyer-designs-showcase',
+    title: 'Social Media Flyer Designs Showcase',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: socialMediaFlyers,
+    description: 'Sleek dark green showcase banner presenting 5 vertical promotional flyer designs (We Are Open, Fashion Fest, Micap Event, Stepping into April, Gospel Explosion) with a glassmorphic badge: "Design • Print • Advertisement".',
+    technologies: ['Photoshop', 'Flyer Design', 'Portfolio Layout', 'Glassmorphism'],
+  },
+  {
+    id: 'social-media-marketing-management',
+    title: 'Social Media Marketing Management',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: socialMediaManagement,
+    description: 'Modern minimalist social media management ad poster featuring a hand holding an iPhone surrounded by floating 3D social app icons — LinkedIn, Facebook, YouTube, TikTok, Instagram, WhatsApp, and Pinterest.',
+    technologies: ['Photoshop', '3D Icon Design', 'Social Media Management', 'Ad Creative'],
+  },
+  {
+    id: 'posting-everyday-build-a-brand',
+    title: "Posting Everyday Doesn't Build a Brand",
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: postingEveryday,
+    description: 'Vibrant orange retro typewriter poster featuring crisp typography on paper sheet. "Posting Everyday Doesn\'t Automatically Build a Brand — Brand Strategy First."',
+    technologies: ['Photoshop', 'Typography', 'Branding Strategy', 'Poster Art'],
+  },
+  {
+    id: 'take-what-you-need-agency-services',
+    title: 'Take What You Need — Agency Services',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: takeWhatYouNeed,
+    description: 'Creative purple tear-off bulletin board poster concept. "Take What You Need — Graphic Designing, Photography, Web Designing, Branding, Social Media Marketing, Videography, Copywriting, Video Editing."',
+    technologies: ['Photoshop', 'Graphic Design', 'Creative Concept', 'Typography'],
+  },
+  {
+    id: 'surprised-by-the-results-digital-strategy',
+    title: 'Surprised By The Results? — Smart Strategy',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: surprisedByResults,
+    description: 'Minimalist editorial studio poster featuring a 3D animated character girl with wide eyes. "Surprised By The Results? That\'s what happens when CREATIVITY meets smart DIGITAL STRATEGY."',
+    technologies: ['Photoshop', '3D Character Art', 'Ad Creative', 'Typography'],
+  },
 ];
 
 const CATEGORIES = ['All', 'Graphic', 'Poster', 'Branding', 'Social Media'];
@@ -192,30 +292,27 @@ export const FeaturedProjects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative py-16 sm:py-24 px-4 sm:px-8 bg-[#090909] text-white overflow-hidden border-t border-white/5 font-sans"
+      className="relative h-screen flex flex-col px-4 sm:px-8 pt-6 pb-4 bg-[#090909] text-white overflow-hidden border-t border-white/5 font-sans"
     >
       <div className="absolute top-1/3 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
+      <div className="max-w-6xl w-full mx-auto flex flex-col flex-1 items-center min-h-0">
         
-        {/* Header matching site design system */}
+        {/* Compact Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center mb-8 sm:mb-12"
+          className="flex flex-col items-center text-center mb-3 shrink-0"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] uppercase tracking-wider mb-1.5 shadow-md">
+            <Sparkles className="w-3 h-3" />
             <span>PORTFOLIO SHOWCASE</span>
           </div>
-          <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
+          <h2 className="font-heading font-bold text-xl sm:text-3xl text-white tracking-tight">
             MY <span className="text-[#88D900]">PROJECTS</span>
           </h2>
-          <p className="font-body text-[#9CA3AF] text-xs sm:text-sm md:text-base max-w-xl px-2">
-            Explore selected graphic design, branding, 3D visualization, and digital packaging projects.
-          </p>
         </motion.div>
 
         {/* Category Navigation Tabs */}
@@ -224,7 +321,7 @@ export const FeaturedProjects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-10 text-base sm:text-lg font-medium"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-3 text-sm sm:text-base font-medium shrink-0"
         >
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
@@ -241,8 +338,6 @@ export const FeaturedProjects: React.FC = () => {
                 <span className={isActive ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}>
                   {cat}
                 </span>
-
-                {/* Active indicator bar matching neon green brand theme */}
                 {isActive && (
                   <motion.div
                     layoutId="activeTabUnderline"
@@ -255,29 +350,29 @@ export const FeaturedProjects: React.FC = () => {
           })}
         </motion.div>
 
-        {/* Grid Container with Left & Right Circular Arrow Buttons */}
-        <div className="relative w-full max-w-4xl px-4 sm:px-14">
-          
-          {/* Left Circular Arrow Button (<<) */}
+        {/* Grid Container — fills remaining height perfectly */}
+        <div className="relative w-full max-w-5xl px-6 sm:px-14 flex-1 min-h-0">
+
+          {/* Left Arrow */}
           <button
             onClick={handlePrevPage}
             aria-label="Previous Projects"
-            className="absolute left-0 sm:-left-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="absolute left-0 sm:-left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
           >
-            <ChevronsLeft className="w-6 h-6 stroke-[3]" />
+            <ChevronsLeft className="w-5 h-5 stroke-[3]" />
           </button>
 
-          {/* Right Circular Arrow Button (>>) */}
+          {/* Right Arrow */}
           <button
             onClick={handleNextPage}
             aria-label="Next Projects"
-            className="absolute right-0 sm:-right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="absolute right-0 sm:-right-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
           >
-            <ChevronsRight className="w-6 h-6 stroke-[3]" />
+            <ChevronsRight className="w-5 h-5 stroke-[3]" />
           </button>
 
-          {/* 3x2 Project Grid — 6 per page (3 top + 3 bottom) */}
-          <motion.div layout className="grid grid-cols-3 gap-2.5 sm:gap-5">
+          {/* 3×2 Grid — fills full remaining height, no scroll */}
+          <motion.div layout className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-4 h-full">
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((item) => (
                 <motion.div
@@ -288,7 +383,7 @@ export const FeaturedProjects: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => openModal(item)}
-                  className="group relative aspect-[4/5] rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer hover:shadow-[0_0_30px_rgba(136,217,0,0.15)] hover:border-[#88D900]/50 transition-all duration-300"
+                  className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer hover:shadow-[0_0_30px_rgba(136,217,0,0.15)] hover:border-[#88D900]/50 transition-all duration-300"
                 >
                   <img
                     src={item.image}
@@ -296,28 +391,25 @@ export const FeaturedProjects: React.FC = () => {
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     style={{ imageRendering: 'high-quality' }}
                   />
-                  
-                  {/* Overlay with zoom icon */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 sm:p-4">
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2 sm:p-3">
                     <div className="flex justify-end">
                       <button
                         onClick={(e) => { e.stopPropagation(); setLightboxImage(item.image); }}
-                        className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-[#88D900] hover:text-black transition-all"
+                        className="w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-[#88D900] hover:text-black transition-all"
                         title="View Full HD"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm-3-3v2m0 4h.01" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 14l3 3" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
                         </svg>
                       </button>
                     </div>
                     <div>
-                      <span className="text-[#88D900] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 block">
-                        {item.category}
-                      </span>
-                      <h3 className="text-white text-xs sm:text-sm font-bold line-clamp-2 flex items-start justify-between gap-1">
+                      <span className="text-[#88D900] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5 block">{item.category}</span>
+                      <h3 className="text-white text-[10px] sm:text-xs font-bold line-clamp-2 flex items-start justify-between gap-1">
                         <span>{item.title}</span>
-                        <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#88D900]" />
+                        <ExternalLink className="w-3 h-3 shrink-0 mt-0.5 text-[#88D900]" />
                       </h3>
                     </div>
                   </div>
@@ -327,21 +419,20 @@ export const FeaturedProjects: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Load More Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12"
-        >
-          <button
-            onClick={handleLoadMore}
-            className="px-10 py-3 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(136,217,0,0.3)] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-          >
-            {visibleCount < filteredProjects.length ? 'LOAD MORE' : 'SHOW LESS'}
-          </button>
-        </motion.div>
+        {/* Page indicator dots */}
+        <div className="flex items-center gap-2 mt-3 shrink-0">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === currentPage
+                  ? 'w-5 h-2 bg-[#88D900] shadow-[0_0_8px_rgba(136,217,0,0.6)]'
+                  : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+              }`}
+            />
+          ))}
+        </div>
 
       </div>
 
