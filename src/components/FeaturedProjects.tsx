@@ -20,6 +20,29 @@ import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
 import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
 import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
 import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
+import chaiRefreshPoster from '../assets/chai_refresh_poster.jpg';
+import palettePaintsYourIdentity from '../assets/palette_paints_your_identity.jpg';
+import keyboardGrenadeSeo from '../assets/keyboard_grenade_seo.jpg';
+import designingNot2MinNoodles from '../assets/designing_not_2_min_noodles.jpg';
+import ideasFromHeart from '../assets/ideas_from_heart.jpg';
+import happyRamNavami from '../assets/happy_ram_navami.jpg';
+import meraBharatMahan from '../assets/mera_bharat_mahan.jpg';
+import everyCrowdCarriesOpportunities from '../assets/every_crowd_carries_opportunities.jpg';
+import liesITellMyself from '../assets/lies_i_tell_myself.jpg';
+import whenDesignApprovesFirstAttempt from '../assets/when_design_approves_first_attempt.jpg';
+import weekendVibesDesignerOffice from '../assets/weekend_vibes_designer_office.jpg';
+import weDontTalkWeCreate from '../assets/we_dont_talk_we_create.jpg';
+import happyTeachersDay from '../assets/happy_teachers_day.jpg';
+import creativityNeedsSpaceProductionPlanning from '../assets/creativity_needs_space_production_planning.jpg';
+import interviewTomorrowBeReady from '../assets/interview_tomorrow_be_ready.jpg';
+import julyIsHereChapter07 from '../assets/july_is_here_chapter_07.jpg';
+import graphicDesignTrendsYouShouldTry from '../assets/graphic_design_trends_you_should_try.jpg';
+import tellUsYourStoryWeWillDesignIt from '../assets/tell_us_your_story_we_will_design_it.jpg';
+import happyChildrensDay from '../assets/happy_childrens_day.jpg';
+import movieNightCinemaScreen from '../assets/movie_night_cinema_screen.jpg';
+import weAreHiringGraphicsDesigner from '../assets/we_are_hiring_graphics_designer.jpg';
+import youtubeDimensionsCheatSheet from '../assets/youtube_dimensions_cheat_sheet.jpg';
+import instagramDimensionsCheatSheet from '../assets/instagram_dimensions_cheat_sheet.jpg';
 import rollTheDice from '../assets/roll_the_dice.jpg';
 import trustBranding from '../assets/trust_begins_with_branding.jpg';
 import brandStandOut from '../assets/brand_stand_out.jpg';
@@ -50,6 +73,51 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'chai-refresh-desktop-concept',
+    title: 'Chai Refresh — Desktop Context Menu Concept',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: chaiRefreshPoster,
+    description: 'Creative Indian tea poster featuring a steaming glass of cutting chai with an OS desktop right-click menu selecting "Refresh".',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Creative Concept', 'UI Overlay'],
+  },
+  {
+    id: 'the-palette-that-paints-your-identity',
+    title: 'The Palette That Paints Your Identity — Peacock Art',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: palettePaintsYourIdentity,
+    description: 'Striking brand identity poster featuring a monochrome peacock with a colorful Pantone color swatch fan tail.',
+    technologies: ['Photoshop', 'Brand Identity', 'Photo Manipulation', 'Typography'],
+  },
+  {
+    id: 'seo-is-not-dead-keyboard-grenade',
+    title: 'SEO is Not Dead — Keyboard Grenade Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: keyboardGrenadeSeo,
+    description: 'High-concept performance marketing poster featuring a keyboard key grenade under a Google AI search bar. "SEO is Not Dead."',
+    technologies: ['Photoshop', '3D Composition', 'Ad Creative', 'Digital Marketing'],
+  },
+  {
+    id: 'designing-is-not-making-2-minute-noodles',
+    title: 'Designing Is Not Making 2 Minute Noodles',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: designingNot2MinNoodles,
+    description: 'Bold studio manifesto poster featuring a chrome showerhead pouring cooked spaghetti noodles onto a plate.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Poster Design'],
+  },
+  {
+    id: 'ideas-from-heart-brain-neural-art',
+    title: 'Ideas From Heart — Brain & Heart Neural Art',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: ideasFromHeart,
+    description: 'Minimalist studio concept poster featuring a human brain connected to a heart via colorful electric neural cables.',
+    technologies: ['Photoshop', '3D Photomontage', 'Conceptual Design', 'Typography'],
+  },
   {
     id: 'sahib-barbeque-biryani-haleem',
     title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
@@ -346,6 +414,168 @@ const ALL_PROJECTS: ProjectItem[] = [
     image: surprisedByResults,
     description: 'Minimalist editorial studio poster featuring a 3D animated character girl with wide eyes. "Surprised By The Results? That\'s what happens when CREATIVITY meets smart DIGITAL STRATEGY."',
     technologies: ['Photoshop', '3D Character Art', 'Ad Creative', 'Typography'],
+  },
+  {
+    id: 'happy-ram-navami-festival-poster',
+    title: 'Happy Ram Navami — Festival Poster Design',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyRamNavami,
+    description: 'Devotional Ram Navami poster featuring carved idols of Lord Ram and Lord Hanuman bowing in reverence with hanging brass bells.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Festival Campaign', 'Typography'],
+  },
+  {
+    id: 'mera-bharat-mahan-74-years-progress',
+    title: 'Mera Bharat Mahan — 74 Years of Progress',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: meraBharatMahan,
+    description: 'Monochromatic cultural map poster featuring the Indian Tricolor Flag surrounded by 74 years of progress sketches.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Patriotic Campaign', 'Illustration'],
+  },
+  {
+    id: 'every-crowd-carries-countless-opportunities',
+    title: 'Every Crowd Carries Countless Opportunities',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: everyCrowdCarriesOpportunities,
+    description: 'Minimalist editorial poster featuring a queue of people walking up an elevated staircase into endless possibilities.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Minimalist Design', 'Typography'],
+  },
+  {
+    id: 'lies-i-tell-myself-biryani',
+    title: 'Lies I Tell Myself — Biryani & Pop Culture',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: liesITellMyself,
+    description: 'Witty social media poster comparing everyday binge habits (Netflix, Instagram) with Biryani craving.',
+    technologies: ['Photoshop', 'Social Media Design', 'Food Photography', 'Ad Creative'],
+  },
+  {
+    id: 'when-design-approves-first-attempt',
+    title: 'When Design Approves In First Attempt! — Meme Poster',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: whenDesignApprovesFirstAttempt,
+    description: 'Humorous designer meme poster celebrating first-attempt client design approvals.',
+    technologies: ['Photoshop', 'Meme Marketing', 'Social Media Design', 'Typography'],
+  },
+  {
+    id: 'weekend-vibes-designer-office-changes',
+    title: 'Weekend Vibes — Designer Office Tug of War',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: weekendVibesDesignerOffice,
+    description: 'Witty social media agency poster showing a designer leaving office at 7 pm pulled back by last moment changes.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Agency Culture', 'Ad Creative'],
+  },
+  {
+    id: 'we-dont-talk-we-create',
+    title: 'We Don\'t Talk We Create — Agency Manifesto',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: weDontTalkWeCreate,
+    description: 'Sleek monochrome editorial poster featuring 3D white face sculpture with glasses over a social media platform bar.',
+    technologies: ['Photoshop', '3D Sculpting', 'Brand Strategy', 'Typography'],
+  },
+  {
+    id: 'happy-teachers-day-blackboard-tribute',
+    title: 'Happy Teacher\'s Day — Classroom Blackboard Tribute',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyTeachersDay,
+    description: 'Heartwarming Teacher\'s Day tribute poster featuring a student drawing Dr. Radhakrishnan on a classroom blackboard.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Chalk Illustration', 'Typography'],
+  },
+  {
+    id: 'creativity-needs-space-production-planning',
+    title: 'Creativity Needs Space / Production Needs Planning',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: creativityNeedsSpaceProductionPlanning,
+    description: 'Monochromatic green studio stage poster featuring green furniture and bold wall typography.',
+    technologies: ['Photoshop', '3D Room Rendering', 'Typography', 'Architectural Design'],
+  },
+  {
+    id: 'interview-tomorrow-be-ready',
+    title: 'Interview Tomorrow. Be Ready. — Alert Poster',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: interviewTomorrowBeReady,
+    description: 'Striking red event reminder poster featuring a 3D yellow notification bell with notification badge on calendar backdrop.',
+    technologies: ['Photoshop', '3D Icon Design', 'Social Media Design', 'Typography'],
+  },
+  {
+    id: 'july-is-here-chapter-07',
+    title: 'July Is Here — Chapter 07 New Goals Poster',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: julyIsHereChapter07,
+    description: 'Elegant monthly milestone poster featuring an open burgundy editorial book and incoming call UI badge.',
+    technologies: ['Photoshop', 'Editorial Layout', '3D Mockup', 'Brand Identity'],
+  },
+  {
+    id: 'graphic-design-trends-you-should-try',
+    title: 'Graphic Design Trends You Should Try — App Bracelet',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: graphicDesignTrendsYouShouldTry,
+    description: 'High-concept creative poster featuring a hand wearing a floating metallic bracelet of 3D glass app icons.',
+    technologies: ['Photoshop', '3D Token Rendering', 'Photo Manipulation', 'Typography'],
+  },
+  {
+    id: 'tell-us-your-story-we-will-design-it',
+    title: 'Tell Us Your Story — We Will Design It',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: tellUsYourStoryWeWillDesignIt,
+    description: 'Corporate agency ad poster featuring a top-down view of a business meeting exchanging chat bubbles.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Social Media Design', 'Corporate Branding'],
+  },
+  {
+    id: 'happy-childrens-day-dreams-soar',
+    title: 'Happy Children\'s Day — Let Your Dreams Soar',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: happyChildrensDay,
+    description: 'Vibrant Children\'s Day poster featuring a superhero child with yellow mask, red cape, and launching 3D rocket.',
+    technologies: ['Photoshop', '3D Composition', 'Character Retouching', 'Poster Art'],
+  },
+  {
+    id: 'movie-night-cinema-screen-poster',
+    title: 'Movie Night — Cinema Theater Screen Poster',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: movieNightCinemaScreen,
+    description: 'Atmospheric theater poster featuring red velvet seats and a giant glowing movie screen displaying typography.',
+    technologies: ['Photoshop', 'Typography', 'Lighting FX', 'Poster Art'],
+  },
+  {
+    id: 'we-are-hiring-graphics-designer-green-chairs',
+    title: 'We Are Hiring Graphics Designer — Studio Armchairs',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: weAreHiringGraphicsDesigner,
+    description: 'Luxury recruitment poster featuring green velvet armchairs under a spotlight with floating app icons.',
+    technologies: ['Photoshop', '3D Room Design', 'Recruitment Campaign', 'Typography'],
+  },
+  {
+    id: 'youtube-dimensions-cheat-sheet-guide',
+    title: 'YouTube Dimensions Cheat Sheet — Creator Guide',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: youtubeDimensionsCheatSheet,
+    description: 'Technical design cheat sheet displaying precise dimension blueprints for YouTube channel assets.',
+    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Technical Guide'],
+  },
+  {
+    id: 'instagram-dimensions-cheat-sheet-guide',
+    title: 'Instagram Dimensions Cheat Sheet — Creator Guide',
+    category: 'Graphic',
+    filterCategory: 'Graphic',
+    image: instagramDimensionsCheatSheet,
+    description: 'Infographic cheat sheet displaying exact pixel dimension specifications for Instagram media formats.',
+    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Social Media Guide'],
   },
 ];
 

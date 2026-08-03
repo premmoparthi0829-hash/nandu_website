@@ -44,7 +44,7 @@ interface DataContextType {
   resetToDefaults: () => void;
 }
 
-const STORAGE_KEY = 'nandu_portfolio_data_v11';
+const STORAGE_KEY = 'nandu_portfolio_data_v16';
 
 // Clear legacy cached portfolio data keys to force fresh state
 try {

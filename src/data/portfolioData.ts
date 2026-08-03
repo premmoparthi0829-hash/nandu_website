@@ -102,8 +102,156 @@ import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
 import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
 import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
 import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
+import chaiRefreshPoster from '../assets/chai_refresh_poster.jpg';
+import palettePaintsYourIdentity from '../assets/palette_paints_your_identity.jpg';
+import keyboardGrenadeSeo from '../assets/keyboard_grenade_seo.jpg';
+import designingNot2MinNoodles from '../assets/designing_not_2_min_noodles.jpg';
+import ideasFromHeart from '../assets/ideas_from_heart.jpg';
+import happyRamNavami from '../assets/happy_ram_navami.jpg';
+import meraBharatMahan from '../assets/mera_bharat_mahan.jpg';
+import everyCrowdCarriesOpportunities from '../assets/every_crowd_carries_opportunities.jpg';
+import liesITellMyself from '../assets/lies_i_tell_myself.jpg';
+import whenDesignApprovesFirstAttempt from '../assets/when_design_approves_first_attempt.jpg';
+import weekendVibesDesignerOffice from '../assets/weekend_vibes_designer_office.jpg';
+import weDontTalkWeCreate from '../assets/we_dont_talk_we_create.jpg';
+import happyTeachersDay from '../assets/happy_teachers_day.jpg';
+import creativityNeedsSpaceProductionPlanning from '../assets/creativity_needs_space_production_planning.jpg';
+import interviewTomorrowBeReady from '../assets/interview_tomorrow_be_ready.jpg';
+import julyIsHereChapter07 from '../assets/july_is_here_chapter_07.jpg';
+import graphicDesignTrendsYouShouldTry from '../assets/graphic_design_trends_you_should_try.jpg';
+import tellUsYourStoryWeWillDesignIt from '../assets/tell_us_your_story_we_will_design_it.jpg';
+import happyChildrensDay from '../assets/happy_childrens_day.jpg';
+import movieNightCinemaScreen from '../assets/movie_night_cinema_screen.jpg';
+import weAreHiringGraphicsDesigner from '../assets/we_are_hiring_graphics_designer.jpg';
+import youtubeDimensionsCheatSheet from '../assets/youtube_dimensions_cheat_sheet.jpg';
+import instagramDimensionsCheatSheet from '../assets/instagram_dimensions_cheat_sheet.jpg';
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'chai-refresh-desktop-concept',
+    title: 'Chai Refresh — Desktop Context Menu Concept',
+    category: 'Poster Design',
+    shortDescription: 'Creative Indian tea poster featuring a steaming glass of cutting chai with an OS desktop right-click menu selecting "Refresh".',
+    fullOverview: 'A high-concept advertising poster featuring a steaming glass of authentic Indian cutting chai placed on a rustic wood slice coaster against a rich terracotta background. Overlaid with a classic OS desktop context menu selecting the "Refresh" action as a witty metaphor for refreshing one\'s mind with tea.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Creative Concept', 'UI Overlay'],
+    features: [
+      'Authentic Steaming Cutting Chai Glass Photomontage',
+      'Realistic Desktop OS Context Menu Interface Component',
+      'Warm Terracotta Studio Lighting & Wood Grain Texture'
+    ],
+    heroImage: chaiRefreshPoster,
+    screenshots: [
+      chaiRefreshPoster
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an engaging social poster that connects workplace computer routines with a refreshing tea break.',
+      solution: 'Merged desktop UI right-click menu graphics with hot cutting chai photography.',
+      impact: 'Garnered massive engagement across social platforms and creative communities.'
+    },
+    featured: true
+  },
+  {
+    id: 'the-palette-that-paints-your-identity',
+    title: 'The Palette That Paints Your Identity — Peacock Art',
+    category: 'Branding',
+    shortDescription: 'Striking brand identity poster featuring a monochrome peacock with a colorful Pantone color swatch fan tail.',
+    fullOverview: 'A luxury brand identity promotional poster featuring a majestic grayscale peacock whose vibrant fan tail is composed of a full-spectrum Pantone color swatch palette. Slogan: "The palette that paints your identity. A symbol of color, creativity, and clarity."',
+    technologies: ['Photoshop', 'Brand Identity', 'Photo Manipulation', 'Typography'],
+    features: [
+      'Monochrome Peacock & Full Spectrum Swatch Tail Fusion',
+      'Minimalist High-Contrast Studio Gray Background',
+      'Modern Sans-Serif Slogan Typography Hierarchy'
+    ],
+    heroImage: palettePaintsYourIdentity,
+    screenshots: [
+      palettePaintsYourIdentity
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing how strategic color token systems define brand elegance and identity.',
+      solution: 'Created a surreal contrast between a monochrome peacock body and a vibrant Pantone color wheel tail.',
+      impact: 'Highly praised hallmark concept in visual branding portfolio.'
+    },
+    featured: true
+  },
+  {
+    id: 'seo-is-not-dead-keyboard-grenade',
+    title: 'SEO is Not Dead — Keyboard Grenade Campaign',
+    category: 'Social Media',
+    shortDescription: 'High-concept performance marketing poster featuring a keyboard key grenade under a Google AI search bar.',
+    fullOverview: 'A commanding digital marketing ad creative poster: "SEO is Not Dead. It\'s Still Your Biggest Growth Weapon. Let Google Bring Customers to You". Features a dark spiral studio background with a realistic hand grenade constructed entirely out of computer keyboard keycaps anchored under a modern Google AI search bar UI.',
+    technologies: ['Photoshop', '3D Composition', 'Ad Creative', 'Digital Marketing'],
+    features: [
+      'Computer Keycap Hand Grenade Photomontage FX',
+      'Integrated Modern Google Search & AI Mode UI Bar',
+      'Dark Vortex Spiral Lighting Backdrop'
+    ],
+    heroImage: keyboardGrenadeSeo,
+    screenshots: [
+      keyboardGrenadeSeo
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a high-impact performance marketing poster communicating the explosive power of search engine strategy.',
+      solution: 'Designed a literal growth weapon metaphor combining keyboard keycaps and a hand grenade pin.',
+      impact: 'Drove high CTR and inbound lead inquiries for digital marketing services.'
+    },
+    featured: true
+  },
+  {
+    id: 'designing-is-not-making-2-minute-noodles',
+    title: 'Designing Is Not Making 2 Minute Noodles',
+    category: 'Poster Design',
+    shortDescription: 'Bold studio manifesto poster featuring a chrome showerhead pouring cooked spaghetti noodles onto a plate.',
+    fullOverview: 'An artistic studio philosophy poster titled "DESIGNING IS NOT MAKING 2 MINUTE NOODLES — Good design needs time to think not just speed to deliver." Features a sleek chrome showerhead showering streams of golden cooked spaghetti noodles onto a ceramic plate against a deep cobalt blue background.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Poster Design'],
+    features: [
+      'Chrome Showerhead Spaghetti Stream Photomontage',
+      'Deep Cobalt Blue Radial Lighting Background',
+      'Crisp Architectural Typography Layout'
+    ],
+    heroImage: designingNot2MinNoodles,
+    screenshots: [
+      designingNot2MinNoodles
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Educating clients on the distinction between rushed turnarounds and thoughtful design craft.',
+      solution: 'Crafted a memorable visual surrealism piece turning shower streams into spaghetti noodles.',
+      impact: 'Resonated deeply with creative agencies and prospective brand clients.'
+    },
+    featured: true
+  },
+  {
+    id: 'ideas-from-heart-brain-neural-art',
+    title: 'Ideas From Heart — Brain & Heart Neural Art',
+    category: 'Poster Design',
+    shortDescription: 'Minimalist studio concept poster featuring a human brain connected to a heart via colorful electric neural cables.',
+    fullOverview: 'A thought-provoking visual design poster titled "IDEAS FROM HEART", depicting an anatomical human brain connected to a beating heart through a twisted bundle of red, yellow, blue, and black electrical cables set against a clean studio gray background.',
+    technologies: ['Photoshop', '3D Photomontage', 'Conceptual Design', 'Typography'],
+    features: [
+      'Anatomical Brain & Heart Electrical Cable Wiring FX',
+      'Minimalist Studio Gray Lighting & Soft Shadows',
+      'Bold Slanted Modern Typography "IDEAS FROM HEART"'
+    ],
+    heroImage: ideasFromHeart,
+    screenshots: [
+      ideasFromHeart
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing the synergy of rational intellect (brain) and passion (heart) in design thinking.',
+      solution: 'Intertwined anatomical heart and brain models with vibrant wiring harnesses.',
+      impact: 'Celebrated centerpiece in creative studio manifesto collection.'
+    },
+    featured: true
+  },
   {
     id: 'sahib-barbeque-biryani-haleem',
     title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
@@ -476,6 +624,456 @@ export const PROJECTS: Project[] = [
       problem: 'Creating an aggressive, high-converting campaign poster that conveys market dominance.',
       solution: 'Combined breaching marine predator imagery with razor-sharp brand slogan hierarchy.',
       impact: 'Drives maximum engagement and immediate visual impact.'
+    },
+    featured: true
+  },
+  {
+    id: 'happy-ram-navami-festival-poster',
+    title: 'Happy Ram Navami — Festival Poster Design',
+    category: 'Poster Design',
+    shortDescription: 'Devotional Ram Navami poster featuring carved idols of Lord Ram and Lord Hanuman bowing in reverence with hanging brass bells.',
+    fullOverview: 'A devotional festival poster created for Happy Ram Navami. Features carved black stone idols of Lord Ram standing in an ornate archway with Lord Hanuman bowing in reverence, framed by a bold red banner, golden light burst, and hanging brass temple bells.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Festival Campaign', 'Typography'],
+    features: [
+      '3D Carved Idol Photomontage & Ornate Arch Architecture',
+      'Hanging Brass Temple Bells Composition',
+      'Warm Cream Studio Lighting & Golden Radial Flare'
+    ],
+    heroImage: happyRamNavami,
+    screenshots: [
+      happyRamNavami
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing a culturally authentic and visually majestic festival campaign poster for Ram Navami.',
+      solution: 'Merged detailed stone idol photorealistic renders with traditional temple bell aesthetics.',
+      impact: 'Garnered immense social sharing and positive brand audience reception.'
+    },
+    featured: true
+  },
+  {
+    id: 'mera-bharat-mahan-74-years-progress',
+    title: 'Mera Bharat Mahan — 74 Years of Progress',
+    category: 'Poster Design',
+    shortDescription: 'Monochromatic cultural map poster featuring the Indian Tricolor Flag surrounded by 74 years of progress sketches.',
+    fullOverview: 'A patriotic celebration poster titled "मेरा भारत महान — 74 YEARS OF PROGRESS, UNITY, AND PRIDE". Features an Indian map outline framing the waving Tricolor Flag, surrounded by monochrome sketches of Indian culture, classical music, sports heroes, scientists, doctors, and defense forces.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Patriotic Campaign', 'Illustration'],
+    features: [
+      'Indian Map Cutout Silhouette & Waving Tricolor Flag',
+      'High-Detail Monochromatic Cultural Photomontage Frame',
+      'Deep Indigo & Slate Blue Atmospheric Gradient'
+    ],
+    heroImage: meraBharatMahan,
+    screenshots: [
+      meraBharatMahan
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an evocative national milestone poster honoring India\'s 74-year journey of unity and growth.',
+      solution: 'Framed the national flag inside an India map silhouette surrounded by diverse cultural portraits.',
+      impact: 'Widely praised patriotic artwork across corporate and public media.'
+    },
+    featured: true
+  },
+  {
+    id: 'every-crowd-carries-countless-opportunities',
+    title: 'Every Crowd Carries Countless Opportunities',
+    category: 'Graphic',
+    shortDescription: 'Minimalist editorial poster featuring a queue of people walking up an elevated staircase into endless possibilities.',
+    fullOverview: 'A sleek minimalist poster titled "Every crowd carries countless opportunities". Features a perspective shot of a long queue of diverse people walking up an elevated staircase platform against an expansive warm beige background.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Minimalist Design', 'Typography'],
+    features: [
+      'Expansive Minimalist Warm Beige Space & Perspective Queue',
+      'High-Detail Character Alignment & Elevated Staircase',
+      'Clean Modern Sans-Serif Slogan Typography'
+    ],
+    heroImage: everyCrowdCarriesOpportunities,
+    screenshots: [
+      everyCrowdCarriesOpportunities
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Communicating how large audiences and crowded markets represent untapped business potential.',
+      solution: 'Engineered a clean perspective line of people leading up to an elevated vantage point.',
+      impact: 'Drove high engagement for corporate audience strategy campaigns.'
+    },
+    featured: true
+  },
+  {
+    id: 'lies-i-tell-myself-biryani',
+    title: 'Lies I Tell Myself — Biryani & Pop Culture',
+    category: 'Social Media',
+    shortDescription: 'Witty social media poster comparing everyday binge habits (Netflix, Instagram) with Biryani craving.',
+    fullOverview: 'A relatable social media campaign poster titled "Lies I tell myself". Features a red textured background with 3 rounded UI cards: "NETFLIX - Just one more episode", "Instagram - Just one more reel", and a mouth-watering biryani plate card: "Just one more biriyani".',
+    technologies: ['Photoshop', 'Social Media Design', 'Food Photography', 'Ad Creative'],
+    features: [
+      'Pop Culture Relatable UI Notification Card Design',
+      'High-Detail Gourmet Biryani Plate Cutout',
+      'Textured Crimson Red Backdrop'
+    ],
+    heroImage: liesITellMyself,
+    screenshots: [
+      liesITellMyself
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a highly shareable social media ad tapping into everyday pop-culture humor.',
+      solution: 'Compared popular streaming/social binge habits directly with food cravings.',
+      impact: 'Generated high viral shares and engagement across food ordering networks.'
+    },
+    featured: true
+  },
+  {
+    id: 'when-design-approves-first-attempt',
+    title: 'When Design Approves In First Attempt! — Meme Poster',
+    category: 'Social Media',
+    shortDescription: 'Humorous designer meme poster celebrating first-attempt client design approvals.',
+    fullOverview: 'A fun studio culture poster titled "When Design Approves In First Attempt! LE DESIGNER". Features a warm beige background with a red-outlined cutout of a dancing designer celebrating with open arms.',
+    technologies: ['Photoshop', 'Meme Marketing', 'Social Media Design', 'Typography'],
+    features: [
+      'High-Impact Red Outlined Character Cutout',
+      'Clean Modern Meme Typography Hierarchy',
+      'Warm Textured Paper Studio Backdrop'
+    ],
+    heroImage: whenDesignApprovesFirstAttempt,
+    screenshots: [
+      whenDesignApprovesFirstAttempt
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating relatable agency humor content to connect with creative professionals and clients.',
+      solution: 'Combined iconic dance celebrating energy with clean bold typography.',
+      impact: 'Achieved top engagement and reshapes across designer communities.'
+    },
+    featured: true
+  },
+  {
+    id: 'weekend-vibes-designer-office-changes',
+    title: 'Weekend Vibes — Designer Office Tug of War',
+    category: 'Social Media',
+    shortDescription: 'Witty social media agency poster showing a designer leaving office at 7 pm pulled back by last moment changes.',
+    fullOverview: 'A relatable agency culture poster titled "Weekend Vibes". Features a red dual-card layout showing a designer in a suit sprinting to leave office at 7 pm being pulled backward by a heavy rope in a tug-of-war against "Last Moment Changes".',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Agency Culture', 'Ad Creative'],
+    features: [
+      'Dual Red Card Split Tug-of-War Photomontage',
+      'High-Action Motion Line Graphic Overlays',
+      'Clean Modern Agency Icon Badges'
+    ],
+    heroImage: weekendVibesDesignerOffice,
+    screenshots: [
+      weekendVibesDesignerOffice
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an engaging social media post capturing designer workplace humor before the weekend.',
+      solution: 'Designed a tug-of-war visual metaphor between leaving on time and incoming revision requests.',
+      impact: 'Garnered massive viral shares across agency teams and social media marketing groups.'
+    },
+    featured: true
+  },
+  {
+    id: 'we-dont-talk-we-create',
+    title: 'We Don\'t Talk We Create — Agency Manifesto',
+    category: 'Branding',
+    shortDescription: 'Sleek monochrome editorial poster featuring 3D white face sculpture with glasses over a social media platform bar.',
+    fullOverview: 'A luxury agency manifesto poster titled "We Don\'t Talk We Create". Features a high-detail 3D white ceramic face sculpture wearing black horn-rimmed glasses, with a floating pill-bar showcasing top digital platforms: YouTube, Google, Pinterest, Instagram, LinkedIn, and Behance.',
+    technologies: ['Photoshop', '3D Sculpting', 'Brand Strategy', 'Typography'],
+    features: [
+      'Ceramic White Face Sculpture & Glasses Render',
+      'Floating Social & Portfolio Platform Bar Component',
+      'Minimalist White Diagonal Ribbon Background'
+    ],
+    heroImage: weDontTalkWeCreate,
+    screenshots: [
+      weDontTalkWeCreate
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing agency focus on tangible creative execution over talk.',
+      solution: 'Sculpted a minimalist face model with black glasses and platform badges covering the mouth.',
+      impact: 'Established a premium hallmark graphic in corporate agency portfolio.'
+    },
+    featured: true
+  },
+  {
+    id: 'happy-teachers-day-blackboard-tribute',
+    title: 'Happy Teacher\'s Day — Classroom Blackboard Tribute',
+    category: 'Poster Design',
+    shortDescription: 'Heartwarming Teacher\'s Day tribute poster featuring a student drawing Dr. Radhakrishnan on a classroom blackboard.',
+    fullOverview: 'A poignant celebration poster for Happy Teacher\'s Day. Features a wooden classroom perspective with green wooden desks and a young school student drawing a chalk portrait of Dr. Sarvepalli Radhakrishnan on a giant blackboard. Headline: "Thanks to the teachers who shape a brighter future for their students."',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Chalk Illustration', 'Typography'],
+    features: [
+      'Wooden Classroom Perspective & Student Photomontage',
+      'Hand-Drawn Chalk Portrait Vector Illustration FX',
+      'Textured Dark Slate Blackboard Frame'
+    ],
+    heroImage: happyTeachersDay,
+    screenshots: [
+      happyTeachersDay
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing a touching tribute graphic for Teacher\'s Day honoring educators across schools.',
+      solution: 'Combined photorealistic classroom environment with chalk line-art portraiture on a blackboard.',
+      impact: 'Widely featured and shared across educational institutions and social campaigns.'
+    },
+    featured: true
+  },
+  {
+    id: 'creativity-needs-space-production-planning',
+    title: 'Creativity Needs Space / Production Needs Planning',
+    category: 'Poster Design',
+    shortDescription: 'Monochromatic green studio stage poster featuring green furniture and bold wall typography.',
+    fullOverview: 'An architectural studio design poster featuring a monochrome neon-green room stage on wheels. Wall typography displays dual core principles: "CREATIVITY NEEDS SPACE" and "PRODUCTION NEEDS PLANNING", surrounding a green sofa, armchair, coffee table, and desk lamp.',
+    technologies: ['Photoshop', '3D Room Rendering', 'Typography', 'Architectural Design'],
+    features: [
+      'Monochrome Green Studio Room Stage Render',
+      'Large Architectural Wall Typography Integration',
+      'Cinematic Studio Spotlight & Deep Shadow FX'
+    ],
+    heroImage: creativityNeedsSpaceProductionPlanning,
+    screenshots: [
+      creativityNeedsSpaceProductionPlanning
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing the balance between creative freedom and structured production workflow in design studios.',
+      solution: 'Built a 3D monochrome green room stage with environmental wall typography.',
+      impact: 'Featured centerpiece in studio space and workflow planning campaigns.'
+    },
+    featured: true
+  },
+  {
+    id: 'interview-tomorrow-be-ready',
+    title: 'Interview Tomorrow. Be Ready. — Alert Poster',
+    category: 'Social Media',
+    shortDescription: 'Striking red event reminder poster featuring a 3D yellow notification bell with notification badge on calendar backdrop.',
+    fullOverview: 'A high-impact event reminder creative poster titled "Interview Tomorrow. Be Ready." Features a rich crimson calendar backdrop with a pinned white note card, a 3D glossy yellow notification bell with a red badge count \'1\', and contact info pill button.',
+    technologies: ['Photoshop', '3D Icon Design', 'Social Media Design', 'Typography'],
+    features: [
+      '3D Glossy Yellow Bell & Notification Badge Component',
+      'Pinned White Paper Card Photomontage Overlay',
+      'Crimson Red Calendar Grid & Pill Button Interface'
+    ],
+    heroImage: interviewTomorrowBeReady,
+    screenshots: [
+      interviewTomorrowBeReady
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an urgent and eye-catching event notification creative for recruitment webinars.',
+      solution: 'Merged realistic calendar grid textures with high-contrast 3D notification badges.',
+      impact: 'Drove massive event registrations and high webinar seat booking conversions.'
+    },
+    featured: true
+  },
+  {
+    id: 'july-is-here-chapter-07',
+    title: 'July Is Here — Chapter 07 New Goals Poster',
+    category: 'Branding',
+    shortDescription: 'Elegant monthly milestone poster featuring an open burgundy editorial book and incoming call UI badge.',
+    fullOverview: 'A sophisticated brand manifesto poster titled "July is here — New month. New energy. New opportunities." Features a minimalist cream background with an open hardcover burgundy book ("Chapter 6 Completed" -> "CHAPTER 07 JULY") and an incoming call notification widget.',
+    technologies: ['Photoshop', 'Editorial Layout', '3D Mockup', 'Brand Identity'],
+    features: [
+      'Open Hardcover Book & Foil Stamp Typography',
+      'Minimalist Incoming Call UI Pill Widget',
+      'Warm Cream Paper Texture & Subtle Leaf Shadows'
+    ],
+    heroImage: julyIsHereChapter07,
+    screenshots: [
+      julyIsHereChapter07
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing an inspiring mid-year brand campaign visual for monthly goal setting.',
+      solution: 'Created a book metaphor transitioning from completed Chapter 6 to fresh Chapter 7.',
+      impact: 'Highly reshared mid-year motivational creative across social brand channels.'
+    },
+    featured: true
+  },
+  {
+    id: 'graphic-design-trends-you-should-try',
+    title: 'Graphic Design Trends You Should Try — App Bracelet',
+    category: 'Graphic',
+    shortDescription: 'High-concept creative poster featuring a hand wearing a floating metallic bracelet of 3D glass app icons.',
+    fullOverview: 'A dark, futuristic design trend poster titled "GRAPHIC DESIGN TRENDS YOU SHOULD TRY". Features a dramatic dark marble studio background with a human hand encircled by a floating metallic ring of 3D glass software tokens (Photoshop, Illustrator, Premiere, After Effects, Figma).',
+    technologies: ['Photoshop', '3D Token Rendering', 'Photo Manipulation', 'Typography'],
+    features: [
+      'Floating 3D Glass & Chrome Software Icon Bracelet FX',
+      'Dramatic Studio Lighting & Dark Marble Texture',
+      'High-Impact White & Red Headline Hierarchy'
+    ],
+    heroImage: graphicDesignTrendsYouShouldTry,
+    screenshots: [
+      graphicDesignTrendsYouShouldTry
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Visualizing mastery across design tools in a single compelling creative poster.',
+      solution: 'Engineered a floating bracelet composed of glass 3D application icons encircling a hand.',
+      impact: 'Generated immense praise and inspiration across design agency portfolios.'
+    },
+    featured: true
+  },
+  {
+    id: 'tell-us-your-story-we-will-design-it',
+    title: 'Tell Us Your Story — We Will Design It',
+    category: 'Social Media',
+    shortDescription: 'Corporate agency ad poster featuring a top-down view of a business meeting exchanging chat bubbles.',
+    fullOverview: 'A professional corporate campaign poster titled "Tell Us Your Story — We Will Design it". Features a rich royal blue studio background with a top-down perspective of two executives seated across a table exchanging messaging chat bubbles.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Social Media Design', 'Corporate Branding'],
+    features: [
+      'Top-Down Executive Meeting Perspective Composition',
+      'Integrated Realistic Message Chat Bubble UI',
+      'Deep Royal Blue Studio Radial Lighting'
+    ],
+    heroImage: tellUsYourStoryWeWillDesignIt,
+    screenshots: [
+      tellUsYourStoryWeWillDesignIt
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing a client acquisition creative communicating collaborative design storytelling.',
+      solution: 'Pioneered an aerial view composition connecting human interaction with messaging UI.',
+      impact: 'Drove significant inbound client inquiries for custom design & branding services.'
+    },
+    featured: true
+  },
+  {
+    id: 'happy-childrens-day-dreams-soar',
+    title: 'Happy Children\'s Day — Let Your Dreams Soar',
+    category: 'Poster Design',
+    shortDescription: 'Vibrant Children\'s Day poster featuring a superhero child with yellow mask, red cape, and launching 3D rocket.',
+    fullOverview: 'An energetic celebration poster for Happy Children\'s Day titled "Let your dreams soar". Features a bright sky blue radial background with clouds, a hot air balloon, rollercoaster, 3D rocket launching, and a smiling hero child wearing a yellow mask, red cape, and flexing arms.',
+    technologies: ['Photoshop', '3D Composition', 'Character Retouching', 'Poster Art'],
+    features: [
+      'Heroic Superhero Child & Cape Photomontage',
+      '3D Rocket Launch & Hot Air Balloon Environment',
+      'Vibrant Blue & Yellow 3D Typographic Headline'
+    ],
+    heroImage: happyChildrensDay,
+    screenshots: [
+      happyChildrensDay
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a joyful, high-energy festival poster honoring Children\'s Day.',
+      solution: 'Combined 3D rocket launching FX with superhero child character styling.',
+      impact: 'Delivered an uplifting and widely celebrated holiday brand creative.'
+    },
+    featured: true
+  },
+  {
+    id: 'movie-night-cinema-screen-poster',
+    title: 'Movie Night — Cinema Theater Screen Poster',
+    category: 'Poster Design',
+    shortDescription: 'Atmospheric theater poster featuring red velvet seats and a giant glowing movie screen displaying typography.',
+    fullOverview: 'A dramatic cinema promotional poster titled "MOVIE NIGHT". Features a full theater perspective filled with red plush velvet seats, popcorn bucket, and a giant illuminated curved cinema screen displaying bold white and script headline typography.',
+    technologies: ['Photoshop', 'Typography', 'Lighting FX', 'Poster Art'],
+    features: [
+      'Red Velvet Cinema Seating & Theater Interior Perspective',
+      'Giant Illuminated Screen Typography Composition',
+      'Popcorn Box Detail & Ambient Ceiling Spotlight FX'
+    ],
+    heroImage: movieNightCinemaScreen,
+    screenshots: [
+      movieNightCinemaScreen
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating an immersive entertainment event poster evoking authentic cinema theater nostalgia.',
+      solution: 'Constructed a low-angle theater seating perspective pointing up to a glowing red screen.',
+      impact: 'Garnered massive engagement across film societies and movie night promotion campaigns.'
+    },
+    featured: true
+  },
+  {
+    id: 'we-are-hiring-graphics-designer-green-chairs',
+    title: 'We Are Hiring Graphics Designer — Studio Armchairs',
+    category: 'Poster Design',
+    shortDescription: 'Luxury recruitment poster featuring green velvet armchairs under a spotlight with floating app icons.',
+    fullOverview: 'A high-concept studio recruitment poster titled "WE ARE HIRING GRAPHICS DESIGNER". Features a striking monochromatic green environment with three tufted green velvet armchairs, a central green walkway illuminated by a pendant spotlight, and floating social app icon silhouettes.',
+    technologies: ['Photoshop', '3D Room Design', 'Recruitment Campaign', 'Typography'],
+    features: [
+      'Tufted Green Velvet Armchairs & Spotlight Environment',
+      'Emerald Green Walkway Perspective & Icon Overlay',
+      'High-Impact White Slanted Architectural Typography'
+    ],
+    heroImage: weAreHiringGraphicsDesigner,
+    screenshots: [
+      weAreHiringGraphicsDesigner
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing an unconventional, high-end recruitment creative to attract senior graphic designers.',
+      solution: 'Engineered a spotlighted executive armchair stage in emerald green studio aesthetics.',
+      impact: 'Attracted high-quality portfolio submissions and senior design candidate applications.'
+    },
+    featured: true
+  },
+  {
+    id: 'youtube-dimensions-cheat-sheet-guide',
+    title: 'YouTube Dimensions Cheat Sheet — Creator Guide',
+    category: 'Graphic',
+    shortDescription: 'Technical design cheat sheet displaying precise dimension blueprints for YouTube channel assets.',
+    fullOverview: 'A sleek creator reference graphic for YouTube content strategists. Features a dark tech grid background with glowing neon-orange wireframes detailing exact dimensions for Profile Photos (800x800 px), Profile Covers (2560x1440 px), Thumbnails (1280x720 px), Watermarks (150x150 px), Reels (1080x1920 px), and Display Ads.',
+    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Technical Guide'],
+    features: [
+      'Neon Orange Tech Wireframe Grid Layout',
+      'Comprehensive YouTube Asset Dimension Specifications',
+      'Official YouTube Logo & Clean Dark Background'
+    ],
+    heroImage: youtubeDimensionsCheatSheet,
+    screenshots: [
+      youtubeDimensionsCheatSheet
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Creating a clean, highly functional cheat sheet for video content creators and social media managers.',
+      solution: 'Organized asset dimensions into high-contrast neon wireframe blueprint modules.',
+      impact: 'Saved and shared extensively by video editors, content creators, and social managers.'
+    },
+    featured: true
+  },
+  {
+    id: 'instagram-dimensions-cheat-sheet-guide',
+    title: 'Instagram Dimensions Cheat Sheet — Creator Guide',
+    category: 'Graphic',
+    shortDescription: 'Infographic cheat sheet displaying exact pixel dimension specifications for Instagram media formats.',
+    fullOverview: 'An essential technical reference graphic for Instagram marketers. Features a dark purple gradient background with neon wireframe frames covering Profile Photos (320x320 px), Square Carousels (1080x1080 px), Portrait Carousels (1080x1350 px), Stories (1080x1920 px), Reels (1080x1920 px), and Landscape posts.',
+    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Social Media Guide'],
+    features: [
+      'Official Instagram Gradient Logo & Dark Grid Aesthetics',
+      'Complete Aspect Ratio & Pixel Dimension Reference Cards',
+      'High-Readability Modern Sans-Serif Typographic Layout'
+    ],
+    heroImage: instagramDimensionsCheatSheet,
+    screenshots: [
+      instagramDimensionsCheatSheet
+    ],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Developing a definitive visual cheat sheet for social media marketers managing Instagram content.',
+      solution: 'Laid out all key post formats and aspect ratios in crisp neon wireframe blocks.',
+      impact: 'Became a viral reference asset across social media marketing communities.'
     },
     featured: true
   }
