@@ -20,6 +20,18 @@ export interface ServiceItem {
   deliverables: string[];
 }
 
+export interface Skill {
+  name: string;
+  category: string;
+  level: number;
+  subtitle?: string;
+  iconName: string;
+  glowColor?: string;
+  badgeBg?: string;
+  textColor?: string;
+  accentColor?: string;
+}
+
 export interface InquiryForm {
   name: string;
   email: string;

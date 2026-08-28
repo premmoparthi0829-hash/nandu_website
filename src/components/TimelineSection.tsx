@@ -32,7 +32,7 @@ export const TimelineSection: React.FC = () => {
 
         {/* Vertical Timeline */}
         {/* On mobile: simple stacked cards. On sm+: left-border timeline with absolute date pills */}
-        <div className="flex flex-col gap-6 sm:gap-10 relative sm:ml-28 sm:pl-10 sm:border-l-2 sm:border-dashed sm:border-[#88D900]/30">
+        <div className="flex flex-col gap-6 sm:gap-10 relative sm:ml-44 sm:pl-10 sm:border-l-2 sm:border-dashed sm:border-[#88D900]/30">
 
           {EXPERIENCES.map((item, index) => (
             <motion.div
@@ -43,15 +43,15 @@ export const TimelineSection: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="relative group"
             >
-              {/* Duration Pill — stacked on mobile, absolute on sm+ */}
-              <div className="mb-3 sm:mb-0 sm:absolute sm:-left-36 sm:top-2.5 flex">
-                <span className="px-3 py-1 rounded-full bg-[#F472B6] text-black font-button font-extrabold text-[10px] sm:text-xs shadow-[0_0_15px_rgba(244,114,182,0.3)] uppercase">
+              {/* Duration Pill — stacked on mobile, absolute on sm+ with zero node overlap */}
+              <div className="mb-3 sm:mb-0 sm:absolute sm:-left-48 sm:top-2 sm:w-36 flex sm:justify-end z-10">
+                <span className="px-3 py-1.5 rounded-full bg-[#F472B6] text-black font-button font-extrabold text-[10px] sm:text-xs shadow-[0_0_15px_rgba(244,114,182,0.3)] uppercase whitespace-nowrap tracking-wider">
                   {item.duration}
                 </span>
               </div>
 
               {/* Neon Node Marker — only visible on sm+ */}
-              <div className="hidden sm:block absolute -left-[47px] top-2.5 w-5 h-5 rounded-full bg-[#88D900] border-4 border-[#090909] shadow-[0_0_15px_#88D900] group-hover:scale-125 transition-transform" />
+              <div className="hidden sm:block absolute -left-[47px] top-2.5 w-5 h-5 rounded-full bg-[#88D900] border-4 border-[#090909] shadow-[0_0_15px_#88D900] group-hover:scale-125 transition-transform z-20" />
 
               {/* Experience Card */}
               <div className="luxury-card p-5 sm:p-8 hover:border-[#88D900]/50 transition-all">

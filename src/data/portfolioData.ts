@@ -22,18 +22,138 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS: Skill[] = [
-  { name: 'Photoshop', category: 'Design & Tools', level: 98, iconName: 'Image', glowColor: '#88D900' },
-  { name: 'Illustrator', category: 'Design & Tools', level: 96, iconName: 'PenTool', glowColor: '#88D900' },
-  { name: 'Figma', category: 'Design & Tools', level: 94, iconName: 'Figma', glowColor: '#88D900' },
-  { name: 'InDesign', category: 'Design & Tools', level: 90, iconName: 'Layers', glowColor: '#88D900' },
-  { name: 'Canva Pro', category: 'Design & Tools', level: 95, iconName: 'Sparkles', glowColor: '#88D900' },
-  { name: 'Firefly AI', category: 'Design & Tools', level: 92, iconName: 'Flame', glowColor: '#88D900' },
-  { name: 'After Effects', category: 'Design & Tools', level: 85, iconName: 'Code', glowColor: '#88D900' },
-  { name: 'UI/UX Design', category: 'UI/UX & Print', level: 92, iconName: 'Smartphone', glowColor: '#88D900' },
-  { name: 'Brand Identity', category: 'Branding & Visuals', level: 98, iconName: 'Globe', glowColor: '#88D900' },
-  { name: 'Packaging', category: 'UI/UX & Print', level: 92, iconName: 'Cpu', glowColor: '#88D900' },
-  { name: 'Advertising', category: 'Branding & Visuals', level: 95, iconName: 'Server', glowColor: '#88D900' },
-  { name: 'Typography', category: 'Branding & Visuals', level: 96, iconName: 'GitBranch', glowColor: '#88D900' },
+  {
+    name: 'Photoshop',
+    category: 'Design & Tools',
+    level: 98,
+    subtitle: 'Image editing & photo manipulation',
+    iconName: 'Ps',
+    glowColor: '#0066FF',
+    badgeBg: '#001E36',
+    textColor: '#31A8FF',
+    accentColor: '#0066FF'
+  },
+  {
+    name: 'Illustrator',
+    category: 'Design & Tools',
+    level: 96,
+    subtitle: 'Vector design & illustrations',
+    iconName: 'Ai',
+    glowColor: '#FF7700',
+    badgeBg: '#331000',
+    textColor: '#FF9A00',
+    accentColor: '#FF7700'
+  },
+  {
+    name: 'Figma',
+    category: 'Design & Tools',
+    level: 94,
+    subtitle: 'UI design & prototyping',
+    iconName: 'Figma',
+    glowColor: '#FF3366',
+    badgeBg: '#000000',
+    textColor: '#FFFFFF',
+    accentColor: '#FF3366'
+  },
+  {
+    name: 'InDesign',
+    category: 'Design & Tools',
+    level: 90,
+    subtitle: 'Page layout & publishing',
+    iconName: 'Id',
+    glowColor: '#D8006C',
+    badgeBg: '#2B0017',
+    textColor: '#FF3366',
+    accentColor: '#D8006C'
+  },
+  {
+    name: 'Canva Pro',
+    category: 'Design & Tools',
+    level: 95,
+    subtitle: 'Quick design & visual content',
+    iconName: 'Canva',
+    glowColor: '#00C4CC',
+    badgeBg: '#00C4CC',
+    textColor: '#FFFFFF',
+    accentColor: '#00C4CC'
+  },
+  {
+    name: 'Firefly AI',
+    category: 'Design & Tools',
+    level: 92,
+    subtitle: 'AI-powered design & generation',
+    iconName: 'Flame',
+    glowColor: '#FF4500',
+    badgeBg: '#200000',
+    textColor: '#FF4500',
+    accentColor: '#FF4500'
+  },
+  {
+    name: 'After Effects',
+    category: 'Design & Tools',
+    level: 85,
+    subtitle: 'Motion graphics & visual effects',
+    iconName: 'Ae',
+    glowColor: '#7000FF',
+    badgeBg: '#00005C',
+    textColor: '#9999FF',
+    accentColor: '#7000FF'
+  },
+  {
+    name: 'UI/UX Design',
+    category: 'UI/UX & Print',
+    level: 92,
+    subtitle: 'User research & interface design',
+    iconName: 'Smartphone',
+    glowColor: '#00B4D8',
+    badgeBg: '#000000',
+    textColor: '#00E5FF',
+    accentColor: '#00B4D8'
+  },
+  {
+    name: 'Brand Identity',
+    category: 'Branding & Visuals',
+    level: 98,
+    subtitle: 'Logo design & brand strategy',
+    iconName: 'Star',
+    glowColor: '#9D4EDD',
+    badgeBg: '#10002B',
+    textColor: '#9D4EDD',
+    accentColor: '#9D4EDD'
+  },
+  {
+    name: 'Xd Design',
+    category: 'UI/UX & Print',
+    level: 90,
+    subtitle: 'UI/UX design & prototyping',
+    iconName: 'Xd',
+    glowColor: '#FF007F',
+    badgeBg: '#4A0033',
+    textColor: '#FF61F6',
+    accentColor: '#FF007F'
+  },
+  {
+    name: 'Print Design',
+    category: 'UI/UX & Print',
+    level: 92,
+    subtitle: 'Print materials & collateral',
+    iconName: 'Printer',
+    glowColor: '#FFB703',
+    badgeBg: '#1A1A00',
+    textColor: '#FFB703',
+    accentColor: '#FFB703'
+  },
+  {
+    name: 'Web Design',
+    category: 'UI/UX & Print',
+    level: 95,
+    subtitle: 'Web layouts & design systems',
+    iconName: 'Globe',
+    glowColor: '#00B4D8',
+    badgeBg: '#001A26',
+    textColor: '#00B4D8',
+    accentColor: '#00B4D8'
+  }
 ];
 
 export const SERVICES: ServiceItem[] = [
