@@ -717,44 +717,9 @@ export const FeaturedProjects: React.FC = () => {
             <Sparkles className="w-3 h-3" />
             <span>PORTFOLIO SHOWCASE</span>
           </div>
-          <h2 className="font-heading font-bold text-xl sm:text-3xl text-white tracking-tight">
+          <h2 className="font-heading font-bold text-xl sm:text-3xl text-white tracking-tight mb-4">
             MY <span className="text-[#88D900]">PROJECTS</span>
           </h2>
-        </motion.div>
-
-        {/* Category Navigation Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-3 text-sm sm:text-base font-medium shrink-0"
-        >
-          {CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setActiveCategory(cat);
-                  setPage(0);
-                  setVisibleCount(6);
-                }}
-                className="relative py-1 px-1 transition-colors duration-200 focus:outline-none cursor-pointer"
-              >
-                <span className={isActive ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}>
-                  {cat}
-                </span>
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTabUnderline"
-                    className="absolute left-0 right-0 -bottom-1 h-[3px] bg-[#88D900] rounded-full shadow-[0_0_10px_rgba(136,217,0,0.5)]"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            );
-          })}
         </motion.div>
 
         {/* Grid Container — fills remaining height perfectly */}
@@ -795,35 +760,14 @@ export const FeaturedProjects: React.FC = () => {
                       setLightboxDirection(1);
                       setLightboxIndex(itemIndexInFiltered !== -1 ? itemIndexInFiltered : 0);
                     }}
-                    className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer hover:shadow-[0_0_30px_rgba(136,217,0,0.2)] hover:border-[#88D900]/60 transition-all duration-300"
+                    className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer transition-all duration-300"
                   >
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
                       style={{ imageRendering: 'high-quality' }}
                     />
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2 sm:p-3">
-                      <div className="flex justify-end">
-                        <span
-                          className="w-8 h-8 rounded-full bg-[#88D900] text-black flex items-center justify-center font-bold shadow-lg transform group-hover:scale-110 transition-transform"
-                          title="Open Full Image"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                          </svg>
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-[#88D900] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5 block">{item.category}</span>
-                        <h3 className="text-white text-[10px] sm:text-xs font-bold line-clamp-2 flex items-start justify-between gap-1">
-                          <span>{item.title}</span>
-                          <ExternalLink className="w-3 h-3 shrink-0 mt-0.5 text-[#88D900]" />
-                        </h3>
-                      </div>
-                    </div>
                   </motion.div>
                 );
               })}
