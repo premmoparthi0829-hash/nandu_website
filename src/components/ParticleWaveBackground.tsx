@@ -19,7 +19,13 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
     let height = 0;
     let time = 0;
 
+    let mouseX = -1000;
+    let mouseY = -1000;
+    let targetMouseX = -1000;
+    let targetMouseY = -1000;
+
     const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
     const handleResize = () => {
       const parent = canvas.parentElement;
@@ -32,177 +38,192 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      targetMouseX = e.clientX - rect.left;
+      targetMouseY = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      targetMouseX = -1000;
+      targetMouseY = -1000;
+    };
+
     handleResize();
     window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Particle Wave Configuration
-    const numWaves = isMobile ? 3 : 5;
-    const particlesPerWave = isMobile ? 40 : 75;
-    const numFloating = isMobile ? 25 : 55;
+    // Color Interpolation matching reference image:
+    // Left: Hot Pink / Magenta -> Center: Purple / Violet -> Electric Blue -> Right: Cyan / Turquoise
+    const getColorRGB = (xRatio: number) => {
+      if (xRatio < 0.3) {
+        const t = xRatio / 0.3;
+        return {
+          r: Math.round(244 - 8 * t),
+          g: Math.round(114 - 42 * t),
+          b: Math.round(182 - 29 * t),
+        };
+      } else if (xRatio < 0.55) {
+        const t = (xRatio - 0.3) / 0.25;
+        return {
+          r: Math.round(236 + (168 - 236) * t),
+          g: Math.round(72 + (85 - 72) * t),
+          b: Math.round(153 + (247 - 153) * t),
+        };
+      } else if (xRatio < 0.75) {
+        const t = (xRatio - 0.55) / 0.2;
+        return {
+          r: Math.round(168 + (59 - 168) * t),
+          g: Math.round(85 + (130 - 85) * t),
+          b: Math.round(247 + (246 - 247) * t),
+        };
+      } else {
+        const t = (xRatio - 0.75) / 0.25;
+        return {
+          r: Math.round(59 + (6 - 59) * t),
+          g: Math.round(130 + (182 - 130) * t),
+          b: Math.round(246 + (212 - 246) * t),
+        };
+      }
+    };
 
-    interface Particle {
-      xRatio: number; // 0 to 1 across width
-      waveIndex: number;
-      offsetY: number;
-      baseRadius: number;
-      pulseSpeed: number;
+    // Configuration
+    const numStreaks = isMobile ? 32 : isTablet ? 55 : 85;
+    const numDust = isMobile ? 40 : isTablet ? 80 : 130;
+
+    interface RainStreak {
+      xRatio: number;
+      x: number;
+      y: number; // bottom tip Y position
+      length: number;
+      speed: number;
+      nodeRadius: number;
+      opacity: number;
       pulsePhase: number;
     }
 
-    interface FloatingParticle {
+    interface DustParticle {
       x: number;
       y: number;
       vx: number;
       vy: number;
       radius: number;
       opacity: number;
-      color: string;
     }
 
-    // Initialize Wave Particles
-    const waveParticles: Particle[] = [];
-    for (let w = 0; w < numWaves; w++) {
-      for (let p = 0; p < particlesPerWave; p++) {
-        waveParticles.push({
-          xRatio: p / (particlesPerWave - 1),
-          waveIndex: w,
-          offsetY: (w - (numWaves - 1) / 2) * (isMobile ? 24 : 35),
-          baseRadius: 1.2 + Math.random() * 1.6,
-          pulseSpeed: 0.02 + Math.random() * 0.03,
-          pulsePhase: Math.random() * Math.PI * 2,
-        });
-      }
-    }
-
-    // Color interpolation helper
-    const getParticleColor = (xRatio: number, opacity: number) => {
-      // Left: Pink/Magenta (#ec4899), Center: Violet/Purple (#a855f7), Right: Cyan/Blue (#06b6d4)
-      if (xRatio < 0.4) {
-        // Magenta -> Purple
-        const factor = xRatio / 0.4;
-        const r = Math.round(236 + (168 - 236) * factor);
-        const g = Math.round(72 + (85 - 72) * factor);
-        const b = Math.round(153 + (247 - 153) * factor);
-        return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-      } else {
-        // Purple -> Cyan
-        const factor = (xRatio - 0.4) / 0.6;
-        const r = Math.round(168 + (6 - 168) * factor);
-        const g = Math.round(85 + (182 - 85) * factor);
-        const b = Math.round(247 + (212 - 247) * factor);
-        return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-      }
-    };
-
-    // Initialize Ambient Floating Particles
-    const floatingParticles: FloatingParticle[] = [];
-    for (let i = 0; i < numFloating; i++) {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
-      const xRatio = x / (width || 1);
-      floatingParticles.push({
-        x,
-        y,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: 0.8 + Math.random() * 1.4,
-        opacity: 0.2 + Math.random() * 0.5,
-        color: getParticleColor(xRatio, 0.4),
+    // Initialize Vertical Rain Streaks
+    const streaks: RainStreak[] = [];
+    for (let i = 0; i < numStreaks; i++) {
+      const xRatio = (i + Math.random() * 0.4) / numStreaks;
+      streaks.push({
+        xRatio,
+        x: xRatio * width,
+        y: Math.random() * height * 1.2 - height * 0.1,
+        length: 80 + Math.random() * (isMobile ? 180 : 320),
+        speed: 0.3 + Math.random() * 0.9,
+        nodeRadius: 2.2 + Math.random() * 2.2,
+        opacity: 0.4 + Math.random() * 0.55,
+        pulsePhase: Math.random() * Math.PI * 2,
       });
     }
 
-    // Main Render Loop
+    // Initialize Ambient Dust Particles
+    const dustParticles: DustParticle[] = [];
+    for (let i = 0; i < numDust; i++) {
+      dustParticles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        radius: 0.8 + Math.random() * 1.6,
+        opacity: 0.25 + Math.random() * 0.5,
+      });
+    }
+
+    // Render Animation Loop
     const render = () => {
-      time += 0.012;
+      time += 0.01;
+
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
       ctx.clearRect(0, 0, width, height);
 
-      // Render Floating Particles
-      for (let i = 0; i < floatingParticles.length; i++) {
-        const fp = floatingParticles[i];
-        fp.x += fp.vx;
-        fp.y += fp.vy;
+      // 1. Draw Ambient Floating Dust Particles
+      for (let i = 0; i < dustParticles.length; i++) {
+        const d = dustParticles[i];
+        d.x += d.vx;
+        d.y += d.vy;
 
-        if (fp.x < 0) fp.x = width;
-        if (fp.x > width) fp.x = 0;
-        if (fp.y < 0) fp.y = height;
-        if (fp.y > height) fp.y = 0;
+        if (d.x < 0) d.x = width;
+        if (d.x > width) d.x = 0;
+        if (d.y < 0) d.y = height;
+        if (d.y > height) d.y = 0;
+
+        const xRatio = d.x / (width || 1);
+        const color = getColorRGB(xRatio);
+        const op = d.opacity * (0.6 + 0.4 * Math.sin(time * 3 + i));
 
         ctx.beginPath();
-        ctx.arc(fp.x, fp.y, fp.radius, 0, Math.PI * 2);
-        ctx.fillStyle = fp.color;
+        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${op})`;
         ctx.fill();
       }
 
-      // Group wave particles by waveIndex to draw grid lines
-      const waveGrid: { x: number; y: number; color: string; opacity: number }[][] = Array.from(
-        { length: numWaves },
-        () => []
-      );
+      // 2. Draw Vertical Cyber Laser Streaks & Tip Glowing Nodes
+      for (let i = 0; i < streaks.length; i++) {
+        const s = streaks[i];
 
-      // Compute position for each wave particle
-      const centerY = height * 0.52;
+        // Move vertical trail down slowly
+        s.y += s.speed;
+        if (s.y - s.length > height) {
+          s.y = -50;
+          s.xRatio = Math.random();
+          s.x = s.xRatio * width;
+          s.length = 80 + Math.random() * (isMobile ? 180 : 320);
+        }
 
-      for (let i = 0; i < waveParticles.length; i++) {
-        const p = waveParticles[i];
-        const x = p.xRatio * width;
+        let drawX = s.x;
 
-        // Wave Sine Calculations (organic flowing wave)
-        const freq1 = 0.0035;
-        const freq2 = 0.007;
-        const sine1 = Math.sin(x * freq1 + time * 1.2 + p.waveIndex * 0.4);
-        const sine2 = Math.cos(x * freq2 - time * 0.8 + p.waveIndex * 0.2);
+        // Subtle Mouse Deflection
+        const dx = drawX - mouseX;
+        const dy = s.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          const force = (1 - dist / 140) * 16;
+          drawX += (dx / dist) * force;
+        }
 
-        const waveHeight = (isMobile ? 45 : 75) * sine1 + (isMobile ? 20 : 35) * sine2;
-        const y = centerY + waveHeight + p.offsetY;
+        const color = getColorRGB(s.xRatio);
+        const pulse = 0.75 + 0.25 * Math.sin(time * 2.5 + s.pulsePhase);
+        const currentOpacity = s.opacity * pulse;
 
-        // Pulsing opacity
-        const opacity = 0.35 + 0.45 * Math.sin(time * 2 + p.pulsePhase);
-        const color = getParticleColor(p.xRatio, opacity);
+        // A) Draw Vertical Fading Laser Gradient Line
+        const grad = ctx.createLinearGradient(drawX, s.y - s.length, drawX, s.y);
+        grad.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
+        grad.addColorStop(0.7, `rgba(${color.r}, ${color.g}, ${color.b}, ${currentOpacity * 0.45})`);
+        grad.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, ${currentOpacity * 0.95})`);
 
-        waveGrid[p.waveIndex].push({ x, y, color, opacity });
-
-        // Draw particle dot
         ctx.beginPath();
-        ctx.arc(x, y, p.baseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = color;
+        ctx.moveTo(drawX, s.y - s.length);
+        ctx.lineTo(drawX, s.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = isMobile ? 1.2 : 1.8;
+        ctx.stroke();
+
+        // B) Draw Bright Glowing Tip Node
+        ctx.beginPath();
+        ctx.arc(drawX, s.y, s.nodeRadius, 0, Math.PI * 2);
+
+        if (!isMobile && currentOpacity > 0.4) {
+          ctx.shadowBlur = 12;
+          ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, 0.9)`;
+        }
+
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
         ctx.fill();
-      }
-
-      // Connect adjacent particles along horizontal waves with glowing lines
-      for (let w = 0; w < numWaves; w++) {
-        const linePts = waveGrid[w];
-        if (linePts.length < 2) continue;
-
-        ctx.beginPath();
-        ctx.moveTo(linePts[0].x, linePts[0].y);
-        for (let i = 1; i < linePts.length; i++) {
-          const pt = linePts[i];
-          ctx.lineTo(pt.x, pt.y);
-        }
-        ctx.strokeStyle = getParticleColor(0.5, 0.08); // subtle ambient connecting line
-        ctx.lineWidth = 0.75;
-        ctx.stroke();
-      }
-
-      // Connect vertical mesh lines across parallel waves
-      for (let p = 0; p < particlesPerWave; p++) {
-        ctx.beginPath();
-        let started = false;
-        for (let w = 0; w < numWaves; w++) {
-          const pt = waveGrid[w][p];
-          if (pt) {
-            if (!started) {
-              ctx.moveTo(pt.x, pt.y);
-              started = true;
-            } else {
-              ctx.lineTo(pt.x, pt.y);
-            }
-          }
-        }
-        const xRatio = p / (particlesPerWave - 1);
-        ctx.strokeStyle = getParticleColor(xRatio, 0.06);
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
+        ctx.shadowBlur = 0; // reset
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -212,6 +233,8 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
