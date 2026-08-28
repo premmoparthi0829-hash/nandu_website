@@ -586,7 +586,8 @@ export const FeaturedProjects: React.FC = () => {
   const [page, setPage] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [lightboxDirection, setLightboxDirection] = useState<number>(1); // 1 = next (page turns left), -1 = prev (page turns right)
 
   const { projects: dynamicProjects } = useData();
 
@@ -626,14 +627,6 @@ export const FeaturedProjects: React.FC = () => {
     setPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
   };
 
-  const handleLoadMore = () => {
-    if (visibleCount < filteredProjects.length) {
-      setVisibleCount(prev => prev + 6);
-    } else {
-      setVisibleCount(6);
-    }
-  };
-
   const openModal = (item: ProjectItem) => {
     const proj: Project = {
       id: item.id,
@@ -648,6 +641,60 @@ export const FeaturedProjects: React.FC = () => {
     };
     setSelectedProject(proj);
   };
+
+  // Keyboard navigation for image lightbox
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'ArrowLeft') {
+        setLightboxDirection(-1);
+        setLightboxIndex(prev => (prev !== null && prev > 0 ? prev - 1 : filteredProjects.length - 1));
+      } else if (e.key === 'ArrowRight') {
+        setLightboxDirection(1);
+        setLightboxIndex(prev => (prev !== null && prev < filteredProjects.length - 1 ? prev + 1 : 0));
+      } else if (e.key === 'Escape') {
+        setLightboxIndex(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, filteredProjects.length]);
+
+  // Auto-scroll Lightbox images at smooth medium speed (every 3.8 seconds)
+  React.useEffect(() => {
+    if (lightboxIndex === null) return;
+    const timer = setInterval(() => {
+      setLightboxDirection(1);
+      setLightboxIndex(prev => (prev !== null ? (prev + 1) % filteredProjects.length : 0));
+    }, 3800);
+    return () => clearInterval(timer);
+  }, [lightboxIndex, filteredProjects.length]);
+
+  // Ultra-Fast & Sleek Gallery Slide Variants — No Black Screen Gap
+  const galleryVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 120 : -120,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.28,
+        ease: [0.25, 1, 0.5, 1], // fast, crisp, fluid
+      },
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -120 : 120,
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+        ease: [0.25, 1, 0.5, 1],
+      },
+    }),
+  };
+
+  const currentLightboxProject = lightboxIndex !== null ? filteredProjects[lightboxIndex] : null;
 
   return (
     <section
@@ -693,7 +740,7 @@ export const FeaturedProjects: React.FC = () => {
                   setPage(0);
                   setVisibleCount(6);
                 }}
-                className="relative py-1 px-1 transition-colors duration-200 focus:outline-none"
+                className="relative py-1 px-1 transition-colors duration-200 focus:outline-none cursor-pointer"
               >
                 <span className={isActive ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}>
                   {cat}
@@ -734,47 +781,52 @@ export const FeaturedProjects: React.FC = () => {
           {/* 3×2 Grid — fills full remaining height, no scroll */}
           <motion.div layout className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-4 h-full">
             <AnimatePresence mode="popLayout">
-              {displayedProjects.map((item) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => openModal(item)}
-                  className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer hover:shadow-[0_0_30px_rgba(136,217,0,0.15)] hover:border-[#88D900]/50 transition-all duration-300"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    style={{ imageRendering: 'high-quality' }}
-                  />
+              {displayedProjects.map((item) => {
+                const itemIndexInFiltered = filteredProjects.findIndex(p => p.id === item.id);
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={() => {
+                      setLightboxDirection(1);
+                      setLightboxIndex(itemIndexInFiltered !== -1 ? itemIndexInFiltered : 0);
+                    }}
+                    className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer hover:shadow-[0_0_30px_rgba(136,217,0,0.2)] hover:border-[#88D900]/60 transition-all duration-300"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      style={{ imageRendering: 'high-quality' }}
+                    />
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2 sm:p-3">
-                    <div className="flex justify-end">
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setLightboxImage(item.image); }}
-                        className="w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-[#88D900] hover:text-black transition-all"
-                        title="View Full HD"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                        </svg>
-                      </button>
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2 sm:p-3">
+                      <div className="flex justify-end">
+                        <span
+                          className="w-8 h-8 rounded-full bg-[#88D900] text-black flex items-center justify-center font-bold shadow-lg transform group-hover:scale-110 transition-transform"
+                          title="Open Full Image"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                          </svg>
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[#88D900] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5 block">{item.category}</span>
+                        <h3 className="text-white text-[10px] sm:text-xs font-bold line-clamp-2 flex items-start justify-between gap-1">
+                          <span>{item.title}</span>
+                          <ExternalLink className="w-3 h-3 shrink-0 mt-0.5 text-[#88D900]" />
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-[#88D900] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5 block">{item.category}</span>
-                      <h3 className="text-white text-[10px] sm:text-xs font-bold line-clamp-2 flex items-start justify-between gap-1">
-                        <span>{item.title}</span>
-                        <ExternalLink className="w-3 h-3 shrink-0 mt-0.5 text-[#88D900]" />
-                      </h3>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
           </motion.div>
         </div>
@@ -785,7 +837,7 @@ export const FeaturedProjects: React.FC = () => {
             <button
               key={i}
               onClick={() => setPage(i)}
-              className={`rounded-full transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
                 i === currentPage
                   ? 'w-5 h-2 bg-[#88D900] shadow-[0_0_8px_rgba(136,217,0,0.6)]'
                   : 'w-2 h-2 bg-white/20 hover:bg-white/40'
@@ -801,56 +853,109 @@ export const FeaturedProjects: React.FC = () => {
         <ProjectDetailModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
-          onImageClick={(img) => setLightboxImage(img)}
+          onImageClick={(img) => {
+            const idx = filteredProjects.findIndex(p => p.image === img);
+            setLightboxDirection(1);
+            setLightboxIndex(idx !== -1 ? idx : 0);
+          }}
         />
       )}
 
-      {/* Fullscreen HD Lightbox */}
+      {/* Fullscreen HD Lightbox with High Resolution View & Clean Dark Backdrop */}
       <AnimatePresence>
-        {lightboxImage && (
+        {currentLightboxProject && lightboxIndex !== null && (
           <motion.div
-            key="lightbox"
+            key="lightbox-container"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-2 sm:p-6"
-            onClick={() => setLightboxImage(null)}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl p-2 sm:p-5 select-none overflow-hidden"
+            onClick={() => setLightboxIndex(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="relative max-w-3xl w-full max-h-[95vh] flex items-center justify-center"
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxIndex(null)}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-40 w-11 h-11 rounded-full bg-[#151515] border border-white/20 text-white hover:text-[#88D900] hover:border-[#88D900] transition-all flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95"
+              title="Close (Esc)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Previous Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxDirection(-1);
+                setLightboxIndex(prev => (prev !== null && prev > 0 ? prev - 1 : filteredProjects.length - 1));
+              }}
+              className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#151515]/90 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center backdrop-blur-md shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+              title="Previous Image (←)"
+            >
+              <ChevronsLeft className="w-6 h-6 stroke-[3]" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxDirection(1);
+                setLightboxIndex(prev => (prev !== null && prev < filteredProjects.length - 1 ? prev + 1 : 0));
+              }}
+              className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#151515]/90 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center backdrop-blur-md shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+              title="Next Image (→)"
+            >
+              <ChevronsRight className="w-6 h-6 stroke-[3]" />
+            </button>
+
+            {/* Instagram-Style Continuous Horizontal Track Carousel */}
+            <div
+              className="relative max-w-5xl w-full h-[85vh] flex flex-col items-center justify-center overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close */}
-              <button
-                onClick={() => setLightboxImage(null)}
-                className="absolute -top-4 -right-4 z-10 w-10 h-10 rounded-full bg-[#151515] border border-white/20 text-white hover:text-[#88D900] hover:border-[#88D900] transition-all flex items-center justify-center shadow-xl"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              {/* HD Image */}
-              <img
-                src={lightboxImage}
-                alt="Full HD Preview"
-                className="w-full max-h-[90vh] object-contain rounded-2xl shadow-[0_0_80px_rgba(136,217,0,0.1)]"
-                style={{
-                  imageRendering: 'high-quality',
-                  WebkitBackfaceVisibility: 'hidden',
-                }}
-              />
-
-              {/* HD Badge */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-[#88D900] tracking-widest uppercase">
-                ✦ ULTRA HD VIEW
+              {/* Sliding Filmstrip Track */}
+              <div className="w-full flex-1 flex items-center overflow-hidden relative">
+                <motion.div
+                  className="flex w-full h-full items-center"
+                  animate={{ x: `-${lightboxIndex * 100}%` }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 260,
+                    damping: 30,
+                    mass: 0.8,
+                  }}
+                >
+                  {filteredProjects.map((proj, idx) => (
+                    <div
+                      key={proj.id || idx}
+                      className="w-full h-full flex-shrink-0 flex items-center justify-center px-2 sm:px-6"
+                    >
+                      <div className="relative max-w-full max-h-[78vh] flex items-center justify-center rounded-2xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.95)] bg-[#050505] border border-white/10">
+                        <img
+                          src={proj.image}
+                          alt={proj.title}
+                          className="max-w-full max-h-[76vh] w-auto h-auto object-contain rounded-xl shadow-2xl select-none"
+                          style={{
+                            imageRendering: 'auto',
+                            WebkitBackfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
               </div>
-            </motion.div>
+
+              {/* Bottom Title Bar */}
+              <div className="mt-3 max-w-xl w-full px-5 py-3 rounded-2xl bg-[#151515]/95 border border-white/10 backdrop-blur-md flex items-center justify-center text-center shadow-2xl z-20 shrink-0">
+                <h4 className="text-white text-xs sm:text-sm font-bold truncate max-w-full">
+                  {currentLightboxProject.title}
+                </h4>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
