@@ -4,6 +4,7 @@ import {
   Pencil, Star, Monitor, Flame, Smartphone, Globe
 } from 'lucide-react';
 import { useData } from '../context/DataContext';
+import { ParticleWaveBackground } from './ParticleWaveBackground';
 
 export const SkillsSection: React.FC = () => {
   const { skills } = useData();
@@ -123,6 +124,10 @@ export const SkillsSection: React.FC = () => {
 
   return (
     <section id="skills" className="relative z-10 py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">
+      
+      {/* Futuristic Animated Particle-Wave Background Layer */}
+      <ParticleWaveBackground className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden" />
+
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header Title */}
