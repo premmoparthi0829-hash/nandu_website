@@ -9,13 +9,23 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [inProjectsSection, setInProjectsSection] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+
+      const projectsElem = document.getElementById('projects');
+      if (projectsElem) {
+        const rect = projectsElem.getBoundingClientRect();
+        // Check if projects section is active in the viewport
+        const isVisible = rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+        setInProjectsSection(isVisible);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -30,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  if (!scrolled) return null;
+  if (!scrolled || inProjectsSection) return null;
 
   return (
     <header className="hidden sm:block fixed top-0 left-0 right-0 z-50 px-2 sm:px-6 md:px-8 pt-3 pb-2 transition-all duration-500 w-full max-w-full">

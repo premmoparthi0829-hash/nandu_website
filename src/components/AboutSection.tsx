@@ -90,7 +90,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
         {/* Main Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* Left Column: Interactive 3D Card Stack Carousel with Moving Animation */}
+          {/* Left Column: Interactive 3D Card Stack Carousel */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -100,23 +100,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
           >
             <div className="relative w-full max-w-[320px] sm:max-w-[380px] h-[440px] sm:h-[500px] group">
 
-              {/* 2ND BACKGROUND CARD (Displays NEXT IMAGE sticking out behind main card) */}
+              {/* 2nd Card in 3D Stack (Background layer tilted -6deg) */}
               <motion.div
                 key={`bg-${nextPhotoIndex}`}
                 initial={{ scale: 0.9, rotate: -10, opacity: 0 }}
                 animate={{ scale: 0.95, rotate: -6, opacity: 0.85 }}
                 transition={{ duration: 0.5 }}
-                style={{ borderColor: `${nextImage.borderColor}AA` }}
-                className="absolute inset-0 rounded-[28px] bg-[#151515] border-2 shadow-2xl overflow-hidden pointer-events-none"
+                className="absolute inset-0 rounded-[28px] bg-[#121212] border border-white/10 shadow-xl overflow-hidden pointer-events-none"
               >
                 <img
                   src={nextImage.src}
                   alt={nextImage.title}
-                  className="w-full h-full object-cover object-[center_15%] opacity-75 filter saturate-90 brightness-90"
+                  className="w-full h-full object-cover object-[center_15%] opacity-70 filter saturate-90"
                 />
               </motion.div>
 
-              {/* ACTIVE FRONT IMAGE CARD (Lifts up -45px and tucks behind stack, while background card steps forward) */}
+              {/* Active Front Card (3D Deck Shuffle: Lifts up -45px, rotates into place at +2deg) */}
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={activePhoto}
@@ -153,51 +152,55 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                       ease: [0.22, 1, 0.36, 1],
                     }
                   })}
-                  style={{ borderColor: `${currentImage.borderColor}CC` }}
-                  className="absolute inset-0 rounded-[28px] bg-[#151515] border-2 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between"
+                  className="absolute inset-0 rounded-[28px] bg-[#151515] border border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between"
                 >
                   <img
                     src={currentImage.src}
                     alt={currentImage.title}
                     className="w-full h-full object-cover object-[center_15%] rounded-[26px] shadow-2xl"
+                    style={{
+                      imageRendering: 'auto',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)',
+                    }}
                   />
                 </motion.div>
               </AnimatePresence>
 
-                {/* Left / Right Carousel Control Arrows */}
-                <button
-                  onClick={handlePrevPhoto}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white hover:text-[#88D900] border border-white/20 flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95"
-                  aria-label="Previous Photo"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
+              {/* Left / Right Carousel Control Arrows */}
+              <button
+                onClick={handlePrevPhoto}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 cursor-pointer"
+                aria-label="Previous Photo"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
 
-                <button
-                  onClick={handleNextPhoto}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white hover:text-[#88D900] border border-white/20 flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95"
-                  aria-label="Next Photo"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+              <button
+                onClick={handleNextPhoto}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 cursor-pointer"
+                aria-label="Next Photo"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
 
-                {/* Bottom Thumbnail Dots Indicator */}
-                <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-30 pointer-events-auto">
-                  {galleryImages.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setDirection(idx > activePhoto ? 1 : -1);
-                        setActivePhoto(idx);
-                      }}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        activePhoto === idx
-                          ? 'w-6 bg-[#88D900] shadow-[0_0_10px_#88D900]'
-                          : 'w-2 bg-white/40 hover:bg-white/80'
-                      }`}
-                    />
-                  ))}
-                </div>
+              {/* Bottom Thumbnail Dots Indicator */}
+              <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-30 pointer-events-auto">
+                {galleryImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setDirection(idx > activePhoto ? 1 : -1);
+                      setActivePhoto(idx);
+                    }}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      activePhoto === idx
+                        ? 'w-6 bg-[#88D900] shadow-[0_0_10px_#88D900]'
+                        : 'w-2 bg-white/40 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
 
             </div>
           </motion.div>
