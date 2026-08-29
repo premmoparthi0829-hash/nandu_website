@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Pencil, Star, Monitor, Flame, Smartphone, Globe
+  Star, Flame, Smartphone, Globe
 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { ParticleWaveBackground } from './ParticleWaveBackground';
 
 export const SkillsSection: React.FC = () => {
   const { skills } = useData();
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  const categories = [
-    { label: 'ALL', value: 'All', icon: null },
-    { label: 'DESIGN & TOOLS', value: 'Design & Tools', icon: Pencil },
-    { label: 'BRANDING & VISUALS', value: 'Branding & Visuals', icon: Star },
-    { label: 'UI/UX & PRINT', value: 'UI/UX & Print', icon: Monitor },
-  ];
-
-  const filteredSkills = selectedCategory === 'All'
-    ? skills
-    : skills.filter(s => s.category.includes(selectedCategory));
 
   const renderBadge = (skill: typeof skills[0]) => {
     const nameLower = skill.name.toLowerCase();
@@ -136,7 +124,7 @@ export const SkillsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center mb-8 sm:mb-10"
+          className="flex flex-col items-center text-center mb-8 sm:mb-14"
         >
           <h2 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight mb-3">
             SKILLS &amp; <span className="text-[#88D900]">TOOLKIT</span>
@@ -154,38 +142,10 @@ export const SkillsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Category Filter Pills Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex flex-wrap justify-center items-center gap-2.5 sm:gap-3.5 mb-10 sm:mb-14 px-2"
-        >
-          {categories.map((cat) => {
-            const IconComp = cat.icon;
-            const isActive = selectedCategory === cat.value;
-            return (
-              <button
-                key={cat.label}
-                onClick={() => setSelectedCategory(cat.value)}
-                className={`px-5 sm:px-6 py-2.5 rounded-full font-button text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#88D900] text-black shadow-[0_0_20px_rgba(136,217,0,0.4)] scale-105'
-                    : 'bg-[#111111]/80 text-[#9CA3AF] hover:text-white border border-white/10 hover:border-white/20 backdrop-blur-md'
-                }`}
-              >
-                {IconComp && <IconComp className={`w-3.5 h-3.5 ${isActive ? 'text-black' : 'text-[#9CA3AF]'}`} />}
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
-        </motion.div>
-
         {/* Skills Cards Grid Container — Medium balanced width */}
         <div className="max-w-6xl mx-auto px-2">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {filteredSkills.map((skill, index) => (
+            {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
                 initial={{ opacity: 0, y: 20, scale: 0.96 }}
