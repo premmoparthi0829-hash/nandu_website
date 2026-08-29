@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, FileText, Smartphone, Layers,
-  CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight
+  CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight,
+  Plane, Utensils, Film, PenTool, Package, Printer, Layout, MessageSquareQuote, ArrowRight
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import gallery1 from '../assets/gallery_1.jpg';
@@ -11,6 +12,8 @@ import gallery3 from '../assets/gallery_3.jpg';
 import gallery5 from '../assets/gallery_5.jpg';
 import gallery6 from '../assets/gallery_6.png';
 import gallery7 from '../assets/gallery_7.png';
+import designerPortrait from '../assets/designer_portrait.png';
+import biographyCoverBanner from '../assets/nandini_official_creative_banner.png';
 import moonlightBg from '../assets/moonlight_biography_bg.jpg';
 import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
 
@@ -28,42 +31,180 @@ interface AnimatedCounterProps {
 const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', decimals = 0, duration = 2 }) => {
   const [count, setCount] = useState(0);
   const ref = React.useRef<HTMLSpanElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          let startTimestamp: number | null = null;
-          const step = (timestamp: number) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-            // Smooth decelerating cubic easing
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            setCount(easedProgress * value);
-            if (progress < 1) {
-              requestAnimationFrame(step);
-            }
-          };
-          requestAnimationFrame(step);
-        }
-      },
-      { threshold: 0.2 }
-    );
+    let startTimestamp: number | null = null;
+    let animationFrameId: number;
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+      // Decelerating cubic easing for realistic loading count up
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setCount(easeProgress * value);
 
-    return () => observer.disconnect();
-  }, [value, duration, hasAnimated]);
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [value, duration]);
 
   return (
     <span ref={ref}>
       {count.toFixed(decimals)}
       {suffix}
     </span>
+  );
+};
+
+// Reusable Box-Free Plain Text Typing Animation Component (Continuous Endless Loop with Light Pink Accent)
+const PlainTextTyping: React.FC<{ text: string; className?: string }> = ({ text, className = "text-[#F472B6]" }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting && displayedText.length < text.length) {
+      // Typing forward
+      timer = setTimeout(() => {
+        setDisplayedText(text.substring(0, displayedText.length + 1));
+      }, 55);
+    } else if (!isDeleting && displayedText.length === text.length) {
+      // Pause at full sentence before backspacing
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2200);
+    } else if (isDeleting && displayedText.length > 0) {
+      // Backspacing / erasing
+      timer = setTimeout(() => {
+        setDisplayedText(text.substring(0, displayedText.length - 1));
+      }, 30);
+    } else if (isDeleting && displayedText.length === 0) {
+      // Pause briefly before re-typing again
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+      }, 500);
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, text]);
+
+  return (
+    <div className="inline-flex items-center gap-2 font-heading font-black text-xs sm:text-sm uppercase tracking-widest cursor-default">
+      <Sparkles className="w-4 h-4 text-[#F472B6] shrink-0 animate-pulse" />
+      <span className={`${className} drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]`}>
+        {displayedText}
+      </span>
+      <span className="w-1.5 h-4 bg-[#F472B6] shadow-[0_0_8px_#F472B6] inline-block align-middle animate-ping" />
+    </div>
+  );
+};
+
+// Reusable Native 8K Crisp Vector Banner Component
+const NativeCreativeBanner: React.FC = () => {
+  return (
+    <div className="relative w-full rounded-3xl overflow-hidden bg-gradient-to-r from-[#021430] via-[#0047BA] to-[#010D20] border border-blue-400/30 shadow-[0_25px_60px_rgba(0,71,186,0.35)] p-6 sm:p-10 lg:p-12 text-white group">
+      {/* Background Stylized Light Sheen & Radial Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-400/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Main Grid Content */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        {/* Left Column (Logo, Title, Services Badges, Action CTA) */}
+        <div className="lg:col-span-7 space-y-6 text-left">
+          {/* Logo Badge Header */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/25 backdrop-blur-md flex items-center justify-center font-heading font-black text-xl text-white shadow-xl">
+              NV
+            </div>
+            <div>
+              <div className="font-heading font-black text-sm tracking-wider uppercase text-white">NANDINI VADDEPALLI</div>
+              <div className="font-body text-xs text-blue-200 font-medium">Creative Graphic Designer & Visual Brand Specialist</div>
+            </div>
+          </div>
+
+          {/* Headline */}
+          <div className="space-y-1.5">
+            <div className="font-heading font-bold text-sm sm:text-base italic text-blue-200">I'm a</div>
+            <h2 className="font-heading font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none drop-shadow-lg">
+              CREATIVE <span className="block text-slate-950 font-black drop-shadow-[0_2px_12px_rgba(255,255,255,0.9)]">DESIGNER</span>
+            </h2>
+            <div className="font-heading font-bold text-xl sm:text-3xl text-blue-200 italic">
+              & Brand Specialist
+            </div>
+          </div>
+
+          {/* 4 Service Icons */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
+            <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center hover:bg-white/20 transition-all cursor-default">
+              <PenTool className="w-5 h-5 text-blue-200 mb-1.5" />
+              <span className="font-heading font-extrabold text-[10px] sm:text-xs uppercase tracking-wider">BRANDING</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center hover:bg-white/20 transition-all cursor-default">
+              <Package className="w-5 h-5 text-blue-200 mb-1.5" />
+              <span className="font-heading font-extrabold text-[10px] sm:text-xs uppercase tracking-wider">PACKAGING</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center hover:bg-white/20 transition-all cursor-default">
+              <Printer className="w-5 h-5 text-blue-200 mb-1.5" />
+              <span className="font-heading font-extrabold text-[10px] sm:text-xs uppercase tracking-wider">PRINT DESIGN</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center hover:bg-white/20 transition-all cursor-default">
+              <Layout className="w-5 h-5 text-blue-200 mb-1.5" />
+              <span className="font-heading font-extrabold text-[10px] sm:text-xs uppercase tracking-wider">UI/UX DESIGN</span>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-2">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black text-white border border-white/20 font-heading font-black text-xs sm:text-sm uppercase tracking-wider shadow-2xl hover:bg-blue-600 transition-all cursor-default group/btn">
+              <span>LET'S CREATE SOMETHING MEANINGFUL</span>
+              <div className="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white group-hover/btn:translate-x-1 transition-transform">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column (Glassmorphic Quote Bubbles & Signature) */}
+        <div className="lg:col-span-5 space-y-4 text-left">
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="p-4 sm:p-5 rounded-2xl bg-blue-600/80 border border-blue-300/40 backdrop-blur-md shadow-xl text-white space-y-1"
+          >
+            <MessageSquareQuote className="w-5 h-5 text-blue-100 opacity-90" />
+            <p className="font-heading font-bold text-xs sm:text-sm leading-relaxed">"Every great design starts with a great conversation."</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="p-4 sm:p-5 rounded-2xl bg-slate-950/90 border border-white/25 backdrop-blur-md shadow-xl text-white space-y-1 ml-3 sm:ml-6"
+          >
+            <MessageSquareQuote className="w-5 h-5 text-[#88D900] opacity-90" />
+            <p className="font-heading font-bold text-xs sm:text-sm leading-relaxed text-[#88D900]">"You dream it. I'll design it."</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="p-4 sm:p-5 rounded-2xl bg-blue-500/90 border border-white/30 backdrop-blur-md shadow-xl text-white space-y-1"
+          >
+            <MessageSquareQuote className="w-5 h-5 text-white opacity-90" />
+            <p className="font-heading font-bold text-xs sm:text-sm leading-relaxed">"Let's create something extraordinary together."</p>
+          </motion.div>
+
+          {/* Signature Badge */}
+          <div className="pt-3 text-right">
+            <div className="inline-block font-heading font-extrabold text-xl italic text-[#F472B6]">Nandini ♡</div>
+            <div className="font-heading font-black text-[10px] uppercase tracking-widest text-blue-200">CREATIVE MINDS BUILD ICONIC BRANDS.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 };
 
@@ -126,9 +267,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-10 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-xs uppercase tracking-wider mb-3 sm:mb-4 shadow-md">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>About Nandini</span>
+          <div className="mb-3 sm:mb-4">
+            <PlainTextTyping text="ABOUT NANDINI VADDEPALLI" />
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-white mb-4">
             Visual Storyteller & <span className="text-[#88D900]">Brand Strategist</span>
@@ -395,33 +535,37 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
             {/* Main Floating Text Content Layer with Motion Animations */}
             <div className="relative z-10 max-w-5xl lg:max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24 text-white">
 
-              {/* 1. HERO BANNER HEADER */}
+              {/* 1. HERO COVER PHOTO & TEXT HEADER BELOW */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="space-y-6 text-left"
+                className="space-y-8 text-left"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#88D900]/40 text-[#88D900] font-heading font-extrabold text-xs uppercase tracking-widest backdrop-blur-sm shadow-md">
-                  ✦ THE STORY OF NANDINI VADDEPALLI
+                {/* 8K Vector Crisp Native Official Graphic Designer Cover Banner */}
+                <NativeCreativeBanner />
+
+                {/* Text Content Placed Directly BELOW the Cover Photo Banner */}
+                <div className="space-y-6 pt-2">
+                  <PlainTextTyping text="THE STORY OF NANDINI VADDEPALLI" />
+
+                  <h1 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+                    NANDINI <span className="text-[#88D900]">VADDEPALLI</span>
+                  </h1>
+
+                  <div className="flex flex-wrap gap-2.5 pt-1">
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Creative Graphic Designer</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-default">Visual Brand Specialist</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Brand Storyteller</motion.span>
+                  </div>
+
+                  <motion.blockquote 
+                    whileHover={{ scale: 1.01 }}
+                    className="p-5 sm:p-6 rounded-2xl bg-black/50 border-l-4 border-[#88D900] text-lg sm:text-2xl font-heading font-bold text-white italic mt-6 backdrop-blur-sm shadow-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] transition-all"
+                  >
+                    "I don't just design visuals. I create stories, identities, and experiences that people remember."
+                  </motion.blockquote>
                 </div>
-
-                <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
-                  NANDINI <span className="text-[#88D900]">VADDEPALLI</span>
-                </h1>
-
-                <div className="flex flex-wrap gap-2.5 pt-1">
-                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Creative Graphic Designer</motion.span>
-                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-default">Visual Brand Specialist</motion.span>
-                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Brand Storyteller</motion.span>
-                </div>
-
-                <motion.blockquote 
-                  whileHover={{ scale: 1.01 }}
-                  className="p-5 sm:p-6 rounded-2xl bg-black/50 border-l-4 border-[#88D900] text-lg sm:text-2xl font-heading font-bold text-white italic mt-6 backdrop-blur-sm shadow-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] transition-all"
-                >
-                  "I don't just design visuals. I create stories, identities, and experiences that people remember."
-                </motion.blockquote>
               </motion.div>
 
               {/* 2. MORE THAN A DESIGNER */}
@@ -630,21 +774,44 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 <div className="space-y-4 pt-2">
                   <h3 className="font-heading font-black text-lg text-white drop-shadow">LITTLE THINGS THAT MAKE ME, ME</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
-                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">TRAVEL</span>
-                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Exploring new places, architecture, stories, and colors.</p>
+                    <motion.div whileHover={{ scale: 1.05, y: -4 }} className="space-y-2.5 p-4 rounded-2xl bg-black/50 border border-white/10 hover:border-[#88D900]/60 transition-all group">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-[#88D900]/15 text-[#88D900] group-hover:bg-[#88D900] group-hover:text-black transition-colors shadow-sm">
+                          <Plane className="w-4 h-4" />
+                        </div>
+                        <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">TRAVEL</span>
+                      </div>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow">Exploring new places, architecture, stories, and colors.</p>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
-                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">FOOD</span>
-                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Discovering different flavors, memories, and celebrations.</p>
+
+                    <motion.div whileHover={{ scale: 1.05, y: -4 }} className="space-y-2.5 p-4 rounded-2xl bg-black/50 border border-white/10 hover:border-[#88D900]/60 transition-all group">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-[#88D900]/15 text-[#88D900] group-hover:bg-[#88D900] group-hover:text-black transition-colors shadow-sm">
+                          <Utensils className="w-4 h-4" />
+                        </div>
+                        <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">FOOD</span>
+                      </div>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow">Discovering different flavors, memories, and celebrations.</p>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
-                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CINEMA</span>
-                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Visual storytelling, music, composition, and emotions.</p>
+
+                    <motion.div whileHover={{ scale: 1.05, y: -4 }} className="space-y-2.5 p-4 rounded-2xl bg-black/50 border border-white/10 hover:border-[#88D900]/60 transition-all group">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-[#88D900]/15 text-[#88D900] group-hover:bg-[#88D900] group-hover:text-black transition-colors shadow-sm">
+                          <Film className="w-4 h-4" />
+                        </div>
+                        <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CINEMA</span>
+                      </div>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow">Visual storytelling, music, composition, and emotions.</p>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
-                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CREATIVITY</span>
-                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Nature, photography, culture, and everyday life.</p>
+
+                    <motion.div whileHover={{ scale: 1.05, y: -4 }} className="space-y-2.5 p-4 rounded-2xl bg-black/50 border border-white/10 hover:border-[#88D900]/60 transition-all group">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-[#88D900]/15 text-[#88D900] group-hover:bg-[#88D900] group-hover:text-black transition-colors shadow-sm">
+                          <Sparkles className="w-4 h-4" />
+                        </div>
+                        <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CREATIVITY</span>
+                      </div>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow">Nature, photography, culture, and everyday life.</p>
                     </motion.div>
                   </div>
                 </div>
