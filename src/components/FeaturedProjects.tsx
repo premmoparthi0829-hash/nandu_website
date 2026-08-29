@@ -591,17 +591,33 @@ export const FeaturedProjects: React.FC = () => {
 
   const { projects: dynamicProjects } = useData();
 
+  // Map of default project IDs to their freshly imported asset images
+  const defaultImageMap: Record<string, string> = React.useMemo(() => {
+    const map: Record<string, string> = {};
+    ALL_PROJECTS.forEach(p => {
+      if (p.id && p.image) map[p.id] = p.image;
+    });
+    return map;
+  }, []);
+
   // Combine dynamic projects from Admin Panel + default portfolio assets
   const combinedProjects: ProjectItem[] = [
-    ...dynamicProjects.map((dp) => ({
-      id: dp.id,
-      title: dp.title,
-      category: dp.category,
-      filterCategory: dp.category === 'Branding' ? 'Branding' : dp.category === 'Packaging' ? 'Packaging' : dp.category === 'Print' ? 'Print' : 'Graphic',
-      image: dp.heroImage,
-      description: dp.shortDescription,
-      technologies: dp.technologies,
-    })),
+    ...dynamicProjects.map((dp) => {
+      const fallback = defaultImageMap[dp.id];
+      const validImage = (dp.heroImage && (dp.heroImage.startsWith('data:') || dp.heroImage.startsWith('blob:') || dp.heroImage.startsWith('http')))
+        ? dp.heroImage
+        : (fallback || dp.heroImage);
+
+      return {
+        id: dp.id,
+        title: dp.title,
+        category: dp.category,
+        filterCategory: dp.category === 'Branding' ? 'Branding' : dp.category === 'Packaging' ? 'Packaging' : dp.category === 'Print' ? 'Print' : 'Graphic',
+        image: validImage,
+        description: dp.shortDescription,
+        technologies: dp.technologies,
+      };
+    }),
     ...ALL_PROJECTS.filter((ap) => !dynamicProjects.some((dp) => dp.id === ap.id)),
   ];
 
@@ -765,8 +781,14 @@ export const FeaturedProjects: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       style={{ imageRendering: 'high-quality' }}
+                      onError={(e) => {
+                        const fallback = defaultImageMap[item.id];
+                        if (fallback && e.currentTarget.src !== fallback) {
+                          e.currentTarget.src = fallback;
+                        }
+                      }}
                     />
                   </motion.div>
                 );

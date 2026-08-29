@@ -22,9 +22,10 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS: Skill[] = [
+  // --- Design & Editing Software ---
   {
-    name: 'Photoshop',
-    category: 'Design & Tools',
+    name: 'Adobe Photoshop',
+    category: 'Design & Editing Software',
     level: 98,
     subtitle: 'Image editing & photo manipulation',
     iconName: 'Ps',
@@ -34,8 +35,8 @@ export const SKILLS: Skill[] = [
     accentColor: '#0066FF'
   },
   {
-    name: 'Illustrator',
-    category: 'Design & Tools',
+    name: 'Adobe Illustrator',
+    category: 'Design & Editing Software',
     level: 96,
     subtitle: 'Vector design & illustrations',
     iconName: 'Ai',
@@ -45,20 +46,9 @@ export const SKILLS: Skill[] = [
     accentColor: '#FF7700'
   },
   {
-    name: 'Figma',
-    category: 'Design & Tools',
-    level: 94,
-    subtitle: 'UI design & prototyping',
-    iconName: 'Figma',
-    glowColor: '#FF3366',
-    badgeBg: '#000000',
-    textColor: '#FFFFFF',
-    accentColor: '#FF3366'
-  },
-  {
-    name: 'InDesign',
-    category: 'Design & Tools',
-    level: 90,
+    name: 'Adobe InDesign',
+    category: 'Design & Editing Software',
+    level: 92,
     subtitle: 'Page layout & publishing',
     iconName: 'Id',
     glowColor: '#D8006C',
@@ -67,10 +57,21 @@ export const SKILLS: Skill[] = [
     accentColor: '#D8006C'
   },
   {
-    name: 'Canva Pro',
-    category: 'Design & Tools',
+    name: 'Figma',
+    category: 'Design & Editing Software',
     level: 95,
-    subtitle: 'Quick design & visual content',
+    subtitle: 'UI design & prototyping',
+    iconName: 'Figma',
+    glowColor: '#FF3366',
+    badgeBg: '#000000',
+    textColor: '#FFFFFF',
+    accentColor: '#FF3366'
+  },
+  {
+    name: 'Canva',
+    category: 'Design & Editing Software',
+    level: 95,
+    subtitle: 'Quick graphics & visual assets',
     iconName: 'Canva',
     glowColor: '#00C4CC',
     badgeBg: '#00C4CC',
@@ -78,81 +79,151 @@ export const SKILLS: Skill[] = [
     accentColor: '#00C4CC'
   },
   {
-    name: 'Firefly AI',
-    category: 'Design & Tools',
-    level: 92,
-    subtitle: 'AI-powered design & generation',
+    name: 'Photopea',
+    category: 'Design & Editing Software',
+    level: 90,
+    subtitle: 'Web raster photo editor',
+    iconName: 'Pe',
+    glowColor: '#00C4CC',
+    badgeBg: '#002B2B',
+    textColor: '#00E5FF',
+    accentColor: '#00C4CC'
+  },
+
+  // --- AI / Image & Video Generation Tools ---
+  {
+    name: 'Ideogram',
+    category: 'AI / Image & Video Generation Tools',
+    level: 94,
+    subtitle: 'AI typography & image generation',
+    iconName: 'Ig',
+    glowColor: '#A855F7',
+    badgeBg: '#2A004E',
+    textColor: '#D8B4FE',
+    accentColor: '#A855F7'
+  },
+  {
+    name: 'ChatGPT',
+    category: 'AI / Image & Video Generation Tools',
+    level: 96,
+    subtitle: 'Prompt engineering & AI copy',
+    iconName: 'GPT',
+    glowColor: '#10B981',
+    badgeBg: '#064E3B',
+    textColor: '#34D399',
+    accentColor: '#10B981'
+  },
+  {
+    name: 'Adobe Firefly',
+    category: 'AI / Image & Video Generation Tools',
+    level: 95,
+    subtitle: 'Generative fill & vector AI',
     iconName: 'Flame',
     glowColor: '#FF4500',
-    badgeBg: '#200000',
-    textColor: '#FF4500',
+    badgeBg: '#3B0A00',
+    textColor: '#FF5722',
     accentColor: '#FF4500'
   },
   {
-    name: 'After Effects',
-    category: 'Design & Tools',
-    level: 85,
-    subtitle: 'Motion graphics & visual effects',
-    iconName: 'Ae',
-    glowColor: '#7000FF',
-    badgeBg: '#00005C',
-    textColor: '#9999FF',
-    accentColor: '#7000FF'
+    name: 'Google Gemini/Imagen',
+    category: 'AI / Image & Video Generation Tools',
+    level: 93,
+    subtitle: 'AI image synthesis & prompts',
+    iconName: 'Gemini',
+    glowColor: '#6366F1',
+    badgeBg: '#1E1B4B',
+    textColor: '#818CF8',
+    accentColor: '#6366F1'
   },
   {
-    name: 'UI/UX Design',
-    category: 'UI/UX & Print',
-    level: 92,
-    subtitle: 'User research & interface design',
-    iconName: 'Smartphone',
-    glowColor: '#00B4D8',
-    badgeBg: '#000000',
-    textColor: '#00E5FF',
-    accentColor: '#00B4D8'
-  },
-  {
-    name: 'Brand Identity',
-    category: 'Branding & Visuals',
-    level: 98,
-    subtitle: 'Logo design & brand strategy',
-    iconName: 'Star',
-    glowColor: '#9D4EDD',
-    badgeBg: '#10002B',
-    textColor: '#9D4EDD',
-    accentColor: '#9D4EDD'
-  },
-  {
-    name: 'Xd Design',
-    category: 'UI/UX & Print',
+    name: 'Google AI VEO3',
+    category: 'AI / Image & Video Generation Tools',
     level: 90,
-    subtitle: 'UI/UX design & prototyping',
-    iconName: 'Xd',
-    glowColor: '#FF007F',
-    badgeBg: '#4A0033',
-    textColor: '#FF61F6',
-    accentColor: '#FF007F'
+    subtitle: 'AI video generation & motion',
+    iconName: 'Veo',
+    glowColor: '#0EA5E9',
+    badgeBg: '#083344',
+    textColor: '#38BDF8',
+    accentColor: '#0EA5E9'
   },
   {
-    name: 'Print Design',
-    category: 'UI/UX & Print',
-    level: 92,
-    subtitle: 'Print materials & collateral',
-    iconName: 'Printer',
-    glowColor: '#FFB703',
-    badgeBg: '#1A1A00',
-    textColor: '#FFB703',
-    accentColor: '#FFB703'
+    name: 'OpenAI Sora',
+    category: 'AI / Image & Video Generation Tools',
+    level: 88,
+    subtitle: 'Photorealistic AI video prompting',
+    iconName: 'Sora',
+    glowColor: '#E11D48',
+    badgeBg: '#18181B',
+    textColor: '#F43F5E',
+    accentColor: '#E11D48'
   },
+
+  // --- Stock Images ---
   {
-    name: 'Web Design',
-    category: 'UI/UX & Print',
+    name: 'Shutterstock',
+    category: 'Stock Images',
     level: 95,
-    subtitle: 'Web layouts & design systems',
-    iconName: 'Globe',
-    glowColor: '#00B4D8',
-    badgeBg: '#001A26',
-    textColor: '#00B4D8',
-    accentColor: '#00B4D8'
+    subtitle: 'Stock photography & vectors',
+    iconName: 'Ss',
+    glowColor: '#EF4444',
+    badgeBg: '#450A0A',
+    textColor: '#F87171',
+    accentColor: '#EF4444'
+  },
+  {
+    name: 'Adobe Stock',
+    category: 'Stock Images',
+    level: 96,
+    subtitle: 'HD royalty-free visual assets',
+    iconName: 'St',
+    glowColor: '#F43F5E',
+    badgeBg: '#3F0712',
+    textColor: '#FB7185',
+    accentColor: '#F43F5E'
+  },
+  {
+    name: 'Pexels',
+    category: 'Stock Images',
+    level: 96,
+    subtitle: 'Free high-res photos & videos',
+    iconName: 'Px',
+    glowColor: '#14B8A6',
+    badgeBg: '#042F2E',
+    textColor: '#2DD4BF',
+    accentColor: '#14B8A6'
+  },
+  {
+    name: 'Pixabay',
+    category: 'Stock Images',
+    level: 94,
+    subtitle: 'Royalty-free graphics & vectors',
+    iconName: 'Pb',
+    glowColor: '#0284C7',
+    badgeBg: '#0F172A',
+    textColor: '#38BDF8',
+    accentColor: '#0284C7'
+  },
+  {
+    name: 'Rawpixel',
+    category: 'Stock Images',
+    level: 92,
+    subtitle: 'Design mockups & vintage assets',
+    iconName: 'Rp',
+    glowColor: '#8B5CF6',
+    badgeBg: '#1E1B4B',
+    textColor: '#A78BFA',
+    accentColor: '#8B5CF6'
+  },
+  {
+    name: 'Steptodown',
+    category: 'Stock Images',
+    level: 90,
+    subtitle: 'Resource downloading & tools',
+    iconName: 'Sd',
+    glowColor: '#F59E0B',
+    badgeBg: '#451A03',
+    textColor: '#FBBF24',
+    accentColor: '#F59E0B'
   }
 ];
 

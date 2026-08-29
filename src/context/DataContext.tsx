@@ -72,7 +72,24 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [projects, setProjects] = useState<Project[]>(() => {
     try {
       const saved = localStorage.getItem(`${STORAGE_KEY}_projects`);
-      return saved ? JSON.parse(saved) : defaultProjects;
+      if (saved) {
+        const parsed: Project[] = JSON.parse(saved);
+        const defaultMap = new Map(defaultProjects.map((p) => [p.id, p]));
+        return parsed.map((p) => {
+          const def = defaultMap.get(p.id);
+          if (def) {
+            return {
+              ...p,
+              heroImage: (p.heroImage && (p.heroImage.startsWith('data:') || p.heroImage.startsWith('blob:'))) ? p.heroImage : def.heroImage,
+              screenshots: p.screenshots?.map((s, idx) =>
+                (s && (s.startsWith('data:') || s.startsWith('blob:'))) ? s : (def.screenshots[idx] || def.heroImage)
+              ) || def.screenshots,
+            };
+          }
+          return p;
+        });
+      }
+      return defaultProjects;
     } catch {
       return defaultProjects;
     }
@@ -90,7 +107,11 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [skills, setSkills] = useState<Skill[]>(() => {
     try {
       const saved = localStorage.getItem(`${STORAGE_KEY}_skills`);
-      return saved ? JSON.parse(saved) : defaultSkills;
+      if (saved) {
+        const parsed: Skill[] = JSON.parse(saved);
+        if (parsed.length >= defaultSkills.length) return parsed;
+      }
+      return defaultSkills;
     } catch {
       return defaultSkills;
     }

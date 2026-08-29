@@ -221,7 +221,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
               With 4.5+ years of experience steering brand direction, packaging dielines, digital campaign graphics, and UI design systems, I help companies build memorable identity systems that drive growth and command market authority.
             </p>
 
-            {/* 4 Roles Grid — staggered entrance */}
+            {/* 4 Roles Grid — staggered entrance & interactive hover micro-animations */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full mb-6 sm:mb-8">
               {roles.map((r, idx) => {
                 const IconComp = r.icon;
@@ -230,18 +230,29 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -4, scale: 1.015 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.15 + idx * 0.08, duration: 0.5 }}
-                    className="luxury-card p-4 sm:p-5 flex items-start gap-3 sm:gap-4 hover:border-[#88D900]/50 transition-all"
+                    transition={{
+                      delay: 0.15 + idx * 0.08,
+                      duration: 0.4,
+                      ease: [0.22, 1, 0.36, 1],
+                      hover: { duration: 0.2, ease: 'easeOut' }
+                    }}
+                    className="luxury-card p-4 sm:p-5 flex items-start gap-3 sm:gap-4 border border-white/10 hover:border-[#88D900]/60 hover:shadow-[0_12px_28px_-6px_rgba(136,217,0,0.2)] transition-all duration-300 group cursor-pointer relative overflow-hidden"
                   >
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#090909] border border-[#88D900]/30 text-[#88D900] flex items-center justify-center shrink-0">
-                      <IconComp className="w-4 h-4 sm:w-5 sm:h-5" />
+                    {/* Subtle Light Sheen Sweep across Card on Cursor Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#88D900]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+                    {/* Icon Badge with Glow & Micro-Rotation */}
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#090909] border border-[#88D900]/30 text-[#88D900] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#88D900] group-hover:text-black group-hover:border-[#88D900] group-hover:shadow-[0_0_15px_rgba(136,217,0,0.5)] transition-all duration-300">
+                      <IconComp className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300" />
                     </div>
+
                     <div>
-                      <h4 className="font-heading font-bold text-xs sm:text-sm text-white mb-1">
+                      <h4 className="font-heading font-bold text-xs sm:text-sm text-white mb-1 group-hover:text-[#88D900] transition-colors duration-300">
                         {r.title}
                       </h4>
-                      <p className="font-body text-[11px] sm:text-xs text-[#9CA3AF] leading-relaxed">
+                      <p className="font-body text-[11px] sm:text-xs text-[#9CA3AF] leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
                         {r.desc}
                       </p>
                     </div>
@@ -258,20 +269,24 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
               transition={{ delay: 0.45, duration: 0.5 }}
               className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto"
             >
-              <button
+              <motion.button
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={onOpenResume}
-                className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center"
+                className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:shadow-[0_0_25px_rgba(136,217,0,0.6)] transition-all duration-300 group cursor-pointer"
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:rotate-6 transition-transform duration-300" />
                 <span>Download CV</span>
-              </button>
+              </motion.button>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setIsModalOpen(true)}
-                className="btn-neon-outline font-button text-xs uppercase tracking-wider flex-1 sm:flex-initial justify-center"
+                className="btn-neon-outline font-button text-xs uppercase tracking-wider flex-1 sm:flex-initial justify-center hover:border-[#88D900]/80 hover:shadow-[0_0_20px_rgba(136,217,0,0.25)] transition-all duration-300 group cursor-pointer"
               >
-                <span>Read Full Biography</span>
-              </button>
+                <span className="group-hover:text-[#88D900] transition-colors duration-300">Read Full Biography</span>
+              </motion.button>
             </motion.div>
           </motion.div>
 

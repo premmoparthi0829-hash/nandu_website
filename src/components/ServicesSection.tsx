@@ -75,11 +75,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5, scale: 1.015 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="luxury-card p-5 sm:p-6 flex flex-col justify-between group relative overflow-hidden"
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  hover: { duration: 0.2, ease: 'easeOut' }
+                }}
+                className="luxury-card p-5 sm:p-6 flex flex-col justify-between group relative overflow-hidden border border-white/10 hover:border-[#88D900]/60 hover:shadow-[0_15px_30px_-8px_rgba(136,217,0,0.25)] transition-all duration-300 cursor-pointer"
               >
-                <div className="absolute top-0 right-0 w-24 sm:w-28 h-24 sm:h-28 bg-[#88D900]/5 rounded-full blur-2xl group-hover:bg-[#88D900]/15 transition-all duration-500 pointer-events-none" />
+                {/* Sheen sweep animation */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#88D900]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+                <div className="absolute top-0 right-0 w-24 sm:w-28 h-24 sm:h-28 bg-[#88D900]/5 rounded-full blur-2xl group-hover:bg-[#88D900]/20 transition-all duration-500 pointer-events-none" />
 
                 <div>
                   {/* Icon & Category */}
