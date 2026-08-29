@@ -258,7 +258,7 @@ export const SkillsSection: React.FC = () => {
   );
 };
 
-// Interactive 3D Cursor-Tracking Skill Card Component
+// Interactive 3D Dancing Skill Card Component
 interface InteractiveSkillCardProps {
   skill: { name: string; subtitle?: string; category: string; badgeBg?: string; textColor?: string };
   index: number;
@@ -286,17 +286,53 @@ const InteractiveSkillCard: React.FC<InteractiveSkillCardProps> = ({ skill, inde
     setTilt({ rotateX, rotateY });
   };
 
+  // Staggered ambient float duration & delay so cards dance out-of-sync smoothly
+  const danceDuration = 3 + (index % 4) * 0.4;
+  const danceDelay = (index % 5) * 0.3;
+
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 25, scale: 0.94 }}
+      initial={{ opacity: 0, y: 30, scale: 0.92 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      animate={
+        isHovered
+          ? {
+              y: [-8, -18, -6, -14, -10],
+              rotate: [0, -6, 6, -3, 0],
+              scale: [1.04, 1.09, 1.05, 1.07, 1.05],
+            }
+          : {
+              y: [0, -6, 0, 6, 0],
+              rotate: [0, 1.8, 0, -1.8, 0],
+            }
+      }
       viewport={{ once: true, margin: '-20px' }}
-      transition={{
-        duration: 0.4,
-        delay: (index % 4) * 0.05 + Math.floor(index / 4) * 0.08,
-        ease: [0.22, 1, 0.36, 1]
-      }}
+      transition={
+        isHovered
+          ? {
+              duration: 0.6,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }
+          : {
+              y: {
+                duration: danceDuration,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: danceDelay,
+              },
+              rotate: {
+                duration: danceDuration * 1.2,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: danceDelay,
+              },
+            }
+      }
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
@@ -306,42 +342,49 @@ const InteractiveSkillCard: React.FC<InteractiveSkillCardProps> = ({ skill, inde
       style={{
         transformStyle: 'preserve-3d',
         transform: isHovered
-          ? `perspective(700px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translateY(-8px) scale(1.04)`
-          : 'perspective(700px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)',
-        transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.5s ease-out, border-color 0.3s, box-shadow 0.3s'
+          ? `perspective(700px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`
+          : 'perspective(700px) rotateX(0deg) rotateY(0deg)',
       }}
-      className="bg-white text-black rounded-2xl px-4 py-4 shadow-lg hover:shadow-[0_20px_45px_-8px_rgba(136,217,0,0.45)] relative overflow-hidden flex items-center gap-3 border border-transparent hover:border-[#88D900] transition-all duration-300 group cursor-pointer"
+      className="bg-white text-black rounded-2xl px-4 py-4 shadow-lg hover:shadow-[0_22px_50px_-6px_rgba(136,217,0,0.5)] relative overflow-hidden flex items-center gap-3 border border-transparent hover:border-[#88D900] transition-colors duration-300 group cursor-pointer"
     >
-      {/* Real-Time Cursor Spotlight Gradient */}
+      {/* Dynamic Cursor Spotlight Radial Gradient */}
       {isHovered && (
         <div
           className="absolute inset-0 pointer-events-none transition-opacity duration-300"
           style={{
-            background: `radial-gradient(160px circle at ${mousePos.x}px ${mousePos.y}px, rgba(136, 217, 0, 0.3), transparent 80%)`
+            background: `radial-gradient(160px circle at ${mousePos.x}px ${mousePos.y}px, rgba(136, 217, 0, 0.35), transparent 80%)`
           }}
         />
       )}
 
-      {/* Floating Spark Particle Following Cursor Motion */}
+      {/* Floating Dancing Spark Particle Following Cursor */}
       {isHovered && (
         <div
-          className="absolute w-3 h-3 rounded-full bg-[#88D900] shadow-[0_0_15px_#88D900] pointer-events-none z-20 opacity-80"
+          className="absolute w-3.5 h-3.5 rounded-full bg-[#88D900] shadow-[0_0_16px_#88D900] pointer-events-none z-20 opacity-90 animate-pulse"
           style={{
             left: `${mousePos.x}px`,
             top: `${mousePos.y}px`,
             transform: 'translate(-50%, -50%)',
-            transition: 'left 0.05s linear, top 0.05s linear'
+            transition: 'left 0.04s linear, top 0.04s linear'
           }}
         />
       )}
 
-      {/* Left App Icon Badge with 3D Pop */}
-      <div style={{ transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)', transition: 'transform 0.2s' }}>
+      {/* Left App Icon Badge with Dancing Spin & Bounce */}
+      <motion.div 
+        animate={
+          isHovered 
+            ? { rotate: [0, -25, 25, -15, 360], scale: [1, 1.25, 1.1, 1.2, 1.15] }
+            : { rotate: 0, scale: 1 }
+        }
+        transition={{ duration: 0.7, ease: "easeInOut" }}
+        style={{ transform: isHovered ? 'translateZ(24px)' : 'translateZ(0px)' }}
+      >
         {renderBadge(skill.name, skill.badgeBg, skill.textColor)}
-      </div>
+      </motion.div>
 
       {/* Middle Text Info */}
-      <div className="flex-1 min-w-0" style={{ transform: isHovered ? 'translateZ(14px)' : 'translateZ(0px)', transition: 'transform 0.2s' }}>
+      <div className="flex-1 min-w-0" style={{ transform: isHovered ? 'translateZ(16px)' : 'translateZ(0px)', transition: 'transform 0.2s' }}>
         <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 leading-tight group-hover:text-black truncate">
           {skill.name}
         </h3>
@@ -350,8 +393,8 @@ const InteractiveSkillCard: React.FC<InteractiveSkillCardProps> = ({ skill, inde
         </p>
       </div>
 
-      {/* Interactive Bottom Glow Laser Sweep Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#88D900] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Dancing Bottom Glow Laser Sweep Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#88D900] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_12px_#88D900]" />
     </motion.div>
   );
 };
