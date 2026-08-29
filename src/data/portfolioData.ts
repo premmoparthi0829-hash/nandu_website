@@ -224,6 +224,28 @@ export const SKILLS: Skill[] = [
     badgeBg: '#451A03',
     textColor: '#FBBF24',
     accentColor: '#F59E0B'
+  },
+  {
+    name: 'Freepik',
+    category: 'Stock Images',
+    level: 95,
+    subtitle: 'AI vectors, PSD & stock resources',
+    iconName: 'Fk',
+    glowColor: '#0066FF',
+    badgeBg: '#0A2540',
+    textColor: '#38BDF8',
+    accentColor: '#0066FF'
+  },
+  {
+    name: 'Unsplash',
+    category: 'Stock Images',
+    level: 96,
+    subtitle: 'HD royalty-free photography',
+    iconName: 'Us',
+    glowColor: '#FFFFFF',
+    badgeBg: '#111111',
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF'
   }
 ];
 

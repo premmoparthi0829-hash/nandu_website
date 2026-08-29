@@ -11,10 +11,61 @@ import gallery3 from '../assets/gallery_3.jpg';
 import gallery5 from '../assets/gallery_5.jpg';
 import gallery6 from '../assets/gallery_6.png';
 import gallery7 from '../assets/gallery_7.png';
+import moonlightBg from '../assets/moonlight_biography_bg.jpg';
+import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
 
 interface AboutSectionProps {
   onOpenResume: () => void;
 }
+
+interface AnimatedCounterProps {
+  value: number;
+  suffix?: string;
+  decimals?: number;
+  duration?: number;
+}
+
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix = '', decimals = 0, duration = 2 }) => {
+  const [count, setCount] = useState(0);
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let startTimestamp: number | null = null;
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+            // Smooth decelerating cubic easing
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            setCount(easedProgress * value);
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          };
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [value, duration, hasAnimated]);
+
+  return (
+    <span ref={ref}>
+      {count.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+};
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -293,80 +344,417 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
         </div>
       </div>
 
-      {/* Biography Modal */}
+      {/* Full-Screen Interactive Biography Page Overlay */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
-            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-slate-950 font-sans scrollbar-thin selection:bg-[#88D900] selection:text-black"
           >
-            <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-[#151515] border border-[#88D900]/40 rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 text-white max-h-[85vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
+            {/* Background Video */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="fixed inset-0 w-full h-full object-cover pointer-events-none -z-20"
             >
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-5 right-5 sm:top-6 sm:right-6 p-2 rounded-full bg-[#090909] text-white hover:text-[#88D900]"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <source src="/videos/moon-beach.mp4" type="video/mp4" />
+            </video>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#88D900]/10 text-[#88D900] text-xs font-bold mb-4">
-                <Briefcase className="w-3.5 h-3.5" />
-                <span>BIOGRAPHY &amp; DESIGN PHILOSOPHY</span>
-              </div>
+            {/* Dark Video Overlay */}
+            <div className="fixed inset-0 w-full h-full bg-gradient-to-r from-black/85 via-black/55 to-black/75 backdrop-blur-[2px] pointer-events-none -z-10" />
 
-              <h3 className="font-heading font-bold text-xl sm:text-2xl mb-4 text-[#88D900]">
-                About Nandini Vaddepalli
-              </h3>
-
-              <div className="space-y-4 font-body text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
-                <p>
-                  Nandini Vaddepalli is a Senior Graphic Designer and Brand Specialist based in Hyderabad with 4.5+ years of experience delivering high-converting brand identity systems, CMYK print packaging, and modern UI design components.
-                </p>
-                <p>
-                  Her core toolkit includes Adobe Photoshop manipulation, Adobe Illustrator vector logo design, Figma UI systems, Adobe InDesign layout grids, and Canva Pro digital marketing suites.
-                </p>
-                <div className="p-4 rounded-2xl bg-[#090909] border border-white/10 space-y-2">
-                  <span className="font-heading font-bold text-xs text-white uppercase block">
-                    Core Design Pillars:
-                  </span>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-white">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#88D900]" />
-                      <span>Brand Identity Systems</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#88D900]" />
-                      <span>Print &amp; Packaging Dielines</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#88D900]" />
-                      <span>Performance Ad Campaigns</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#88D900]" />
-                      <span>Figma Component Kits</span>
-                    </li>
-                  </ul>
+            {/* Sticky Glassmorphism Header Bar */}
+            <div className="sticky top-0 z-40 w-full bg-black/60 backdrop-blur-lg border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-black/70 border border-[#88D900]/40 text-[#88D900] flex items-center justify-center shadow-lg">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#88D900]" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-black text-xs sm:text-base text-white tracking-widest uppercase drop-shadow">
+                    NANDINI VADDEPALLI
+                  </h4>
+                  <p className="font-body text-[10px] sm:text-xs text-cyan-300 font-medium drop-shadow">
+                    Full Biography &amp; Brand Story Manifesto
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={onOpenResume}
-                  className="btn-neon bg-[#88D900] text-black font-extrabold text-xs uppercase"
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 border border-white/20 hover:border-[#88D900] text-white hover:text-[#88D900] font-heading font-bold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md"
+              >
+                <span>Close Story</span>
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Main Floating Text Content Layer with Motion Animations */}
+            <div className="relative z-10 max-w-5xl lg:max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24 text-white">
+
+              {/* 1. HERO BANNER HEADER */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="space-y-6 text-left"
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#88D900]/40 text-[#88D900] font-heading font-extrabold text-xs uppercase tracking-widest backdrop-blur-sm shadow-md">
+                  ✦ THE STORY OF NANDINI VADDEPALLI
+                </div>
+
+                <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+                  NANDINI <span className="text-[#88D900]">VADDEPALLI</span>
+                </h1>
+
+                <div className="flex flex-wrap gap-2.5 pt-1">
+                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Creative Graphic Designer</motion.span>
+                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-default">Visual Brand Specialist</motion.span>
+                  <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Brand Storyteller</motion.span>
+                </div>
+
+                <motion.blockquote 
+                  whileHover={{ scale: 1.01 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-black/50 border-l-4 border-[#88D900] text-lg sm:text-2xl font-heading font-bold text-white italic mt-6 backdrop-blur-sm shadow-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] transition-all"
                 >
-                  Download CV ↗
-                </button>
-              </div>
-            </motion.div>
+                  "I don't just design visuals. I create stories, identities, and experiences that people remember."
+                </motion.blockquote>
+              </motion.div>
+
+              {/* 2. MORE THAN A DESIGNER */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                  <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    MORE THAN A DESIGNER
+                  </h2>
+                </div>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  Hi, I'm <strong className="text-white font-extrabold">Nandini Vaddepalli</strong> — a Creative Graphic Designer and Visual Brand Specialist based in Hyderabad, India. With more than <strong className="text-[#88D900] font-extrabold">4.5+ years of hands-on experience</strong>, I have built my career around one simple belief: great design should not only look beautiful, it should communicate, connect, and create meaning.
+                </p>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  My work lives at the intersection of creativity, strategy, and visual storytelling. From building complete brand identity systems to designing packaging, print campaigns, digital advertisements, and modern UI experiences, I enjoy transforming ideas into visual experiences that people can remember.
+                </p>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  Over the years, I have had the opportunity to work across multiple industries including lifestyle, FMCG, technology, SaaS, clean energy, and digital brands. Every project teaches me something new. Every challenge pushes me to think differently. And every design is an opportunity to create something meaningful.
+                </p>
+
+                {/* 4 Floating Stat Highlights with Animated Counter Loading Effects */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                  <motion.div whileHover={{ scale: 1.08, y: -4 }} className="p-4 text-center cursor-default">
+                    <span className="font-heading font-black text-4xl sm:text-5xl text-[#88D900] block drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                      <AnimatedCounter value={4.5} decimals={1} suffix="+" duration={2} />
+                    </span>
+                    <span className="font-heading font-bold text-xs sm:text-sm text-slate-200 uppercase tracking-wider mt-1 block drop-shadow">Years Experience</span>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.08, y: -4 }} className="p-4 text-center cursor-default">
+                    <span className="font-heading font-black text-4xl sm:text-5xl text-[#88D900] block drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                      <AnimatedCounter value={50} suffix="+" duration={2} />
+                    </span>
+                    <span className="font-heading font-bold text-xs sm:text-sm text-slate-200 uppercase tracking-wider mt-1 block drop-shadow">Businesses</span>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.08, y: -4 }} className="p-4 text-center cursor-default">
+                    <span className="font-heading font-black text-4xl sm:text-5xl text-[#88D900] block drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                      <AnimatedCounter value={100} suffix="+" duration={2.2} />
+                    </span>
+                    <span className="font-heading font-bold text-xs sm:text-sm text-slate-200 uppercase tracking-wider mt-1 block drop-shadow">Projects</span>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.08, y: -4 }} className="p-4 text-center cursor-default">
+                    <span className="font-heading font-black text-3xl sm:text-4xl text-[#88D900] block drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">ENDLESS</span>
+                    <span className="font-heading font-bold text-xs sm:text-sm text-slate-200 uppercase tracking-wider mt-1 block drop-shadow">Creative Passion</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* 4. MY CREATIVE UNIVERSE */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="font-heading font-extrabold text-xs text-[#F472B6] uppercase tracking-widest drop-shadow">WHAT I LOVE TO CREATE</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                    <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      MY CREATIVE UNIVERSE
+                    </h2>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">BRAND IDENTITY</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Creating memorable visual systems that give brands personality, consistency, and a strong visual voice.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">PACKAGING DESIGN</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Transforming products into meaningful physical experiences through thoughtful packaging and print design.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">PRINT DESIGN</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Creating tactile visual experiences designed for the real world.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">DIGITAL CAMPAIGNS</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Designing engaging visuals that capture attention and communicate clearly.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">UI/UX DESIGN</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Building modern digital experiences with clarity, usability, and purpose.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} className="space-y-2 p-4 rounded-2xl bg-black/40 border border-white/10 hover:border-[#88D900]/60 transition-all">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">MOTION VISUALS</h3>
+                    <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Adding movement, energy, and storytelling to visual communication.</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* 5. DESIGN PHILOSOPHY */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                  <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    MY DESIGN PHILOSOPHY
+                  </h2>
+                </div>
+
+                <div className="text-xl sm:text-3xl font-heading font-black text-[#88D900] leading-tight space-y-1 drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+                  <p>EVERY PIXEL SHOULD HAVE A PURPOSE.</p>
+                  <p>EVERY BRAND SHOULD HAVE A SOUL.</p>
+                </div>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  Design is more than decoration. It is communication. A strong visual identity can create trust. A powerful image can create emotion. A well-designed experience can make something complex feel simple.
+                </p>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  My approach to design combines strategy with creativity. Before creating visuals, I think about people, purpose, emotion, and the story behind the brand. I believe good design should not only be seen — it should be felt.
+                </p>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">PURPOSE</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">EMOTION</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">IDENTITY</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">STORY</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">IMPACT</motion.span>
+                </div>
+              </motion.div>
+
+              {/* 6. WOMAN. CREATOR. DREAMER. LEADER. */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                  <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    WOMAN. CREATOR. DREAMER. LEADER.
+                  </h2>
+                </div>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  Being a woman in the creative industry has taught me the importance of confidence, independence, continuous learning, and believing in my own voice. Creativity has given me the freedom to express ideas, solve problems, and build a career around something I genuinely love.
+                </p>
+
+                <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  I believe women bring unique perspectives, empathy, strength, imagination, and leadership into every industry. My journey is not only about becoming a better designer — it is also about becoming a stronger, more confident, and more independent version of myself.
+                </p>
+
+                <motion.blockquote 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-[#88D900] text-black font-heading font-black text-lg sm:text-2xl tracking-wider text-center uppercase shadow-2xl drop-shadow cursor-default"
+                >
+                  "WOMEN DON'T JUST FOLLOW VISIONS. WE CREATE THEM."
+                </motion.blockquote>
+              </motion.div>
+
+              {/* 7. BEYOND THE SCREEN */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="font-heading font-extrabold text-xs text-[#F472B6] uppercase tracking-widest drop-shadow">THE PERSON BEHIND THE DESIGNER</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                    <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      BEYOND THE SCREEN
+                    </h2>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">MY LIFE PHILOSOPHY</h3>
+                    <p className="font-body text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      I believe success should always have space for happiness. A meaningful life is not only about professional achievements — it is also about enjoying small moments, learning continuously, staying positive, and being connected with the people who matter.
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="font-heading font-black text-lg text-[#88D900] drop-shadow">FAMILY &amp; SUPPORT</h3>
+                    <p className="font-body text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      My family has always been an important part of my journey. Their encouragement, support, and belief have played a meaningful role in helping me continue growing personally and professionally. Behind every dream is often someone who believes in you.
+                    </p>
+                  </div>
+                </div>
+
+                {/* What Makes Me, Me */}
+                <div className="space-y-4 pt-2">
+                  <h3 className="font-heading font-black text-lg text-white drop-shadow">LITTLE THINGS THAT MAKE ME, ME</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">TRAVEL</span>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Exploring new places, architecture, stories, and colors.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">FOOD</span>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Discovering different flavors, memories, and celebrations.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CINEMA</span>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Visual storytelling, music, composition, and emotions.</p>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                      <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CREATIVITY</span>
+                      <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Nature, photography, culture, and everyday life.</p>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 8. PERSONAL VALUES */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-8 bg-[#F472B6] rounded-full shadow-[0_0_12px_#F472B6]" />
+                  <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#F472B6] tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    MY PERSONAL VALUES
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CREATIVITY</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Always looking for a different perspective.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CURIOSITY</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Always learning, exploring, and asking questions.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">DISCIPLINE</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Great work requires consistency.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">EMPATHY</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Understanding people helps create better experiences.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">CONFIDENCE</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Trusting the creative voice within.</p>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="space-y-1 p-3 rounded-xl bg-black/40 border border-white/10">
+                    <span className="font-heading font-black text-sm text-[#88D900] block drop-shadow">GROWTH</span>
+                    <p className="font-body text-xs sm:text-sm text-slate-200 drop-shadow">Never stopping the journey of becoming better.</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* 9. A MESSAGE FROM ME & ACTION BUTTONS FOOTER */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7 }}
+                className="space-y-8 text-center pt-8 border-t border-white/20"
+              >
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#88D900] text-black font-heading font-black text-xs uppercase tracking-wider shadow-lg">
+                  STILL LEARNING • STILL DREAMING • STILL CREATING
+                </div>
+
+                <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+                  LET'S CREATE SOMETHING <span className="text-[#88D900]">MEANINGFUL TOGETHER</span>
+                </h2>
+
+                <p className="font-body text-base sm:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  If you have a brand to build, a story to tell, a product to launch, or an idea waiting to become something real — let's connect and craft work that makes an impact.
+                </p>
+
+                <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+                  <motion.button
+                    whileHover={{ scale: 1.06, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      const el = document.getElementById('projects');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="px-7 py-3.5 rounded-full bg-black/70 border border-white/30 text-white font-heading font-extrabold text-xs uppercase tracking-wider hover:border-[#88D900] hover:text-[#88D900] transition-all duration-300 cursor-pointer shadow-xl backdrop-blur-md"
+                  >
+                    View My Work ↗
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.06, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      onOpenResume();
+                    }}
+                    className="px-7 py-3.5 rounded-full bg-[#88D900] text-black font-button font-black text-xs uppercase tracking-wider hover:bg-[#9EF01A] shadow-[0_0_25px_rgba(136,217,0,0.5)] transition-all duration-300 cursor-pointer"
+                  >
+                    Download Resume ↗
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.06, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      const el = document.getElementById('contact');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="px-7 py-3.5 rounded-full bg-white text-black font-button font-black text-xs uppercase tracking-wider hover:bg-slate-200 transition-all duration-300 cursor-pointer shadow-xl"
+                  >
+                    Let's Work Together ↗
+                  </motion.button>
+                </div>
+              </motion.div>
+
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

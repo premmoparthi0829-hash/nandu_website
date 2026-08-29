@@ -176,6 +176,24 @@ export const SkillsSection: React.FC = () => {
         </div>
       );
     }
+    if (nameLower.includes('freepik')) {
+      return (
+        <div className={`${animClass} bg-[#0A2540] text-[#38BDF8] border border-blue-400/40`}>
+          <svg className="w-5 h-5 fill-current text-[#0066FF]" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+      );
+    }
+    if (nameLower.includes('unsplash')) {
+      return (
+        <div className={`${animClass} bg-[#111111] text-white border border-white/20`}>
+          <svg className="w-5 h-5 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z" />
+          </svg>
+        </div>
+      );
+    }
 
     return (
       <div className={`${animClass} bg-[#001E36] text-[#31A8FF] border border-sky-400/40`}>
@@ -183,41 +201,6 @@ export const SkillsSection: React.FC = () => {
       </div>
     );
   };
-
-  // Group skills into categories
-  const categories = [
-    {
-      title: 'Design & Editing Software',
-      icon: Wrench,
-      accentColor: '#88D900',
-      items: skills.filter(s => s.category.includes('Design') || s.category.includes('Editing'))
-    },
-    {
-      title: 'AI / Image & Video Generation Tools',
-      icon: Cpu,
-      accentColor: '#A855F7',
-      items: skills.filter(s => s.category.includes('AI') || s.category.includes('Generation'))
-    },
-    {
-      title: 'Stock Images & Resources',
-      icon: Image,
-      accentColor: '#38BDF8',
-      items: skills.filter(s => s.category.includes('Stock'))
-    }
-  ];
-
-  // Fallback if custom items don't match categories
-  const unassigned = skills.filter(s =>
-    !s.category.includes('Design') &&
-    !s.category.includes('Editing') &&
-    !s.category.includes('AI') &&
-    !s.category.includes('Generation') &&
-    !s.category.includes('Stock')
-  );
-
-  if (unassigned.length > 0) {
-    categories[0].items.push(...unassigned);
-  }
 
   return (
     <section id="skills" className="relative z-10 py-16 sm:py-24 px-4 sm:px-8 md:px-12 bg-[#090909] text-white overflow-hidden">
@@ -256,47 +239,120 @@ export const SkillsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Skills Cards Grid Container — Flat unified layout */}
+        {/* Skills Cards Grid Container — Interactive 3D Cursor-Tracking Tilt & Spotlight Laser */}
         <div className="max-w-6xl mx-auto px-2">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4.5">
             {skills.map((skill, index) => (
-              <motion.div
+              <InteractiveSkillCard
                 key={skill.name}
-                initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{
-                  duration: 0.35,
-                  delay: index * 0.02,
-                  ease: [0.25, 0.1, 0.25, 1],
-                  hover: { duration: 0.15, ease: 'easeOut' }
-                }}
-                className="bg-white text-black rounded-2xl px-4 py-3.5 shadow-md hover:shadow-[0_15px_30px_-8px_rgba(136,217,0,0.3)] relative overflow-hidden flex items-center gap-3 border border-transparent hover:border-[#88D900]/40 transition-all duration-300 group cursor-pointer"
-              >
-                {/* Subtle Light Sheen Overlay on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-
-                {/* Left App Icon Badge */}
-                {renderBadge(skill.name, skill.badgeBg, skill.textColor)}
-
-                {/* Middle Text Info */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 leading-tight group-hover:text-black transition-colors truncate">
-                    {skill.name}
-                  </h3>
-                  <p className="font-body text-[10px] sm:text-[11px] text-slate-500 font-medium leading-tight mt-0.5 truncate">
-                    {skill.subtitle || skill.category}
-                  </p>
-                </div>
-
-              </motion.div>
+                skill={skill}
+                index={index}
+                renderBadge={renderBadge}
+              />
             ))}
           </div>
         </div>
 
       </div>
     </section>
+  );
+};
+
+// Interactive 3D Cursor-Tracking Skill Card Component
+interface InteractiveSkillCardProps {
+  skill: { name: string; subtitle?: string; category: string; badgeBg?: string; textColor?: string };
+  index: number;
+  renderBadge: (name: string, badgeBg?: string, textColor?: string) => React.ReactNode;
+}
+
+const InteractiveSkillCard: React.FC<InteractiveSkillCardProps> = ({ skill, index, renderBadge }) => {
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [tilt, setTilt] = React.useState({ rotateX: 0, rotateY: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
+
+    // Calculate 3D tilt based on cursor distance from card center
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -14;
+    const rotateY = ((x - centerX) / centerX) * 14;
+    setTilt({ rotateX, rotateY });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 25, scale: 0.94 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={{
+        duration: 0.4,
+        delay: (index % 4) * 0.05 + Math.floor(index / 4) * 0.08,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setTilt({ rotateX: 0, rotateY: 0 });
+      }}
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: isHovered
+          ? `perspective(700px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translateY(-8px) scale(1.04)`
+          : 'perspective(700px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)',
+        transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.5s ease-out, border-color 0.3s, box-shadow 0.3s'
+      }}
+      className="bg-white text-black rounded-2xl px-4 py-4 shadow-lg hover:shadow-[0_20px_45px_-8px_rgba(136,217,0,0.45)] relative overflow-hidden flex items-center gap-3 border border-transparent hover:border-[#88D900] transition-all duration-300 group cursor-pointer"
+    >
+      {/* Real-Time Cursor Spotlight Gradient */}
+      {isHovered && (
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(160px circle at ${mousePos.x}px ${mousePos.y}px, rgba(136, 217, 0, 0.3), transparent 80%)`
+          }}
+        />
+      )}
+
+      {/* Floating Spark Particle Following Cursor Motion */}
+      {isHovered && (
+        <div
+          className="absolute w-3 h-3 rounded-full bg-[#88D900] shadow-[0_0_15px_#88D900] pointer-events-none z-20 opacity-80"
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+            transform: 'translate(-50%, -50%)',
+            transition: 'left 0.05s linear, top 0.05s linear'
+          }}
+        />
+      )}
+
+      {/* Left App Icon Badge with 3D Pop */}
+      <div style={{ transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)', transition: 'transform 0.2s' }}>
+        {renderBadge(skill.name, skill.badgeBg, skill.textColor)}
+      </div>
+
+      {/* Middle Text Info */}
+      <div className="flex-1 min-w-0" style={{ transform: isHovered ? 'translateZ(14px)' : 'translateZ(0px)', transition: 'transform 0.2s' }}>
+        <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 leading-tight group-hover:text-black truncate">
+          {skill.name}
+        </h3>
+        <p className="font-body text-[10px] sm:text-[11px] text-slate-500 font-medium leading-tight mt-0.5 group-hover:text-slate-700 truncate">
+          {skill.subtitle || skill.category}
+        </p>
+      </div>
+
+      {/* Interactive Bottom Glow Laser Sweep Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#88D900] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </motion.div>
   );
 };
 
