@@ -15,9 +15,21 @@ import gallery6 from '../assets/gallery_6.png';
 import gallery7 from '../assets/gallery_7.png';
 import designerPortrait from '../assets/designer_portrait.png';
 import nandiniNightPortrait from '../assets/nandini_night_portrait.jpg';
+import nandiniYellowPortrait from '../assets/nandini_yellow_portrait.jpg';
 import moonlightBg from '../assets/moonlight_biography_bg.jpg';
 import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
 import nature1Video from '../assets/nature1.mp4';
+import lifeFlightImg from '../assets/life_flight.jpg';
+import lifeNatureImg from '../assets/life_nature.jpg';
+import lifeOceanImg from '../assets/life_ocean.jpg';
+import lifeFlowersImg from '../assets/life_flowers.jpg';
+import lifePalmSunsetImg from '../assets/life_palm_sunset.jpg';
+import lifeBirdsArchImg from '../assets/life_birds_arch.jpg';
+import lifeBouquetImg from '../assets/life_bouquet.jpg';
+import lifeBookshelfImg from '../assets/life_bookshelf.jpg';
+import lifeIcedCoffeeImg from '../assets/life_iced_coffee.jpg';
+import lifeSushiLanternsImg from '../assets/life_sushi_lanterns.jpg';
+import lifeMistyWaterfallImg from '../assets/life_misty_waterfall.jpg';
 
 interface AboutSectionProps {
   onOpenResume: () => void;
@@ -339,6 +351,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
 
   const galleryImages = [
     { src: nandiniNightPortrait, title: 'Visual Storyteller Night Portrait', borderColor: '#F472B6' },
+    { src: nandiniYellowPortrait, title: 'Nandini Traditional Yellow Portrait', borderColor: '#F59E0B' },
     { src: gallery1, title: 'Creative Workstation Portrait', borderColor: '#88D900' },
     { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
     { src: gallery3, title: 'Picking Flowers Outdoor Aesthetic', borderColor: '#88D900' },
@@ -827,12 +840,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">IMPACT</motion.span>
                 </div>
 
-                {/* Electric Violet Quote Banner Pill */}
+                {/* Rich Chocolate Quote Banner Pill */}
                 <motion.blockquote 
                   whileHover={{ scale: 1.02 }}
-                  className="p-5 sm:p-6 rounded-2xl bg-[#8B5CF6] text-white font-heading font-black text-lg sm:text-2xl tracking-wider text-center uppercase shadow-[0_0_35px_rgba(139,92,246,0.5)] drop-shadow cursor-pointer"
+                  className="p-5 sm:p-6 rounded-2xl bg-[#4A2511] text-white font-heading font-black text-lg sm:text-2xl tracking-wider text-center uppercase shadow-[0_0_30px_rgba(92,45,19,0.7)] drop-shadow cursor-pointer border border-[#7B3F00]/60"
                 >
-                  "GREAT DESIGN SOLVES PROBLEMS, CREATES EMOTION, AND STANDS THE TEST OF TIME."
+                  "DESIGN WITH PURPOSE. CREATE WITH PASSION."
                 </motion.blockquote>
               </motion.div>
 
@@ -946,6 +959,103 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                     </motion.div>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* 11 Life Photos Grid Showcase (Clean Visual Showcase - No Headings) */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 py-2"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeFlightImg} alt="Flight Travel" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeNatureImg} alt="Nature Tree" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeOceanImg} alt="Ocean Skyline" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeFlowersImg} alt="Pink Daisies Field" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifePalmSunsetImg} alt="Palm Trees Beach Sunset" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeBirdsArchImg} alt="Architecture & Birds" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeBouquetImg} alt="Floral Bouquet" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeBookshelfImg} alt="Stacked Bookshelf" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeIcedCoffeeImg} alt="Iced Coffee Glass" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeSushiLanternsImg} alt="Japanese Sushi Paper Lanterns" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer sm:col-span-2 lg:col-span-1"
+                >
+                  <img src={lifeMistyWaterfallImg} alt="Misty Mountain Waterfalls" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
               </motion.div>
 
               {/* 8. PERSONAL VALUES */}
