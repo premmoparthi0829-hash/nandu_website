@@ -13,7 +13,6 @@ import gallery5 from '../assets/gallery_5.jpg';
 import gallery6 from '../assets/gallery_6.png';
 import gallery7 from '../assets/gallery_7.png';
 import designerPortrait from '../assets/designer_portrait.png';
-import biographyCoverBanner from '../assets/nandini_official_creative_banner.png';
 import moonlightBg from '../assets/moonlight_biography_bg.jpg';
 import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
 
