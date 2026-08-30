@@ -781,6 +781,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                     <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Adding movement, energy, and storytelling to visual communication.</p>
                   </motion.div>
                 </div>
+
+                {/* Sky Blue Quote Banner Pill */}
+                <motion.blockquote 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-[#38BDF8] text-black font-heading font-black text-lg sm:text-2xl tracking-wider text-center uppercase shadow-[0_0_30px_rgba(56,189,248,0.4)] drop-shadow cursor-pointer"
+                >
+                  "CREATIVITY ISN'T JUST MY SKILL, IT'S MY SUPERPOWER."
+                </motion.blockquote>
               </motion.div>
 
               {/* 5. DESIGN PHILOSOPHY */}
