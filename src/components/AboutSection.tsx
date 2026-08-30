@@ -599,9 +599,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setIsModalOpen(true)}
-                className="btn-neon-outline font-button text-xs uppercase tracking-wider flex-1 sm:flex-initial justify-center hover:border-[#88D900]/80 hover:shadow-[0_0_20px_rgba(136,217,0,0.25)] transition-all duration-300 group cursor-pointer"
+                className="btn-pink bg-[#F472B6] text-black hover:bg-[#f583c1] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)] hover:shadow-[0_0_25px_rgba(244,114,182,0.6)] transition-all duration-300 group cursor-pointer"
               >
-                <span className="group-hover:text-[#88D900] transition-colors duration-300">Read Full Biography</span>
+                <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300 text-black" />
+                <span>Read Full Biography</span>
               </motion.button>
             </motion.div>
           </motion.div>
