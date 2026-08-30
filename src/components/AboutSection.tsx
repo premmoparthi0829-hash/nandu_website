@@ -392,21 +392,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-10 sm:mb-16"
         >
-          {/* Ultra HD Featured Profile Portrait Badge */}
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            className="relative mb-5 cursor-pointer group"
-            onClick={() => setIsModalOpen(true)}
-            title="Click to view full story"
-          >
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#F472B6] p-1 bg-black/80 shadow-[0_0_30px_rgba(244,114,182,0.6)] overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_40px_rgba(244,114,182,0.9)]">
-              <img src={nandiniNightPortrait} alt="Nandini Vaddepalli" className="w-full h-full object-cover rounded-full filter brightness-105 contrast-105" />
-            </div>
-            <div className="absolute -bottom-1 -right-1 bg-[#F472B6] text-black font-heading font-black text-[9px] uppercase px-2.5 py-0.5 rounded-full shadow-lg border border-black">
-              PORTRAIT ✦
-            </div>
-          </motion.div>
-
           <div className="mb-3 sm:mb-4">
             <PlainTextTyping text="ABOUT NANDINI VADDEPALLI" />
           </div>
