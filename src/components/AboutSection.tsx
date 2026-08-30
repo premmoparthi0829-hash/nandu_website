@@ -617,24 +617,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-slate-950 font-sans scrollbar-thin selection:bg-[#88D900] selection:text-black"
+            className="fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-[#09090b] font-sans scrollbar-thin selection:bg-[#88D900] selection:text-black"
           >
-            {/* Background Video */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="fixed inset-0 w-full h-full object-cover pointer-events-none -z-20"
-            >
-              <source src="/videos/moon-beach.mp4" type="video/mp4" />
-            </video>
+            {/* Ambient Background Radial Glow (High performance, 0 GPU lag) */}
+            <div className="fixed inset-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(136,217,0,0.12),rgba(9,9,11,1))] pointer-events-none -z-10" />
 
-            {/* Dark Video Overlay */}
-            <div className="fixed inset-0 w-full h-full bg-gradient-to-r from-black/85 via-black/55 to-black/75 backdrop-blur-[2px] pointer-events-none -z-10" />
-
-            {/* Sticky Glassmorphism Header Bar */}
-            <div className="sticky top-0 z-40 w-full bg-black/60 backdrop-blur-lg border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
+            {/* Sticky Header Bar */}
+            <div className="sticky top-0 z-40 w-full bg-black/90 border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-black/70 border border-[#88D900]/40 text-[#88D900] flex items-center justify-center shadow-lg">
                   <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#88D900]" />
