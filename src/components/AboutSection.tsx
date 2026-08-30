@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, FileText, Smartphone, Layers,
   CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight,
-  Plane, Utensils, Film, PenTool, Package, Printer, Layout, MessageSquareQuote, ArrowRight
+  Plane, Utensils, Film, PenTool, Package, Printer, Layout, MessageSquareQuote, ArrowRight,
+  Play, Pause, Volume2, VolumeX
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import gallery1 from '../assets/gallery_1.jpg';
@@ -203,6 +204,70 @@ const NativeCreativeBanner: React.FC = () => {
           </div>
         </div>
 
+      </div>
+    </div>
+  );
+};
+
+// Interactive 2.43:1 Ratio Nature Video Banner Component with Audio (Mute/Unmute) & Play/Pause controls
+const InteractiveNatureVideoBanner: React.FC<{ videoSrc: string }> = ({ videoSrc }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  return (
+    <div className="relative w-full aspect-[2.43/1] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.9)] border border-white/20 group bg-black">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted={isMuted}
+        playsInline
+        src={videoSrc}
+        className="w-full h-full object-cover object-center transform group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+
+      {/* Interactive Video Control Overlay Buttons */}
+      <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 flex items-center gap-2 z-20">
+        {/* Play / Pause Button */}
+        <button
+          onClick={togglePlay}
+          className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/75 border border-white/20 hover:border-[#F472B6] text-white hover:text-[#F472B6] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all shadow-xl cursor-pointer"
+          title={isPlaying ? "Pause Video" : "Play Video"}
+        >
+          {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F472B6]" /> : <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D900]" />}
+          <span className="hidden sm:inline">{isPlaying ? "Pause" : "Play"}</span>
+        </button>
+
+        {/* Mute / Unmute Audio Button */}
+        <button
+          onClick={toggleMute}
+          className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/75 border border-white/20 hover:border-[#F472B6] text-white hover:text-[#F472B6] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all shadow-xl cursor-pointer"
+          title={isMuted ? "Unmute Audio" : "Mute Audio"}
+        >
+          {isMuted ? <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300" /> : <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F472B6] animate-pulse" />}
+          <span>{isMuted ? "Unmute" : "Sound On"}</span>
+        </button>
       </div>
     </div>
   );
@@ -542,18 +607,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="space-y-8 text-left"
               >
-                {/* Autoplay Full-Width Nature Video Banner (nature1.mp4) */}
-                <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.9)] border border-white/20 group bg-black">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    src={nature1Video} 
-                    className="w-full h-auto max-h-[520px] object-cover object-center transform group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
-                </div>
+                {/* Autoplay Full-Width 2.43:1 Nature Video Banner (nature1.mp4) */}
+                <InteractiveNatureVideoBanner videoSrc={nature1Video} />
 
                 {/* Text Content Placed Directly BELOW the Cover Photo Banner */}
                 <div className="space-y-6 pt-2">
