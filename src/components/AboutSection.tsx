@@ -15,6 +15,7 @@ import gallery7 from '../assets/gallery_7.png';
 import designerPortrait from '../assets/designer_portrait.png';
 import moonlightBg from '../assets/moonlight_biography_bg.jpg';
 import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
+import nature1Video from '../assets/nature1.mp4';
 
 interface AboutSectionProps {
   onOpenResume: () => void;
@@ -541,8 +542,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="space-y-8 text-left"
               >
-                {/* 8K Vector Crisp Native Official Graphic Designer Cover Banner */}
-                <NativeCreativeBanner />
+                {/* Autoplay Full-Width Nature Video Banner (nature1.mp4) */}
+                <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.9)] border border-white/20 group bg-black">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    src={nature1Video} 
+                    className="w-full h-auto max-h-[520px] object-cover object-center transform group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+                </div>
 
                 {/* Text Content Placed Directly BELOW the Cover Photo Banner */}
                 <div className="space-y-6 pt-2">
