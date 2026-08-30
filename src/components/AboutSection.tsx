@@ -680,9 +680,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   </h1>
 
                   <div className="flex flex-wrap gap-2.5 pt-1">
-                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Creative Graphic Designer</motion.span>
-                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-default">Visual Brand Specialist</motion.span>
-                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-default">Brand Storyteller</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-pointer hover:border-[#88D900]/50 transition-colors">Creative Graphic Designer</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-pointer hover:border-[#F472B6]/50 transition-colors">Visual Brand Specialist</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-pointer hover:border-[#88D900]/50 transition-colors">Brand Storyteller</motion.span>
                   </div>
 
                   <motion.blockquote 

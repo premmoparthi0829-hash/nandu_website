@@ -55,7 +55,7 @@ export const CustomCursor: React.FC = () => {
     <>
       {/* Central Solid Pink Pointer Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-[#EC4899] rounded-full pointer-events-none z-50 hidden md:block shadow-[0_0_8px_#EC4899]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-[#EC4899] rounded-full pointer-events-none z-[9999] hidden md:block shadow-[0_0_8px_#EC4899]"
         animate={{
           x: mousePosition.x - 5,
           y: mousePosition.y - 5,
@@ -66,7 +66,7 @@ export const CustomCursor: React.FC = () => {
 
       {/* Subtle Sleek Ring (Compact scale on hover, no giant expansion!) */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-[#EC4899]/70 rounded-full pointer-events-none z-50 hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 border border-[#EC4899]/70 rounded-full pointer-events-none z-[9999] hidden md:block"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
