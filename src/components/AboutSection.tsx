@@ -820,12 +820,20 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 </p>
 
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">PURPOSE</motion.span>
-                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">EMOTION</motion.span>
-                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">IDENTITY</motion.span>
-                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">STORY</motion.span>
-                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-default">IMPACT</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">PURPOSE</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">EMOTION</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">IDENTITY</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">STORY</motion.span>
+                  <motion.span whileHover={{ scale: 1.08 }} className="px-4 py-1.5 rounded-full bg-black/60 text-xs font-extrabold text-[#88D900] border border-[#88D900]/50 drop-shadow cursor-pointer">IMPACT</motion.span>
                 </div>
+
+                {/* Electric Violet Quote Banner Pill */}
+                <motion.blockquote 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-[#8B5CF6] text-white font-heading font-black text-lg sm:text-2xl tracking-wider text-center uppercase shadow-[0_0_35px_rgba(139,92,246,0.5)] drop-shadow cursor-pointer"
+                >
+                  "GREAT DESIGN SOLVES PROBLEMS, CREATES EMOTION, AND STANDS THE TEST OF TIME."
+                </motion.blockquote>
               </motion.div>
 
               {/* 6. WOMAN. CREATOR. DREAMER. LEADER. */}
