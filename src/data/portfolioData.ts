@@ -1,5 +1,6 @@
 import { Project, Skill, ServiceItem, ExperienceItem, Testimonial } from '../types/app';
 import heroImg from '../assets/designer_portrait.png';
+import cvPdf from '../assets/nandini.cv.pdf';
 
 export const PERSONAL_INFO = {
   name: "Nandini Vaddepalli",
@@ -12,13 +13,14 @@ export const PERSONAL_INFO = {
   projectsCompleted: "100+",
   technologiesCount: "10+",
   clientSatisfaction: "100%",
-  email: "nandinivaddepalli.design@gmail.com",
-  phone: "+91 98765 43210",
+  email: "nandini.vaddepalli31@gmail.com",
+  phone: "+91 7287928766",
   location: "Hyderabad, India",
   github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/nandini-vaddepalli-a9823032b/",
   avatarUrl: heroImg,
-  heroImage: heroImg
+  heroImage: heroImg,
+  resumeUrl: cvPdf
 };
 
 export const SKILLS: Skill[] = [

@@ -12,12 +12,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   const handleDownload = () => {
-    const content = `NANDINI VADDEPALLI\nCreative Graphic Designer & Visual Brand Specialist\nExperience: 4.5+ Years\nEmail: ${PERSONAL_INFO.email} | Location: ${PERSONAL_INFO.location}\n\nCAREER SUMMARY\nCreative Lead with 4.5+ years of experience constructing iconic brand identities, print packaging, digital marketing campaigns, and UI design systems for global brands.\n\nEXPERIENCE TIMELINE\n${EXPERIENCES.map(e => `- ${e.duration}: ${e.company} (${e.role}) — ${e.location}`).join('\n')}\n\nTECHNICAL SKILLS & COMPETENCIES\n${SKILLS.map(s => `- ${s.name} (${s.level}%) [${s.category}]`).join('\n')}`;
-
     const element = document.createElement('a');
-    const file = new Blob([content], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = 'Nandini_Vaddepalli_Resume.txt';
+    element.href = PERSONAL_INFO.resumeUrl;
+    element.download = 'Nandini_Vaddepalli_Resume.pdf';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -101,15 +98,25 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <span className="text-[10px] sm:text-xs text-[#9CA3AF]">
-              Verified Document · 4.5+ Yrs Pro Experience
+              Official CV PDF Document · 4.5+ Yrs Pro Experience
             </span>
-            <button
-              onClick={handleDownload}
-              className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] text-xs uppercase font-extrabold w-full sm:w-auto justify-center"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
-            </button>
+            <div className="flex items-center gap-2.5 w-full sm:w-auto">
+              <a
+                href={PERSONAL_INFO.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-pink px-4 py-2 text-xs font-button uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform shrink-0"
+              >
+                <span>View CV PDF ↗</span>
+              </a>
+              <button
+                onClick={handleDownload}
+                className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] text-xs uppercase font-extrabold w-full sm:w-auto justify-center px-4 py-2 flex items-center gap-2 cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download CV</span>
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>

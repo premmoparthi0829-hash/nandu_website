@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   if (!scrolled || isHiddenSection) return null;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-6 md:px-8 pt-3 pb-2 transition-all duration-500 w-full max-w-full">
+    <header className="hidden md:block fixed top-0 left-0 right-0 z-50 px-2 sm:px-6 md:px-8 pt-3 pb-2 transition-all duration-500 w-full max-w-full">
       <div className="max-w-7xl mx-auto rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 luxury-glass-nav shadow-2xl border border-white/15 backdrop-blur-xl bg-black/80 flex items-center justify-between w-full">
         
         {/* Brand Name Pill Button */}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DataProvider } from './context/DataContext';
 import { CustomCursor } from './components/CustomCursor';
-import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -46,9 +45,6 @@ function MainPortfolioContent() {
     <div className="min-h-screen w-full max-w-full bg-[#090909] text-white selection:bg-[#EC4899] selection:text-white overflow-x-hidden font-body relative">
       {/* Dual Ring Glowing Custom Cursor */}
       <CustomCursor />
-
-      {/* Glassmorphic Top Navbar */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
       {/* High-Fashion Editorial Hero Section */}
       <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
