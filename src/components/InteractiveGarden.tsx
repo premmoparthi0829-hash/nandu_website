@@ -1,6 +1,6 @@
 import React from 'react';
-import { MotionGraphicShowcase } from './MotionGraphicShowcase';
+import { CursorDogSection } from './CursorDogSection';
 
 export const InteractiveGarden: React.FC = () => {
-  return <MotionGraphicShowcase />;
+  return <CursorDogSection />;
 };

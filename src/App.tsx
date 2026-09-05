@@ -10,7 +10,6 @@ import { DesignProcess } from './components/DesignProcess';
 import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
-import { InteractiveGarden } from './components/InteractiveGarden';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 import { AdminPanel } from './components/admin/AdminPanel';
@@ -73,9 +72,6 @@ function MainPortfolioContent() {
 
       {/* Contact Section */}
       <ContactSection />
-
-      {/* Neon Aurora Bioluminescent Garden Game */}
-      <InteractiveGarden />
 
       {/* Footer */}
       <Footer />
