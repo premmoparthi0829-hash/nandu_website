@@ -373,6 +373,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
     return () => clearInterval(timer);
   }, [galleryImages.length]);
 
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+
   const handleNextPhoto = () => {
     setDirection(1);
     setActivePhoto((prev) => (prev + 1) % galleryImages.length);
@@ -381,6 +384,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const handlePrevPhoto = () => {
     setDirection(-1);
     setActivePhoto((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diffX = touchStartX.current - touchEndX.current;
+    if (diffX > 40) {
+      handleNextPhoto();
+    } else if (diffX < -40) {
+      handlePrevPhoto();
+    }
+    touchStartX.current = 0;
+    touchEndX.current = 0;
   };
 
   const roles = [
@@ -449,6 +473,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 <motion.div
                   key={activePhoto}
                   custom={direction}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.3}
+                  onDragEnd={(_e, info) => {
+                    if (info.offset.x < -30 || info.velocity.x < -150) {
+                      handleNextPhoto();
+                    } else if (info.offset.x > 30 || info.velocity.x > 150) {
+                      handlePrevPhoto();
+                    }
+                  }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                   initial={(dir: number) => ({
                     x: 0,
                     y: dir > 0 ? 12 : -45,
@@ -481,7 +518,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                       ease: [0.22, 1, 0.36, 1],
                     }
                   })}
-                  className="absolute inset-0 rounded-[28px] bg-[#151515] border border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between"
+                  className="absolute inset-0 rounded-[28px] bg-[#151515] border border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between cursor-grab active:cursor-grabbing touch-pan-y select-none"
                 >
                   <img
                     src={currentImage.src}
