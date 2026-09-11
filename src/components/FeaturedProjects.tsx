@@ -585,9 +585,18 @@ export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [page, setPage] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(6);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [lightboxDirection, setLightboxDirection] = useState<number>(1); // 1 = next (page turns left), -1 = prev (page turns right)
+  const [lightboxDirection, setLightboxDirection] = useState<number>(1);
+  const [isMobile, setIsMobile] = useState<boolean>(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const { projects: dynamicProjects } = useData();
 
@@ -626,14 +635,23 @@ export const FeaturedProjects: React.FC = () => {
     ? combinedProjects
     : combinedProjects.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
 
-  const ITEMS_PER_PAGE = 6;
-  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE) || 1;
+  const itemsPerPage = isMobile ? 2 : 6;
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage) || 1;
   const currentPage = Math.min(page, totalPages - 1);
 
   const displayedProjects = filteredProjects.slice(
-    currentPage * ITEMS_PER_PAGE,
-    (currentPage * ITEMS_PER_PAGE) + visibleCount
+    currentPage * itemsPerPage,
+    (currentPage * itemsPerPage) + itemsPerPage
   );
+
+  // Auto-scroll pages for project gallery (slides to next page/pair every 3.5 seconds)
+  React.useEffect(() => {
+    if (isPaused || lightboxIndex !== null) return;
+    const timer = setInterval(() => {
+      setPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [totalPages, isPaused, lightboxIndex]);
 
   const handlePrevPage = () => {
     setPage(prev => (prev > 0 ? prev - 1 : totalPages - 1));
@@ -759,8 +777,15 @@ export const FeaturedProjects: React.FC = () => {
             <ChevronsRight className="w-5 h-5 stroke-[3]" />
           </button>
 
-          {/* 3×2 Grid — fills full remaining height, no scroll */}
-          <motion.div layout className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-4 h-full">
+          {/* Grid — 1 col x 2 rows on mobile (1 top, 1 bottom), 3 col x 2 rows on desktop */}
+          <motion.div
+            layout
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+            className="grid grid-cols-1 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 gap-3 sm:gap-4 h-full"
+          >
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((item) => {
                 const itemIndexInFiltered = filteredProjects.findIndex(p => p.id === item.id);

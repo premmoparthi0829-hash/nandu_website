@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, FileText, Smartphone, Layers,
-  CheckCircle2, X, MapPin, Briefcase, Palette, Figma, ChevronLeft, ChevronRight,
+  CheckCircle2, X, MapPin, Briefcase, Palette, Figma,
   Plane, Utensils, Film, PenTool, Package, Printer, Layout, MessageSquareQuote, ArrowRight,
   Play, Pause, Volume2, VolumeX
 } from 'lucide-react';
@@ -495,23 +495,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   />
                 </motion.div>
               </AnimatePresence>
-
-              {/* Left / Right Carousel Control Arrows */}
-              <button
-                onClick={handlePrevPhoto}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 cursor-pointer"
-                aria-label="Previous Photo"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              <button
-                onClick={handleNextPhoto}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center transition-all z-30 backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 cursor-pointer"
-                aria-label="Next Photo"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
 
               {/* Bottom Thumbnail Dots Indicator */}
               <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-30 pointer-events-auto">

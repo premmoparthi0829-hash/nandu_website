@@ -1304,7 +1304,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: 'All Hands Global',
     role: 'Lead Brand & Visual Strategist',
     duration: '2025 - Present',
-    location: 'Hyderabad / Remote',
+    location: 'Hyderabad, India',
     responsibilities: [
       'Steering end-to-end brand identities, creative direction, and digital asset architecture for global client campaigns.',
       'Redesigned flagship brand identity increasing client engagement by 40%.',
