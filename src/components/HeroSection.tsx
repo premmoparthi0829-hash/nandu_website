@@ -289,23 +289,57 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {[
-                    'Photoshop',
-                    'Illustrator',
-                    'Figma',
-                    'InDesign',
-                    'Brand Identity',
-                    'Packaging',
-                    'UI/UX',
-                  ].map((s) => (
-                    <span
-                      key={s}
-                      className="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[9px] sm:text-[10px] font-mono font-bold text-[#88D900]"
-                    >
-                      {s}
-                    </span>
-                  ))}
+                <div className="flex flex-wrap items-center gap-2 mt-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-pink-500/50 transition-colors">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+                      <rect width="24" height="24" rx="6" fill="url(#insta-grad-hero)" />
+                      <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-8.5a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" fill="white" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12 4c-2.172 0-2.445.009-3.298.048-.85.039-1.432.174-1.94.372a3.914 3.914 0 00-1.417.923c-.42.42-.716.898-.923 1.417-.198.508-.333 1.09-.372 1.94C4.009 9.555 4 9.828 4 12s.009 2.445.048 3.298c.039.85.174 1.432.372 1.94.207.519.503.997.923 1.417.42.42.898.716 1.417.923.508.198 1.09.333 1.94.372C9.555 19.991 9.828 20 12 20s2.445-.009 3.298-.048c.85-.039 1.432-.174 1.94-.372a3.914 3.914 0 001.417-.923c.42-.42.716-.898.923-1.417.198-.508.333-1.09.372-1.94C19.991 14.445 20 14.172 20 12s-.009-2.445-.048-3.298c-.039-.85-.174-1.432-.372-1.94a3.914 3.914 0 00-.923-1.417 3.914 3.914 0 00-1.417-.923c-.508-.198-1.09-.333-1.94-.372C14.445 4.009 14.172 4 12 4zm0 1.802c2.135 0 2.388.008 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.038.844.047 1.097.047 3.233s-.009 2.388-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 01-.599.92 2.47 2.47 0 01-.92.598c-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.388-.009-3.232-.047c-.78-.036-1.203-.166-1.485-.276a2.47 2.47 0 01-.92-.598 2.47 2.47 0 01-.598-.92c-.11-.282-.24-.705-.276-1.485C5.81 14.388 5.802 14.135 5.802 12s.008-2.388.046-3.232c.036-.78.166-1.204.276-1.486.145-.373.319-.64.598-.92.28-.28.546-.453.92-.599.282-.109.705-.24 1.485-.275.844-.038 1.097-.046 3.233-.046z" fill="white" />
+                      <defs>
+                        <linearGradient id="insta-grad-hero" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#f09433"/>
+                          <stop offset="0.5" stopColor="#e6683c"/>
+                          <stop offset="1" stopColor="#bc1888"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    Instagram
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-[#1877F2]/50 transition-colors">
+                    <svg className="w-3.5 h-3.5 text-[#1877F2] fill-current" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-white/50 transition-colors">
+                    <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    X (Twitter)
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-[#E60023]/50 transition-colors">
+                    <svg className="w-3.5 h-3.5 text-[#E60023] fill-current" viewBox="0 0 24 24">
+                      <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+                    </svg>
+                    Pinterest
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-[#0A66C2]/50 transition-colors">
+                    <svg className="w-3.5 h-3.5 text-[#0A66C2] fill-current" viewBox="0 0 24 24">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.47 1.47 0 1 0 0 2.94 1.47 1.47 0 0 0 0-2.94z"/>
+                    </svg>
+                    LinkedIn
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-xs font-semibold text-white hover:border-red-500/50 transition-colors">
+                    <svg className="w-3.5 h-3.5 text-red-500 fill-current" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    YouTube
+                  </span>
                 </div>
               </div>
             </div>
