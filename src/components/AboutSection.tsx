@@ -32,7 +32,7 @@ import lifeSushiLanternsImg from '../assets/life_sushi_lanterns.jpg';
 import lifeMistyWaterfallImg from '../assets/life_misty_waterfall.jpg';
 
 interface AboutSectionProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
 interface AnimatedCounterProps {
@@ -598,15 +598,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
               transition={{ delay: 0.45, duration: 0.5 }}
               className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto"
             >
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                onClick={onOpenResume}
-                className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:shadow-[0_0_25px_rgba(136,217,0,0.6)] transition-all duration-300 group cursor-pointer"
+                href={PERSONAL_INFO.resumeUrl}
+                download="Nandini_Vaddepalli_Resume.pdf"
+                className="btn-neon bg-[#88D900] text-black hover:bg-[#9EF01A] font-button text-xs uppercase tracking-wider font-extrabold flex-1 sm:flex-initial justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:shadow-[0_0_25px_rgba(136,217,0,0.6)] transition-all duration-300 group cursor-pointer inline-flex items-center gap-2"
               >
                 <FileText className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:rotate-6 transition-transform duration-300" />
                 <span>Download CV</span>
-              </motion.button>
+              </motion.a>
 
               <motion.button
                 whileHover={{ scale: 1.04, y: -2 }}
@@ -1135,17 +1136,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                     View My Work ↗
                   </motion.button>
 
-                  <motion.button
+                  <motion.a
                     whileHover={{ scale: 1.06, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      setIsModalOpen(false);
-                      onOpenResume();
-                    }}
-                    className="px-7 py-3.5 rounded-full bg-[#88D900] text-black font-button font-black text-xs uppercase tracking-wider hover:bg-[#9EF01A] shadow-[0_0_25px_rgba(136,217,0,0.5)] transition-all duration-300 cursor-pointer"
+                    href={PERSONAL_INFO.resumeUrl}
+                    download="Nandini_Vaddepalli_Resume.pdf"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-7 py-3.5 rounded-full bg-[#88D900] text-black font-button font-black text-xs uppercase tracking-wider hover:bg-[#9EF01A] shadow-[0_0_25px_rgba(136,217,0,0.5)] transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2"
                   >
                     Download Resume ↗
-                  </motion.button>
+                  </motion.a>
 
                   <motion.button
                     whileHover={{ scale: 1.06, y: -2 }}

@@ -4,7 +4,7 @@ import { ArrowUpRight, Menu, X, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
@@ -88,13 +88,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 shrink-0">
-          <button
-            onClick={onOpenResume}
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-pink px-3.5 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-button uppercase tracking-wider font-extrabold flex items-center gap-1.5 shrink-0 cursor-pointer hover:scale-105 transition-transform"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
-          </button>
+          </a>
 
           <a
             href="#contact"
@@ -141,16 +143,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               );
             })}
             <div className="flex items-center justify-between pt-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
+              <a
+                href={PERSONAL_INFO.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="btn-neon bg-[#EC4899] text-white font-extrabold text-xs uppercase px-3.5 py-1.5 flex items-center gap-1.5 cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Resume PDF</span>
-              </button>
+              </a>
 
               <a
                 href="#contact"

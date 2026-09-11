@@ -11,13 +11,10 @@ import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { ResumeModal } from './components/ResumeModal';
 import { AdminPanel } from './components/admin/AdminPanel';
 import { AdminLoginModal } from './components/admin/AdminLoginModal';
-import { ShieldCheck } from 'lucide-react';
 
 function MainPortfolioContent() {
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isAdminLoginOpen, setIsAdminLoginOpen] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
@@ -47,10 +44,10 @@ function MainPortfolioContent() {
       <CustomCursor />
 
       {/* High-Fashion Editorial Hero Section */}
-      <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
+      <HeroSection />
 
       {/* About Section */}
-      <AboutSection onOpenResume={() => setIsResumeOpen(true)} />
+      <AboutSection />
 
       {/* Skills Matrix */}
       <SkillsSection />
@@ -75,22 +72,6 @@ function MainPortfolioContent() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Floating Admin Button at bottom-left */}
-      <button
-        onClick={() => setIsAdminLoginOpen(true)}
-        className="fixed bottom-4 left-4 z-40 p-2.5 rounded-full bg-[#151515] border border-white/10 text-gray-400 hover:text-[#88D900] hover:border-[#88D900]/50 transition-all shadow-xl flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider group cursor-pointer"
-        title="Open Admin Portal"
-      >
-        <ShieldCheck className="w-4 h-4 text-[#88D900] group-hover:scale-110 transition-transform" />
-        <span className="hidden sm:inline">ADMIN</span>
-      </button>
-
-      {/* Resume Modal */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
 
       {/* Admin Login Modal */}
       <AdminLoginModal

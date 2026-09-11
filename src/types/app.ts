@@ -38,3 +38,46 @@ export interface InquiryForm {
   serviceType: string;
   message: string;
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  shortDescription: string;
+  fullOverview: string;
+  technologies: string[];
+  features: string[];
+  heroImage: string;
+  screenshots: string[];
+  liveDemoUrl?: string;
+  githubUrl?: string;
+  caseStudy?: {
+    problem: string;
+    solution: string;
+    impact: string;
+  };
+  featured?: boolean;
+}
+
+export interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  type: string;
+  description: string;
+  responsibilities: string[];
+  techStack: string[];
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  quote: string;
+  rating: number;
+}
+

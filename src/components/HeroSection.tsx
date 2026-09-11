@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ChevronRight, Palette, Pen, Package, Monitor, Printer } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroSectionProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
 const NAME_LETTERS = ['N', 'A', 'N', 'D', 'I', 'N', 'I'];
@@ -71,12 +72,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
             {/* Right buttons */}
             <div className="flex items-center gap-2 justify-center sm:justify-end w-full sm:w-auto">
-              <button
-                onClick={onOpenResume}
-                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-black/20 text-[#090909] text-[10px] sm:text-xs font-button font-bold hover:bg-black hover:text-white transition-all shadow-sm shrink-0"
+              <a
+                href={PERSONAL_INFO.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-black/20 text-[#090909] text-[10px] sm:text-xs font-button font-bold hover:bg-black hover:text-white transition-all shadow-sm shrink-0 inline-flex items-center gap-1 cursor-pointer"
               >
-                Resume PDF
-              </button>
+                <span>Resume PDF ↗</span>
+              </a>
               <a
                 href="#contact"
                 className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#F472B6] text-black text-[10px] sm:text-xs font-button font-extrabold shadow-md hover:scale-105 transition-transform flex items-center gap-1 uppercase tracking-wider shrink-0"
@@ -223,12 +226,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                       Creative &amp; Timeless Design
                     </span>
                   </div>
-                  <button
-                    onClick={onOpenResume}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#88D900] text-black flex items-center justify-center font-bold hover:scale-110 transition-transform shrink-0 ml-2"
+                  <a
+                    href={PERSONAL_INFO.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#88D900] text-black flex items-center justify-center font-bold hover:scale-110 transition-transform shrink-0 ml-2 cursor-pointer"
+                    title="View Resume PDF"
                   >
                     →
-                  </button>
+                  </a>
                 </div>
               </motion.div>
 

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileText, Send } from 'lucide-react';
 import { DesignTheme } from '../types/app';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface CreamyHeaderProps {
   activeTheme: DesignTheme;
   setActiveTheme: (theme: DesignTheme) => void;
   onOpenInquiry: () => void;
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
 const THEMES: { id: DesignTheme; name: string; color: string }[] = [
@@ -111,13 +112,15 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
             </div>
 
             {/* Resume */}
-            <button
-              onClick={onOpenResume}
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               title="View Resume"
               className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-all duration-150"
             >
               <FileText className="w-3.5 h-3.5" />
-            </button>
+            </a>
 
             {/* Hire Me CTA */}
             <button
@@ -190,12 +193,15 @@ export const CreamyHeader: React.FC<CreamyHeaderProps> = ({
               ))}
 
               <div className="flex gap-2 mt-2">
-                <button
-                  onClick={() => { setMobileMenuOpen(false); onOpenResume(); }}
-                  className="flex-1 py-2 rounded-full text-[10px] font-extrabold uppercase text-white border border-white/30 hover:bg-white/20 transition-all"
+                <a
+                  href={PERSONAL_INFO.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex-1 py-2 text-center rounded-full text-[10px] font-extrabold uppercase text-white border border-white/30 hover:bg-white/20 transition-all"
                 >
                   Resume
-                </button>
+                </a>
                 <button
                   onClick={() => { setMobileMenuOpen(false); onOpenInquiry(); }}
                   className="flex-1 py-2 rounded-full text-[10px] font-black uppercase text-slate-950 shadow-md transition-all"

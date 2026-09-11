@@ -1,6 +1,10 @@
 import { Project, Skill, ServiceItem, ExperienceItem, Testimonial } from '../types/app';
 import heroImg from '../assets/designer_portrait.png';
 import cvPdf from '../assets/nandini.cv.pdf';
+import premmAvatar from '../assets/premm_moparthi.jpg';
+import lakshmiAvatar from '../assets/lakshmi_venkumahanti.jpg';
+import swathiAvatar from '../assets/bavanaka_swathi.png';
+
 
 export const PERSONAL_INFO = {
   name: "Nandini Vaddepalli",
@@ -1306,7 +1310,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Redesigned flagship brand identity increasing client engagement by 40%.',
       'Pioneered Generative AI asset pipelines for global social launches.'
     ],
-    techStack: ['Photoshop', 'Illustrator', 'Figma', 'Firefly AI', 'Brand Strategy']
+    techStack: ['Photoshop', 'Illustrator', 'Figma', 'Firefly AI', 'ChatGPT', 'Midjourney', 'Brand Strategy', 'UI/UX']
   },
   {
     id: 'exp-2',
@@ -1319,7 +1323,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Built standardized 120+ asset design system for clean energy campaigns.',
       'Designed high-converting executive pitch decks for Series B investors.'
     ],
-    techStack: ['Illustrator', 'Photoshop', 'InDesign', 'Figma']
+    techStack: ['Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Brand Strategy', 'Unsplash', 'Freepik']
   },
   {
     id: 'exp-3',
@@ -1331,18 +1335,18 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Designed sleek enterprise SaaS interfaces, dark mode web portals, vector iconography, and marketing visual identities.',
       'Transformed complex tech products into intuitive visual experiences.'
     ],
-    techStack: ['Figma', 'Photoshop', 'UI/UX', 'Canva']
+    techStack: ['Figma', 'Photoshop', 'Illustrator', 'UI/UX', 'Canva', 'Photopea']
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    name: 'Vikramaditya Rao',
-    role: 'VP of Product',
+    name: 'Bavanaka Swathi',
+    role: 'Product Engineer',
     company: 'Freyr Energy',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-    quote: 'Nandini turned our raw fintech application into an award-winning visual masterpiece. Her attention to typography and glassmorphism UI is unmatched.',
+    avatar: swathiAvatar,
+    quote: 'Nandini turned our solar energy product platforms into intuitive, high-converting visual experiences. Her precision in UI design systems and brand graphics elevated our user engagement tremendously.',
     rating: 5
   },
   {
@@ -1356,11 +1360,20 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 'test-3',
-    name: 'Rajesh Varma',
-    role: 'Head of Marketing',
+    name: 'Lakshmi Venkumahanti',
+    role: 'Managing Director (MD)',
     company: 'All Hands Global',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
-    quote: 'Nandini\'s mastery of Adobe Illustrator and Generative AI workflows accelerated our global campaign launch by three weeks. Phenomenal talent!',
+    avatar: lakshmiAvatar,
+    quote: 'Nandini\'s exceptional visual design leadership and creative direction transformed All Hands Global\'s brand identity. Her strategic vision, brand precision, and generative workflows consistently deliver world-class design excellence.',
+    rating: 5
+  },
+  {
+    id: 'test-4',
+    name: 'Premm Moparthi',
+    role: 'Full Stack Developer',
+    company: 'Tech Lead',
+    avatar: premmAvatar,
+    quote: 'Nandini seamlessly bridges graphic design and frontend engineering. Her pixel-perfect design assets and intuitive UI components make full-stack integration a absolute breeze.',
     rating: 5
   }
 ];
