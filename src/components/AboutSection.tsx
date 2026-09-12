@@ -464,6 +464,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 <img
                   src={nextImage.src}
                   alt={nextImage.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-[center_15%] opacity-70 filter saturate-90"
                 />
               </motion.div>
@@ -523,6 +525,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   <img
                     src={currentImage.src}
                     alt={currentImage.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-[center_15%] rounded-[26px] shadow-2xl"
                     style={{
                       imageRendering: 'auto',
@@ -1004,13 +1008,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 >
                   <img src={lifeNatureImg} alt="Nature Tree" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                </motion.div>
-
-                <motion.div 
-                  whileHover={{ scale: 1.04, y: -4 }}
-                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
-                >
-                  <img src={lifeOceanImg} alt="Ocean Skyline" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeFlightImg} alt="Flight Travel" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1018,7 +1016,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeFlowersImg} alt="Pink Daisies Field" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeNatureImg} alt="Nature Tree" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1026,7 +1024,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifePalmSunsetImg} alt="Palm Trees Beach Sunset" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeOceanImg} alt="Ocean Skyline" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1034,7 +1032,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeBirdsArchImg} alt="Architecture & Birds" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeFlowersImg} alt="Pink Daisies Field" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1042,7 +1040,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeBouquetImg} alt="Floral Bouquet" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifePalmSunsetImg} alt="Palm Trees Beach Sunset" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1050,7 +1048,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeBookshelfImg} alt="Stacked Bookshelf" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeBirdsArchImg} alt="Architecture & Birds" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1058,7 +1056,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeIcedCoffeeImg} alt="Iced Coffee Glass" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeBouquetImg} alt="Floral Bouquet" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1066,7 +1064,23 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
                 >
-                  <img src={lifeSushiLanternsImg} alt="Japanese Sushi Paper Lanterns" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeBookshelfImg} alt="Stacked Bookshelf" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeIcedCoffeeImg} alt="Iced Coffee Glass" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer"
+                >
+                  <img src={lifeSushiLanternsImg} alt="Japanese Sushi Paper Lanterns" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
@@ -1074,7 +1088,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   whileHover={{ scale: 1.04, y: -4 }}
                   className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/15 hover:border-[#88D900]/60 transition-all group bg-black cursor-pointer sm:col-span-2 lg:col-span-1"
                 >
-                  <img src={lifeMistyWaterfallImg} alt="Misty Mountain Waterfalls" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
+                  <img src={lifeMistyWaterfallImg} alt="Misty Mountain Waterfalls" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-105 contrast-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
               </motion.div>

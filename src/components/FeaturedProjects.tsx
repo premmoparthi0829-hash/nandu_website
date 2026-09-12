@@ -806,6 +806,8 @@ export const FeaturedProjects: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       style={{ imageRendering: 'high-quality' }}
                       onError={(e) => {
@@ -927,6 +929,8 @@ export const FeaturedProjects: React.FC = () => {
                         <img
                           src={proj.image}
                           alt={proj.title}
+                          loading="lazy"
+                          decoding="async"
                           className="max-w-full max-h-[76vh] w-auto h-auto object-contain rounded-xl shadow-2xl select-none"
                           style={{
                             imageRendering: 'auto',
