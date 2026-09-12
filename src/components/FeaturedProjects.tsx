@@ -752,7 +752,7 @@ export const FeaturedProjects: React.FC = () => {
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="font-heading font-bold text-xl sm:text-3xl text-white tracking-tight mb-4">
-            MY <span className="text-[#88D900]">PROJECTS</span>
+            FEATURED <span className="text-[#88D900]">PROJECTS</span>
           </h2>
         </motion.div>
 
