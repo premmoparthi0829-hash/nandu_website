@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid } from 'lucide-react';
+import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import assets
 import brochure1HomeInterior from '../assets/brochure_1_home_interior.png';
@@ -9,6 +9,10 @@ import brochure3PremiumLiving from '../assets/brochure_3_premium_living.png';
 import brochure4WanderVistaTravel from '../assets/brochure_4_wandervista_travel.png';
 import brochure5CodeVistaTech from '../assets/brochure_5_codevista_tech.png';
 import brochure6RadianceBeauty from '../assets/brochure_6_radiance_beauty.png';
+import wandervistaVacationBillboard from '../assets/billboard_1_wandervista_vacation.png';
+import chimoFruitJuiceBillboard from '../assets/billboard_2_chimo_fruit_juice.png';
+import munchCultureBillboard from '../assets/billboard_3_munch_culture_chin_chin.png';
+import livoreBuyBetterBillboard from '../assets/billboard_4_livore_buy_better.png';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
@@ -35,6 +39,8 @@ interface CreativeItem {
 export const MoreCreativeWorksSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'standee'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
+  const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
+  const [billboardDirection, setBillboardDirection] = useState<number>(1);
 
   // Brochure items (all use standalone high-res 3D PNG mockup images)
   const brochures: CreativeItem[] = [
@@ -105,48 +111,69 @@ export const MoreCreativeWorksSection: React.FC = () => {
     {
       id: 'bb-main',
       category: 'billboard',
-      title: 'Rameshwar City — Luxury Bunglow Billboard',
-      subtitle: 'Book Own Bunglow With 44 Lifestyle Amenities (2 & 3 BHK)',
-      image: realEstatePhase1,
-      client: 'Rameshwar Group',
-      dimensions: '40ft x 20ft Highway Outdoor',
+      title: 'WanderVista Travel Agency — VACATION Campaign',
+      subtitle: "Explore Discover Belong — You Can't Cross The Sea Merely By Standing & Staring",
+      image: wandervistaVacationBillboard,
+      client: 'WanderVista Travel',
+      dimensions: '40ft x 20ft Outdoor Hoarding',
     },
     {
-      id: 'bb-mangalam',
+      id: 'bb-2',
       category: 'billboard',
-      title: 'Mangalam Jewelry — Festival Offer Billboard',
-      subtitle: 'Upto 25% Off Exchange Value Campaign',
-      image: brandStrongerAnt,
-      client: 'Mangalam Jewellers',
-      dimensions: '30ft x 15ft Roadside Banner',
+      title: 'chiMo Fresh Fruit Juice — FOUR Flavour Campaign',
+      subtitle: 'Mango Bliss, Dragon Fruit, Pineapple Twist & Kiwi Delight',
+      image: chimoFruitJuiceBillboard,
+      client: 'chiMo Juices',
+      dimensions: '30ft x 12ft Outdoor Hoarding',
     },
     {
-      id: 'bb-ankur',
+      id: 'bb-3',
       category: 'billboard',
-      title: 'Ankur Oil — Healthy Lifestyle City Billboard',
-      subtitle: 'Swad ma Swasthya Lavo Brand Campaign',
-      image: tropicalFruitJuiceTrophy,
-      client: 'Ankur Industry',
-      dimensions: '20ft x 10ft Urban Hoarding',
+      title: 'Munch Culture — Classic CHIN CHIN Campaign',
+      subtitle: 'Bite into Happiness, Crunch into Culture! Classic Snacks Hoarding',
+      image: munchCultureBillboard,
+      client: 'Munch Culture',
+      dimensions: '30ft x 12ft Outdoor Hoarding',
+    },
+    {
+      id: 'bb-4',
+      category: 'billboard',
+      title: 'Livore — Buy Better, Live Better Campaign',
+      subtitle: 'Premium Quality, 100% Natural, Healthy Choice Dry Fruits & Nuts',
+      image: livoreBuyBetterBillboard,
+      client: 'Livore Foods',
+      dimensions: '30ft x 12ft Outdoor Hoarding',
     },
   ];
+
+  // Auto-scroll billboards every 3.5 seconds
+  useEffect(() => {
+    if (activeTab !== 'all' && activeTab !== 'billboard') return;
+
+    const timer = setInterval(() => {
+      setBillboardDirection(1);
+      setCurrentBillboardIndex((prev) => (prev >= billboards.length - 1 ? 0 : prev + 1));
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [activeTab, billboards.length]);
 
   // Standee items
   const standees: CreativeItem[] = [
     {
-      id: 'st-1',
+      id: 'st-main',
       category: 'standee',
-      title: 'Rameshwar — Bunglow Booking Standee',
-      subtitle: '3.5 & 4.5 BHK Luxury Amenities',
-      image: realEstatePhase1,
-      client: 'Rameshwar City',
-      dimensions: '3ft x 6ft Roll-Up Banner',
+      title: 'We Design Ideas From The Heart — Creative Standee',
+      subtitle: 'Premium Graphic Design Studio Promotional Display',
+      image: designsNotMachine,
+      client: 'Creative Studio',
+      dimensions: '3ft x 6ft Roll-Up Standee Banner',
     },
     {
       id: 'st-2',
       category: 'standee',
-      title: 'Equinoxx — Career On Freelancing',
-      subtitle: 'Graphic Design & 3D Workshop Roll-Up',
+      title: 'Dominate Attention — Graphic Design Career Standee',
+      subtitle: 'Learn Professional Design & Elevate Brand Presence',
       image: brandStrongerAnt,
       client: 'Equinoxx Creative Academy',
       dimensions: '3ft x 6.5ft Retractable Banner',
@@ -172,7 +199,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="more-creative-works" className="w-full creative-paper-bg text-black relative py-14 sm:py-18 md:py-24 overflow-hidden border-t border-b border-gray-300">
+    <section id="more-creative-works" className="w-full creative-paper-bg text-black relative py-14 sm:py-18 md:py-24 overflow-hidden">
       
       {/* Real Paper Grain & Texture Overlay */}
       <div 
@@ -183,16 +210,6 @@ export const MoreCreativeWorksSection: React.FC = () => {
       {/* Header & Controls Bar */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-14 text-center relative z-10">
         
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black text-[#88D900] text-xs font-bold uppercase tracking-widest mb-4 shadow-lg"
-        >
-          <Sparkles className="w-4 h-4 animate-pulse" />
-          <span>OOH & Print Graphic Design Portfolio</span>
-        </motion.div>
-
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,13 +227,12 @@ export const MoreCreativeWorksSection: React.FC = () => {
           transition={{ delay: 0.12 }}
           className="text-gray-700 font-medium text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-2.5"
         >
-          Mockup gallery featuring opened bifold brochures, outdoor hoardings, and roll-up standees.
+          Explore high-impact brochure spreads, outdoor billboards, and premium brand displays.
         </motion.p>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap justify-center items-center gap-3 mt-7">
           {[
-            { id: 'all', label: 'All Creative Works', icon: LayoutGrid },
             { id: 'brochure', label: 'Brochures', icon: ImageIcon },
             { id: 'billboard', label: 'Billboards', icon: Layers },
             { id: 'standee', label: 'Standees', icon: Upload },
@@ -258,7 +274,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
             </span>
           </div>
 
-          {/* 6 Opened Brochure Spread Mockups directly sitting on paper background */}
+          {/* 6 Opened Brochure Spread Mockups directly sitting on paper background - 3-Column Grid View */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 items-center">
             {brochures.map((brochure, idx) => (
               <motion.div
@@ -277,7 +293,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                     <img
                       src={brochure.fullMockupImage}
                       alt={brochure.title}
-                      className="w-full h-auto object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-auto object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] transition-all duration-500 group-hover:scale-105"
+                      style={{ imageRendering: 'high-quality', transform: 'translateZ(0)' }}
                     />
                   </div>
                 ) : (
@@ -330,83 +347,99 @@ export const MoreCreativeWorksSection: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
-      {/* 2. BILL BOARD DESIGN SECTION */}
+      {/* 2. BILL BOARD DESIGN SECTION - SINGLE IMAGE VIEW WITH SCROLL ANIMATION */}
       {/* ========================================================================= */}
       {(activeTab === 'all' || activeTab === 'billboard') && (
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-28 relative z-10">
           
-          {/* Header Typography with Exactly One Space Gap */}
-          <div className="mb-10 flex items-baseline flex-wrap">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight font-sans select-none leading-none">
-              Bill Board
-            </span>
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black select-none leading-none">&nbsp;</span>
-            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#62c100] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
-              Design
-            </span>
+          {/* Header Typography & Single-View Controls */}
+          <div className="mb-8 flex items-baseline justify-between flex-wrap gap-4">
+            <div className="flex items-baseline flex-wrap">
+              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight font-sans select-none leading-none">
+                Bill Board
+              </span>
+              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black select-none leading-none">&nbsp;</span>
+              <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#62c100] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+                Design
+              </span>
+            </div>
+
+            {/* Slide Navigation Controls & Counter */}
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-black tracking-widest text-gray-800 uppercase mr-2">
+                <strong className="text-black text-base">{String(currentBillboardIndex + 1).padStart(2, '0')}</strong> / {String(billboards.length).padStart(2, '0')}
+              </span>
+              <button
+                onClick={() => {
+                  setBillboardDirection(-1);
+                  setCurrentBillboardIndex((prev) => (prev === 0 ? billboards.length - 1 : prev - 1));
+                }}
+                className="p-3 rounded-full bg-black text-[#88D900] hover:scale-110 shadow-lg transition-all cursor-pointer border border-[#88D900]/30"
+                aria-label="Previous Billboard"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => {
+                  setBillboardDirection(1);
+                  setCurrentBillboardIndex((prev) => (prev === billboards.length - 1 ? 0 : prev + 1));
+                }}
+                className="p-3 rounded-full bg-black text-[#88D900] hover:scale-110 shadow-lg transition-all cursor-pointer border border-[#88D900]/30"
+                aria-label="Next Billboard"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Billboard Grid (1 Main Left + 2 Stacked Right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Main Left Billboard Mockup */}
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              onClick={() => setSelectedItem(billboards[0])}
-              className="lg:col-span-7 group cursor-pointer relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_45px_-10px_rgba(0,0,0,0.32)] border-3 border-[#25272e] bg-[#1a1b20]">
-                {/* Top Lights */}
-                <div className="flex justify-around px-10 py-1 bg-[#1f2026]">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-3.5 h-1.5 bg-yellow-400 rounded-b-sm shadow-[0_0_6px_#facc15]" />
-                  ))}
-                </div>
-
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <img
-                    src={billboards[0].image}
-                    alt={billboards[0].title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/35 via-transparent to-white/20 opacity-60 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Steel Legs */}
-              <div className="flex justify-center items-center gap-20 mt-2">
-                <div className="w-4.5 h-12 bg-gradient-to-b from-gray-700 to-black rounded-t-sm shadow-md" />
-                <div className="w-7 h-14 bg-gradient-to-b from-gray-800 to-black rounded-t-sm shadow-lg" />
-                <div className="w-4.5 h-12 bg-gradient-to-b from-gray-700 to-black rounded-t-sm shadow-md" />
-              </div>
-            </motion.div>
-
-            {/* Right 2 Stacked Billboard Mockups */}
-            <div className="lg:col-span-5 flex flex-col gap-7">
-              {billboards.slice(1).map((item) => (
-                <motion.div
+          {/* Single Image Viewport - Pre-loaded with zero lag and smooth instant crossfade */}
+          <div className="relative w-full min-h-[300px] sm:min-h-[420px] md:min-h-[480px] flex items-center justify-center py-2 overflow-hidden">
+            {billboards.map((item, idx) => {
+              const isActive = idx === currentBillboardIndex;
+              return (
+                <div
                   key={item.id}
-                  whileHover={{ scale: 1.018 }}
                   onClick={() => setSelectedItem(item)}
-                  className="group cursor-pointer relative rounded-2xl overflow-hidden shadow-[0_16px_32px_-8px_rgba(0,0,0,0.28)] border-3 border-[#25272e] bg-[#1a1b20]"
+                  className={`group cursor-pointer w-full flex flex-col items-center justify-center transition-all duration-500 ease-out ${
+                    isActive
+                      ? 'relative opacity-100 scale-100 pointer-events-auto z-10'
+                      : 'absolute inset-0 opacity-0 scale-95 pointer-events-none z-0'
+                  }`}
                 >
-                  <div className="flex justify-around px-8 py-1 bg-[#1f2026]">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="w-3 h-1.5 bg-yellow-400 rounded-b-sm shadow-[0_0_5px_#facc15]" />
-                    ))}
-                  </div>
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  {/* Real Raw Billboard Image pasted directly on paper canvas at 100% native HD pixel resolution */}
+                  <div className="relative w-full max-w-[1024px] mx-auto overflow-visible flex items-center justify-center">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="max-w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+                      style={{ imageRendering: '-webkit-optimize-contrast' }}
+                      loading="eager"
                     />
                   </div>
-                </motion.div>
-              ))}
-            </div>
-
+                </div>
+              );
+            })}
           </div>
+
+          {/* Slide Indicator Dots */}
+          <div className="flex justify-center items-center gap-2.5 mt-6">
+            {billboards.map((item, idx) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setBillboardDirection(idx > currentBillboardIndex ? 1 : -1);
+                  setCurrentBillboardIndex(idx);
+                }}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === currentBillboardIndex
+                    ? 'w-10 bg-[#62c100] shadow-md'
+                    : 'w-2.5 bg-black/25 hover:bg-black/50'
+                }`}
+                aria-label={`Go to billboard slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
         </div>
       )}
 
@@ -489,7 +522,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#141414] border border-white/20 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl relative"
+              className="bg-[#141414] border border-white/20 rounded-2xl max-w-6xl w-full max-h-[92vh] overflow-hidden flex flex-col shadow-2xl relative"
             >
               {/* Modal Header */}
               <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-black/40">
@@ -512,7 +545,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
               {/* Modal Image View */}
               <div className="p-4 sm:p-6 flex-1 overflow-auto flex items-center justify-center bg-black/60">
                 {selectedItem.leftPageImage && selectedItem.rightPageImage ? (
-                  <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-gray-700/80 bg-[#0e0f14]">
+                  <div className="w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl border border-gray-700/80 bg-[#0e0f14]">
                     <div className="relative flex aspect-[1.75/1] w-full overflow-hidden">
                       <div className="w-1/2 h-full relative overflow-hidden">
                         <img src={selectedItem.leftPageImage} alt={`${selectedItem.title} Left`} className="w-full h-full object-cover" />
@@ -527,7 +560,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                   <img
                     src={selectedItem.fullMockupImage || selectedItem.image}
                     alt={selectedItem.title}
-                    className="max-h-[60vh] w-auto object-contain rounded-lg shadow-2xl border border-white/10"
+                    className="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                    style={{ imageRendering: 'high-quality', transform: 'translateZ(0)' }}
                   />
                 )}
               </div>
