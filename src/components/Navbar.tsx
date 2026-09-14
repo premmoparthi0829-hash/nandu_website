@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ['hero', 'about', 'skills', 'services', 'projects', 'experience', 'testimonials', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'services', 'projects', 'more-creative-works', 'experience', 'testimonials', 'contact'];
       for (const sectionId of sections) {
         const elem = document.getElementById(sectionId);
         if (elem) {
@@ -39,6 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     { name: 'Skills', href: '#skills', id: 'skills' },
     { name: 'Services', href: '#services', id: 'services' },
     { name: 'Portfolio', href: '#projects', id: 'projects' },
+    { name: 'More Creative Works', href: '#more-creative-works', id: 'more-creative-works' },
     { name: 'Experience', href: '#experience', id: 'experience' },
     { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
     { name: 'Contact', href: '#contact', id: 'contact' },

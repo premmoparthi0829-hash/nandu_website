@@ -6,6 +6,7 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { FeaturedProjects } from './components/FeaturedProjects';
+import { MoreCreativeWorksSection } from './components/MoreCreativeWorksSection';
 import { DesignProcess } from './components/DesignProcess';
 import { TimelineSection } from './components/TimelineSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
@@ -57,6 +58,9 @@ function MainPortfolioContent() {
 
       {/* Portfolio Projects & Case Studies */}
       <FeaturedProjects />
+
+      {/* More Creative Works Showcase (Billboards, Brochures, Standees) */}
+      <MoreCreativeWorksSection />
 
       {/* Working Process */}
       <DesignProcess />
