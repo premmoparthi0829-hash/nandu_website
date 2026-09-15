@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package } from 'lucide-react';
+import { ParticleWaveBackground } from './ParticleWaveBackground';
 
 // Import assets
 import brochure1HomeInterior from '../assets/brochure_1_home_interior.png';
@@ -13,6 +14,13 @@ import wandervistaVacationBillboard from '../assets/billboard_1_wandervista_vaca
 import chimoFruitJuiceBillboard from '../assets/billboard_2_chimo_fruit_juice.png';
 import munchCultureBillboard from '../assets/billboard_3_munch_culture_chin_chin.png';
 import livoreBuyBetterBillboard from '../assets/billboard_4_livore_buy_better.png';
+import packageDesignLivoreCashew from '../assets/package_design_livore_cashew.jpg';
+import packageDesignCrumoCookies from '../assets/package_design_crumo_cookies.jpg';
+import packageDesignMoomuDonuts from '../assets/package_design_moomu_donuts.jpg';
+import packageDesignScoopaMerch from '../assets/package_design_scoopa_merch.jpg';
+import packageDesignTropicsCafe from '../assets/package_design_tropics_cafe.jpg';
+import packageDesignPicklePantry from '../assets/package_design_pickle_pantry.jpg';
+import packageDesignPureFroot from '../assets/package_design_pure_froot.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
@@ -25,7 +33,7 @@ import wrinkledPaper from '../assets/wrinkled_paper.png';
 
 interface CreativeItem {
   id: string;
-  category: 'billboard' | 'brochure' | 'standee';
+  category: 'billboard' | 'brochure' | 'package' | 'standee';
   title: string;
   subtitle?: string;
   image: string;
@@ -37,7 +45,7 @@ interface CreativeItem {
 }
 
 export const MoreCreativeWorksSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'standee'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'package' | 'standee'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
@@ -199,13 +207,10 @@ export const MoreCreativeWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="more-creative-works" className="w-full creative-paper-bg text-black relative py-14 sm:py-18 md:py-24 overflow-hidden">
+    <section id="more-creative-works" className="w-full bg-[#090909] text-white relative py-14 sm:py-18 md:py-24 overflow-hidden border-t border-white/10">
       
-      {/* Real Paper Grain & Texture Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none bg-repeat bg-[size:600px_600px] z-0"
-        style={{ backgroundImage: `url(${wrinkledPaper})` }}
-      />
+      {/* Dynamic Particle Wave Background Animation (Matches Skills Section) */}
+      <ParticleWaveBackground className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70" />
 
       {/* Header & Controls Bar */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-14 text-center relative z-10">
@@ -215,9 +220,9 @@ export const MoreCreativeWorksSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.08 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight text-black uppercase"
+          className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight text-white uppercase"
         >
-          More <span className="text-[#62c100]">Creative Works</span>
+          More <span className="text-[#88D900]">Creative Works</span>
         </motion.h2>
 
         <motion.p
@@ -225,7 +230,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.12 }}
-          className="text-gray-700 font-medium text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-2.5"
+          className="text-gray-400 font-medium text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-2.5"
         >
           Explore high-impact brochure spreads, outdoor billboards, and premium brand displays.
         </motion.p>
@@ -235,6 +240,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
           {[
             { id: 'brochure', label: 'Brochures', icon: ImageIcon },
             { id: 'billboard', label: 'Billboards', icon: Layers },
+            { id: 'package', label: 'Package Design', icon: Package },
             { id: 'standee', label: 'Standees', icon: Upload },
           ].map((tab) => {
             const Icon = tab.icon;
@@ -245,8 +251,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                   isActive
-                    ? 'bg-black text-[#88D900] shadow-xl scale-105 ring-2 ring-[#88D900]'
-                    : 'bg-white/80 text-black border border-gray-300 hover:bg-black hover:text-white'
+                    ? 'bg-[#88D900] text-black shadow-[0_0_20px_rgba(136,217,0,0.5)] scale-105 ring-2 ring-[#88D900]'
+                    : 'bg-white/10 text-gray-300 border border-white/15 hover:bg-white/20 hover:text-white'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -265,11 +271,11 @@ export const MoreCreativeWorksSection: React.FC = () => {
           
           {/* Header Typography with Exactly One Space Gap */}
           <div className="mb-10 flex items-baseline flex-wrap">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight font-sans select-none leading-none">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
               Brochure
             </span>
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black select-none leading-none">&nbsp;</span>
-            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#62c100] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
               Design
             </span>
           </div>
@@ -355,41 +361,15 @@ export const MoreCreativeWorksSection: React.FC = () => {
           {/* Header Typography & Single-View Controls */}
           <div className="mb-8 flex items-baseline justify-between flex-wrap gap-4">
             <div className="flex items-baseline flex-wrap">
-              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight font-sans select-none leading-none">
+              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
                 Bill Board
               </span>
-              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black select-none leading-none">&nbsp;</span>
-              <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#62c100] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+              <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+              <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
                 Design
               </span>
             </div>
 
-            {/* Slide Navigation Controls & Counter */}
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-black tracking-widest text-gray-800 uppercase mr-2">
-                <strong className="text-black text-base">{String(currentBillboardIndex + 1).padStart(2, '0')}</strong> / {String(billboards.length).padStart(2, '0')}
-              </span>
-              <button
-                onClick={() => {
-                  setBillboardDirection(-1);
-                  setCurrentBillboardIndex((prev) => (prev === 0 ? billboards.length - 1 : prev - 1));
-                }}
-                className="p-3 rounded-full bg-black text-[#88D900] hover:scale-110 shadow-lg transition-all cursor-pointer border border-[#88D900]/30"
-                aria-label="Previous Billboard"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => {
-                  setBillboardDirection(1);
-                  setCurrentBillboardIndex((prev) => (prev === billboards.length - 1 ? 0 : prev + 1));
-                }}
-                className="p-3 rounded-full bg-black text-[#88D900] hover:scale-110 shadow-lg transition-all cursor-pointer border border-[#88D900]/30"
-                aria-label="Next Billboard"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
 
           {/* Single Image Viewport - Pre-loaded with zero lag and smooth instant crossfade */}
@@ -432,8 +412,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 }}
                 className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   idx === currentBillboardIndex
-                    ? 'w-10 bg-[#62c100] shadow-md'
-                    : 'w-2.5 bg-black/25 hover:bg-black/50'
+                    ? 'w-10 bg-[#88D900] shadow-[0_0_12px_#88D900]'
+                    : 'w-2.5 bg-white/20 hover:bg-white/50'
                 }`}
                 aria-label={`Go to billboard slide ${idx + 1}`}
               />
@@ -444,18 +424,197 @@ export const MoreCreativeWorksSection: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
-      {/* 3. STANDEE DESIGN SECTION */}
+      {/* 3. PACKAGE DESIGN SECTION */}
+      {/* ========================================================================= */}
+      {(activeTab === 'all' || activeTab === 'package') && (
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-28 relative z-10">
+          
+          {/* Header Typography with Exactly One Space Gap */}
+          <div className="mb-12 flex items-baseline flex-wrap">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
+              Package
+            </span>
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+              Design
+            </span>
+          </div>
+
+          {/* 7 Package Product Designs pasted directly on canvas without box containers */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center justify-items-center">
+            
+            {/* Package 1: Livore Chutta Cashew */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-livore-cashew',
+                category: 'package',
+                title: 'Livore Chutta Cashew — Package Design',
+                subtitle: 'Dry Fruits Packaging Box & Label Design',
+                image: packageDesignLivoreCashew,
+                client: 'Livore Foods',
+                dimensions: 'Flexible Stand-Up Pouch / Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignLivoreCashew}
+                alt="Livore Chutta Cashew Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 2: Crumo Vanilla Pop Cookies */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-crumo-cookies',
+                category: 'package',
+                title: 'Crumo Vanilla Pop — Cookie Box Packaging',
+                subtitle: 'Gourmet Cookie Packaging Box & Character Branding',
+                image: packageDesignCrumoCookies,
+                client: 'Crumo Foods',
+                dimensions: 'Retail Cookie Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignCrumoCookies}
+                alt="Crumo Vanilla Pop Cookie Box Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 3: Moomu Donut Box */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-moomu-donuts',
+                category: 'package',
+                title: 'Moomu — Sweet Donut Packaging Box',
+                subtitle: 'Takeaway Donut Handle Box & Fun Illustrator Branding',
+                image: packageDesignMoomuDonuts,
+                client: 'Moomu Bakery',
+                dimensions: 'Bakery Handle Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignMoomuDonuts}
+                alt="Moomu Donut Packaging Box"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 4: Scoopa Ice Cream Merchandise & Brand Kit */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-scoopa-merch',
+                category: 'package',
+                title: 'Scoopa — Happiness In Every Scoop Brand & Packaging Kit',
+                subtitle: 'Complete Merchandise, Apparel & Packaging System',
+                image: packageDesignScoopaMerch,
+                client: 'Scoopa Ice Cream',
+                dimensions: 'Complete Brand Identity & Packaging Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignScoopaMerch}
+                alt="Scoopa Ice Cream Packaging & Merchandise Kit"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 5: Tropics Cafe Coffee Cups */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-tropics-cafe',
+                category: 'package',
+                title: 'Tropics Cafe — Geometric Coffee Cup Packaging',
+                subtitle: '3D Paper Coffee Cup & Pattern Branding Design',
+                image: packageDesignTropicsCafe,
+                client: 'Tropics Cafe',
+                dimensions: 'Eco Takeaway Coffee Cup Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignTropicsCafe}
+                alt="Tropics Cafe Coffee Cup Packaging Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 6: The Pickle Pantry Label Spreads */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-pickle-pantry',
+                category: 'package',
+                title: 'The Pickle Pantry — Gourmet Jar Label Design Suite',
+                subtitle: 'Sweet & Sour, Original, and Garlic Flavor Jar Labels',
+                image: packageDesignPicklePantry,
+                client: 'The Pickle Pantry',
+                dimensions: 'Glass Jar Wrap-Around Label Design'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignPicklePantry}
+                alt="The Pickle Pantry Jar Label Design Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 7: Pure Froot Can Labels */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-pure-froot',
+                category: 'package',
+                title: 'Pure Froot — Sparkling Fruit Drink Can Label Suite',
+                subtitle: 'Mango Passion, Red Tomato, and Peach Please Label Designs',
+                image: packageDesignPureFroot,
+                client: 'Pure Froot Beverage Co.',
+                dimensions: '330ml Aluminum Can Label Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center md:col-span-2 md:max-w-[75%] md:mx-auto"
+            >
+              <img
+                src={packageDesignPureFroot}
+                alt="Pure Froot Sparkling Drink Can Label Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+          </div>
+
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 4. STANDEE DESIGN SECTION */}
       {/* ========================================================================= */}
       {(activeTab === 'all' || activeTab === 'standee') && (
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-14 relative z-10">
           
           {/* Header Typography with Exactly One Space Gap */}
           <div className="mb-10 flex items-baseline flex-wrap">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight font-sans select-none leading-none">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
               Standee
             </span>
-            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-black select-none leading-none">&nbsp;</span>
-            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#62c100] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
               Design
             </span>
           </div>
