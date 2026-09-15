@@ -21,6 +21,16 @@ import packageDesignScoopaMerch from '../assets/package_design_scoopa_merch.jpg'
 import packageDesignTropicsCafe from '../assets/package_design_tropics_cafe.jpg';
 import packageDesignPicklePantry from '../assets/package_design_pickle_pantry.jpg';
 import packageDesignPureFroot from '../assets/package_design_pure_froot.jpg';
+import packageDesignSamuhBeatitBiteit from '../assets/package_design_samuh_beatit_biteit.jpg';
+import packageDesignAarvikaSweets from '../assets/package_design_aarvika_sweets.jpg';
+import packageDesignVeloraBeauty from '../assets/package_design_velora_beauty.jpg';
+import packageDesignChocoRetto from '../assets/package_design_choco_retto.jpg';
+import packageDesignStrikersCookie from '../assets/package_design_strikers_cookie.jpg';
+import packageDesignTcfPumpkinSeed from '../assets/package_design_tcf_pumpkin_seed.jpg';
+import packageDesignPeanovaWorkstation from '../assets/package_design_peanova_workstation.png';
+import packageDesignSwasthiMakhana from '../assets/package_design_swasthi_makhana.jpg';
+import packageDesignOnyxChinchin from '../assets/package_design_onyx_chinchin.jpg';
+import packageDesignPeanovaJar from '../assets/package_design_peanova_jar.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
@@ -586,11 +596,231 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 client: 'Pure Froot Beverage Co.',
                 dimensions: '330ml Aluminum Can Label Packaging'
               })}
-              className="group cursor-pointer w-full flex justify-center items-center md:col-span-2 md:max-w-[75%] md:mx-auto"
+              className="group cursor-pointer w-full flex justify-center items-center"
             >
               <img
                 src={packageDesignPureFroot}
                 alt="Pure Froot Sparkling Drink Can Label Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 8: Samuh Beatit Biteit Chocolate Biscuit */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-samuh-beatit-biteit',
+                category: 'package',
+                title: 'Samuh Beatit Biteit — Flavoured Chocolate Biscuit Packaging',
+                subtitle: 'Flow-Wrap Packaging & Technical Dimension Layout Design',
+                image: packageDesignSamuhBeatitBiteit,
+                client: 'Samuh Foods',
+                dimensions: '138mm x 128mm Wrapper & Flow-Pack Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignSamuhBeatitBiteit}
+                alt="Samuh Beatit Biteit Chocolate Biscuit Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 9: Aarvika Sweets Premium Assorted Sweets */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-aarvika-sweets',
+                category: 'package',
+                title: 'Aarvika Sweets — Assorted Premium Sweets Luxury Box',
+                subtitle: 'KLD Die-Line Layout & Festive Sweets Box Mockup',
+                image: packageDesignAarvikaSweets,
+                client: 'Aarvika Sweets',
+                dimensions: '500g Premium Festive Sweets Rigid Box & Die-Line'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignAarvikaSweets}
+                alt="Aarvika Sweets Assorted Premium Sweets Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 10: Velora Beauty Cherry Velvet Lip Gloss */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-velora-beauty',
+                category: 'package',
+                title: 'Velora Beauty — Cherry Velvet Lip Gloss Packaging',
+                subtitle: 'Cosmetic Box Layout, Color Palette & Typography Panel',
+                image: packageDesignVeloraBeauty,
+                client: 'Velora Cosmetics',
+                dimensions: 'Lip Gloss Unit Carton & Bottle Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignVeloraBeauty}
+                alt="Velora Beauty Cherry Velvet Lip Gloss Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 11: Choco Retto Crunchy Choco Snack */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-choco-retto',
+                category: 'package',
+                title: 'Choco Retto — Crunchy Choco Snack Packaging',
+                subtitle: 'Pillow Pouch Wrapper Design & Product 3D Rendering',
+                image: packageDesignChocoRetto,
+                client: 'Cisadane Food',
+                dimensions: '35g Foil Pillow Pouch Snack Package'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignChocoRetto}
+                alt="Choco Retto Crunchy Choco Snack Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 12: Strikers Cookie Character Window Box */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-strikers-cookie',
+                category: 'package',
+                title: 'Strikers Cookie — Character Mouth Window Box',
+                subtitle: 'Die-Cut Window Cookie Box Packaging & Mascot Design',
+                image: packageDesignStrikersCookie,
+                client: 'Strikers Bakery',
+                dimensions: 'Gourmet Cookie Window Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignStrikersCookie}
+                alt="Strikers Cookie Character Window Box Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 13: TCF (The Coders Farm) Pumpkin Seed Pouch */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-tcf-pumpkin-seed',
+                category: 'package',
+                title: 'The Coders Farm — Pumpkin Seed Stand-Up Pouch',
+                subtitle: 'Super Crunchy Nutrient Boost Pouch Packaging Spread',
+                image: packageDesignTcfPumpkinSeed,
+                client: 'The Coders Farm (TCF)',
+                dimensions: '100g Resealable Stand-Up Pouch Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignTcfPumpkinSeed}
+                alt="The Coders Farm Pumpkin Seed Pouch Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 14: Peanova Peanut Butter Workstation */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-peanova-workstation',
+                category: 'package',
+                title: 'Peanova Peanut Butter — Illustrator Workstation Design',
+                subtitle: 'Vector Label Art & Packaging Workspace Layout',
+                image: packageDesignPeanovaWorkstation,
+                client: 'Peanova Foods',
+                dimensions: 'Label Vector Graphics & Brand Design'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignPeanovaWorkstation}
+                alt="Peanova Peanut Butter Illustrator Workstation Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 15: Swasthi Makhana Popped Fox Nuts */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-swasthi-makhana',
+                category: 'package',
+                title: 'Swasthi Makhana — Popped Fox Nuts Stand-Up Pouch',
+                subtitle: 'Salt & Black Pepper Flavor Healthy Snack Pouch',
+                image: packageDesignSwasthiMakhana,
+                client: 'Swasthi Organics',
+                dimensions: '200g Resealable Stand-Up Pouch Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignSwasthiMakhana}
+                alt="Swasthi Makhana Popped Fox Nuts Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 16: Onyx Crunchy Bites Chin Chin */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-onyx-chinchin',
+                category: 'package',
+                title: 'Onyx Crunchy Bites — Chin Chin Onion Flavour Pouches',
+                subtitle: 'Front & Back Flexible Pouch Snack Packaging System',
+                image: packageDesignOnyxChinchin,
+                client: 'Mom & Me Whole Foods',
+                dimensions: '100g Stand-Up Snack Pouch Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignOnyxChinchin}
+                alt="Onyx Crunchy Bites Chin Chin Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 17: Peanova Peanut Butter Jar & Label Spread */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-peanova-jar',
+                category: 'package',
+                title: 'Peanova Peanut Butter — Smooth & Rich Peanut Spread',
+                subtitle: 'Complete Jar Label Spread, Sachet & 3D Jar Packaging Mockup',
+                image: packageDesignPeanovaJar,
+                client: 'Peanova Foods',
+                dimensions: '500g Jar Label & Single-Serve Sachet Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center md:col-span-2 md:max-w-[75%] md:mx-auto"
+            >
+              <img
+                src={packageDesignPeanovaJar}
+                alt="Peanova Peanut Butter Jar & Label Spread Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
                 loading="eager"

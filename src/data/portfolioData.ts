@@ -344,8 +344,128 @@ import movieNightCinemaScreen from '../assets/movie_night_cinema_screen.jpg';
 import weAreHiringGraphicsDesigner from '../assets/we_are_hiring_graphics_designer.jpg';
 import youtubeDimensionsCheatSheet from '../assets/youtube_dimensions_cheat_sheet.jpg';
 import instagramDimensionsCheatSheet from '../assets/instagram_dimensions_cheat_sheet.jpg';
+import featuredLearnCreateGrow from '../assets/featured_learn_create_grow.jpg';
+import featuredWebsitesPerform from '../assets/featured_websites_perform.jpg';
+import featuredPostWithoutStrategy from '../assets/featured_post_without_strategy.jpg';
+import featuredLifeInAMetro from '../assets/featured_life_in_a_metro.jpg';
+import featuredOrderAt4pmDipBy411pm from '../assets/featured_order_at_4pm_dip_by_411pm.jpg';
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'learn-create-grow-editorial',
+    title: 'Learn Create Grow — Invest in Skills That Pay You Back for Life',
+    category: 'Branding',
+    shortDescription: 'Vibrant green editorial magazine mockup layout emphasizing creative skill investment, UI tool design, and workspace inspiration.',
+    fullOverview: 'A high-impact editorial magazine spread design featuring hands holding an open creative magazine. Displays a modern mobile/desktop UI design workspace on the left page and a nostalgic creative workstation with colorful sticky notes (Ideas, Create, Inspire, Plan, Grow) on the right page.',
+    technologies: ['Photoshop', 'Editorial Design', 'Brand Strategy', 'Visual Identity'],
+    features: [
+      'Dual-Page Open Editorial Magazine Mockup Layout',
+      'Emerald Green Ray Studio Background & Lighting',
+      'Creative Workspace & UI Tooling Inspiration Visuals'
+    ],
+    heroImage: featuredLearnCreateGrow,
+    screenshots: [featuredLearnCreateGrow],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Inspiring creative professionals to invest in lifelong design skills and digital craftsmanship.',
+      solution: 'Crafted a tangible editorial spread connecting modern UI tools with hands-on creative thinking.',
+      impact: 'Drove strong engagement across educational and design community channels.'
+    },
+    featured: true
+  },
+  {
+    id: 'websites-that-perform-ui-showcase',
+    title: 'Websites That Don\'t Just Exist — They Perform',
+    category: 'UI/UX Design',
+    shortDescription: '3D laptop interface showcase featuring an unrolling responsive web UI paper roll with high-conversion landing page layouts.',
+    fullOverview: 'A 3D perspective website showcase featuring an ultra-modern laptop screen where the web page gracefully unrolls down as a continuous paper roll onto the desk. Highlights clean hero UI, agency vision sections, interactive service cards, and conversion contact forms.',
+    technologies: ['UI/UX Design', '3D Mockup', 'Responsive Design', 'Web Architecture'],
+    features: [
+      'Continuous Unrolling 3D Web UI Paper Roll Concept',
+      'Ultra-Modern Cobalt Blue & Crisp White Color Scheme',
+      'High-Conversion Component Cards & Form Architecture'
+    ],
+    heroImage: featuredWebsitesPerform,
+    screenshots: [featuredWebsitesPerform],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Demonstrating web design performance beyond static screenshots.',
+      solution: 'Created an unrolling 3D scroll mockup showing full landing page continuity.',
+      impact: 'Increased client inquiries for web redesigns and high-performance UI projects.'
+    },
+    featured: true
+  },
+  {
+    id: 'post-without-a-strategy-ad',
+    title: 'This Happens When You Post Without a Strategy',
+    category: 'Social Media Marketing',
+    shortDescription: 'High-concept social media campaign poster featuring a melting ice cream scoop missing a waffle cone to illustrate un-strategized content marketing.',
+    fullOverview: 'An award-winning conceptual advertising poster demonstrating content marketing strategy. Features hands holding an empty waffle cone while an ice cream scoop drops directly onto the table, paired with the bold slogan: "This happens when you post without a strategy."',
+    technologies: ['Creative Strategy', 'Social Media', 'Photo Manipulation', 'Art Direction'],
+    features: [
+      'High-Speed Dynamic Liquid & Ice Cream Splatter Action Shot',
+      'Bold Minimalist Editorial Typography Hierarchy',
+      'Witty Metaphorical Concept for Content Marketing Strategy'
+    ],
+    heroImage: featuredPostWithoutStrategy,
+    screenshots: [featuredPostWithoutStrategy],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Communicating the risks of random posting without strategic marketing planning.',
+      solution: 'Used a relatable visual metaphor of missed execution (ice cream missing the cone).',
+      impact: 'Became a viral marketing post shared by agency leads and strategists.'
+    },
+    featured: true
+  },
+  {
+    id: 'life-in-a-metro-floor-graphics',
+    title: 'Life in a METRO — Environmental Typography Campaign',
+    category: 'Poster Design',
+    shortDescription: 'High-impact 3D perspective floor typography graphics in a modern metro train interior illustrating urban commuting and brand visibility.',
+    fullOverview: 'A dramatic environmental typography campaign set inside a high-speed metro train carriage. Giant vibrant yellow anamorphic floor typography reads "METRO" flanked by handwritten script "Life in a", creating an immersive perspective experience for passengers.',
+    technologies: ['Environmental Graphic Design', '3D Perspective', 'Typography', 'Outdoor Media'],
+    features: [
+      'Anamorphic 3D Floor Typography Perspective Alignment',
+      'High-Contrast Electric Yellow & Royal Blue Metro Floor Palette',
+      'Realistic Train Interior Lighting & Passenger Context'
+    ],
+    heroImage: featuredLifeInAMetro,
+    screenshots: [featuredLifeInAMetro],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Designing ambient out-of-home advertising that captures commuter attention inside transit spaces.',
+      solution: 'Utilized floor-plane anamorphic typography visible from passenger walking angles.',
+      impact: 'Generated high social sharing from metro commuters taking foot-POV photos.'
+    },
+    featured: true
+  },
+  {
+    id: 'order-at-4pm-dip-by-411pm-biscuit-ad',
+    title: 'Order at 4PM, Dip by 4:11PM — Tea Time Biscuit Campaign',
+    category: 'Social Media Marketing',
+    shortDescription: 'High-angle creative food ad featuring a tea clock cup, biscuit dipping action shot, and rapid delivery promise for tea-time snacks.',
+    fullOverview: 'A warm, inviting 4 PM evening tea-time campaign poster viewed from top-down perspective. Features a tea cup designed as a clock face pointing to 4:11 PM, a hand dipping a biscuit into hot chai, and a biscuit packet layout on a warm wooden table.',
+    technologies: ['Food Photography Art Direction', 'Creative Copywriting', 'Advertising Poster', 'Photoshop'],
+    features: [
+      'Top-Down Perspective Tea-Time Lifestyle Set Composition',
+      'Custom Tea Cup Clock Face Vector Illustration & Graphic',
+      'Warm Cozy Home Interior Lighting & Warm Color Grading'
+    ],
+    heroImage: featuredOrderAt4pmDipBy411pm,
+    screenshots: [featuredOrderAt4pmDipBy411pm],
+    liveDemoUrl: '',
+    githubUrl: '',
+    caseStudy: {
+      problem: 'Promoting 10-minute quick-commerce delivery for evening tea-time snack cravings.',
+      solution: 'Linked the exact minute of order placement to the moment of biscuit dipping.',
+      impact: 'Increased 4 PM afternoon order conversion rates for snack delivery apps.'
+    },
+    featured: true
+  },
   {
     id: 'chai-refresh-desktop-concept',
     title: 'Chai Refresh — Desktop Context Menu Concept',

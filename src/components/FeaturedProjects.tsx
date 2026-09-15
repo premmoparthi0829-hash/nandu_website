@@ -59,8 +59,13 @@ import teamIndiaT20 from '../assets/team_india_t20_victory.jpg';
 import socialMediaFlyers from '../assets/social_media_flyer_designs.jpg';
 import socialMediaManagement from '../assets/social_media_marketing_management.jpg';
 import postingEveryday from '../assets/posting_everyday_build_brand.jpg';
-import takeWhatYouNeed from '../assets/take_what_you_need.jpg';
 import surprisedByResults from '../assets/surprised_by_the_results.jpg';
+import takeWhatYouNeed from '../assets/take_what_you_need.jpg';
+import featuredLearnCreateGrow from '../assets/featured_learn_create_grow.jpg';
+import featuredWebsitesPerform from '../assets/featured_websites_perform.jpg';
+import featuredPostWithoutStrategy from '../assets/featured_post_without_strategy.jpg';
+import featuredLifeInAMetro from '../assets/featured_life_in_a_metro.jpg';
+import featuredOrderAt4pmDipBy411pm from '../assets/featured_order_at_4pm_dip_by_411pm.jpg';
 
 interface ProjectItem {
   id: string;
@@ -73,6 +78,51 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'learn-create-grow-editorial',
+    title: 'Learn Create Grow — Invest in Skills That Pay You Back for Life',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: featuredLearnCreateGrow,
+    description: 'Vibrant green editorial magazine mockup layout emphasizing creative skill investment, UI tool design, and workspace inspiration.',
+    technologies: ['Photoshop', 'Editorial Design', 'Brand Strategy', 'Visual Identity'],
+  },
+  {
+    id: 'websites-that-perform-ui-showcase',
+    title: 'Websites That Don\'t Just Exist — They Perform',
+    category: 'UI/UX',
+    filterCategory: 'UI/UX',
+    image: featuredWebsitesPerform,
+    description: '3D laptop interface showcase featuring an unrolling responsive web UI paper roll with high-conversion landing page layouts.',
+    technologies: ['UI/UX Design', '3D Mockup', 'Responsive Design', 'Web Architecture'],
+  },
+  {
+    id: 'post-without-a-strategy-ad',
+    title: 'This Happens When You Post Without a Strategy',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredPostWithoutStrategy,
+    description: 'High-concept social media campaign poster featuring a melting ice cream scoop missing a waffle cone to illustrate un-strategized content marketing.',
+    technologies: ['Creative Strategy', 'Social Media', 'Photo Manipulation', 'Art Direction'],
+  },
+  {
+    id: 'life-in-a-metro-floor-graphics',
+    title: 'Life in a METRO — Environmental Typography Campaign',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: featuredLifeInAMetro,
+    description: 'High-impact 3D perspective floor typography graphics in a modern metro train interior illustrating urban commuting and brand visibility.',
+    technologies: ['Environmental Graphic Design', '3D Perspective', 'Typography', 'Outdoor Media'],
+  },
+  {
+    id: 'order-at-4pm-dip-by-411pm-biscuit-ad',
+    title: 'Order at 4PM, Dip by 4:11PM — Tea Time Biscuit Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredOrderAt4pmDipBy411pm,
+    description: 'High-angle creative food ad featuring a tea clock cup, biscuit dipping action shot, and rapid delivery promise for tea-time snacks.',
+    technologies: ['Food Photography Art Direction', 'Creative Copywriting', 'Advertising Poster', 'Photoshop'],
+  },
   {
     id: 'chai-refresh-desktop-concept',
     title: 'Chai Refresh — Desktop Context Menu Concept',
