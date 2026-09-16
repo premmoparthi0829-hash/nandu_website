@@ -66,6 +66,15 @@ import featuredWebsitesPerform from '../assets/featured_websites_perform.jpg';
 import featuredPostWithoutStrategy from '../assets/featured_post_without_strategy.jpg';
 import featuredLifeInAMetro from '../assets/featured_life_in_a_metro.jpg';
 import featuredOrderAt4pmDipBy411pm from '../assets/featured_order_at_4pm_dip_by_411pm.jpg';
+import featuredFirstSignGoodCooking from '../assets/featured_first_sign_good_cooking.jpg';
+import featuredTheParadiseJadalZamana from '../assets/featured_the_paradise_jadal_zamana.jpg';
+import featuredIndianThaliFlavours from '../assets/featured_indian_thali_flavours.jpg';
+import featuredSpecialOfferThali25Off from '../assets/featured_special_offer_thali_25_off.jpg';
+import featuredThisOrThatChickenPaneer from '../assets/featured_this_or_that_chicken_paneer.jpg';
+import featuredUrbanGrillCelebrateEveryFlavor from '../assets/featured_urban_grill_celebrate_every_flavor.jpg';
+import featuredThisWeekSpecialMomosPasta from '../assets/featured_this_week_special_momos_pasta.jpg';
+import featuredGoodFoodGoodVibes from '../assets/featured_good_food_good_vibes.jpg';
+import featuredTangySpicyPaniPuri from '../assets/featured_tangy_spicy_pani_puri.jpg';
 
 interface ProjectItem {
   id: string;
@@ -78,6 +87,87 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'urban-grill-celebrate-every-flavor-ad',
+    title: 'Urban Grill — Celebrate Every Flavor Scroll Banner',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredUrbanGrillCelebrateEveryFlavor,
+    description: 'Dramatic red scroll poster design showcasing clay pot biryani, floating pizza slices, and pastries for Urban Grill catering.',
+    technologies: ['Photoshop', 'Food Styling', 'Social Media Ad', '3D Layout'],
+  },
+  {
+    id: 'this-week-special-momos-pasta-ad',
+    title: 'This Week Special — 30% Off Momos & 25% Off Pasta',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredThisWeekSpecialMomosPasta,
+    description: 'Bright yellow and cyan dual-color promotional ad highlighting weekly discount offers on Momos and Alfredo Pasta.',
+    technologies: ['Photoshop', 'Promotional Design', 'Social Media Campaign', 'Food Photography'],
+  },
+  {
+    id: 'good-food-good-vibes-bibimbap-ad',
+    title: 'Good Food Good Vibes — Craving Something Tasty?',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredGoodFoodGoodVibes,
+    description: 'Vibrant orange and green culinary poster featuring a signature bibimbap bowl with fried egg, floating speech bubbles, and tomatoes.',
+    technologies: ['Photoshop', 'Food Photography', 'Ad Creative', 'Social Media Marketing'],
+  },
+  {
+    id: 'tangy-spicy-pani-puri-poster',
+    title: 'Tangy. Spicy. Irresistible. — Pani Puri Poster',
+    category: 'Poster',
+    filterCategory: 'Branding',
+    image: featuredTangySpicyPaniPuri,
+    description: 'Rich emerald green textured background poster featuring traditional Indian Pani Puri platter with bold backdrop typography.',
+    technologies: ['Photoshop', 'Food Poster', 'Typography', 'Cultural Branding'],
+  },
+  {
+    id: 'first-sign-good-cooking-ad',
+    title: 'The First Sign of Good Cooking — Culinary Poster',
+    category: 'Poster',
+    filterCategory: 'Branding',
+    image: featuredFirstSignGoodCooking,
+    description: 'Rich red background food poster showcasing traditional dal makhani and fresh naan layout.',
+    technologies: ['Photoshop', 'Food Styling', 'Advertising Poster', 'Branding'],
+  },
+  {
+    id: 'the-paradise-jadal-zamana-poster',
+    title: 'The Paradise — Jadal Zamana Movie & Character Poster',
+    category: 'Poster',
+    filterCategory: 'Branding',
+    image: featuredTheParadiseJadalZamana,
+    description: 'Dramatic high-contrast cinema release poster featuring character portrait, dog, and dark raven typography.',
+    technologies: ['Photoshop', 'Movie Poster', 'Character Design', 'Typography'],
+  },
+  {
+    id: 'indian-thali-flavours-poster',
+    title: 'Indian Thali — One Plate Many Flavours Poster',
+    category: 'Poster',
+    filterCategory: 'Branding',
+    image: featuredIndianThaliFlavours,
+    description: 'Vibrant yellow ornate border culinary poster showcasing traditional Indian thali platter and spices.',
+    technologies: ['Photoshop', 'Food Poster', 'Cultural Branding', 'Illustration'],
+  },
+  {
+    id: 'special-offer-thali-25-off-ad',
+    title: 'Special Offer Thali — 25% Off Restaurant Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredSpecialOfferThali25Off,
+    description: 'Deep red paisley background promotional thali discount banner with high-impact offer graphics.',
+    technologies: ['Photoshop', 'Promotional Design', 'Social Media Ad', 'Campaign'],
+  },
+  {
+    id: 'this-or-that-chicken-paneer-ad',
+    title: 'This Or That — Chicken Tikka Masala vs Paneer Kadai',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredThisOrThatChickenPaneer,
+    description: 'Interactive culinary choice campaign poster featuring floating ingredients and rich food photography.',
+    technologies: ['Photoshop', 'Social Media Campaign', 'Food Photography', 'Advertising'],
+  },
   {
     id: 'learn-create-grow-editorial',
     title: 'Learn Create Grow — Invest in Skills That Pay You Back for Life',

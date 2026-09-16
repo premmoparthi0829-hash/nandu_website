@@ -4,12 +4,17 @@ import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid,
 import { ParticleWaveBackground } from './ParticleWaveBackground';
 
 // Import assets
-import brochure1HomeInterior from '../assets/brochure_1_home_interior.png';
-import brochure2SavoreRestaurant from '../assets/brochure_2_savore_restaurant.png';
-import brochure3PremiumLiving from '../assets/brochure_3_premium_living.png';
-import brochure4WanderVistaTravel from '../assets/brochure_4_wandervista_travel.png';
-import brochure5CodeVistaTech from '../assets/brochure_5_codevista_tech.png';
-import brochure6RadianceBeauty from '../assets/brochure_6_radiance_beauty.png';
+import brochureRedesign1RealEstate from '../assets/brochure_redesign_1_real_estate.jpg';
+import brochureRedesign2WildlifeNature from '../assets/brochure_redesign_2_wildlife_nature.jpg';
+import brochureRedesign3BuildYourFuture from '../assets/brochure_redesign_3_build_your_future.jpg';
+import brochureRedesign4BusinessProposal from '../assets/brochure_redesign_4_business_proposal.jpg';
+import brochureRedesign5FeatherFoodMenu from '../assets/brochure_redesign_5_feather_food_menu.jpg';
+import brochureRedesign6HealthyFood from '../assets/brochure_redesign_6_healthy_food.jpg';
+import brochureRedesign7CorporateBlue from '../assets/brochure_redesign_7_corporate_blue.jpg';
+import brochureRedesign8SmartTeams from '../assets/brochure_redesign_8_smart_teams.jpg';
+import brochureRedesign9CreativeAgency from '../assets/brochure_redesign_9_creative_agency.jpg';
+import brochureRedesign10IcedStrawberryLatte from '../assets/brochure_redesign_10_iced_strawberry_latte.jpg';
+
 import wandervistaVacationBillboard from '../assets/billboard_1_wandervista_vacation.png';
 import chimoFruitJuiceBillboard from '../assets/billboard_2_chimo_fruit_juice.png';
 import munchCultureBillboard from '../assets/billboard_3_munch_culture_chin_chin.png';
@@ -31,6 +36,24 @@ import packageDesignPeanovaWorkstation from '../assets/package_design_peanova_wo
 import packageDesignSwasthiMakhana from '../assets/package_design_swasthi_makhana.jpg';
 import packageDesignOnyxChinchin from '../assets/package_design_onyx_chinchin.jpg';
 import packageDesignPeanovaJar from '../assets/package_design_peanova_jar.jpg';
+import packageDesignStoneMillMintCoconutChutney from '../assets/package_design_stone_mill_mint_coconut_chutney.jpg';
+import packageDesignYumYumInstantPorridgeHoney from '../assets/package_design_yumyum_instant_porridge_honey.jpg';
+import packageDesignBowlfulUpma from '../assets/package_design_bowlful_upma.jpg';
+import packageDesignStudentBiryaniBag from '../assets/package_design_student_biryani_bag.jpg';
+import packageDesignProteinBallCo from '../assets/package_design_protein_ball_co.jpg';
+import packageDesignHiDogFood from '../assets/package_design_hi_dog_food.jpg';
+import packageDesignMooMooMilkCartons from '../assets/package_design_moo_moo_milk_cartons.jpg';
+import packageDesignLecheBoomMoodMilk from '../assets/package_design_leche_boom_mood_milk.jpg';
+import packageDesignGooGooFruitDrink from '../assets/package_design_goo_goo_fruit_drink.jpg';
+import packageDesignPackagingOclockCustomFood from '../assets/package_design_packaging_oclock_custom_food.jpg';
+import packageDesignTwoBrothersFaralBox from '../assets/package_design_two_brothers_faral_box.jpg';
+import packageDesignBrijwasiAttaLadoo from '../assets/package_design_brijwasi_atta_ladoo.jpg';
+import packageDesignBrijwasiKajuBurfi from '../assets/package_design_brijwasi_kaju_burfi.jpg';
+import packageDesignBrijwasiBoondiLadoo from '../assets/package_design_brijwasi_boondi_ladoo.jpg';
+import packageDesignMasterCookUpmaPoha from '../assets/package_design_master_cook_upma_poha.jpg';
+import packageDesignHappyJoyPotatoChips from '../assets/package_design_happy_joy_potato_chips.jpg';
+import packageDesignWeGoCupHolderBox from '../assets/package_design_we_go_cup_holder_box.jpg';
+import packageDesignMilkshakesCharacterCartons from '../assets/package_design_milkshakes_character_cartons.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
@@ -60,67 +83,107 @@ export const MoreCreativeWorksSection: React.FC = () => {
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
 
-  // Brochure items (all use standalone high-res 3D PNG mockup images)
+  // Brochure items (10 redesigned vertical brochure layouts)
   const brochures: CreativeItem[] = [
     {
       id: 'br-1',
       category: 'brochure',
-      title: 'Home Interior Design — Luxury Living Space',
-      subtitle: 'Modern Minimalist Architecture Catalog',
-      image: brochure1HomeInterior,
-      fullMockupImage: brochure1HomeInterior,
-      client: 'Livspace Interiors',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Real Estate Brochure Layout',
+      subtitle: 'Modern Architectural & Property Showcase Brochure',
+      image: brochureRedesign1RealEstate,
+      fullMockupImage: brochureRedesign1RealEstate,
+      client: 'Real Estate Layout',
+      dimensions: '819 x 1024 Vertical Catalog Layout',
     },
     {
       id: 'br-2',
       category: 'brochure',
-      title: 'Savoré Restaurant — Menu & Brand Catalogue',
-      subtitle: 'A Culinary Journey of Flavors & Menu Spread',
-      image: brochure2SavoreRestaurant,
-      fullMockupImage: brochure2SavoreRestaurant,
-      client: 'Savoré Restaurant',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Wildlife Nature Zoo Trifold Brochure',
+      subtitle: 'Wildlife & Nature Exploration Trifold Brochure Design',
+      image: brochureRedesign2WildlifeNature,
+      fullMockupImage: brochureRedesign2WildlifeNature,
+      client: 'Wildlife Nature Park',
+      dimensions: '819 x 1024 Vertical Trifold Spread',
     },
     {
       id: 'br-3',
       category: 'brochure',
-      title: 'Premium Living Spaces — Discover A Better Tomorrow',
-      subtitle: 'Modern Homes & Real Estate Luxury Brochure Spread',
-      image: brochure3PremiumLiving,
-      fullMockupImage: brochure3PremiumLiving,
-      client: 'Premium Living Spaces',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Build Your Future Course Brochure',
+      subtitle: 'Educational & Skill Training Trifold Brochure',
+      image: brochureRedesign3BuildYourFuture,
+      fullMockupImage: brochureRedesign3BuildYourFuture,
+      client: 'Future Skills Training',
+      dimensions: '819 x 1024 Vertical Trifold Brochure',
     },
     {
       id: 'br-4',
       category: 'brochure',
-      title: 'WanderVista Travel Agency — Complete Travel Solutions',
-      subtitle: 'Your Journey Our Passion & Popular Destinations Catalogue',
-      image: brochure4WanderVistaTravel,
-      fullMockupImage: brochure4WanderVistaTravel,
-      client: 'WanderVista Travel',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Business Proposal Corporate Brochure',
+      subtitle: 'Modern Financial & Investment Business Proposal Layout',
+      image: brochureRedesign4BusinessProposal,
+      fullMockupImage: brochureRedesign4BusinessProposal,
+      client: 'Acme Group',
+      dimensions: '819 x 1024 Corporate Catalog Layout',
     },
     {
       id: 'br-5',
       category: 'brochure',
-      title: 'CodeVista Technologies — Software Solutions Catalogue',
-      subtitle: 'Technology That Turns Ideas Into Impact & Software Solutions',
-      image: brochure5CodeVistaTech,
-      fullMockupImage: brochure5CodeVistaTech,
-      client: 'CodeVista Technologies',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Feather Food Menu Brochure',
+      subtitle: 'Restaurant & Catering Culinary Menu Brochure',
+      image: brochureRedesign5FeatherFoodMenu,
+      fullMockupImage: brochureRedesign5FeatherFoodMenu,
+      client: 'Feather Food Restaurant',
+      dimensions: '819 x 1024 Culinary Menu Brochure',
     },
     {
       id: 'br-6',
       category: 'brochure',
-      title: 'Radiance Beauty Parlour — Professional Care Catalogue',
-      subtitle: 'Reveal a More Beautiful You & Our Beauty Services Spread',
-      image: brochure6RadianceBeauty,
-      fullMockupImage: brochure6RadianceBeauty,
-      client: 'Radiance Beauty Parlour',
-      dimensions: 'A4 Landscape Opened Spread',
+      title: 'Healthy Food Restaurant Trifold Brochure',
+      subtitle: 'Fresh Organic Salad & Healthy Dining Menu',
+      image: brochureRedesign6HealthyFood,
+      fullMockupImage: brochureRedesign6HealthyFood,
+      client: 'Healthy Food Restaurant',
+      dimensions: '819 x 1024 Vertical Trifold Brochure',
+    },
+    {
+      id: 'br-7',
+      category: 'brochure',
+      title: 'Corporate Blue Architecture Brochure Design',
+      subtitle: 'Modern Corporate Business Solutions & Company Overview',
+      image: brochureRedesign7CorporateBlue,
+      fullMockupImage: brochureRedesign7CorporateBlue,
+      client: 'Corporate Business Solutions',
+      dimensions: '819 x 1024 Vertical Trifold Brochure',
+    },
+    {
+      id: 'br-8',
+      category: 'brochure',
+      title: 'Smart Teams Business Solutions Brochure',
+      subtitle: 'Innovative Corporate Services & Team Success Layout',
+      image: brochureRedesign8SmartTeams,
+      fullMockupImage: brochureRedesign8SmartTeams,
+      client: 'Smart Teams Inc.',
+      dimensions: '819 x 1024 Vertical Trifold Brochure',
+    },
+    {
+      id: 'br-9',
+      category: 'brochure',
+      title: 'Creative Marketing Agency Brochure',
+      subtitle: 'Full Brand Identity, Services & Retractable Standee Suite',
+      image: brochureRedesign9CreativeAgency,
+      fullMockupImage: brochureRedesign9CreativeAgency,
+      client: 'Creative Marketing Agency',
+      dimensions: '819 x 1024 Vertical Trifold & Standee Suite',
+    },
+    {
+      id: 'br-10',
+      category: 'brochure',
+      title: 'Iced Strawberry Latte Coffee Menu Brochure',
+      subtitle: 'Specialty Coffee, Cookies & Beverage Digital Board Menu',
+      image: brochureRedesign10IcedStrawberryLatte,
+      fullMockupImage: brochureRedesign10IcedStrawberryLatte,
+      client: 'Iced Strawberry Cafe',
+      dimensions: '819 x 1024 Cafe Menu Brochure Board',
     },
   ];
 
@@ -290,71 +353,26 @@ export const MoreCreativeWorksSection: React.FC = () => {
             </span>
           </div>
 
-          {/* 6 Opened Brochure Spread Mockups directly sitting on paper background - 3-Column Grid View */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 items-center">
+          {/* 5 Redesigned Brochure Images — Direct Raw Image Display preserving 819:1024 Aspect Ratio */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-14 items-center justify-items-center">
             {brochures.map((brochure, idx) => (
               <motion.div
                 key={brochure.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                whileHover={{ scale: 1.03, rotate: idx % 2 === 0 ? -1.2 : 1.2 }}
+                transition={{ delay: idx * 0.07 }}
+                whileHover={{ scale: 1.025 }}
                 onClick={() => setSelectedItem(brochure)}
-                className="group cursor-pointer relative"
+                className="group cursor-pointer relative w-full flex justify-center items-center"
               >
-                {brochure.fullMockupImage ? (
-                  /* Render Direct User Uploaded High-Res 3D PNG Mockup */
-                  <div className="relative w-full overflow-visible">
-                    <img
-                      src={brochure.fullMockupImage}
-                      alt={brochure.title}
-                      className="w-full h-auto object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] transition-all duration-500 group-hover:scale-105"
-                      style={{ imageRendering: 'high-quality', transform: 'translateZ(0)' }}
-                    />
-                  </div>
-                ) : (
-                  /* Render Bifold Spread Mockup matching user reference - Zero Gaps, Fully Fit Box */
-                  <>
-                    <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.4)] border border-gray-400/50 bg-[#0e0f14] transition-all duration-300">
-                      <div className="relative flex aspect-[1.75/1] w-full h-full overflow-hidden">
-                        
-                        {/* Left Page Spread */}
-                        <div className="w-1/2 h-full relative overflow-hidden">
-                          <img
-                            src={brochure.leftPageImage || brochure.image}
-                            alt={`${brochure.title} Left Page`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 pointer-events-none" />
-                        </div>
-
-                        {/* Center Spine Line */}
-                        <div className="w-[2px] bg-black/80 z-20 h-full shrink-0" />
-
-                        {/* Right Page Spread */}
-                        <div className="w-1/2 h-full relative overflow-hidden">
-                          <img
-                            src={brochure.rightPageImage || brochure.image}
-                            alt={`${brochure.title} Right Page`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/20 pointer-events-none" />
-                        </div>
-
-                        {/* Hover Overlay & Action */}
-                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-30">
-                          <span className="p-3 bg-white/95 text-black rounded-full shadow-2xl scale-95 group-hover:scale-100 transition-transform">
-                            <Maximize2 className="w-5 h-5" />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Ground Shadow */}
-                    <div className="w-[94%] h-3.5 bg-black/25 rounded-full blur-md mx-auto -mt-1 group-hover:w-[98%] group-hover:bg-black/40 transition-all" />
-                  </>
-                )}
+                <img
+                  src={brochure.image}
+                  alt={brochure.title}
+                  className="max-w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02] filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                  style={{ imageRendering: '-webkit-optimize-contrast', aspectRatio: '819 / 1024' }}
+                  loading="eager"
+                />
               </motion.div>
             ))}
           </div>
@@ -816,11 +834,407 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 client: 'Peanova Foods',
                 dimensions: '500g Jar Label & Single-Serve Sachet Suite'
               })}
-              className="group cursor-pointer w-full flex justify-center items-center md:col-span-2 md:max-w-[75%] md:mx-auto"
+              className="group cursor-pointer w-full flex justify-center items-center"
             >
               <img
                 src={packageDesignPeanovaJar}
                 alt="Peanova Peanut Butter Jar & Label Spread Package Design"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 18: The Stone Mill Co. Mint Coconut Chutney */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-stone-mill-mint-chutney',
+                category: 'package',
+                title: 'The Stone Mill Co. — Mint Coconut Chutney Box Packaging',
+                subtitle: 'Instant Chutney Box Packaging & Food Presentation',
+                image: packageDesignStoneMillMintCoconutChutney,
+                client: 'The Stone Mill Co.',
+                dimensions: 'Instant Food Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignStoneMillMintCoconutChutney}
+                alt="The Stone Mill Co. Mint Coconut Chutney Box Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 19: YumYum Instant Porridge Honey */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-yumyum-instant-porridge',
+                category: 'package',
+                title: 'YumYum — Instant Porridge Honey Pouch Packaging',
+                subtitle: 'Breakfast Porridge Stand-Up Pouch & Morning Branding',
+                image: packageDesignYumYumInstantPorridgeHoney,
+                client: 'YumYum Foods',
+                dimensions: 'Resealable Stand-Up Food Pouch'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignYumYumInstantPorridgeHoney}
+                alt="YumYum Instant Porridge Honey Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 20: Bowlful Instant Upma */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-bowlful-upma',
+                category: 'package',
+                title: 'Bowlful — Instant Upma Food Pouch & Campaign',
+                subtitle: 'Ready to Eat Food Pouch Packaging & Advertising Design',
+                image: packageDesignBowlfulUpma,
+                client: 'Bowlful Foods',
+                dimensions: 'Foil Pouch & Campaign Layout'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignBowlfulUpma}
+                alt="Bowlful Instant Upma Packaging & Campaign"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 21: Student Biryani Takeaway Bag */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-student-biryani-bag',
+                category: 'package',
+                title: 'Student Biryani — Takeaway Paper Bag Packaging',
+                subtitle: 'Food Delivery Paper Bag & Restaurant Brand Identity',
+                image: packageDesignStudentBiryaniBag,
+                client: 'Student Biryani',
+                dimensions: 'Kraft Paper Takeaway Bag'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignStudentBiryaniBag}
+                alt="Student Biryani Takeaway Bag Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 22: The Protein Ball Co */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-protein-ball-co',
+                category: 'package',
+                title: 'The Protein Ball Co. — Brand & Snack Packaging System',
+                subtitle: 'Plant-Based Snack Packaging & Grid Advertising Campaign',
+                image: packageDesignProteinBallCo,
+                client: 'The Protein Ball Co.',
+                dimensions: 'Snack Flow-Wrap Pouch Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignProteinBallCo}
+                alt="The Protein Ball Co. Snack Packaging System"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 23: Hi! Dog Food Packaging */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-hi-dog-food',
+                category: 'package',
+                title: 'Hi! — Dog Food Colorful Bag Packaging Suite',
+                subtitle: 'Playful Mascot & Modern Pet Food Brand Packaging System',
+                image: packageDesignHiDogFood,
+                client: 'Hi! Pet Care',
+                dimensions: '2kg Stand-Up Pet Food Bag Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignHiDogFood}
+                alt="Hi! Dog Food Packaging Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 24: Moo Moo Pure Milk Cartons */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-moo-moo-milk-cartons',
+                category: 'package',
+                title: 'Moo Moo — 100% Pure Milk Gable-Top Carton Packaging',
+                subtitle: 'Toned & Skimmed Milk Paper Gable-Top Carton Design',
+                image: packageDesignMooMooMilkCartons,
+                client: 'Moo Moo Dairy',
+                dimensions: 'Paper Gable-Top Milk Carton Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignMooMooMilkCartons}
+                alt="Moo Moo Pure Milk Cartons Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 25: Leche Boom Mood Milk */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-leche-boom-mood-milk',
+                category: 'package',
+                title: 'Leche Boom — Mood Milk Bottle & Character Branding',
+                subtitle: 'Flavored Milk Bottle Packaging & Pop Art Campaign',
+                image: packageDesignLecheBoomMoodMilk,
+                client: 'Leche Boom Dairy',
+                dimensions: '3D Bottle Packaging & Label Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignLecheBoomMoodMilk}
+                alt="Leche Boom Mood Milk Bottle Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 26: Goo Goo 100% Fructe Drink Sachet */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-goo-goo-fruit-drink',
+                category: 'package',
+                title: 'Goo Goo — 100% Fructe Apple & Blueberry Sachet',
+                subtitle: 'Fruit Juice Sachet Packaging & Mascot Branding',
+                image: packageDesignGooGooFruitDrink,
+                client: 'Goo Goo Juices',
+                dimensions: '200ml Flexible Sachet Drink Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignGooGooFruitDrink}
+                alt="Goo Goo 100% Fructe Drink Sachet Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 27: Packaging O'Clock Custom Food Packaging */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-packaging-oclock-custom-food',
+                category: 'package',
+                title: "Packaging O'Clock — Custom Food Packaging Suite",
+                subtitle: 'Sandwich, Burger, Fries, Popcorn & Drink Packaging System',
+                image: packageDesignPackagingOclockCustomFood,
+                client: 'Packaging O Clock',
+                dimensions: 'Complete Food Takeaway Packaging System'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignPackagingOclockCustomFood}
+                alt="Packaging O'Clock Custom Food Packaging Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 28: Two Brothers Organic Farms Faral Box */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-two-brothers-faral-box',
+                category: 'package',
+                title: 'Two Brothers Organic Farms — Diwali Faral Festive Gift Box',
+                subtitle: 'Festive Sweet & Snack Floral Box Packaging Design',
+                image: packageDesignTwoBrothersFaralBox,
+                client: 'Two Brothers Organic Farms',
+                dimensions: 'Rigid Festive Gift Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignTwoBrothersFaralBox}
+                alt="Two Brothers Organic Farms Faral Gift Box Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 29: Brijwasi Atta Ladoo */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-brijwasi-atta-ladoo',
+                category: 'package',
+                title: 'Brijwasi — Atta Ladoo Sweet Packaging & Poster Campaign',
+                subtitle: 'Traditional Indian Sweet Box & Mathura Heritage Branding',
+                image: packageDesignBrijwasiAttaLadoo,
+                client: 'Brijwasi Sweets',
+                dimensions: 'Sweet Box Packaging & Poster Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignBrijwasiAttaLadoo}
+                alt="Brijwasi Atta Ladoo Sweet Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 30: Brijwasi Kaju Burfi */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-brijwasi-kaju-burfi',
+                category: 'package',
+                title: 'Brijwasi — Kaju Burfi Royal Purple Sweet Packaging',
+                subtitle: 'Premium Cashew Sweet Box & Heritage Branding Design',
+                image: packageDesignBrijwasiKajuBurfi,
+                client: 'Brijwasi Sweets',
+                dimensions: 'Luxury Sweet Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignBrijwasiKajuBurfi}
+                alt="Brijwasi Kaju Burfi Sweet Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 31: Brijwasi Boondi Ladoo */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-brijwasi-boondi-ladoo',
+                category: 'package',
+                title: 'Brijwasi — Boondi Ladoo Magenta Festive Sweet Packaging',
+                subtitle: 'Gram Pulse Flour & Saffron Sweet Box Packaging Design',
+                image: packageDesignBrijwasiBoondiLadoo,
+                client: 'Brijwasi Sweets',
+                dimensions: 'Festive Sweet Box Packaging'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignBrijwasiBoondiLadoo}
+                alt="Brijwasi Boondi Ladoo Sweet Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 32: Master Cook Instant Homestyle Upma & Poha */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-master-cook-upma-poha',
+                category: 'package',
+                title: 'Master Cook — Instant Homestyle Upma & Poha Pouches',
+                subtitle: 'Fresh Lock Technology Ready-to-Eat Food Stand-Up Pouches',
+                image: packageDesignMasterCookUpmaPoha,
+                client: 'Master Cook Foods',
+                dimensions: 'Stand-Up Foil Pouch Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignMasterCookUpmaPoha}
+                alt="Master Cook Instant Homestyle Upma & Poha Pouches"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 33: Happy Joy Potato Chips */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-happy-joy-potato-chips',
+                category: 'package',
+                title: 'Happy Joy — Perfectly Salty Potato Chips Packaging Suite',
+                subtitle: 'Crispy Snack Foil Bag, Dieline Spread & Brand Graphic Identity',
+                image: packageDesignHappyJoyPotatoChips,
+                client: 'Happy Joy Snacks',
+                dimensions: '8 oz Potato Chips Foil Bag & Brand Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignHappyJoyPotatoChips}
+                alt="Happy Joy Potato Chips Packaging Suite"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 34: We Go Takeaway Cup Holder Box */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-we-go-cup-holder-box',
+                category: 'package',
+                title: 'We Go — Takeaway Coffee & Drink Cup Holder Box',
+                subtitle: 'Foldable Handle Cup Carrier Box Technical Dieline & 3D Spread',
+                image: packageDesignWeGoCupHolderBox,
+                client: 'We Go Coffee & Beverages',
+                dimensions: '4-10 Cup Takeaway Carrier Box Dielines'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignWeGoCupHolderBox}
+                alt="We Go Takeaway Cup Holder Box Packaging"
+                className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* Package 35: Milkshakes Strawberry & Apple Character Cartons */}
+            <div 
+              onClick={() => setSelectedItem({
+                id: 'pkg-milkshakes-character-cartons',
+                category: 'package',
+                title: 'Milkshakes — Strawberry & Apple Character Milk Cartons',
+                subtitle: 'Playful Panda & Fox Character Mini Milk Carton Packaging System',
+                image: packageDesignMilkshakesCharacterCartons,
+                client: 'Milkshakes Beverage Co.',
+                dimensions: 'Mini Gable-Top Character Milk Carton Suite'
+              })}
+              className="group cursor-pointer w-full flex justify-center items-center"
+            >
+              <img
+                src={packageDesignMilkshakesCharacterCartons}
+                alt="Milkshakes Strawberry & Apple Character Cartons"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
                 loading="eager"
@@ -896,78 +1310,41 @@ export const MoreCreativeWorksSection: React.FC = () => {
         </div>
       )}
 
-      {/* Lightbox Preview Modal */}
+      {/* Clean Image-Only Lightbox Overlay with Opening Animation */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setSelectedItem(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-[#141414] border border-white/20 rounded-2xl max-w-6xl w-full max-h-[92vh] overflow-hidden flex flex-col shadow-2xl relative"
+            {/* Floating Close Button */}
+            <button
+              onClick={() => setSelectedItem(null)}
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white transition-all cursor-pointer shadow-2xl hover:scale-110"
+              aria-label="Close preview"
             >
-              {/* Modal Header */}
-              <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-black/40">
-                <div>
-                  <span className="text-xs font-bold text-[#88D900] uppercase tracking-wider">
-                    {selectedItem.category.toUpperCase()} DESIGN • {selectedItem.client}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white">
-                    {selectedItem.title}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setSelectedItem(null)}
-                  className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+              <X className="w-6 h-6" />
+            </button>
 
-              {/* Modal Image View */}
-              <div className="p-4 sm:p-6 flex-1 overflow-auto flex items-center justify-center bg-black/60">
-                {selectedItem.leftPageImage && selectedItem.rightPageImage ? (
-                  <div className="w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl border border-gray-700/80 bg-[#0e0f14]">
-                    <div className="relative flex aspect-[1.75/1] w-full overflow-hidden">
-                      <div className="w-1/2 h-full relative overflow-hidden">
-                        <img src={selectedItem.leftPageImage} alt={`${selectedItem.title} Left`} className="w-full h-full object-cover" />
-                      </div>
-                      <div className="w-[2px] bg-black/80 z-20 h-full shrink-0" />
-                      <div className="w-1/2 h-full relative overflow-hidden">
-                        <img src={selectedItem.rightPageImage} alt={`${selectedItem.title} Right`} className="w-full h-full object-cover" />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <img
-                    src={selectedItem.fullMockupImage || selectedItem.image}
-                    alt={selectedItem.title}
-                    className="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-                    style={{ imageRendering: 'high-quality', transform: 'translateZ(0)' }}
-                  />
-                )}
-              </div>
-
-              {/* Modal Footer */}
-              <div className="p-4 sm:p-6 border-t border-white/10 bg-[#0d0d0d] flex flex-wrap items-center justify-between gap-4 text-xs text-gray-400">
-                <div>
-                  <p><strong className="text-white">Subtitle:</strong> {selectedItem.subtitle || 'Custom Design Concept'}</p>
-                  <p><strong className="text-white">Format:</strong> {selectedItem.dimensions || 'High Resolution Print Ready'}</p>
-                </div>
-                <button
-                  onClick={() => setSelectedItem(null)}
-                  className="px-5 py-2.5 bg-[#88D900] text-black font-extrabold rounded-full hover:bg-[#9EF01A] transition-colors cursor-pointer"
-                >
-                  Close Preview
-                </button>
-              </div>
+            {/* Pure Raw Image Container with Opening Spring Animation */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 15 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-h-[92vh] max-w-[92vw] flex items-center justify-center pointer-events-auto"
+            >
+              <img
+                src={selectedItem.fullMockupImage || selectedItem.image}
+                alt={selectedItem.title}
+                className="max-h-[90vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-[0_25px_70px_rgba(0,0,0,0.85)] filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] select-none"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+              />
             </motion.div>
           </motion.div>
         )}
