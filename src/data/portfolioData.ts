@@ -9,7 +9,7 @@ import swathiAvatar from '../assets/bavanaka_swathi.png';
 export const PERSONAL_INFO = {
   name: "Nandini Vaddepalli",
   logoText: "NV",
-  title: "Creative Graphic Designer & Visual Brand Specialist",
+  title: "Creative Senior Graphic Designer & Visual Brand Specialist",
   subTitle: "Brand Identity Systems | Print & Packaging | UI/UX Specialist",
   tagline: "DESIGNING JOY IN EVERY PIXEL",
   shortBio: "Creative Lead with 4.5+ years of experience constructing iconic brand identities, print packaging, high-converting digital marketing campaigns, and sleek UI design systems.",

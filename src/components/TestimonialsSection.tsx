@@ -33,7 +33,7 @@ export const TestimonialsSection: React.FC = () => {
       {/* Infinite Marquee Slider — hidden scrollbar, mask fades edges */}
       <div className="flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div className="flex gap-4 sm:gap-6 animate-marquee py-2 sm:py-4">
-          {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((item, index) => (
+          {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((item, index) => (
             <div
               key={index}
               className="w-[280px] min-[400px]:w-[320px] sm:w-[420px] shrink-0 luxury-card p-5 sm:p-6 flex flex-col justify-between hover:border-[#88D900]/50 transition-all"

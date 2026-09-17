@@ -138,7 +138,7 @@ const NativeCreativeBanner: React.FC = () => {
             </div>
             <div>
               <div className="font-heading font-black text-sm tracking-wider uppercase text-white">NANDINI VADDEPALLI</div>
-              <div className="font-body text-xs text-blue-200 font-medium">Creative Graphic Designer & Visual Brand Specialist</div>
+              <div className="font-body text-xs text-blue-200 font-medium">Creative Senior Graphic Designer & Visual Brand Specialist</div>
             </div>
           </div>
 
@@ -707,7 +707,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   </h1>
 
                   <div className="flex flex-wrap gap-2.5 pt-1">
-                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-pointer hover:border-[#88D900]/50 transition-colors">Creative Graphic Designer</motion.span>
+                    <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-pointer hover:border-[#88D900]/50 transition-colors">Creative Senior Graphic Designer</motion.span>
                     <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-[#88D900]/50 text-xs font-extrabold text-[#88D900] backdrop-blur-sm shadow cursor-pointer hover:border-[#F472B6]/50 transition-colors">Visual Brand Specialist</motion.span>
                     <motion.span whileHover={{ scale: 1.05 }} className="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-extrabold text-slate-100 backdrop-blur-sm shadow cursor-pointer hover:border-[#88D900]/50 transition-colors">Brand Storyteller</motion.span>
                   </div>
@@ -737,7 +737,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 </div>
 
                 <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                  Hi, I'm <strong className="text-white font-extrabold">Nandini Vaddepalli</strong> — a Creative Graphic Designer and Visual Brand Specialist based in Hyderabad, India. With more than <strong className="text-[#88D900] font-extrabold">4.5+ years of hands-on experience</strong>, I have built my career around one simple belief: great design should not only look beautiful, it should communicate, connect, and create meaning.
+                  Hi, I'm <strong className="text-white font-extrabold">Nandini Vaddepalli</strong> — a Creative Senior Graphic Designer and Visual Brand Specialist based in Hyderabad, India. With more than <strong className="text-[#88D900] font-extrabold">4.5+ years of hands-on experience</strong>, I have built my career around one simple belief: great design should not only look beautiful, it should communicate, connect, and create meaning.
                 </p>
 
                 <p className="font-body text-base sm:text-xl text-slate-100 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">

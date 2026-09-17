@@ -451,7 +451,7 @@ const SlideHello = () => (
       </div>
       <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3 max-w-sm">
         <p className="text-sm sm:text-base text-white/85 font-sans leading-relaxed font-semibold">
-          Creative Graphic Designer &amp; Visual Brand Specialist with 4.5+ years crafting impactful brands.
+          Creative Senior Graphic Designer &amp; Visual Brand Specialist with 4.5+ years crafting impactful brands.
         </p>
         <div className="flex gap-6 justify-center sm:justify-start">
           {[['4.5+','Yrs Exp'],['100+','Projects'],['45+','Clients']].map(([v,l]) => (

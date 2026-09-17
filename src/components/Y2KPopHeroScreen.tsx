@@ -94,7 +94,7 @@ export const Y2KPopHeroScreen: React.FC<Y2KPopHeroScreenProps> = ({ onScrollNext
             transition={{ type: 'spring', stiffness: 300, delay: 0.1 }}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FF00E5] via-[#7000FF] to-[#00E5FF] px-4 py-1.5 rounded-full text-white font-mono font-black text-xs uppercase tracking-widest border-2 border-white shadow-[0_0_20px_rgba(255,0,229,0.5)] transform -rotate-2"
           >
-            <span>★ CREATIVE GRAPHIC DESIGNER ★</span>
+            <span>★ CREATIVE SENIOR GRAPHIC DESIGNER ★</span>
           </motion.div>
 
           {/* Main Title 1: NANDINI */}

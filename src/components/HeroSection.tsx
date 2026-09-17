@@ -127,7 +127,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             >
               <span className="h-px w-6 sm:w-16 bg-[#090909]/30" />
               <span className="font-button font-bold text-[9px] min-[380px]:text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#090909]/60">
-                Creative Graphic Designer · 4.5+ Years
+                Creative Senior Graphic Designer · 4.5+ Years
               </span>
               <span className="h-px w-6 sm:w-16 bg-[#090909]/30" />
             </motion.div>
@@ -268,7 +268,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                   <h3 className="font-heading font-black text-lg sm:text-2xl md:text-3xl text-white leading-snug mb-3">
                     Hi, I'm <span className="text-[#88D900]">Nandini Vaddepalli</span> —
                     <br className="hidden sm:block" />
-                    Creative Graphic Designer &amp; Brand Specialist.
+                    Creative Senior Graphic Designer &amp; Brand Specialist.
                   </h3>
                   <div className="space-y-2 sm:space-y-3 text-[11px] sm:text-sm text-gray-300 leading-relaxed">
                     <p>

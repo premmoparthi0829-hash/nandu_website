@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               {PERSONAL_INFO.name}
             </span>
             <span className="text-[10px] text-[#9CA3AF] font-body">
-              Creative Graphic Designer &amp; Visual Brand Specialist
+              Creative Senior Graphic Designer &amp; Visual Brand Specialist
             </span>
           </div>
         </div>
