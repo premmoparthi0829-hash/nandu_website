@@ -90,6 +90,11 @@ import featuredWokTossedNoodles from '../assets/featured_wok_tossed_noodles.jpg'
 import featuredRishiSagarA2CowGhee from '../assets/featured_rishi_sagar_a2_cow_ghee.jpg';
 import featuredPassPassPulseKhatta from '../assets/featured_pass_pass_pulse_khatta.jpg';
 import featuredPickleManiaSweetMango from '../assets/featured_pickle_mania_sweet_mango.jpg';
+import featuredYumYumSnackitMilletMix from '../assets/featured_yumyum_snackit_millet_mix.jpg';
+import featuredBaliVacationTourPackage from '../assets/featured_bali_vacation_tour_package.jpg';
+import featuredSilkSareeRoyalCrown from '../assets/featured_silk_saree_royal_crown.jpg';
+import featuredSpicyTimeBbqChickenTikka from '../assets/featured_spicy_time_bbq_chicken_tikka.jpg';
+import featuredSpicyTimeBiryaniSpecial from '../assets/featured_spicy_time_biryani_special.jpg';
 
 interface ProjectItem {
   id: string;
@@ -102,6 +107,51 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'yumyum-snackit-millet-mix-box-unboxing-ad',
+    title: 'YumYum Snackit 8-in-1 — Millet Mix Box Unboxing Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredYumYumSnackitMilletMix,
+    description: 'POV box unboxing creative showcasing 18.8g high-protein millet snack pouches in Hot & Sweet Chilli, Indian Masala, and Hing Jeera flavors.',
+    technologies: ['Photoshop', 'Packaging Design', 'Social Media Campaign', 'Food Styling'],
+  },
+  {
+    id: 'bali-vacation-tour-package-poster',
+    title: 'BALI 04 Nights 05 Days — Travel Tour Package Poster',
+    category: 'Poster',
+    filterCategory: 'Graphic',
+    image: featuredBaliVacationTourPackage,
+    description: 'Breathtaking ocean island cliff travel advertisement showcasing Bali tour package inclusions with couple POV photo compositing.',
+    technologies: ['Photoshop', 'Travel Marketing', 'Poster Design', 'Photo Compositing'],
+  },
+  {
+    id: 'silk-saree-light-as-a-whisper-editorial',
+    title: 'Light as a Whisper, Royal as a Crown — Luxury Silk Saree Ad',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: featuredSilkSareeRoyalCrown,
+    description: 'High-fashion editorial print ad displaying deep maroon silk saree drapes with gold zari embroidery and elegant typography.',
+    technologies: ['Photoshop', 'Fashion Editorial', 'Brand Copywriting', 'Luxury Advertising'],
+  },
+  {
+    id: 'spicy-time-bbq-chicken-tikka-butter-chicken-ad',
+    title: 'Spicy Time — BBQ Chicken Tikka Leg & Butter Chicken Ad',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredSpicyTimeBbqChickenTikka,
+    description: 'Rich red culinary menu poster highlighting oven-roasted smoky BBQ chicken tikka legs and creamy butter chicken with butter naan.',
+    technologies: ['Photoshop', 'Food Photography', 'Menu Design', 'Ad Creative'],
+  },
+  {
+    id: 'spicy-time-lamb-chicken-biryani-ad',
+    title: 'Spicy Time — Lamb Biryani & Chicken Biryani Menu Ad',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredSpicyTimeBiryaniSpecial,
+    description: 'Dynamic red curved food poster showcasing rich aromatic lamb biryani and traditional chicken biryani bowls with dietary badges.',
+    technologies: ['Photoshop', 'Food Styling', 'Social Media Marketing', 'Menu Design'],
+  },
   {
     id: 'anthe-kitchen-biryani-day-chat-ad',
     title: 'Anthē! Kitchen — Team Lunch Biryani Day Chat Campaign',
