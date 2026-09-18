@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package } from 'lucide-react';
+import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart } from 'lucide-react';
 import { ParticleWaveBackground } from './ParticleWaveBackground';
 
 // Import assets
@@ -64,9 +64,25 @@ import goaholiday from '../assets/goa_holiday_package.jpg';
 import caffeineArmy from '../assets/caffeine_army.jpg';
 import wrinkledPaper from '../assets/wrinkled_paper.png';
 
+import invite1WeddingNatashaMayank from '../assets/invite_1_wedding_natasha_mayank.jpg';
+import invite2GruhapravesamNadesha from '../assets/invite_2_gruhapravesam_nadesha.jpg';
+import invite3PappanamEpuduPeduthunav from '../assets/invite_3_pappanam_epudu_peduthunav.jpg';
+import invite4GruhapravesamSuddhapalli from '../assets/invite_4_gruhapravesam_suddhapalli.jpg';
+import invite5BabyShowerSushmithaPrasanna from '../assets/invite_5_baby_shower_sushmitha_prasanna.jpg';
+import invite6NischayaThamboolaluRohitPravallika from '../assets/invite_6_nischaya_thamboolalu_rohit_pravallika.jpg';
+import invite7GruhapravesamDandamudiAnilBhavya from '../assets/invite_7_gruhapravesam_dandamudi_anil_bhavya.jpg';
+import invite8GruhapravesamArjunRamya from '../assets/invite_8_gruhapravesam_arjun_ramya.jpg';
+import invite9AnnaprasanaNushitha from '../assets/invite_9_annaprasana_nushitha.jpg';
+import invite10WeddingEntranceMeghnaRitesh from '../assets/invite_10_wedding_entrance_meghna_ritesh.jpg';
+import invite11PoojaPrakashWeddingSchedule from '../assets/invite_11_pooja_prakash_wedding_schedule.jpg';
+import invite12AnkithaAhaaPellochantha from '../assets/invite_12_ankitha_ahaa_pellochantha.jpg';
+import invite13EarPiercedCeremonyRaha from '../assets/invite_13_ear_pierced_ceremony_raha.jpg';
+import invite14WeddingSumuhurthamJeelakarraBellam from '../assets/invite_14_wedding_sumuhurtham_jeelakarra_bellam.jpg';
+import invite15WeddingSupriyaArjun from '../assets/invite_15_wedding_supriya_arjun.jpg';
+
 interface CreativeItem {
   id: string;
-  category: 'billboard' | 'brochure' | 'package' | 'standee';
+  category: 'billboard' | 'brochure' | 'package' | 'standee' | 'invite';
   title: string;
   subtitle?: string;
   image: string;
@@ -78,7 +94,7 @@ interface CreativeItem {
 }
 
 export const MoreCreativeWorksSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'package' | 'standee'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
@@ -279,6 +295,145 @@ export const MoreCreativeWorksSection: React.FC = () => {
     },
   ];
 
+  // Invite Design items
+  const invites: CreativeItem[] = [
+    {
+      id: 'inv-1',
+      category: 'invite',
+      title: 'Wedding Invite — Natasha & Mayank',
+      subtitle: 'Traditional Indian Wedding Invitation Design',
+      image: invite1WeddingNatashaMayank,
+      fullMockupImage: invite1WeddingNatashaMayank,
+      client: 'Natasha & Mayank',
+    },
+    {
+      id: 'inv-2',
+      category: 'invite',
+      title: 'Gruhapravesam Invite — Nadesha Vari Family',
+      subtitle: 'Traditional Housewarming Invitation Design in Telugu',
+      image: invite2GruhapravesamNadesha,
+      fullMockupImage: invite2GruhapravesamNadesha,
+      client: 'Nadesha Family',
+    },
+    {
+      id: 'inv-3',
+      category: 'invite',
+      title: 'Traditional Wedding Celebration Invite',
+      subtitle: "The 'Pappanam epudu peduthunav' Season Invitation Design",
+      image: invite3PappanamEpuduPeduthunav,
+      fullMockupImage: invite3PappanamEpuduPeduthunav,
+      client: 'Cultural Celebrations',
+    },
+    {
+      id: 'inv-4',
+      category: 'invite',
+      title: 'Gruhapravesam Invite — Suddhapalli Vari Family',
+      subtitle: 'Grand Housewarming Invitation Design',
+      image: invite4GruhapravesamSuddhapalli,
+      fullMockupImage: invite4GruhapravesamSuddhapalli,
+      client: 'Suddhapalli Family',
+    },
+    {
+      id: 'inv-5',
+      category: 'invite',
+      title: 'Baby Shower Invite — Sushmitha & Prasanna',
+      subtitle: 'Floral & Traditional Baby Shower Invitation Design',
+      image: invite5BabyShowerSushmithaPrasanna,
+      fullMockupImage: invite5BabyShowerSushmithaPrasanna,
+      client: 'Sushmitha & Prasanna',
+    },
+    {
+      id: 'inv-6',
+      category: 'invite',
+      title: 'Nischaya Thamboolalu Invite — Rohit Raghuvendra & Pravallika',
+      subtitle: 'Traditional Telugu Engagement Ceremony Invitation',
+      image: invite6NischayaThamboolaluRohitPravallika,
+      fullMockupImage: invite6NischayaThamboolaluRohitPravallika,
+      client: 'Vemu Family',
+    },
+    {
+      id: 'inv-7',
+      category: 'invite',
+      title: 'Gruhapravesam Invite — Dandamudi Anil Kumar & Bhavya Swoorthi',
+      subtitle: 'Traditional Housewarming Invitation Design with Lotus & Ganesha',
+      image: invite7GruhapravesamDandamudiAnilBhavya,
+      fullMockupImage: invite7GruhapravesamDandamudiAnilBhavya,
+      client: 'Dandamudi Family',
+    },
+    {
+      id: 'inv-8',
+      category: 'invite',
+      title: 'Gruhapravesam Pooja Ceremony Invite',
+      subtitle: 'Traditional Housewarming Invitation Design with Floral Garland & Kalasam',
+      image: invite8GruhapravesamArjunRamya,
+      fullMockupImage: invite8GruhapravesamArjunRamya,
+      client: 'San Diego Housewarming',
+    },
+    {
+      id: 'inv-9',
+      category: 'invite',
+      title: 'Annaprasana Veduka Invite — Chi. Nushitha',
+      subtitle: 'Traditional Baby First Rice Feeding Ceremony Invitation',
+      image: invite9AnnaprasanaNushitha,
+      fullMockupImage: invite9AnnaprasanaNushitha,
+      client: 'Maddineni Family',
+    },
+    {
+      id: 'inv-10',
+      category: 'invite',
+      title: 'Wedding Welcome Standee & Board — Meghna & Ritesh',
+      subtitle: 'Floral Decorative Wedding Entrance Board Design',
+      image: invite10WeddingEntranceMeghnaRitesh,
+      fullMockupImage: invite10WeddingEntranceMeghnaRitesh,
+      client: 'Meghna & Ritesh',
+    },
+    {
+      id: 'inv-11',
+      category: 'invite',
+      title: 'Pooja & Prakash Wedding Ceremony Schedule Invite',
+      subtitle: 'Illustrated Traditional Haldi, Mehendi & Wedding Schedule Card',
+      image: invite11PoojaPrakashWeddingSchedule,
+      fullMockupImage: invite11PoojaPrakashWeddingSchedule,
+      client: 'Pooja & Prakash',
+    },
+    {
+      id: 'inv-12',
+      category: 'invite',
+      title: 'Ahaa Pellochantha Invite — Ankitha Chi la sow',
+      subtitle: 'Modern Traditional Fun Bride Celebration Invite',
+      image: invite12AnkithaAhaaPellochantha,
+      fullMockupImage: invite12AnkithaAhaaPellochantha,
+      client: 'Ankitha',
+    },
+    {
+      id: 'inv-13',
+      category: 'invite',
+      title: 'Ear Pierced Ceremony Invite — Little Princess Raha',
+      subtitle: 'Floral & Lotus Ear Piercing Ceremony Invitation Card',
+      image: invite13EarPiercedCeremonyRaha,
+      fullMockupImage: invite13EarPiercedCeremonyRaha,
+      client: 'Baby Raha Family',
+    },
+    {
+      id: 'inv-14',
+      category: 'invite',
+      title: 'Traditional Sumuhurtham Wedding Invite',
+      subtitle: 'Jeelakarra Bellam & Temple Backdrop Wedding Invitation',
+      image: invite14WeddingSumuhurthamJeelakarraBellam,
+      fullMockupImage: invite14WeddingSumuhurthamJeelakarraBellam,
+      client: 'Wedding Celebrations',
+    },
+    {
+      id: 'inv-15',
+      category: 'invite',
+      title: 'Traditional Temple Wedding Invite — Supriya & Arjun',
+      subtitle: 'Royal South Indian Temple Gopuram Wedding Invitation',
+      image: invite15WeddingSupriyaArjun,
+      fullMockupImage: invite15WeddingSupriyaArjun,
+      client: 'Supriya & Arjun',
+    },
+  ];
+
   return (
     <section id="more-creative-works" className="w-full bg-[#090909] text-white relative py-14 sm:py-18 md:py-24 overflow-hidden border-t border-white/10">
       
@@ -315,6 +470,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
             { id: 'billboard', label: 'Billboards', icon: Layers },
             { id: 'package', label: 'Package Design', icon: Package },
             { id: 'standee', label: 'Standees', icon: Upload },
+            { id: 'invite', label: 'Invite Designs', icon: Heart },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -1303,6 +1459,53 @@ export const MoreCreativeWorksSection: React.FC = () => {
 
                 {/* Ground Shadow */}
                 <div className="w-[85%] h-3.5 bg-black/25 rounded-full blur-md mt-1.5 group-hover:w-[92%] transition-all" />
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 5. INVITE DESIGNS SECTION */}
+      {/* ========================================================================= */}
+      {(activeTab === 'all' || activeTab === 'invite') && (
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-14 relative z-10">
+          
+          {/* Header Typography with Exactly One Space Gap */}
+          <div className="mb-10 flex items-baseline flex-wrap">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
+              Invite
+            </span>
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+              Designs
+            </span>
+          </div>
+
+          {/* 5 Invite Images displayed naturally with original aspect ratio & clean presentation (no box section frames) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
+            {invites.map((invite, idx) => (
+              <motion.div
+                key={invite.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                whileHover={{ y: -8 }}
+                onClick={() => setSelectedItem(invite)}
+                className="group cursor-pointer flex flex-col items-center w-full"
+              >
+                {/* Pure Image retaining natural aspect ratio without artificial box section framing */}
+                <div className="w-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(136,217,0,0.2)]">
+                  <img
+                    src={invite.image}
+                    alt={invite.title}
+                    className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl pointer-events-none" />
+                </div>
               </motion.div>
             ))}
           </div>
