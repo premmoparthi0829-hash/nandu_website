@@ -75,6 +75,21 @@ import featuredUrbanGrillCelebrateEveryFlavor from '../assets/featured_urban_gri
 import featuredThisWeekSpecialMomosPasta from '../assets/featured_this_week_special_momos_pasta.jpg';
 import featuredGoodFoodGoodVibes from '../assets/featured_good_food_good_vibes.jpg';
 import featuredTangySpicyPaniPuri from '../assets/featured_tangy_spicy_pani_puri.jpg';
+import featuredSproutedAmaranthMix from '../assets/featured_sprouted_amaranth_mix.jpg';
+import featuredBurgerDangerousTaste from '../assets/featured_burger_dangerous_taste.jpg';
+import featuredBurgerLandSoonParachute from '../assets/featured_burger_land_soon_parachute.jpg';
+import featuredChaiKingsAroma from '../assets/featured_chai_kings_aroma.jpg';
+import featuredYummyMangoMilk from '../assets/featured_yummy_mango_milk.jpg';
+import featuredRealEstateHeyYouProperty from '../assets/featured_real_estate_hey_you_property.jpg';
+import featuredBiryaniBreakTheGlass from '../assets/featured_biryani_break_the_glass.jpg';
+import featuredBalmNCalmSkincare from '../assets/featured_balm_n_calm_skincare.jpg';
+import featuredAndhraPradeshCultureMap from '../assets/featured_andhra_pradesh_culture_map.jpg';
+import featuredDubaiFamilyVisitVisa from '../assets/featured_dubai_family_visit_visa.jpg';
+import featuredAntheKitchenBiryaniChat from '../assets/featured_anthe_kitchen_biryani_chat.jpg';
+import featuredWokTossedNoodles from '../assets/featured_wok_tossed_noodles.jpg';
+import featuredRishiSagarA2CowGhee from '../assets/featured_rishi_sagar_a2_cow_ghee.jpg';
+import featuredPassPassPulseKhatta from '../assets/featured_pass_pass_pulse_khatta.jpg';
+import featuredPickleManiaSweetMango from '../assets/featured_pickle_mania_sweet_mango.jpg';
 
 interface ProjectItem {
   id: string;
@@ -87,6 +102,141 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'anthe-kitchen-biryani-day-chat-ad',
+    title: 'Anthē! Kitchen — Team Lunch Biryani Day Chat Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredAntheKitchenBiryaniChat,
+    description: 'Relatable WhatsApp group chat creative featuring steaming brass pot biryani and office lunch banter for Anthē! Kitchen.',
+    technologies: ['Photoshop', 'Food Styling', 'Social Media Campaign', 'Creative Copywriting'],
+  },
+  {
+    id: 'wok-tossed-noodles-fresh-poster',
+    title: 'NOODLES — Wok-Tossed Goodness Served Hot & Fresh',
+    category: 'Poster',
+    filterCategory: 'Graphic',
+    image: featuredWokTossedNoodles,
+    description: 'Dynamic dark food poster featuring noodles twirled on a fork with bold yellow typography and hand-drawn chalk doodles.',
+    technologies: ['Photoshop', 'Food Photography', 'Typography', 'Chalk Art'],
+  },
+  {
+    id: 'rishi-sagar-a2-cow-desi-ghee-ad',
+    title: 'Rishi Sagar — Premium A2 Cow Desi Ghee Campaign',
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: featuredRishiSagarA2CowGhee,
+    description: 'Warm kitchen lifestyle product creative displaying A2 cow ghee jar with rotis and 5 health benefit infographics.',
+    technologies: ['Photoshop', 'Packaging Design', 'Infographic Design', 'Branding'],
+  },
+  {
+    id: 'pass-pass-pulse-khatta-candy-ad',
+    title: 'Pass Pass Pulse — KHAATTAAAAH! Mango Candy Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredPassPassPulseKhatta,
+    description: 'High-energy top-down perspective ad featuring green tongue graphic, sunburst rays, and iconic Pass Pass Pulse candy.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Social Media Ad', 'Art Direction'],
+  },
+  {
+    id: 'pickle-mania-sweet-mango-pickle-ad',
+    title: 'Pikkle Mania — Sweet Mango Pickle Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredPickleManiaSweetMango,
+    description: 'Vibrant pop-art food advertisement featuring an Indian woman with pink sunglasses licking delicious mango pickle off her finger.',
+    technologies: ['Photoshop', 'Pop Art Design', 'Food Advertising', 'Social Media Marketing'],
+  },
+  {
+    id: 'real-estate-hey-you-property-ad',
+    title: 'Hey, You! Looking for the Right Property? — Real Estate Campaign',
+    category: 'Poster',
+    filterCategory: 'Graphic',
+    image: featuredRealEstateHeyYouProperty,
+    description: 'Clean modern real estate advertisement showcasing a 3D architectural villa layout, 3D hand gesture, and service icon suite.',
+    technologies: ['Photoshop', '3D Architecture Styling', 'Poster Design', 'Real Estate Branding'],
+  },
+  {
+    id: 'biryani-cravings-break-the-glass-ad',
+    title: 'In Case of Biryani Cravings, Break the Glass — Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredBiryaniBreakTheGlass,
+    description: 'Witty emergency box advertising creative featuring a steaming bucket of chicken biryani inside a red glass breaker cabinet.',
+    technologies: ['Photoshop', '3D Composition', 'Food Photography', 'Ad Campaign'],
+  },
+  {
+    id: 'balm-n-calm-skincare-product-ad',
+    title: "Balm n' Calm — Eco Skincare Product Shoot & Campaign",
+    category: 'Branding',
+    filterCategory: 'Branding',
+    image: featuredBalmNCalmSkincare,
+    description: 'Trendy perspective photoshoot featuring paper cylinder skincare products and model on a blue checkered floor.',
+    technologies: ['Photoshop', 'Product Photography', 'Brand Identity', 'Art Direction'],
+  },
+  {
+    id: 'andhra-pradesh-satyameva-jayate-poster',
+    title: 'Andhra Pradesh — Cultural Heritage Map Poster',
+    category: 'Poster',
+    filterCategory: 'Poster',
+    image: featuredAndhraPradeshCultureMap,
+    description: 'Vibrant state cultural pride creative featuring Kuchipudi dancer, Tirupati temple, Vizag ship, and authentic Andhra thali map silhouette.',
+    technologies: ['Photoshop', 'Digital Photo Collage', 'Cultural Poster', 'Typography'],
+  },
+  {
+    id: 'dubai-family-visit-visa-ad',
+    title: 'Dubai Family Visit Visa — Spend Quality Time Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredDubaiFamilyVisitVisa,
+    description: 'Bright travel promotion ad featuring a happy multi-generational family walking near Burj Al Arab with 1 & 2 month visa badges.',
+    technologies: ['Photoshop', 'Travel Marketing', 'Social Media Ad', 'Photo Compositing'],
+  },
+  {
+    id: 'sprouted-amaranth-mix-toddler-ad',
+    title: 'Sprouted Amaranth Mix — Picky Eater Toddler Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredSproutedAmaranthMix,
+    description: 'Warm lifestyle promotional creative featuring a smiling toddler enjoying sprouted amaranth porridge with five-star parent review quote.',
+    technologies: ['Photoshop', 'Food Photography', 'Social Media Ad', 'Brand Copywriting'],
+  },
+  {
+    id: 'burger-accused-dangerous-taste-ad',
+    title: 'Accused of Having a Dangerous Taste — Burger Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredBurgerDangerousTaste,
+    description: 'High-impact red background mugshot concept featuring a 12-inch double cheeseburger holding a crime booking sign.',
+    technologies: ['Photoshop', 'Creative Concept', '3D Food Styling', 'Ad Campaign'],
+  },
+  {
+    id: 'burger-we-will-land-soon-parachute-ad',
+    title: "We'll Land Soon — Skydiving Burger Delivery Campaign",
+    category: 'Poster',
+    filterCategory: 'Graphic',
+    image: featuredBurgerLandSoonParachute,
+    description: 'Vibrant electric blue skydiving food delivery ad featuring a giant parachuting cheeseburger and rider action shot.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Ad Creative', 'Art Direction'],
+  },
+  {
+    id: 'chai-kings-aroma-that-pulls-you-in-ad',
+    title: 'Chai Kings — Aroma That Pulls You In Campaign',
+    category: 'Poster',
+    filterCategory: 'Branding',
+    image: featuredChaiKingsAroma,
+    description: 'Cinematic close-up food poster featuring steaming cutting chai glass and rich emerald green lighting.',
+    technologies: ['Photoshop', 'Food Photography', 'Poster Design', 'Branding'],
+  },
+  {
+    id: 'yummy-mango-milk-too-good-to-wait-ad',
+    title: 'Too Good to Wait — Yummy Mango Milk Bottle Campaign',
+    category: 'Social Media',
+    filterCategory: 'Social Media',
+    image: featuredYummyMangoMilk,
+    description: 'Playful product advertisement featuring a toddler reaching up to a mango milk bottle against a minimalist sky-blue background.',
+    technologies: ['Photoshop', 'Packaging Design', '3D Rendering', 'Social Media Campaign'],
+  },
   {
     id: 'urban-grill-celebrate-every-flavor-ad',
     title: 'Urban Grill — Celebrate Every Flavor Scroll Banner',
