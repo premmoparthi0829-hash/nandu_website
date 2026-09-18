@@ -5,26 +5,17 @@ import { ProjectDetailModal } from './ProjectDetailModal';
 import { Project } from '../types/app';
 import { useData } from '../context/DataContext';
 
-import designersPoster from '../assets/designers_not_machine.jpg';
-import dominatePoster from '../assets/dominate_attention.jpg';
-import happyLaborDay from '../assets/happy_labor_day.jpg';
-import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
-import givingBrandExtraEdge from '../assets/giving_brand_extra_edge.png';
 import silkMeetsSwagger from '../assets/silk_meets_swagger.jpg';
 import goaHolidayPackage from '../assets/goa_holiday_package.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import caffeineArmy from '../assets/caffeine_army.jpg';
 import happyNationalLogisticsDay from '../assets/happy_national_logistics_day.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
-import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
-import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
 import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
 import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
 import chaiRefreshPoster from '../assets/chai_refresh_poster.jpg';
 import palettePaintsYourIdentity from '../assets/palette_paints_your_identity.jpg';
 import keyboardGrenadeSeo from '../assets/keyboard_grenade_seo.jpg';
-import designingNot2MinNoodles from '../assets/designing_not_2_min_noodles.jpg';
-import ideasFromHeart from '../assets/ideas_from_heart.jpg';
 import happyRamNavami from '../assets/happy_ram_navami.jpg';
 import meraBharatMahan from '../assets/mera_bharat_mahan.jpg';
 import everyCrowdCarriesOpportunities from '../assets/every_crowd_carries_opportunities.jpg';
@@ -35,8 +26,6 @@ import weDontTalkWeCreate from '../assets/we_dont_talk_we_create.jpg';
 import happyTeachersDay from '../assets/happy_teachers_day.jpg';
 import creativityNeedsSpaceProductionPlanning from '../assets/creativity_needs_space_production_planning.jpg';
 import interviewTomorrowBeReady from '../assets/interview_tomorrow_be_ready.jpg';
-import julyIsHereChapter07 from '../assets/july_is_here_chapter_07.jpg';
-import graphicDesignTrendsYouShouldTry from '../assets/graphic_design_trends_you_should_try.jpg';
 import tellUsYourStoryWeWillDesignIt from '../assets/tell_us_your_story_we_will_design_it.jpg';
 import happyChildrensDay from '../assets/happy_childrens_day.jpg';
 import movieNightCinemaScreen from '../assets/movie_night_cinema_screen.jpg';
@@ -441,24 +430,6 @@ const ALL_PROJECTS: ProjectItem[] = [
     technologies: ['Photoshop', '3D Composition', 'Ad Creative', 'Digital Marketing'],
   },
   {
-    id: 'designing-is-not-making-2-minute-noodles',
-    title: 'Designing Is Not Making 2 Minute Noodles',
-    category: 'Poster',
-    filterCategory: 'Poster',
-    image: designingNot2MinNoodles,
-    description: 'Bold studio manifesto poster featuring a chrome showerhead pouring cooked spaghetti noodles onto a plate.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Poster Design'],
-  },
-  {
-    id: 'ideas-from-heart-brain-neural-art',
-    title: 'Ideas From Heart — Brain & Heart Neural Art',
-    category: 'Graphic',
-    filterCategory: 'Graphic',
-    image: ideasFromHeart,
-    description: 'Minimalist studio concept poster featuring a human brain connected to a heart via colorful electric neural cables.',
-    technologies: ['Photoshop', '3D Photomontage', 'Conceptual Design', 'Typography'],
-  },
-  {
     id: 'sahib-barbeque-biryani-haleem',
     title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
     category: 'Social Media',
@@ -466,24 +437,6 @@ const ALL_PROJECTS: ProjectItem[] = [
     image: sahibBarbequeBiryani,
     description: 'Witty social media campaign poster featuring funny chat text bubbles over authentic Biryani & Haleem.',
     technologies: ['Photoshop', 'Food Photography', 'Social Media Design', 'Advertising'],
-  },
-  {
-    id: 'last-voyage-to-glory',
-    title: 'The Last Voyage to Glory — World Cup Rowing',
-    category: 'Poster',
-    filterCategory: 'Poster',
-    image: lastVoyageToGlory,
-    description: 'Surreal sports poster depicting Neymar, Messi, and Ronaldo rowing along a sweater zipper toward the FIFA World Cup Trophy.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Sports Poster', '3D Composition'],
-  },
-  {
-    id: 'tropical-fruit-juice-trophy',
-    title: 'Tropical Fruit Juice Trophy & Arch of Flavors',
-    category: 'Branding',
-    filterCategory: 'Branding',
-    image: tropicalFruitJuiceTrophy,
-    description: 'Vibrant product display poster featuring a trophy sculpted from tropical fruits under an arch of 13 fruit juice cans.',
-    technologies: ['Photoshop', 'Product Design', 'Photo Manipulation', 'Packaging'],
   },
   {
     id: 'gulab-jamun-tempting-order-now',
@@ -547,51 +500,6 @@ const ALL_PROJECTS: ProjectItem[] = [
     image: happyNationalLogisticsDay,
     description: 'Striking multi-modal transport poster featuring commercial airliner, freight truck on sea bridge, and container ship.',
     technologies: ['Photoshop', 'Photo Composition', 'Typography', 'Corporate Campaign'],
-  },
-  {
-    id: 'happy-labor-day-may-1st',
-    title: 'Happy Labor Day — May 1st',
-    category: 'Poster',
-    filterCategory: 'Poster',
-    image: happyLaborDay,
-    description: 'High-impact Labor Day promotional poster featuring bold red distressed typography and detailed worker hand photomontage with wrench.',
-    technologies: ['Photoshop', 'Typography', 'Photo Manipulation', 'Poster Design'],
-  },
-  {
-    id: 'we-make-your-brand-stronger',
-    title: 'We Make Your Brand Stronger Than You Think',
-    category: 'Branding',
-    filterCategory: 'Branding',
-    image: brandStrongerAnt,
-    description: 'Creative branding poster featuring an ant in boxing gloves standing triumphantly on a knocked out elephant. "We Make Your BRAND Stronger Than You Think."',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Branding Strategy', 'Poster Art'],
-  },
-  {
-    id: 'giving-your-brand-an-extra-edge',
-    title: 'Giving Your Brand An Extra Edge',
-    category: 'Branding',
-    filterCategory: 'Branding',
-    image: givingBrandExtraEdge,
-    description: '3D conceptual poster featuring wooden carved typography emerging sharp and refined from a red pencil sharpener. "Giving Your Brand An Extra Edge."',
-    technologies: ['Photoshop', '3D Composition', 'Typography', 'Creative Branding'],
-  },
-  {
-    id: 'designers-are-not-design-machine',
-    title: 'Designers Are Not Design Machine',
-    category: 'Poster',
-    filterCategory: 'Graphic',
-    image: designersPoster,
-    description: 'Working under pressure concept poster featuring high-impact visual manipulation and typography.',
-    technologies: ['Photoshop', 'Typography', 'Poster Art'],
-  },
-  {
-    id: 'dominate-attention',
-    title: 'Dominate Attention - Shark Brand Poster',
-    category: 'Poster',
-    filterCategory: 'Graphic',
-    image: dominatePoster,
-    description: 'High-impact advertising poster with breaching shark photomontage and brand slogan typography.',
-    technologies: ['Photoshop', 'Advertising Design', 'Photo Manipulation'],
   },
   {
     id: 'roll-the-dice',
@@ -846,24 +754,6 @@ const ALL_PROJECTS: ProjectItem[] = [
     technologies: ['Photoshop', '3D Icon Design', 'Social Media Design', 'Typography'],
   },
   {
-    id: 'july-is-here-chapter-07',
-    title: 'July Is Here — Chapter 07 New Goals Poster',
-    category: 'Branding',
-    filterCategory: 'Branding',
-    image: julyIsHereChapter07,
-    description: 'Elegant monthly milestone poster featuring an open burgundy editorial book and incoming call UI badge.',
-    technologies: ['Photoshop', 'Editorial Layout', '3D Mockup', 'Brand Identity'],
-  },
-  {
-    id: 'graphic-design-trends-you-should-try',
-    title: 'Graphic Design Trends You Should Try — App Bracelet',
-    category: 'Graphic',
-    filterCategory: 'Graphic',
-    image: graphicDesignTrendsYouShouldTry,
-    description: 'High-concept creative poster featuring a hand wearing a floating metallic bracelet of 3D glass app icons.',
-    technologies: ['Photoshop', '3D Token Rendering', 'Photo Manipulation', 'Typography'],
-  },
-  {
     id: 'tell-us-your-story-we-will-design-it',
     title: 'Tell Us Your Story — We Will Design It',
     category: 'Social Media',
@@ -906,7 +796,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     filterCategory: 'Graphic',
     image: youtubeDimensionsCheatSheet,
     description: 'Technical design cheat sheet displaying precise dimension blueprints for YouTube channel assets.',
-    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Technical Guide'],
+    technologies: ['Photoshop', 'Infographic Design', 'UI Blueprint', 'Social Media Guide'],
   },
   {
     id: 'instagram-dimensions-cheat-sheet-guide',
@@ -923,20 +813,9 @@ const CATEGORIES = ['All', 'Graphic', 'Poster', 'Branding', 'Social Media'];
 
 export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [page, setPage] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxDirection, setLightboxDirection] = useState<number>(1);
-  const [isMobile, setIsMobile] = useState<boolean>(() => typeof window !== 'undefined' && window.innerWidth < 640);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const { projects: dynamicProjects } = useData();
 
@@ -948,6 +827,20 @@ export const FeaturedProjects: React.FC = () => {
     });
     return map;
   }, []);
+
+  const EXCLUDED_IDS = [
+    'happy-labor-day-may-1st',
+    'we-make-your-brand-stronger',
+    'giving-your-brand-an-extra-edge',
+    'designers-are-not-design-machine',
+    'dominate-attention',
+    'designing-is-not-making-2-minute-noodles',
+    'ideas-from-heart-brain-neural-art',
+    'last-voyage-to-glory',
+    'tropical-fruit-juice-trophy',
+    'july-is-here-chapter-07',
+    'graphic-design-trends-you-should-try'
+  ];
 
   // Combine dynamic projects from Admin Panel + default portfolio assets
   const combinedProjects: ProjectItem[] = [
@@ -968,38 +861,12 @@ export const FeaturedProjects: React.FC = () => {
       };
     }),
     ...ALL_PROJECTS.filter((ap) => !dynamicProjects.some((dp) => dp.id === ap.id)),
-  ];
+  ].filter((p) => !EXCLUDED_IDS.includes(p.id));
 
   // Filter projects by selected category
   const filteredProjects = activeCategory === 'All'
     ? combinedProjects
     : combinedProjects.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
-
-  const itemsPerPage = isMobile ? 2 : 6;
-  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage) || 1;
-  const currentPage = Math.min(page, totalPages - 1);
-
-  const displayedProjects = filteredProjects.slice(
-    currentPage * itemsPerPage,
-    (currentPage * itemsPerPage) + itemsPerPage
-  );
-
-  // Auto-scroll pages for project gallery (slides to next page/pair every 3.5 seconds)
-  React.useEffect(() => {
-    if (isPaused || lightboxIndex !== null) return;
-    const timer = setInterval(() => {
-      setPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [totalPages, isPaused, lightboxIndex]);
-
-  const handlePrevPage = () => {
-    setPage(prev => (prev > 0 ? prev - 1 : totalPages - 1));
-  };
-
-  const handleNextPage = () => {
-    setPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
-  };
 
   const openModal = (item: ProjectItem) => {
     const proj: Project = {
@@ -1044,141 +911,78 @@ export const FeaturedProjects: React.FC = () => {
     return () => clearInterval(timer);
   }, [lightboxIndex, filteredProjects.length]);
 
-  // Ultra-Fast & Sleek Gallery Slide Variants — No Black Screen Gap
-  const galleryVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 120 : -120,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.28,
-        ease: [0.25, 1, 0.5, 1], // fast, crisp, fluid
-      },
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -120 : 120,
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        ease: [0.25, 1, 0.5, 1],
-      },
-    }),
-  };
-
   const currentLightboxProject = lightboxIndex !== null ? filteredProjects[lightboxIndex] : null;
 
   return (
-    <section
-      id="projects"
-      className="relative h-screen flex flex-col px-4 sm:px-8 pt-6 pb-4 bg-[#090909] text-white overflow-hidden border-t border-white/5 font-sans"
-    >
-      <div className="absolute top-1/3 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#88D900]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
-
-      <div className="max-w-6xl w-full mx-auto flex flex-col flex-1 items-center min-h-0">
-        
-        {/* Compact Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center mb-3 shrink-0"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151515] border border-white/10 text-[#88D900] font-heading font-bold text-[10px] uppercase tracking-wider mb-1.5 shadow-md">
-            <Sparkles className="w-3 h-3" />
-            <span>PORTFOLIO SHOWCASE</span>
-          </div>
-          <h2 className="font-heading font-bold text-xl sm:text-3xl text-white tracking-tight mb-4">
-            FEATURED <span className="text-[#88D900]">PROJECTS</span>
-          </h2>
-        </motion.div>
-
-        {/* Grid Container — fills remaining height perfectly */}
-        <div className="relative w-full max-w-5xl px-6 sm:px-14 flex-1 min-h-0">
-
-          {/* Left Arrow */}
-          <button
-            onClick={handlePrevPage}
-            aria-label="Previous Projects"
-            className="absolute left-0 sm:-left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-          >
-            <ChevronsLeft className="w-5 h-5 stroke-[3]" />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={handleNextPage}
-            aria-label="Next Projects"
-            className="absolute right-0 sm:-right-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#88D900] hover:bg-[#9BE01A] text-black font-extrabold flex items-center justify-center shadow-[0_0_15px_rgba(136,217,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-          >
-            <ChevronsRight className="w-5 h-5 stroke-[3]" />
-          </button>
-
-          {/* Grid — 1 col x 2 rows on mobile (1 top, 1 bottom), 3 col x 2 rows on desktop */}
-          <motion.div
-            layout
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-            className="grid grid-cols-1 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 gap-3 sm:gap-4 h-full"
-          >
-            <AnimatePresence mode="popLayout">
-              {displayedProjects.map((item) => {
-                const itemIndexInFiltered = filteredProjects.findIndex(p => p.id === item.id);
-                return (
-                  <motion.div
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={() => {
-                      setLightboxDirection(1);
-                      setLightboxIndex(itemIndexInFiltered !== -1 ? itemIndexInFiltered : 0);
-                    }}
-                    className="group relative rounded-xl overflow-hidden bg-[#0a0a0a] shadow-lg border border-white/5 cursor-pointer transition-all duration-300"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                      style={{ imageRendering: 'high-quality' }}
-                      onError={(e) => {
-                        const fallback = defaultImageMap[item.id];
-                        if (fallback && e.currentTarget.src !== fallback) {
-                          e.currentTarget.src = fallback;
-                        }
-                      }}
-                    />
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
+    <section id="campaign-designs" className="w-full relative py-4">
+      {/* Header Typography with Exactly One Space Gap & Creative Script */}
+      <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-4 flex-wrap">
+        <div className="flex items-baseline flex-wrap">
+          <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
+            Campaign
+          </span>
+          <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+          <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+            Designs
+          </span>
         </div>
 
-        {/* Page indicator dots */}
-        <div className="flex items-center gap-2 mt-3 shrink-0">
-          {Array.from({ length: totalPages }).map((_, i) => (
+        {/* Sub-category Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2">
+          {CATEGORIES.map((cat) => (
             <button
-              key={i}
-              onClick={() => setPage(i)}
-              className={`rounded-full transition-all duration-300 cursor-pointer ${
-                i === currentPage
-                  ? 'w-5 h-2 bg-[#88D900] shadow-[0_0_8px_rgba(136,217,0,0.6)]'
-                  : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                activeCategory === cat
+                  ? 'bg-[#88D900] text-black shadow-[0_0_12px_rgba(136,217,0,0.4)]'
+                  : 'bg-white/10 text-gray-300 border border-white/10 hover:bg-white/20 hover:text-white'
               }`}
-            />
+            >
+              {cat}
+            </button>
           ))}
         </div>
+      </div>
 
+      {/* Grid of Campaign Design Cards — Matching Invite Designs style */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8 items-start">
+        {filteredProjects.map((item, idx) => {
+          const itemIndexInFiltered = filteredProjects.findIndex(p => p.id === item.id);
+          return (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: (idx % 10) * 0.05 }}
+              whileHover={{ y: -8 }}
+              onClick={() => {
+                setLightboxDirection(1);
+                setLightboxIndex(itemIndexInFiltered !== -1 ? itemIndexInFiltered : 0);
+              }}
+              className="group cursor-pointer flex flex-col items-center w-full"
+            >
+              {/* Pure Image Card with rounded-xl, shadow-xl, and smooth hover glow */}
+              <div className="w-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(136,217,0,0.25)] border border-white/10 group-hover:border-[#88D900]/40">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
+                  onError={(e) => {
+                    const fallback = defaultImageMap[item.id];
+                    if (fallback && e.currentTarget.src !== fallback) {
+                      e.currentTarget.src = fallback;
+                    }
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl pointer-events-none" />
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Project Detail Modal */}
@@ -1243,12 +1047,12 @@ export const FeaturedProjects: React.FC = () => {
               <ChevronsRight className="w-6 h-6 stroke-[3]" />
             </button>
 
-            {/* Instagram-Style Continuous Horizontal Track Carousel */}
+            {/* Continuous Horizontal Track Lightbox Track */}
             <div
               className="relative max-w-5xl w-full h-[85vh] flex flex-col items-center justify-center overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Sliding Filmstrip Track */}
+              {/* Sliding Track */}
               <div className="w-full flex-1 flex items-center overflow-hidden relative">
                 <motion.div
                   className="flex w-full h-full items-center"
@@ -1297,3 +1101,5 @@ export const FeaturedProjects: React.FC = () => {
     </section>
   );
 };
+
+export default FeaturedProjects;

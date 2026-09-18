@@ -7,18 +7,12 @@ import {
   Play, Pause, Volume2, VolumeX
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import gallery1 from '../assets/gallery_1.jpg';
-import gallery2 from '../assets/gallery_2.png';
 import gallery3 from '../assets/gallery_3.jpg';
 import gallery5 from '../assets/gallery_5.jpg';
-import gallery6 from '../assets/gallery_6.png';
 import gallery7 from '../assets/gallery_7.png';
-import designerPortrait from '../assets/designer_portrait.png';
 import nandiniNightPortrait from '../assets/nandini_night_portrait.jpg';
-import nandiniYellowPortrait from '../assets/nandini_yellow_portrait.jpg';
 import moonlightBg from '../assets/moonlight_biography_bg.jpg';
 import oceanWavesVideo from '../assets/real_ocean_waves.mp4';
-import nature1Video from '../assets/nature1.mp4';
 import lifeFlightImg from '../assets/life_flight.jpg';
 import lifeNatureImg from '../assets/life_nature.jpg';
 import lifeOceanImg from '../assets/life_ocean.jpg';
@@ -222,127 +216,6 @@ const NativeCreativeBanner: React.FC = () => {
   );
 };
 
-// Interactive 2.43:1 Ratio Nature Video Banner Component with Autoplay on Screen Enter & Audio
-const InteractiveNatureVideoBanner: React.FC<{ videoSrc: string }> = ({ videoSrc }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
-  const [needUserInteraction, setNeedUserInteraction] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && videoRef.current) {
-            videoRef.current.muted = false;
-            const playPromise = videoRef.current.play();
-            if (playPromise !== undefined) {
-              playPromise
-                .then(() => {
-                  setIsPlaying(true);
-                  setIsMuted(false);
-                  setNeedUserInteraction(false);
-                })
-                .catch(() => {
-                  // Browser policy fallback if unmuted autoplay is blocked prior to user interaction
-                  if (videoRef.current) {
-                    videoRef.current.muted = true;
-                    videoRef.current.play();
-                    setIsMuted(true);
-                    setNeedUserInteraction(true);
-                  }
-                });
-            }
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      const nextMuted = !isMuted;
-      videoRef.current.muted = nextMuted;
-      setIsMuted(nextMuted);
-      if (!nextMuted) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-      setNeedUserInteraction(false);
-    }
-  };
-
-  return (
-    <div 
-      ref={containerRef}
-      className="relative w-full aspect-[2.43/1] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] border border-white/20 group bg-black"
-    >
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        playsInline
-        src={videoSrc}
-        className="w-full h-full object-cover object-center transform group-hover:scale-[1.01] transition-transform duration-700 ease-out contrast-[1.05] saturate-[1.05] filter brightness-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
-
-      {/* Tap for Sound Prompt if Browser Blocked Unmuted Autoplay */}
-      {needUserInteraction && (
-        <button
-          onClick={toggleMute}
-          className="absolute top-4 right-4 z-30 px-4 py-2 rounded-full bg-[#F472B6] text-black font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(244,114,182,0.8)] animate-bounce cursor-pointer flex items-center gap-2"
-        >
-          <Volume2 className="w-4 h-4 text-black animate-pulse" />
-          <span>Tap to Enable Audio 🔊</span>
-        </button>
-      )}
-
-      {/* Interactive Video Control Overlay Buttons */}
-      <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 flex items-center gap-2 z-20">
-        {/* Play / Pause Button */}
-        <button
-          onClick={togglePlay}
-          className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/80 border border-white/20 hover:border-[#F472B6] text-white hover:text-[#F472B6] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all shadow-xl cursor-pointer"
-          title={isPlaying ? "Pause Video" : "Play Video"}
-        >
-          {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F472B6]" /> : <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#88D900]" />}
-          <span className="hidden sm:inline">{isPlaying ? "Pause" : "Play"}</span>
-        </button>
-
-        {/* Mute / Unmute Audio Button */}
-        <button
-          onClick={toggleMute}
-          className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/80 border border-white/20 hover:border-[#F472B6] text-white hover:text-[#F472B6] font-heading font-bold text-xs uppercase tracking-wider backdrop-blur-md transition-all shadow-xl cursor-pointer"
-          title={isMuted ? "Unmute Audio" : "Mute Audio"}
-        >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300" /> : <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F472B6] animate-pulse" />}
-          <span>{isMuted ? "Unmute" : "Sound On"}</span>
-        </button>
-      </div>
-    </div>
-  );
-};
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -351,13 +224,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
 
   const galleryImages = [
     { src: nandiniNightPortrait, title: 'Visual Storyteller Night Portrait', borderColor: '#F472B6' },
-    { src: nandiniYellowPortrait, title: 'Nandini Traditional Yellow Portrait', borderColor: '#F59E0B' },
-    { src: gallery1, title: 'Creative Workstation Portrait', borderColor: '#88D900' },
     { src: gallery7, title: 'Designer Dual-Monitor Workstation', borderColor: '#88D900' },
     { src: gallery3, title: 'Picking Flowers Outdoor Aesthetic', borderColor: '#88D900' },
     { src: gallery5, title: 'Ultra HD Floral Portrait', borderColor: '#F59E0B' },
-    { src: gallery6, title: 'Ocean Waves Beach Walk', borderColor: '#00A4E4' },
-    { src: gallery2, title: 'Sunset Beach Portrait', borderColor: '#F472B6' },
   ];
 
   const currentImage = galleryImages[activePhoto];
@@ -695,8 +564,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="space-y-8 text-left"
               >
-                {/* Autoplay Full-Width 2.43:1 Nature Video Banner (nature1.mp4) */}
-                <InteractiveNatureVideoBanner videoSrc={nature1Video} />
+
 
                 {/* Text Content Placed Directly BELOW the Cover Photo Banner */}
                 <div className="space-y-6 pt-2">

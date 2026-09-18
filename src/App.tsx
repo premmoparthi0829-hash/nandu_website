@@ -5,7 +5,6 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
-import { FeaturedProjects } from './components/FeaturedProjects';
 import { MoreCreativeWorksSection } from './components/MoreCreativeWorksSection';
 import { BrandsWorkedSection } from './components/BrandsWorkedSection';
 import { DesignProcess } from './components/DesignProcess';
@@ -57,10 +56,7 @@ function MainPortfolioContent() {
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Portfolio Projects & Case Studies */}
-      <FeaturedProjects />
-
-      {/* More Creative Works Showcase (Billboards, Brochures, Standees) */}
+      {/* Unified Creative Portfolio Projects & Works Showcase */}
       <MoreCreativeWorksSection />
 
       {/* Brands Worked With */}

@@ -44,7 +44,20 @@ interface DataContextType {
   resetToDefaults: () => void;
 }
 
-const STORAGE_KEY = 'nandu_portfolio_data_v16';
+const STORAGE_KEY = 'nandu_portfolio_data_v19';
+const DELETED_PROJECT_IDS = [
+  'happy-labor-day-may-1st',
+  'we-make-your-brand-stronger',
+  'giving-your-brand-an-extra-edge',
+  'designers-are-not-design-machine',
+  'dominate-attention',
+  'designing-is-not-making-2-minute-noodles',
+  'ideas-from-heart-brain-neural-art',
+  'last-voyage-to-glory',
+  'tropical-fruit-juice-trophy',
+  'july-is-here-chapter-07',
+  'graphic-design-trends-you-should-try'
+];
 
 // Clear legacy cached portfolio data keys to force fresh state
 try {
@@ -75,23 +88,25 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (saved) {
         const parsed: Project[] = JSON.parse(saved);
         const defaultMap = new Map(defaultProjects.map((p) => [p.id, p]));
-        return parsed.map((p) => {
-          const def = defaultMap.get(p.id);
-          if (def) {
-            return {
-              ...p,
-              heroImage: (p.heroImage && (p.heroImage.startsWith('data:') || p.heroImage.startsWith('blob:'))) ? p.heroImage : def.heroImage,
-              screenshots: p.screenshots?.map((s, idx) =>
-                (s && (s.startsWith('data:') || s.startsWith('blob:'))) ? s : (def.screenshots[idx] || def.heroImage)
-              ) || def.screenshots,
-            };
-          }
-          return p;
-        });
+        return parsed
+          .filter((p) => !DELETED_PROJECT_IDS.includes(p.id))
+          .map((p) => {
+            const def = defaultMap.get(p.id);
+            if (def) {
+              return {
+                ...p,
+                heroImage: (p.heroImage && (p.heroImage.startsWith('data:') || p.heroImage.startsWith('blob:'))) ? p.heroImage : def.heroImage,
+                screenshots: p.screenshots?.map((s, idx) =>
+                  (s && (s.startsWith('data:') || s.startsWith('blob:'))) ? s : (def.screenshots[idx] || def.heroImage)
+                ) || def.screenshots,
+              };
+            }
+            return p;
+          });
       }
-      return defaultProjects;
+      return defaultProjects.filter((p) => !DELETED_PROJECT_IDS.includes(p.id));
     } catch {
-      return defaultProjects;
+      return defaultProjects.filter((p) => !DELETED_PROJECT_IDS.includes(p.id));
     }
   });
 

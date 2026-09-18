@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart } from 'lucide-react';
+import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart, Flame } from 'lucide-react';
 import { ParticleWaveBackground } from './ParticleWaveBackground';
+import { FeaturedProjects } from './FeaturedProjects';
 
 // Import assets
 import brochureRedesign1RealEstate from '../assets/brochure_redesign_1_real_estate.jpg';
@@ -55,11 +56,8 @@ import packageDesignHappyJoyPotatoChips from '../assets/package_design_happy_joy
 import packageDesignWeGoCupHolderBox from '../assets/package_design_we_go_cup_holder_box.jpg';
 import packageDesignMilkshakesCharacterCartons from '../assets/package_design_milkshakes_character_cartons.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
-import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
 import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
-import designsNotMachine from '../assets/designers_not_machine.jpg';
-import dominateAttention from '../assets/dominate_attention.jpg';
 import goaholiday from '../assets/goa_holiday_package.jpg';
 import caffeineArmy from '../assets/caffeine_army.jpg';
 import wrinkledPaper from '../assets/wrinkled_paper.png';
@@ -94,7 +92,7 @@ interface CreativeItem {
 }
 
 export const MoreCreativeWorksSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'featured' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
@@ -262,7 +260,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
       category: 'standee',
       title: 'We Design Ideas From The Heart — Creative Standee',
       subtitle: 'Premium Graphic Design Studio Promotional Display',
-      image: designsNotMachine,
+      image: caffeineArmy,
       client: 'Creative Studio',
       dimensions: '3ft x 6ft Roll-Up Standee Banner',
     },
@@ -271,7 +269,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
       category: 'standee',
       title: 'Dominate Attention — Graphic Design Career Standee',
       subtitle: 'Learn Professional Design & Elevate Brand Presence',
-      image: brandStrongerAnt,
+      image: tropicalFruitJuiceTrophy,
       client: 'Equinoxx Creative Academy',
       dimensions: '3ft x 6.5ft Retractable Banner',
     },
@@ -450,7 +448,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
           transition={{ delay: 0.08 }}
           className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight text-white uppercase"
         >
-          More <span className="text-[#88D900]">Creative Works</span>
+          Portfolio <span className="text-[#88D900]">Projects & Works</span>
         </motion.h2>
 
         <motion.p
@@ -460,12 +458,14 @@ export const MoreCreativeWorksSection: React.FC = () => {
           transition={{ delay: 0.12 }}
           className="text-gray-400 font-medium text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-2.5"
         >
-          Explore high-impact brochure spreads, outdoor billboards, and premium brand displays.
+          Explore featured project campaigns, brochure spreads, outdoor billboards, custom package designs, standees, and invite designs.
         </motion.p>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap justify-center items-center gap-3 mt-7">
           {[
+            { id: 'all', label: 'All Works', icon: LayoutGrid },
+            { id: 'featured', label: 'Featured Projects', icon: Flame },
             { id: 'brochure', label: 'Brochures', icon: ImageIcon },
             { id: 'billboard', label: 'Billboards', icon: Layers },
             { id: 'package', label: 'Package Design', icon: Package },
@@ -491,6 +491,15 @@ export const MoreCreativeWorksSection: React.FC = () => {
           })}
         </div>
       </div>
+
+      {/* ========================================================================= */}
+      {/* FEATURED PROJECTS SHOWCASE BLOCK (COMBINED INSIDE MORE CREATIVE WORKS) */}
+      {/* ========================================================================= */}
+      {(activeTab === 'all' || activeTab === 'featured') && (
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-16 relative z-10">
+          <FeaturedProjects />
+        </div>
+      )}
 
       {/* ========================================================================= */}
       {/* 1. BROCHURE DESIGN SECTION */}

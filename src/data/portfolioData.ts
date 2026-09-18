@@ -306,26 +306,17 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
-import designersPoster from '../assets/designers_not_machine.jpg';
-import dominatePoster from '../assets/dominate_attention.jpg';
-import happyLaborDay from '../assets/happy_labor_day.jpg';
-import brandStrongerAnt from '../assets/brand_stronger_ant.jpg';
-import givingBrandExtraEdge from '../assets/giving_brand_extra_edge.png';
 import silkMeetsSwagger from '../assets/silk_meets_swagger.jpg';
 import goaHolidayPackage from '../assets/goa_holiday_package.jpg';
 import realEstatePhase1 from '../assets/real_estate_phase_1.jpg';
 import caffeineArmy from '../assets/caffeine_army.jpg';
 import happyNationalLogisticsDay from '../assets/happy_national_logistics_day.jpg';
 import sahibBarbequeBiryani from '../assets/sahib_barbeque_biryani.jpg';
-import lastVoyageToGlory from '../assets/last_voyage_to_glory.jpg';
-import tropicalFruitJuiceTrophy from '../assets/tropical_fruit_juice_trophy.jpg';
 import gulabJamunTempting from '../assets/gulab_jamun_tempting.jpg';
 import celebratingNationalSportsDay from '../assets/celebrating_national_sports_day.jpg';
 import chaiRefreshPoster from '../assets/chai_refresh_poster.jpg';
 import palettePaintsYourIdentity from '../assets/palette_paints_your_identity.jpg';
 import keyboardGrenadeSeo from '../assets/keyboard_grenade_seo.jpg';
-import designingNot2MinNoodles from '../assets/designing_not_2_min_noodles.jpg';
-import ideasFromHeart from '../assets/ideas_from_heart.jpg';
 import happyRamNavami from '../assets/happy_ram_navami.jpg';
 import meraBharatMahan from '../assets/mera_bharat_mahan.jpg';
 import everyCrowdCarriesOpportunities from '../assets/every_crowd_carries_opportunities.jpg';
@@ -336,8 +327,6 @@ import weDontTalkWeCreate from '../assets/we_dont_talk_we_create.jpg';
 import happyTeachersDay from '../assets/happy_teachers_day.jpg';
 import creativityNeedsSpaceProductionPlanning from '../assets/creativity_needs_space_production_planning.jpg';
 import interviewTomorrowBeReady from '../assets/interview_tomorrow_be_ready.jpg';
-import julyIsHereChapter07 from '../assets/july_is_here_chapter_07.jpg';
-import graphicDesignTrendsYouShouldTry from '../assets/graphic_design_trends_you_should_try.jpg';
 import tellUsYourStoryWeWillDesignIt from '../assets/tell_us_your_story_we_will_design_it.jpg';
 import happyChildrensDay from '../assets/happy_childrens_day.jpg';
 import movieNightCinemaScreen from '../assets/movie_night_cinema_screen.jpg';
@@ -542,56 +531,6 @@ export const PROJECTS: Project[] = [
     featured: true
   },
   {
-    id: 'designing-is-not-making-2-minute-noodles',
-    title: 'Designing Is Not Making 2 Minute Noodles',
-    category: 'Poster Design',
-    shortDescription: 'Bold studio manifesto poster featuring a chrome showerhead pouring cooked spaghetti noodles onto a plate.',
-    fullOverview: 'An artistic studio philosophy poster titled "DESIGNING IS NOT MAKING 2 MINUTE NOODLES — Good design needs time to think not just speed to deliver." Features a sleek chrome showerhead showering streams of golden cooked spaghetti noodles onto a ceramic plate against a deep cobalt blue background.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Poster Design'],
-    features: [
-      'Chrome Showerhead Spaghetti Stream Photomontage',
-      'Deep Cobalt Blue Radial Lighting Background',
-      'Crisp Architectural Typography Layout'
-    ],
-    heroImage: designingNot2MinNoodles,
-    screenshots: [
-      designingNot2MinNoodles
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Educating clients on the distinction between rushed turnarounds and thoughtful design craft.',
-      solution: 'Crafted a memorable visual surrealism piece turning shower streams into spaghetti noodles.',
-      impact: 'Resonated deeply with creative agencies and prospective brand clients.'
-    },
-    featured: true
-  },
-  {
-    id: 'ideas-from-heart-brain-neural-art',
-    title: 'Ideas From Heart — Brain & Heart Neural Art',
-    category: 'Poster Design',
-    shortDescription: 'Minimalist studio concept poster featuring a human brain connected to a heart via colorful electric neural cables.',
-    fullOverview: 'A thought-provoking visual design poster titled "IDEAS FROM HEART", depicting an anatomical human brain connected to a beating heart through a twisted bundle of red, yellow, blue, and black electrical cables set against a clean studio gray background.',
-    technologies: ['Photoshop', '3D Photomontage', 'Conceptual Design', 'Typography'],
-    features: [
-      'Anatomical Brain & Heart Electrical Cable Wiring FX',
-      'Minimalist Studio Gray Lighting & Soft Shadows',
-      'Bold Slanted Modern Typography "IDEAS FROM HEART"'
-    ],
-    heroImage: ideasFromHeart,
-    screenshots: [
-      ideasFromHeart
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Visualizing the synergy of rational intellect (brain) and passion (heart) in design thinking.',
-      solution: 'Intertwined anatomical heart and brain models with vibrant wiring harnesses.',
-      impact: 'Celebrated centerpiece in creative studio manifesto collection.'
-    },
-    featured: true
-  },
-  {
     id: 'sahib-barbeque-biryani-haleem',
     title: 'Sahib\'s Barbeque — Biryani & Haleem Chat Poster',
     category: 'Social Media',
@@ -613,56 +552,6 @@ export const PROJECTS: Project[] = [
       problem: 'Creating a viral social media campaign for a popular barbeque & biryani restaurant.',
       solution: 'Combined relatable humor text bubbles with mouth-watering food styling.',
       impact: 'Drove massive restaurant table reservations and viral social sharing.'
-    },
-    featured: true
-  },
-  {
-    id: 'last-voyage-to-glory',
-    title: 'The Last Voyage to Glory — World Cup Rowing',
-    category: 'Poster Design',
-    shortDescription: 'High-concept sports poster depicting Neymar, Messi, and Ronaldo rowing along a sweater zipper towards the World Cup Trophy.',
-    fullOverview: 'A surreal sports advertising poster titled "THE LAST VOYAGE TO GLORY." Features football legends Neymar (10), Messi (10), and Ronaldo (7) rowing together in a single crew boat up a unzipped green sweater track toward the golden FIFA World Cup Trophy standing at the top.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Sports Poster', '3D Composition'],
-    features: [
-      'Surreal Zipper-to-Rowing-River Photomontage FX',
-      'High-Detail Miniature Player Sculpt Renders',
-      'Cinematic Lens Flare Lighting & Fabric Texture Realism'
-    ],
-    heroImage: lastVoyageToGlory,
-    screenshots: [
-      lastVoyageToGlory
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Creating an iconic World Cup poster capturing the final tournament for modern football legends.',
-      solution: 'Crafted a powerful metaphorical rowing journey along a fabric zipper toward the trophy.',
-      impact: 'Garnered widespread acclaim across sports media and fan communities.'
-    },
-    featured: true
-  },
-  {
-    id: 'tropical-fruit-juice-trophy',
-    title: 'Tropical Fruit Juice Trophy & Arch of Flavors',
-    category: 'Packaging',
-    shortDescription: 'Hyper-vibrant product display poster featuring a trophy sculpted from tropical fruits surrounded by an arch of 13 fruit juice cans.',
-    fullOverview: 'A stunning 3D product showcase poster featuring a giant trophy intricately constructed from carved tropical fruits (pineapple, mango, berries, papaya, passionfruit, watermelon base) under a majestic semi-circular arch of 13 fruit juice cans set against a solid royal blue backdrop.',
-    technologies: ['Photoshop', 'Product Design', 'Photo Manipulation', 'Packaging'],
-    features: [
-      'Sculpted Fruit Sculpture 3D Photomontage Structure',
-      'Dynamic 13-Can Symmetrical Arch Product Display',
-      'Vibrant Royal Blue Studio Lighting Backdrop'
-    ],
-    heroImage: tropicalFruitJuiceTrophy,
-    screenshots: [
-      tropicalFruitJuiceTrophy
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Highlighting an extensive 13-flavor fruit beverage lineup in a single hero product poster.',
-      solution: 'Sculpted a trophy of fresh ingredients surrounded by an arch of all 13 beverage cans.',
-      impact: 'Increased product range visibility and retail distributor engagement.'
     },
     featured: true
   },
@@ -838,131 +727,6 @@ export const PROJECTS: Project[] = [
       problem: 'Visualizing the immense scale and interconnectedness of global logistics for a national corporate celebration.',
       solution: 'Aligned air, land, and ocean freight vehicles in a striking single-frame perspective with integrated typography.',
       impact: 'Widely shared across corporate logistics networks and industrial supply chain media.'
-    },
-    featured: true
-  },
-  {
-    id: 'happy-labor-day-may-1st',
-    title: 'Happy Labor Day — May 1st',
-    category: 'Poster Design',
-    shortDescription: 'High-impact Labor Day promotional poster featuring bold red distressed typography and worker hand photomontage with wrench.',
-    fullOverview: 'A powerful tribute poster designed for May 1st Happy Labor Day, incorporating detailed hand photomontage holding a heavy wrench seamlessly integrated into the distressed 3D numeral 1 typography.',
-    technologies: ['Photoshop', 'Typography', 'Photo Manipulation', 'Poster Design'],
-    features: [
-      '3D Distressed Numeral & Lettering Composition',
-      'High Detail Worker Hand & Heavy Wrench Photomontage',
-      'Vibrant Red & Sky Contrast Lighting'
-    ],
-    heroImage: happyLaborDay,
-    screenshots: [
-      happyLaborDay
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Creating a powerful, heroic tribute to workers on May 1st Labor Day.',
-      solution: 'Merged rugged tactile textures, industrial tools, and energetic typographic layout.',
-      impact: 'Delivered a memorable and evocative holiday brand campaign visual.'
-    },
-    featured: true
-  },
-  {
-    id: 'we-make-your-brand-stronger',
-    title: 'We Make Your Brand Stronger Than You Think',
-    category: 'Branding',
-    shortDescription: 'Creative branding poster featuring an ant in boxing gloves standing triumphantly on an elephant.',
-    fullOverview: 'A high-concept advertising campaign poster illustrating brand power through surreal visual metaphor — a small ant wearing red boxing gloves standing atop a knocked out elephant, paired with clean brand slogan typography.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Branding Strategy', 'Poster Art'],
-    features: [
-      'Surreal Ant vs Elephant Photomontage',
-      'Clean Modern Slogan Typography Hierarchy',
-      'High-Contrast Soft Blue Lighting & Shadows'
-    ],
-    heroImage: brandStrongerAnt,
-    screenshots: [
-      brandStrongerAnt
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Communicating how small/growing brands can out-compete industry giants with smart design.',
-      solution: 'Created an unforgettable visual analogy using a boxing ant and a fallen elephant.',
-      impact: 'Increased client engagement and brand storytelling impact.'
-    },
-    featured: true
-  },
-  {
-    id: 'giving-your-brand-an-extra-edge',
-    title: 'Giving Your Brand An Extra Edge',
-    category: 'Branding',
-    shortDescription: '3D conceptual poster featuring wooden carved typography emerging sharp and refined from a red pencil sharpener.',
-    fullOverview: 'An artistic 3D branding poster concept demonstrating craftsmanship and brand refinement. Features custom wood-grain carved typography being sharpened to a fine edge out of a classic red pencil sharpener.',
-    technologies: ['Photoshop', '3D Composition', 'Typography', 'Creative Branding'],
-    features: [
-      'Wood-Grain Carved Text Shaving Effect',
-      'Hyper-realistic Pencil & Red Sharpener 3D Model Render',
-      'Minimalist Clean Studio White Background'
-    ],
-    heroImage: givingBrandExtraEdge,
-    screenshots: [
-      givingBrandExtraEdge
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Visualizing how strategic design sharpens a brand\'s competitive advantage.',
-      solution: 'Designed a literal sharpening metaphor where brand typography is honed to perfection.',
-      impact: 'Highly acclaimed design concept in brand identity portfolio.'
-    },
-    featured: true
-  },
-  {
-    id: 'designers-are-not-design-machine',
-    title: 'Designers Are Not Design Machine',
-    category: 'Poster Design',
-    shortDescription: 'High-impact concept poster expressing visual designer pressure, artistic dedication, and bold typography.',
-    fullOverview: 'A powerful graphic poster design created for #nandini.V, expressing the pressure visual artists face under intense client demands. Features custom claw scratching composition and distressed typography.',
-    technologies: ['Photoshop', 'Typography', 'Poster Art', 'Visual Composition'],
-    features: [
-      'High-Impact Distressed Typography Layout',
-      'Creative Cat Paw & Computer Mouse Composition',
-      'Original Artwork Signed #nandini.V'
-    ],
-    heroImage: designersPoster,
-    screenshots: [
-      designersPoster
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Expressing the overwhelming pressure designers face under mechanical expectations.',
-      solution: 'Crafted a visceral visual metaphor with dramatic lighting and scratching claws.',
-      impact: 'Highly praised concept art reflecting creative integrity.'
-    },
-    featured: true
-  },
-  {
-    id: 'dominate-attention',
-    title: 'Dominate Attention - Shark Brand Poster',
-    category: 'Poster Design',
-    shortDescription: 'High-impact brand poster featuring breaching shark visual manipulation and motivational brand typography.',
-    fullOverview: 'A bold, commanding brand advertising poster: "DOMINATE ATTENTION - Strong brands don\'t compete for visibility. They own it." Created with photo manipulation of a breaching shark and striking blue water graphics.',
-    technologies: ['Photoshop', 'Photo Manipulation', 'Typography', 'Advertising Design'],
-    features: [
-      'Breaching Great White Shark Photomontage & Water Splash FX',
-      'Bold Slanted Modern Typography',
-      'Brand Identity Messaging: "Strong brands don\'t compete for visibility. They own it."'
-    ],
-    heroImage: dominatePoster,
-    screenshots: [
-      dominatePoster
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Creating an aggressive, high-converting campaign poster that conveys market dominance.',
-      solution: 'Combined breaching marine predator imagery with razor-sharp brand slogan hierarchy.',
-      impact: 'Drives maximum engagement and immediate visual impact.'
     },
     featured: true
   },
@@ -1213,56 +977,6 @@ export const PROJECTS: Project[] = [
       problem: 'Creating an urgent and eye-catching event notification creative for recruitment webinars.',
       solution: 'Merged realistic calendar grid textures with high-contrast 3D notification badges.',
       impact: 'Drove massive event registrations and high webinar seat booking conversions.'
-    },
-    featured: true
-  },
-  {
-    id: 'july-is-here-chapter-07',
-    title: 'July Is Here — Chapter 07 New Goals Poster',
-    category: 'Branding',
-    shortDescription: 'Elegant monthly milestone poster featuring an open burgundy editorial book and incoming call UI badge.',
-    fullOverview: 'A sophisticated brand manifesto poster titled "July is here — New month. New energy. New opportunities." Features a minimalist cream background with an open hardcover burgundy book ("Chapter 6 Completed" -> "CHAPTER 07 JULY") and an incoming call notification widget.',
-    technologies: ['Photoshop', 'Editorial Layout', '3D Mockup', 'Brand Identity'],
-    features: [
-      'Open Hardcover Book & Foil Stamp Typography',
-      'Minimalist Incoming Call UI Pill Widget',
-      'Warm Cream Paper Texture & Subtle Leaf Shadows'
-    ],
-    heroImage: julyIsHereChapter07,
-    screenshots: [
-      julyIsHereChapter07
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Designing an inspiring mid-year brand campaign visual for monthly goal setting.',
-      solution: 'Created a book metaphor transitioning from completed Chapter 6 to fresh Chapter 7.',
-      impact: 'Highly reshared mid-year motivational creative across social brand channels.'
-    },
-    featured: true
-  },
-  {
-    id: 'graphic-design-trends-you-should-try',
-    title: 'Graphic Design Trends You Should Try — App Bracelet',
-    category: 'Graphic',
-    shortDescription: 'High-concept creative poster featuring a hand wearing a floating metallic bracelet of 3D glass app icons.',
-    fullOverview: 'A dark, futuristic design trend poster titled "GRAPHIC DESIGN TRENDS YOU SHOULD TRY". Features a dramatic dark marble studio background with a human hand encircled by a floating metallic ring of 3D glass software tokens (Photoshop, Illustrator, Premiere, After Effects, Figma).',
-    technologies: ['Photoshop', '3D Token Rendering', 'Photo Manipulation', 'Typography'],
-    features: [
-      'Floating 3D Glass & Chrome Software Icon Bracelet FX',
-      'Dramatic Studio Lighting & Dark Marble Texture',
-      'High-Impact White & Red Headline Hierarchy'
-    ],
-    heroImage: graphicDesignTrendsYouShouldTry,
-    screenshots: [
-      graphicDesignTrendsYouShouldTry
-    ],
-    liveDemoUrl: '',
-    githubUrl: '',
-    caseStudy: {
-      problem: 'Visualizing mastery across design tools in a single compelling creative poster.',
-      solution: 'Engineered a floating bracelet composed of glass 3D application icons encircling a hand.',
-      impact: 'Generated immense praise and inspiration across design agency portfolios.'
     },
     featured: true
   },
