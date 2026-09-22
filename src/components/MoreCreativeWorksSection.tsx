@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart, Flame } from 'lucide-react';
+import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart, Flame, Smartphone } from 'lucide-react';
 import { FeaturedProjects } from './FeaturedProjects';
+import { AppDesignShowcase } from './AppDesignShowcase';
 
 // Import assets
 import brochureRedesign1RealEstate from '../assets/brochure_redesign_1_real_estate.jpg';
@@ -91,7 +92,7 @@ interface CreativeItem {
 }
 
 export const MoreCreativeWorksSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'featured' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'featured' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite' | 'uiux'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
@@ -479,6 +480,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
             { id: 'package', label: 'Package Design', icon: Package },
             { id: 'standee', label: 'Standees', icon: Upload },
             { id: 'invite', label: 'Invite Designs', icon: Heart },
+            { id: 'uiux', label: 'App Design (UI/UX)', icon: Smartphone },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -1565,6 +1567,13 @@ export const MoreCreativeWorksSection: React.FC = () => {
           </div>
 
         </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 6. UI/UX APP DESIGN SHOWCASE SECTION */}
+      {/* ========================================================================= */}
+      {(activeTab === 'all' || activeTab === 'uiux') && (
+        <AppDesignShowcase />
       )}
 
       {/* Clean Image-Only Lightbox Overlay with Opening Animation */}
