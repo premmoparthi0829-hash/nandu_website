@@ -95,20 +95,25 @@ export const CursorScrubVideo: React.FC<CursorScrubVideoProps> = ({
 
   // 60 FPS Lerp Smoothing Animation Loop
   useEffect(() => {
+    if (!videoFile) return;
+
     const updatePlayhead = () => {
       const target = targetProgressRef.current;
       const current = currentProgressRef.current;
 
-      // Lerp formula with smoothing clamp (0.02 - 1)
-      const factor = Math.max(0.02, Math.min(1, smoothing));
-      const next = current + (target - current) * factor;
-      currentProgressRef.current = next;
+      const diff = Math.abs(target - current);
+      if (diff > 0.001) {
+        // Lerp formula with smoothing clamp (0.02 - 1)
+        const factor = Math.max(0.02, Math.min(1, smoothing));
+        const next = current + (target - current) * factor;
+        currentProgressRef.current = next;
 
-      const video = videoRef.current;
-      if (video && video.duration && !isNaN(video.duration)) {
-        const timeToSet = next * video.duration;
-        if (Math.abs(video.currentTime - timeToSet) > 0.005) {
-          video.currentTime = timeToSet;
+        const video = videoRef.current;
+        if (video && video.duration && !isNaN(video.duration)) {
+          const timeToSet = next * video.duration;
+          if (Math.abs(video.currentTime - timeToSet) > 0.03) {
+            video.currentTime = timeToSet;
+          }
         }
       }
 
@@ -122,7 +127,7 @@ export const CursorScrubVideo: React.FC<CursorScrubVideoProps> = ({
         cancelAnimationFrame(animFrameRef.current);
       }
     };
-  }, [smoothing]);
+  }, [videoFile, smoothing]);
 
   return (
     <div

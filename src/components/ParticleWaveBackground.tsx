@@ -18,6 +18,7 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
     let width = 0;
     let height = 0;
     let time = 0;
+    let isVisibleInViewport = false;
 
     let mouseX = -1000;
     let mouseY = -1000;
@@ -31,14 +32,27 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
       const parent = canvas.parentElement;
       if (parent) {
         width = canvas.width = parent.clientWidth;
-        height = canvas.height = parent.clientHeight;
+        height = canvas.height = Math.min(parent.clientHeight, Math.round(window.innerHeight * 1.5));
       } else {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
       }
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleInViewport = entry.isIntersecting;
+        if (isVisibleInViewport) {
+          cancelAnimationFrame(animationFrameId);
+          render();
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
+
     const handleMouseMove = (e: MouseEvent) => {
+      if (!isVisibleInViewport) return;
       const rect = canvas.getBoundingClientRect();
       targetMouseX = e.clientX - rect.left;
       targetMouseY = e.clientY - rect.top;
@@ -50,9 +64,9 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
     // Color Interpolation matching reference image:
     // Left: Hot Pink / Magenta -> Center: Purple / Violet -> Electric Blue -> Right: Cyan / Turquoise
@@ -215,26 +229,39 @@ export const ParticleWaveBackground: React.FC<ParticleWaveBackgroundProps> = ({ 
         // B) Draw Bright Glowing Tip Node
         ctx.beginPath();
         ctx.arc(drawX, s.y, s.nodeRadius, 0, Math.PI * 2);
-
-        if (!isMobile && currentOpacity > 0.4) {
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = `rgba(${color.r}, ${color.g}, ${color.b}, 0.9)`;
-        }
-
         ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
         ctx.fill();
-        ctx.shadowBlur = 0; // reset
+
+        // Soft outer glow without expensive ctx.shadowBlur
+        if (!isMobile && currentOpacity > 0.4) {
+          ctx.beginPath();
+          ctx.arc(drawX, s.y, s.nodeRadius * 2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${currentOpacity * 0.35})`;
+          ctx.fill();
+        }
       }
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!document.hidden && isVisibleInViewport) {
+        animationFrameId = requestAnimationFrame(render);
+      }
     };
 
+    const handleVisibilityChange = () => {
+      if (!document.hidden && isVisibleInViewport) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     render();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

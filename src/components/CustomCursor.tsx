@@ -7,7 +7,15 @@ export const CustomCursor: React.FC = () => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  const isHoveredRef = useRef(false);
+  const isVisibleRef = useRef(false);
+
   useEffect(() => {
+    // Disable on touch / coarse pointer devices
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
     let mouseX = -100;
     let mouseY = -100;
     let ringX = -100;
@@ -17,25 +25,35 @@ export const CustomCursor: React.FC = () => {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${mouseX - 5}px, ${mouseY - 5}px, 0)`;
+
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        setIsVisible(true);
       }
-      setIsVisible(true);
     };
 
     const render = () => {
-      ringX += (mouseX - ringX) * 0.25;
-      ringY += (mouseY - ringY) * 0.25;
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouseX - 5}px, ${mouseY - 5}px, 0)`;
+      }
+
+      // Fast, responsive lerp factor (0.45 for snappy tracking)
+      ringX += (mouseX - ringX) * 0.45;
+      ringY += (mouseY - ringY) * 0.45;
+
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ringX - 16}px, ${ringY - 16}px, 0)`;
       }
+
       rafId = requestAnimationFrame(render);
     };
     rafId = requestAnimationFrame(render);
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
+      if (!target) return;
+
+      const hovered = Boolean(
         target.tagName === 'BUTTON' ||
         target.tagName === 'A' ||
         target.closest('button') ||
@@ -43,16 +61,20 @@ export const CustomCursor: React.FC = () => {
         target.getAttribute('role') === 'button' ||
         target.classList.contains('interactive') ||
         target.classList.contains('cursor-pointer')
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
+      );
+
+      if (hovered !== isHoveredRef.current) {
+        isHoveredRef.current = hovered;
+        setIsHovered(hovered);
       }
     };
 
     const handleMouseDown = () => setIsMouseDown(true);
     const handleMouseUp = () => setIsMouseDown(false);
-    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseLeave = () => {
+      isVisibleRef.current = false;
+      setIsVisible(false);
+    };
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('mouseover', handleMouseOver, { passive: true });
@@ -74,16 +96,16 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Central Solid Pink Pointer Dot */}
+      {/* Central Solid Pink Pointer Dot - Instant 1:1 Tracking */}
       <div
         ref={dotRef}
-        className={`fixed top-0 left-0 w-2.5 h-2.5 bg-[#EC4899] rounded-full pointer-events-none z-[9999] hidden md:block shadow-[0_0_8px_#EC4899] transition-transform duration-75 ease-out ${
+        className={`fixed top-0 left-0 w-2.5 h-2.5 bg-[#EC4899] rounded-full pointer-events-none z-[9999] hidden md:block shadow-[0_0_8px_#EC4899] ${
           isMouseDown ? 'scale-75' : isHovered ? 'scale-125' : 'scale-100'
         }`}
         style={{ willChange: 'transform' }}
       />
 
-      {/* Subtle Sleek Ring */}
+      {/* Sleek Snappy Ring */}
       <div
         ref={ringRef}
         className={`fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] hidden md:block border transition-colors duration-150 ${
@@ -96,3 +118,4 @@ export const CustomCursor: React.FC = () => {
     </>
   );
 };
+

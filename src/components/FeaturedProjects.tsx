@@ -901,15 +901,17 @@ export const FeaturedProjects: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, filteredProjects.length]);
 
-  // Auto-scroll Lightbox images at smooth medium speed (every 3.8 seconds)
+  // Lock body scroll when lightbox is open to prevent page scrolling
   React.useEffect(() => {
-    if (lightboxIndex === null) return;
-    const timer = setInterval(() => {
-      setLightboxDirection(1);
-      setLightboxIndex(prev => (prev !== null ? (prev + 1) % filteredProjects.length : 0));
-    }, 3800);
-    return () => clearInterval(timer);
-  }, [lightboxIndex, filteredProjects.length]);
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxIndex]);
 
   const currentLightboxProject = lightboxIndex !== null ? filteredProjects[lightboxIndex] : null;
 
@@ -998,7 +1000,7 @@ export const FeaturedProjects: React.FC = () => {
         />
       )}
 
-      {/* Fullscreen HD Lightbox with High Resolution View & Clean Dark Backdrop */}
+      {/* Fullscreen HD Lightbox centered 100% dead-center in screen matching exact reference */}
       <AnimatePresence>
         {currentLightboxProject && lightboxIndex !== null && (
           <motion.div
@@ -1006,95 +1008,34 @@ export const FeaturedProjects: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl p-2 sm:p-5 select-none overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 sm:p-8 select-none overflow-hidden cursor-zoom-out"
             onClick={() => setLightboxIndex(null)}
           >
-            {/* Close button */}
+            {/* Top Right Close Button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-40 w-11 h-11 rounded-full bg-[#151515] border border-white/20 text-white hover:text-[#88D900] hover:border-[#88D900] transition-all flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95"
-              title="Close (Esc)"
+              className="fixed top-5 right-5 sm:top-6 sm:right-6 z-[110] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+              title="Close"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            {/* Previous Arrow */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setLightboxDirection(-1);
-                setLightboxIndex(prev => (prev !== null && prev > 0 ? prev - 1 : filteredProjects.length - 1));
-              }}
-              className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#151515]/90 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center backdrop-blur-md shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
-              title="Previous Image (←)"
-            >
-              <ChevronsLeft className="w-6 h-6 stroke-[3]" />
-            </button>
-
-            {/* Next Arrow */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setLightboxDirection(1);
-                setLightboxIndex(prev => (prev !== null && prev < filteredProjects.length - 1 ? prev + 1 : 0));
-              }}
-              className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#151515]/90 hover:bg-[#88D900] text-white hover:text-black border border-white/20 hover:border-[#88D900] flex items-center justify-center backdrop-blur-md shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
-              title="Next Image (→)"
-            >
-              <ChevronsRight className="w-6 h-6 stroke-[3]" />
-            </button>
-
-            {/* Continuous Horizontal Track Lightbox Track */}
-            <div
-              className="relative max-w-5xl w-full h-[85vh] flex flex-col items-center justify-center overflow-hidden"
+            {/* Direct Centered Image inside Flexbox Overlay Container */}
+            <motion.img
+              key={currentLightboxProject.id || lightboxIndex}
+              src={currentLightboxProject.image}
+              alt={currentLightboxProject.title}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-            >
-              {/* Sliding Track */}
-              <div className="w-full flex-1 flex items-center overflow-hidden relative">
-                <motion.div
-                  className="flex w-full h-full items-center"
-                  animate={{ x: `-${lightboxIndex * 100}%` }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 260,
-                    damping: 30,
-                    mass: 0.8,
-                  }}
-                >
-                  {filteredProjects.map((proj, idx) => (
-                    <div
-                      key={proj.id || idx}
-                      className="w-full h-full flex-shrink-0 flex items-center justify-center px-2 sm:px-6"
-                    >
-                      <div className="relative max-w-full max-h-[78vh] flex items-center justify-center rounded-2xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.95)] bg-[#050505] border border-white/10">
-                        <img
-                          src={proj.image}
-                          alt={proj.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="max-w-full max-h-[76vh] w-auto h-auto object-contain rounded-xl shadow-2xl select-none"
-                          style={{
-                            imageRendering: 'auto',
-                            WebkitBackfaceVisibility: 'hidden',
-                            transform: 'translateZ(0)',
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Bottom Title Bar */}
-              <div className="mt-3 max-w-xl w-full px-5 py-3 rounded-2xl bg-[#151515]/95 border border-white/10 backdrop-blur-md flex items-center justify-center text-center shadow-2xl z-20 shrink-0">
-                <h4 className="text-white text-xs sm:text-sm font-bold truncate max-w-full">
-                  {currentLightboxProject.title}
-                </h4>
-              </div>
-            </div>
+              className="max-h-[85vh] max-w-[85vw] w-auto h-auto object-contain rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] select-none pointer-events-auto block"
+              style={{ imageRendering: 'high-quality' }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

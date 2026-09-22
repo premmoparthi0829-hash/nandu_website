@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Maximize2, X, Image as ImageIcon, Layers, Upload, LayoutGrid, Package, Heart, Flame } from 'lucide-react';
-import { ParticleWaveBackground } from './ParticleWaveBackground';
 import { FeaturedProjects } from './FeaturedProjects';
 
 // Import assets
@@ -96,6 +95,18 @@ export const MoreCreativeWorksSection: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
+
+  // Lock body scroll when selectedItem lightbox is open
+  useEffect(() => {
+    if (selectedItem !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedItem]);
 
   // Brochure items (10 redesigned vertical brochure layouts)
   const brochures: CreativeItem[] = [
@@ -435,9 +446,6 @@ export const MoreCreativeWorksSection: React.FC = () => {
   return (
     <section id="more-creative-works" className="w-full bg-[#090909] text-white relative py-14 sm:py-18 md:py-24 overflow-hidden border-t border-white/10">
       
-      {/* Dynamic Particle Wave Background Animation (Matches Skills Section) */}
-      <ParticleWaveBackground className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70" />
-
       {/* Header & Controls Bar */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-14 text-center relative z-10">
         
@@ -536,7 +544,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                   alt={brochure.title}
                   className="max-w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02] filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                   style={{ imageRendering: '-webkit-optimize-contrast', aspectRatio: '819 / 1024' }}
-                  loading="eager"
+                  loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
             ))}
@@ -586,7 +595,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                       alt={item.title}
                       className="max-w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]"
                       style={{ imageRendering: '-webkit-optimize-contrast' }}
-                      loading="eager"
+                      loading="lazy"
+                  decoding="async"
                     />
                   </div>
                 </div>
@@ -654,7 +664,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Livore Chutta Cashew Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -676,7 +687,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Crumo Vanilla Pop Cookie Box Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -698,7 +710,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Moomu Donut Packaging Box"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -720,7 +733,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Scoopa Ice Cream Packaging & Merchandise Kit"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -742,7 +756,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Tropics Cafe Coffee Cup Packaging Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -764,7 +779,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="The Pickle Pantry Jar Label Design Suite"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -786,7 +802,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Pure Froot Sparkling Drink Can Label Suite"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -808,7 +825,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Samuh Beatit Biteit Chocolate Biscuit Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -830,7 +848,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Aarvika Sweets Assorted Premium Sweets Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -852,7 +871,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Velora Beauty Cherry Velvet Lip Gloss Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -874,7 +894,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Choco Retto Crunchy Choco Snack Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -896,7 +917,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Strikers Cookie Character Window Box Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -918,7 +940,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="The Coders Farm Pumpkin Seed Pouch Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -940,7 +963,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Peanova Peanut Butter Illustrator Workstation Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -962,7 +986,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Swasthi Makhana Popped Fox Nuts Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -984,7 +1009,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Onyx Crunchy Bites Chin Chin Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1006,7 +1032,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Peanova Peanut Butter Jar & Label Spread Package Design"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1028,7 +1055,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="The Stone Mill Co. Mint Coconut Chutney Box Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1050,7 +1078,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="YumYum Instant Porridge Honey Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1072,7 +1101,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Bowlful Instant Upma Packaging & Campaign"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1094,7 +1124,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Student Biryani Takeaway Bag Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1116,7 +1147,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="The Protein Ball Co. Snack Packaging System"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1138,7 +1170,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Hi! Dog Food Packaging Suite"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1160,7 +1193,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Moo Moo Pure Milk Cartons Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1182,7 +1216,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Leche Boom Mood Milk Bottle Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1204,7 +1239,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Goo Goo 100% Fructe Drink Sachet Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1226,7 +1262,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Packaging O'Clock Custom Food Packaging Suite"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1248,7 +1285,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Two Brothers Organic Farms Faral Gift Box Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1270,7 +1308,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Brijwasi Atta Ladoo Sweet Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1292,7 +1331,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Brijwasi Kaju Burfi Sweet Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1314,7 +1354,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Brijwasi Boondi Ladoo Sweet Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1336,7 +1377,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Master Cook Instant Homestyle Upma & Poha Pouches"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1358,7 +1400,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Happy Joy Potato Chips Packaging Suite"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1380,7 +1423,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="We Go Takeaway Cup Holder Box Packaging"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1402,7 +1446,8 @@ export const MoreCreativeWorksSection: React.FC = () => {
                 alt="Milkshakes Strawberry & Apple Character Cartons"
                 className="max-w-full max-h-[580px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ imageRendering: '-webkit-optimize-contrast' }}
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1531,33 +1576,30 @@ export const MoreCreativeWorksSection: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setSelectedItem(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 sm:p-8 cursor-zoom-out overflow-hidden select-none"
           >
-            {/* Floating Close Button */}
+            {/* Top Right Close Button */}
             <button
               onClick={() => setSelectedItem(null)}
-              className="absolute top-5 right-5 sm:top-8 sm:right-8 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white transition-all cursor-pointer shadow-2xl hover:scale-110"
-              aria-label="Close preview"
+              className="fixed top-5 right-5 sm:top-6 sm:right-6 z-[110] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Close"
+              title="Close"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 stroke-[2.5]" />
             </button>
 
-            {/* Pure Raw Image Container with Opening Spring Animation */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0, y: 15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 15 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+            {/* Direct Centered Image inside Flexbox Overlay Container */}
+            <motion.img
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[92vh] max-w-[92vw] flex items-center justify-center pointer-events-auto"
-            >
-              <img
-                src={selectedItem.fullMockupImage || selectedItem.image}
-                alt={selectedItem.title}
-                className="max-h-[90vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-[0_25px_70px_rgba(0,0,0,0.85)] filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] select-none"
-                style={{ imageRendering: '-webkit-optimize-contrast' }}
-              />
-            </motion.div>
+              src={selectedItem.fullMockupImage || selectedItem.image}
+              alt={selectedItem.title}
+              className="max-h-[85vh] max-w-[85vw] w-auto h-auto object-contain rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] select-none pointer-events-auto block"
+              style={{ imageRendering: 'high-quality' }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

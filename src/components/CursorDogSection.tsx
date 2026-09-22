@@ -12,6 +12,10 @@ export const CursorDogSection: React.FC = () => {
 
   // Track Mouse Movement across 4 directions (Left, Right, Up, Down)
   useEffect(() => {
+    let rafId: number | null = null;
+    let pendingX = 0;
+    let pendingY = 0;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -19,14 +23,22 @@ export const CursorDogSection: React.FC = () => {
       const centerY = rect.top + rect.height / 2;
 
       // Normalized offsets from -1 to 1
-      const normX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (window.innerWidth / 2)));
-      const normY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (window.innerHeight / 2)));
+      pendingX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (window.innerWidth / 2)));
+      pendingY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (window.innerHeight / 2)));
 
-      setCursorPos({ x: normX, y: normY });
+      if (rafId === null) {
+        rafId = requestAnimationFrame(() => {
+          setCursorPos({ x: pendingX, y: pendingY });
+          rafId = null;
+        });
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

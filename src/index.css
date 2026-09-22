@@ -35,6 +35,11 @@
     font-family: 'Space Grotesk', sans-serif;
   }
 
+  section {
+    contain: layout style;
+    WebkitBackfaceVisibility: hidden;
+  }
+
   button, .btn {
     font-family: 'Manrope', sans-serif;
   }

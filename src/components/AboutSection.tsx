@@ -320,14 +320,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative w-full flex justify-center py-2"
           >
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] h-[440px] sm:h-[500px] group">
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] h-[440px] sm:h-[500px]">
 
-              {/* 2nd Card in 3D Stack (Background layer tilted -6deg) */}
+              {/* 2nd Card in 3D Stack (Background layer tilted -4deg cleanly behind front card) */}
               <motion.div
                 key={`bg-${nextPhotoIndex}`}
-                initial={{ scale: 0.9, rotate: -10, opacity: 0 }}
-                animate={{ scale: 0.95, rotate: -6, opacity: 0.85 }}
-                transition={{ duration: 0.5 }}
+                initial={{ scale: 0.9, rotate: -8, opacity: 0 }}
+                animate={{ scale: 0.95, rotate: -4, opacity: 0.85 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute inset-0 rounded-[28px] bg-[#121212] border border-white/10 shadow-xl overflow-hidden pointer-events-none"
               >
                 <img
@@ -339,7 +339,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                 />
               </motion.div>
 
-              {/* Active Front Card (3D Deck Shuffle: Lifts up -45px, rotates into place at +2deg) */}
+              {/* Active Front Card (Original 3D Deck Shuffle: Lifts up smoothly, rotates into place at +2deg) */}
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={activePhoto}
@@ -359,9 +359,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                   onTouchEnd={handleTouchEnd}
                   initial={(dir: number) => ({
                     x: 0,
-                    y: dir > 0 ? 12 : -45,
+                    y: dir > 0 ? 15 : -40,
                     scale: dir > 0 ? 0.95 : 1.02,
-                    rotate: dir > 0 ? -6 : 0,
+                    rotate: dir > 0 ? -4 : 0,
                     opacity: 0.85,
                     zIndex: 10,
                   })}
@@ -374,22 +374,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
                     zIndex: 20,
                     transition: {
                       duration: 0.55,
-                      ease: [0.22, 1, 0.36, 1],
+                      ease: [0.16, 1, 0.3, 1],
                     }
                   }}
                   exit={(dir: number) => ({
                     x: 0,
-                    y: dir > 0 ? [-10, -45, 12] : 12,
-                    scale: dir > 0 ? [1, 1.02, 0.94] : 0.94,
-                    rotate: dir > 0 ? [2, 0, -6] : -6,
-                    opacity: [1, 0.9, 0],
+                    y: dir > 0 ? -40 : 15,
+                    scale: dir > 0 ? 1.02 : 0.94,
+                    rotate: dir > 0 ? 0 : -4,
+                    opacity: 0,
                     zIndex: 5,
                     transition: {
-                      duration: 0.55,
-                      ease: [0.22, 1, 0.36, 1],
+                      duration: 0.5,
+                      ease: [0.16, 1, 0.3, 1],
                     }
                   })}
-                  className="absolute inset-0 rounded-[28px] bg-[#151515] border border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:rotate-0 transition-transform duration-500 flex flex-col justify-between cursor-grab active:cursor-grabbing touch-pan-y select-none"
+                  className="absolute inset-0 rounded-[28px] bg-[#151515] border border-white/20 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col justify-between cursor-grab active:cursor-grabbing touch-pan-y select-none"
                 >
                   <img
                     src={currentImage.src}

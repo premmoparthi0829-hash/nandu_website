@@ -13,7 +13,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScrollState = () => {
       setScrolled(window.scrollY > 40);
 
       const sections = ['hero', 'about', 'skills', 'services', 'projects', 'more-creative-works', 'experience', 'testimonials', 'contact'];
@@ -27,9 +29,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           }
         }
       }
+      ticking = false;
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateScrollState);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    updateScrollState();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
