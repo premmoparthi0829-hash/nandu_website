@@ -84,6 +84,119 @@ import featuredBaliVacationTourPackage from '../assets/featured_bali_vacation_to
 import featuredSilkSareeRoyalCrown from '../assets/featured_silk_saree_royal_crown.jpg';
 import featuredSpicyTimeBbqChickenTikka from '../assets/featured_spicy_time_bbq_chicken_tikka.jpg';
 import featuredSpicyTimeBiryaniSpecial from '../assets/featured_spicy_time_biryani_special.jpg';
+import featuredSambarVadaDip from '../assets/featured_sambar_vada_dip.jpg';
+import featuredMithaiMilkcake from '../assets/featured_mithai_milkcake.jpg';
+import featuredBadamKheerGulabJamun from '../assets/featured_badam_kheer_gulab_jamun.jpg';
+import featuredExploreMalaysiaTravel from '../assets/featured_explore_malaysia_travel.jpg';
+import featuredSoftIdliGhee from '../assets/featured_soft_idli_ghee.jpg';
+
+import wishingNewYear2026 from '../assets/wishing_1_new_year_2026.jpg';
+import wishingNationalYouthDay from '../assets/wishing_2_national_youth_day.jpg';
+import wishingIndianArmyDay from '../assets/wishing_3_indian_army_day.jpg';
+import wishingNationalStartupDay from '../assets/wishing_4_national_startup_day.jpg';
+import wishingNationalVotersDay from '../assets/wishing_5_national_voters_day.jpg';
+import wishingRepublicDay from '../assets/wishing_6_republic_day.jpg';
+import wishingWorldCancerDay from '../assets/wishing_7_world_cancer_day.jpg';
+import wishingValentinesDay from '../assets/wishing_8_valentines_day.jpg';
+import wishingNationalScienceDay from '../assets/wishing_9_national_science_day.jpg';
+import wishingWorldWildlifeDay from '../assets/wishing_10_world_wildlife_day.jpg';
+import wishingNationalSafetyMonth from '../assets/wishing_11_national_safety_month.jpg';
+import wishingInternationalWomensDay from '../assets/wishing_12_international_womens_day.jpg';
+import wishingNationalMathematicsDay from '../assets/wishing_13_national_mathematics_day.jpg';
+import wishingWorldWaterDay from '../assets/wishing_14_world_water_day.jpg';
+import wishingWorldTheatreDay from '../assets/wishing_15_world_theatre_day.jpg';
+import wishingAmbedkarJayanti from '../assets/wishing_16_ambedkar_jayanti.jpg';
+import wishingGandhiJayanti from '../assets/wishing_17_gandhi_jayanti.jpg';
+import wishingInternationalDanceDay from '../assets/wishing_18_international_dance_day.jpg';
+import wishingLabourDay from '../assets/wishing_19_labour_day.jpg';
+import wishingNationalTechnologyDay from '../assets/wishing_20_national_technology_day.jpg';
+import wishingInternationalNursesDay from '../assets/wishing_21_international_nurses_day.jpg';
+import wishingWorldTelecommunicationDay from '../assets/wishing_22_world_telecommunication_day.png';
+import wishingInternationalMuseumDay from '../assets/wishing_23_international_museum_day.jpg';
+import wishingWorldBeeDay from '../assets/wishing_24_world_bee_day.jpg';
+import wishingWorldBicycleDay from '../assets/wishing_25_world_bicycle_day.jpg';
+import wishingInternationalYogaDay from '../assets/wishing_26_international_yoga_day.jpg';
+import wishingNationalStatisticsDay from '../assets/wishing_27_national_statistics_day.jpg';
+import wishingNationalDoctorsDay from '../assets/wishing_28_national_doctors_day.jpg';
+import wishingCaDay from '../assets/wishing_29_ca_day.jpg';
+import wishingWorldPopulationDay from '../assets/wishing_30_world_population_day.jpg';
+import wishingWorldEmojiDay from '../assets/wishing_31_world_emoji_day.jpg';
+import wishingInternationalChessDay from '../assets/wishing_32_international_chess_day.jpg';
+import wishingNationalHandloomDay from '../assets/wishing_33_national_handloom_day.jpg';
+import wishingQuitIndiaMovement from '../assets/wishing_34_quit_india_movement.jpg';
+import wishingWorldPhotographyDay from '../assets/wishing_35_world_photography_day.jpg';
+import wishingNationalSpaceDay from '../assets/wishing_36_national_space_day.jpg';
+import wishingNationalSportsDay from '../assets/wishing_37_national_sports_day.jpg';
+import wishingTeachersDay from '../assets/wishing_38_teachers_day.jpg';
+import wishingInternationalLiteracyDay from '../assets/wishing_39_international_literacy_day.jpg';
+import wishingEngineersDay from '../assets/wishing_40_engineers_day.jpg';
+import wishingWorldTourismDay from '../assets/wishing_41_world_tourism_day.jpg';
+import wishingWorldHeartDay from '../assets/wishing_42_world_heart_day.jpg';
+import wishingInternationalCoffeeDay from '../assets/wishing_43_international_coffee_day.jpg';
+import wishingIndianAirForceDay from '../assets/wishing_44_indian_air_force_day.jpg';
+import wishingWorldPostDay from '../assets/wishing_45_world_post_day.png';
+import wishingNationalUnityDay from '../assets/wishing_46_national_unity_day.jpg';
+import wishingNationalEducationDay from '../assets/wishing_47_national_education_day.jpg';
+import wishingChildrensDay from '../assets/wishing_48_childrens_day.jpg';
+import wishingInternationalMensDay from '../assets/wishing_49_international_mens_day.jpg';
+import wishingNationalConstitutionDay from '../assets/wishing_50_national_constitution_day.jpg';
+import wishingNationalSecurityDay from '../assets/wishing_51_national_security_day.jpg';
+import wishingInternationalMotherLanguageDay from '../assets/wishing_52_international_mother_language_day.jpg';
+import wishingHarGharTiranga from '../assets/wishing_53_har_ghar_tiranga.jpg';
+import wishingVishwakarmaPuja from '../assets/wishing_54_vishwakarma_puja.jpg';
+import wishingIndianNavyDay from '../assets/wishing_55_indian_navy_day.jpg';
+import wishingIndianArmedForceFlagDay from '../assets/wishing_56_indian_armed_force_flag_day.jpg';
+import wishingInternationalAntiCorruptionDay from '../assets/wishing_57_international_anti_corruption_day.jpg';
+import wishingHumanRightsDay from '../assets/wishing_58_human_rights_day.jpg';
+import wishingInternationalMountainDay from '../assets/wishing_59_international_mountain_day.jpg';
+import wishingNationalFarmersDay from '../assets/wishing_60_national_farmers_day.jpg';
+import wishingNationalCivilServicesDay from '../assets/wishing_61_national_civil_services_day.jpg';
+import wishingGoodGovernanceDay from '../assets/wishing_62_good_governance_day.jpg';
+import wishingMothersDay from '../assets/wishing_63_mothers_day.jpg';
+import wishingFathersDay from '../assets/wishing_64_fathers_day.jpg';
+import wishingInternationalDayOfFriendship from '../assets/wishing_65_international_day_of_friendship.jpg';
+import wishingMakarSankranti from '../assets/wishing_66_makar_sankranti.jpg';
+import wishingSaraswatiPuja from '../assets/wishing_67_saraswati_puja.jpg';
+import wishingMahaShivaratri from '../assets/wishing_68_maha_shivaratri.jpg';
+import wishingValentinesDayCat from '../assets/wishing_69_valentines_day_cat.jpg';
+import wishingUgadi from '../assets/wishing_70_ugadi.jpg';
+import wishingHoli from '../assets/wishing_71_holi.jpg';
+import wishingNavratri from '../assets/wishing_72_navratri.jpg';
+import wishingEidAlFitr2026 from '../assets/wishing_73_eid_al_fitr_2026.jpg';
+import wishingRamNavami from '../assets/wishing_74_ram_navami.jpg';
+import wishingMahavirJayanti from '../assets/wishing_75_mahavir_jayanti.jpg';
+import wishingHanumanJayanti from '../assets/wishing_76_hanuman_jayanti.jpg';
+import wishingGoodFriday from '../assets/wishing_77_good_friday.jpg';
+import wishingBuddhaPurnima from '../assets/wishing_78_buddha_purnima.jpg';
+import wishingNarsimhaJayanti from '../assets/wishing_79_narsimha_jayanti.jpg';
+import wishingParshuramJayanti from '../assets/wishing_80_parshuram_jayanti.jpg';
+import wishingRathYatra from '../assets/wishing_81_rath_yatra.jpg';
+import wishingDurgaAshtami from '../assets/wishing_82_durga_ashtami.jpg';
+import wishingRakshaBandhan from '../assets/wishing_83_raksha_bandhan.jpg';
+import wishingBonalu from '../assets/wishing_84_bonalu.jpg';
+import wishingMuharram from '../assets/wishing_85_muharram.jpg';
+import wishingNagPanchami from '../assets/wishing_86_nag_panchami.jpg';
+import wishingVaralakshmiVratham from '../assets/wishing_87_varalakshmi_vratham.jpg';
+import wishingOnam from '../assets/wishing_88_onam.jpg';
+import wishingBathukamma from '../assets/wishing_89_bathukamma.jpg';
+import wishingDipawali from '../assets/wishing_90_dipawali.jpg';
+import wishingChristmas2025 from '../assets/wishing_91_christmas_2025.jpg';
+import wishingBhogi from '../assets/wishing_92_bhogi.jpg';
+import wishingKanuma from '../assets/wishing_93_kanuma.jpg';
+import wishingNirjalaEkadashi from '../assets/wishing_94_nirjala_ekadashi.jpg';
+import wishingNationalPicnicDay from '../assets/wishing_95_national_picnic_day.jpg';
+import wishingGaneshChaturthi from '../assets/wishing_96_ganesh_chaturthi.jpg';
+import wishingWorldBookDay from '../assets/wishing_97_world_book_day.jpg';
+import wishingWorldPressFreedomDay from '../assets/wishing_98_world_press_freedom_day.jpg';
+import wishingAutismAwarenessDay from '../assets/wishing_99_autism_awareness_day.jpg';
+import wishingNationalDnaDay from '../assets/wishing_100_national_dna_day.jpg';
+import wishingCentralExciseDay from '../assets/wishing_101_central_excise_day.jpg';
+import wishingShivajiJayanti from '../assets/wishing_102_shivaji_jayanti.jpg';
+import wishingWorldBartenderDay from '../assets/wishing_103_world_bartender_day.jpg';
+import wishingTourGuideDay from '../assets/wishing_104_tour_guide_day.jpg';
+import wishingPravasiBharatiyaDivas from '../assets/wishing_105_pravasi_bharatiya_divas.jpg';
+import wishingProgrammersDay from '../assets/wishing_106_programmers_day.jpg';
+import wishingKargilVijayDiwas from '../assets/wishing_107_kargil_vijay_diwas.jpg';
 
 interface ProjectItem {
   id: string;
@@ -96,6 +209,1014 @@ interface ProjectItem {
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
+  {
+    id: 'wishing-1-new-year-2026',
+    title: 'New Year 2026 — New Experiences Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNewYear2026,
+    description: 'Vibrant blue festive New Year 2026 celebration poster featuring bold typography and wine glass cheer illustration.',
+    technologies: ['Photoshop', 'Festive Design', 'Vector Illustration', 'Typography'],
+  },
+  {
+    id: 'wishing-2-national-youth-day',
+    title: 'National Youth Day — Swami Vivekananda Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalYouthDay,
+    description: 'Patriotic National Youth Day tribute poster featuring Swami Vivekananda portrait, India map outline, and inspirational quote on deep red backdrop.',
+    technologies: ['Photoshop', 'Patriotic Design', 'Poster Art', 'Typography'],
+  },
+  {
+    id: 'wishing-3-indian-army-day',
+    title: 'Indian Army Day — Guardians of Our Nation Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingIndianArmyDay,
+    description: 'Heroic Indian Army Day tribute poster featuring armed forces salute, fighter jet, Indian flag, and India Gate monument in golden light.',
+    technologies: ['Photoshop', 'Military Art', 'Photo Manipulation', 'Patriotic Banner'],
+  },
+  {
+    id: 'wishing-4-national-startup-day',
+    title: 'National Startup Day — Global Innovation Index Campaign Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalStartupDay,
+    description: 'Creative National Startup Day celebratory poster featuring 3D lightbulb rocket launch and business analytics doodles on peach backdrop.',
+    technologies: ['Photoshop', '3D Illustration', 'Infographic Design', 'Startup Campaign'],
+  },
+  {
+    id: 'wishing-5-national-voters-day',
+    title: "National Voters' Day — Democracy Ballot Power Poster",
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalVotersDay,
+    description: "Powerful National Voters' Day poster showcasing tricolor inked voter finger overlaying India map outline and crowd illustration.",
+    technologies: ['Photoshop', 'Civic Design', 'Photo Compositing', 'Typography'],
+  },
+  {
+    id: 'wishing-6-republic-day',
+    title: 'Happy Republic Day — January 26 Constitution Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingRepublicDay,
+    description: 'Patriotic Republic Day poster featuring hand-sketched Red Fort architectural illustration, waving Indian Tricolor flag, and constitutional history inscription.',
+    technologies: ['Photoshop', 'Architectural Sketch', 'Patriotic Poster', 'Typography'],
+  },
+  {
+    id: 'wishing-7-world-cancer-day',
+    title: 'World Cancer Day — February 4 Hope & Care Ribbon Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldCancerDay,
+    description: 'Inspiring World Cancer Day awareness poster featuring blue ribbon held in supportive hands illustration against cloud sky backdrop.',
+    technologies: ['Photoshop', 'Awareness Campaign', 'Vector Illustration', 'Healthcare Graphic'],
+  },
+  {
+    id: 'wishing-8-valentines-day',
+    title: "Happy Valentine's Day — Delivering Happiness With Love Poster",
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingValentinesDay,
+    description: "Breathtaking Valentine's Day promotional poster featuring airplane flying above fluffy heart-shaped cloud formation in deep blue sky.",
+    technologies: ['Photoshop', 'Photo Manipulation', '3D Sky Composition', 'Romantic Banner'],
+  },
+  {
+    id: 'wishing-9-national-science-day',
+    title: 'National Science Day — Sir C.V. Raman Nobel Prize Quote Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalScienceDay,
+    description: 'Educational National Science Day tribute poster featuring black & white Sir C.V. Raman portrait, handwritten signature, and mathematical physics background formulas.',
+    technologies: ['Photoshop', 'Editorial Layout', 'Science Poster', 'Typography'],
+  },
+  {
+    id: 'wishing-10-world-wildlife-day',
+    title: "World Wildlife Day — Embrace Nature's Diversity Poster",
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldWildlifeDay,
+    description: "Cinematic World Wildlife Day poster featuring majestic Bengal tiger and African savanna elephant in high-contrast typography landscape composition.",
+    technologies: ['Photoshop', 'Wildlife Photography', 'Environmental Banner', '3D Text Composite'],
+  },
+  {
+    id: 'wishing-11-national-safety-month',
+    title: 'National Safety Month — Safety is Not Optional Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalSafetyMonth,
+    description: 'Corporate safety awareness poster for Kovic Projects Limited featuring blue hardhat, reflective safety vest, ear defenders, work boots, and danger tape.',
+    technologies: ['Photoshop', 'Corporate Safety Banner', '3D Product Styling', 'Typography'],
+  },
+  {
+    id: 'wishing-12-international-womens-day',
+    title: "Happy International Women's Day — March 8 Team Tribute Poster",
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalWomensDay,
+    description: "High-impact team celebration poster featuring a grid collage of black & white women team portraits framed around a giant vibrant orange '8' emblem.",
+    technologies: ['Photoshop', 'Photo Collage', 'Typography', 'Brand Celebration'],
+  },
+  {
+    id: 'wishing-13-national-mathematics-day',
+    title: 'Happy National Mathematics Day — Power of Logic & Problem Solving Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalMathematicsDay,
+    description: 'Inspirational STEM education poster showing students gathered around a geometry blackboard table in an electric blue room with 3D wall typography.',
+    technologies: ['Photoshop', 'STEM Graphics', '3D Room Rendering', 'Educational Poster'],
+  },
+  {
+    id: 'wishing-14-world-water-day',
+    title: 'World Water Day — A Drop of Water Worth More Than Gold Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldWaterDay,
+    description: 'Environmental awareness poster showcasing chrome water tap pouring crystal clear water onto lathered washing hands with cyan typography quote.',
+    technologies: ['Photoshop', 'Macro Photography Art Direction', 'Clean Minimalist Banner', 'Environmental Awareness'],
+  },
+  {
+    id: 'wishing-15-world-theatre-day',
+    title: 'Happy World Theatre Day — Stage, Cinema & Performing Arts Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldTheatreDay,
+    description: 'Vibrant crimson performing arts celebration poster featuring vintage movie projector, film reel, clapperboard, studio microphone, popcorn, and stage pedestal.',
+    technologies: ['Photoshop', '3D Performing Arts Composition', 'Cinema Graphic', 'Typography'],
+  },
+  {
+    id: 'wishing-16-ambedkar-jayanti',
+    title: 'Happy Ambedkar Jayanti — Sometime Hero Use Pen Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingAmbedkarJayanti,
+    description: 'Minimalist tribute poster for Dr. B.R. Ambedkar featuring a metallic bronze profile bust with green tricolor light gradient on textured paper.',
+    technologies: ['Photoshop', '3D Metallic Bust Rendering', 'Patriotic Poster', 'Typography'],
+  },
+  {
+    id: 'wishing-17-gandhi-jayanti',
+    title: 'Happy Gandhi Jayanti — He Lived Simply, Impact Was Profound Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingGandhiJayanti,
+    description: 'Monochrome high-fashion editorial style tribute poster for Mahatma Gandhi walking with walking stick and charkha wheel.',
+    technologies: ['Photoshop', 'Monochrome Editorial', 'Patriotic Banner', 'Typography'],
+  },
+  {
+    id: 'wishing-18-international-dance-day',
+    title: 'International Dance Day — Timeless Interpretation of Life Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalDanceDay,
+    description: 'Dynamic high-energy street dance poster featuring a hip-hop dancer jumping in a green hoodie over deep blue radial gradient background.',
+    technologies: ['Photoshop', 'Action Photography', 'Dynamic Composition', 'Typography'],
+  },
+  {
+    id: 'wishing-19-labour-day',
+    title: 'Labour Day — Honoring Workers Who Build Our Future Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingLabourDay,
+    description: 'Vibrant corporate Labour Day poster featuring a diverse row of professionals (engineers, doctors, nurses, sanitation workers, police) sitting on an orange 01 structure.',
+    technologies: ['Photoshop', 'Corporate Photo Compositing', '3D Geometry', 'Typography'],
+  },
+  {
+    id: 'wishing-20-national-technology-day',
+    title: 'National Technology Day — Innovation Step Toward Growth Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalTechnologyDay,
+    description: 'Futuristic tech poster featuring a sleek white-and-blue robotic cybernetic hand pointing upward against neon purple fiber optic light trails.',
+    technologies: ['Photoshop', '3D Cybernetic Rendering', 'Futuristic Lighting', 'Typography'],
+  },
+  {
+    id: 'wishing-21-international-nurses-day',
+    title: 'International Nurses Day — Everyday Heroes Powered by Care Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalNursesDay,
+    description: 'Empowering International Nurses Day poster featuring a confident female nurse standing in blue medical scrubs with a waving red superhero cape.',
+    technologies: ['Photoshop', 'Healthcare Banner', 'Superhero Concept', 'Typography'],
+  },
+  {
+    id: 'wishing-22-world-telecommunication-day',
+    title: 'World Telecommunication Day — Bridging Digital Divides Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldTelecommunicationDay,
+    description: 'Clean technical blueprint poster featuring a giant satellite dish, world map contour, smartphone, laptop, and wireless antenna icons in cyan blue.',
+    technologies: ['Photoshop', 'Technical Vector Blueprint', 'Telecom Graphic', 'Typography'],
+  },
+  {
+    id: 'wishing-23-international-museum-day',
+    title: 'International Museum Day — 18 May Cultural Heritage Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalMuseumDay,
+    description: 'Scrapbook collage poster for International Museum Day featuring Classical Greek Caryatid statues, ancient pottery, torn paper edges, and European architecture.',
+    technologies: ['Photoshop', 'Scrapbook Collage Layout', 'Cultural Heritage Art', 'Typography'],
+  },
+  {
+    id: 'wishing-24-world-bee-day',
+    title: 'World Bee Day — 20th May Honeycomb & Sunflower Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldBeeDay,
+    description: 'Vibrant yellow & orange nature poster featuring a honeybee perching on a stack of dripping golden honeycombs surrounded by sunflowers.',
+    technologies: ['Photoshop', 'Macro Photography Composite', 'Nature Banner', 'Brush Lettering Typography'],
+  },
+  {
+    id: 'wishing-25-world-bicycle-day',
+    title: 'Happy World Bicycle Day — Two Wheels Endless Discoveries Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldBicycleDay,
+    description: 'Breathtaking adventure sports poster featuring a cyclist standing with a bicycle on a cliff edge overlooking a snowy mountain peak under blue sky.',
+    technologies: ['Photoshop', 'Landscape Photography', 'Adventure Sports Banner', 'Typography'],
+  },
+  {
+    id: 'wishing-26-international-yoga-day',
+    title: 'International Yoga Day — Celebrate Wellness Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalYogaDay,
+    description: 'Serene sunset wellness poster featuring a silhouette of a yogi in Lord of Dance pose against a radiant golden sun disc and lake landscape.',
+    technologies: ['Photoshop', 'Silhouette Compositing', 'Wellness Banner', 'Typography'],
+  },
+  {
+    id: 'wishing-27-national-statistics-day',
+    title: 'National Statistics Day — 29 June Data Drives Decisions Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalStatisticsDay,
+    description: 'Corporate analytics poster featuring a businessman standing on a half-globe looking up at rising 3D bar charts and a colorful pie chart.',
+    technologies: ['Photoshop', '3D Data Visualization', 'Corporate Infographic', 'Typography'],
+  },
+  {
+    id: 'wishing-28-national-doctors-day',
+    title: "National Doctor's Day — July 1st Everyday Hero Poster",
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalDoctorsDay,
+    description: "Empowering healthcare poster showing a doctor in lab coat with stethoscope casting a standing superhero shadow silhouette on cream backdrop.",
+    technologies: ['Photoshop', 'Healthcare Concept', 'Shadow Manipulation', 'Typography'],
+  },
+  {
+    id: 'wishing-29-ca-day',
+    title: 'Happy CA Day — July 1st Chartered Accountant Honor Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingCaDay,
+    description: 'Bold crimson financial poster featuring a 3D wooden Chartered Accountant seal stamp and AUDIT watermark.',
+    technologies: ['Photoshop', '3D Product Rendering', 'Financial Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-30-world-population-day',
+    title: 'World Population Day — Easy to Add, Difficult to Maintain Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldPopulationDay,
+    description: 'Humorous editorial cartoon poster showing a large family of 8 packed onto a single yellow scooter riding through a city skyline.',
+    technologies: ['Photoshop', 'Editorial Illustration', 'Cartoon Character Art', 'Typography'],
+  },
+  {
+    id: 'wishing-31-world-emoji-day',
+    title: 'World Emoji Day — If Branding Team Had Faces Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldEmojiDay,
+    description: 'Creative agency team poster for World Emoji Day on July 17th, replacing office team members\' faces with expressive yellow emojis at work.',
+    technologies: ['Photoshop', 'Photo Manipulation', 'Emoji Vector Graphics', 'Creative Agency Banner'],
+  },
+  {
+    id: 'wishing-32-international-chess-day',
+    title: 'International Chess Day — Every Move Builds a Brighter Mind Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalChessDay,
+    description: 'Inspiring youth sports poster for International Chess Day featuring young students focused over a chessboard with grandmaster watermarks.',
+    technologies: ['Photoshop', 'Sports Photography', 'Composite Design', 'Typography'],
+  },
+  {
+    id: 'wishing-33-national-handloom-day',
+    title: 'National Handloom Day — A Legacy Woven by Hand Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalHandloomDay,
+    description: 'Artisanal heritage tribute poster for National Handloom Day featuring a Rajasthani weaver operating a traditional wooden loom.',
+    technologies: ['Photoshop', 'Cultural Artwork', 'Textile Texture Design', 'Calligraphy'],
+  },
+  {
+    id: 'wishing-34-quit-india-movement',
+    title: 'Quit India Movement — Freedom Fighters Salute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingQuitIndiaMovement,
+    description: 'Historical patriotic poster saluting freedom fighters with Mahatma Gandhi, Dandi march statues, and flowing Indian flag ribbon.',
+    technologies: ['Photoshop', 'Patriotic Design', 'Historic Photo Collage', 'Typography'],
+  },
+  {
+    id: 'wishing-35-world-photography-day',
+    title: 'World Photography Day — We Turn Clicks Into Stories And Art Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldPhotographyDay,
+    description: 'Surreal creative artwork for World Photography Day showing a DSLR lens erupting into a scenic mountain waterfall and bridge landscape.',
+    technologies: ['Photoshop', 'Surreal Photo Manipulation', 'Nature Photography Blend', 'Typography'],
+  },
+  {
+    id: 'wishing-36-national-space-day',
+    title: '1st National Space Day — Touching Lives While Touching the Moon Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalSpaceDay,
+    description: 'Dramatic space exploration poster celebrating India\'s 1st National Space Day on August 23rd with ISRO LVM3 rocket launching into starry space.',
+    technologies: ['Photoshop', 'Space Graphics', '3D Rocket Launch Effects', 'Typography'],
+  },
+  {
+    id: 'wishing-37-national-sports-day',
+    title: 'National Sports Day — Honoring Our National Heroes Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalSportsDay,
+    description: 'Dynamic sports tribute poster honoring Indian sports champions including Neeraj Chopra, MS Dhoni, Sunil Chhetri, Mary Kom, and PV Sindhu.',
+    technologies: ['Photoshop', 'Sports Photo Manipulation', 'Patriotic Collage Art', 'Typography'],
+  },
+  {
+    id: 'wishing-38-teachers-day',
+    title: 'Happy Teacher\'s Day — Great Teachers Inspire Chalkboard Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingTeachersDay,
+    description: 'Classroom chalkboard tribute poster featuring chalk portraits of legendary Indian scientists Dr. APJ Abdul Kalam, Dr. C.V. Raman, and Dr. Homi Bhabha.',
+    technologies: ['Photoshop', 'Chalkboard Sketch Illustration', 'Academic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-39-international-literacy-day',
+    title: 'International Literacy Day — Powerful Tool for Freedom Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalLiteracyDay,
+    description: 'Striking educational poster for International Literacy Day featuring a graduation mortarboard cap atop leatherbound books on rich crimson red background.',
+    technologies: ['Photoshop', '3D Product Render', 'Educational Graphic', 'Typography'],
+  },
+  {
+    id: 'wishing-40-engineers-day',
+    title: 'Happy Engineers\' Day — Built by Vision Powered by Engineers Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingEngineersDay,
+    description: 'Architectural engineering tribute poster featuring a modern high-speed train crossing a massive arched railway bridge over a river gorge.',
+    technologies: ['Photoshop', 'Architectural Drafting Illustration', 'Engineering Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-41-world-tourism-day',
+    title: 'World Tourism Day — Travel Opens Minds Connects Hearts Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldTourismDay,
+    description: 'Vibrant travel poster celebrating World Tourism Day featuring famous world landmarks (Statue of Liberty, Big Ben, Eiffel Tower, Pyramids) on a tropical beach island with an airplane.',
+    technologies: ['Photoshop', 'Travel Poster Manipulation', 'Landmark Composite', 'Typography'],
+  },
+  {
+    id: 'wishing-42-world-heart-day',
+    title: 'World Heart Day — Be Heart Smart Live Longer Live Better Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldHeartDay,
+    description: 'Striking medical awareness poster featuring a giant 3D red anatomical heart encircled by a winding spiral path with walking people.',
+    technologies: ['Photoshop', '3D Healthcare Graphic', 'Anatomical Model Render', 'Typography'],
+  },
+  {
+    id: 'wishing-43-international-coffee-day',
+    title: 'International Coffee Day — 1st of October Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalCoffeeDay,
+    description: 'Warm cafe promotion poster for International Coffee Day featuring a doodle artwork frame with a steaming espresso cup and roasted coffee beans.',
+    technologies: ['Photoshop', 'Doodle Art Composite', 'Beverage Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-44-indian-air-force-day',
+    title: 'Indian Air Force Day — Honouring the Guardians of Our Skies Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingIndianAirForceDay,
+    description: 'Heroic military aviation poster for Indian Air Force Day (8 October) featuring a Sukhoi Su-30MKI fighter jet soaring through blue skies with Indian Tricolor ribbon.',
+    technologies: ['Photoshop', 'Aviation Composite', 'Military Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-45-world-post-day',
+    title: 'World Post Day — 9th October Postal Mail Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldPostDay,
+    description: 'Clean vector illustration poster for World Post Day featuring a classic red mailbox surrounded by flying envelopes and paper airplanes.',
+    technologies: ['Photoshop', 'Vector Illustration', 'Postal Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-46-national-unity-day',
+    title: 'National Unity Day — Embracing Diversity Fostering Unity Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalUnityDay,
+    description: 'Monumental tribute poster for National Unity Day featuring a golden Statue of Unity (Sardar Vallabhbhai Patel) resting on a floating island with glowing sun.',
+    technologies: ['Photoshop', 'Monumental 3D Artwork', 'Patriotic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-47-national-education-day',
+    title: 'National Education Day — The More We Learn The Stronger Our Nation Becomes Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalEducationDay,
+    description: 'Creative academic poster for National Education Day featuring a schoolboy sitting on a giant yellow pencil under a graduation cap pillar.',
+    technologies: ['Photoshop', 'Surreal Composite Illustration', 'Educational Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-48-childrens-day',
+    title: 'Happy Children\'s Day — Pandit Jawaharlal Nehru Birth Anniversary Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingChildrensDay,
+    description: 'Nostalgic scrapbook-style tribute poster for Children\'s Day featuring a vintage black-and-white photo of Chacha Nehru surrounded by smiling children.',
+    technologies: ['Photoshop', 'Scrapbook Vintage Collage', 'Photo Editing', 'Typography'],
+  },
+  {
+    id: 'wishing-49-international-mens-day',
+    title: 'Happy International Men\'s Day — Building, Leading, and Creating Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalMensDay,
+    description: 'Sleek executive tribute poster for International Men\'s Day featuring a crisp white collared shirt and blue tie graphic against a dark geometric grid.',
+    technologies: ['Photoshop', 'Minimalist Corporate Graphic', 'Fashion Vector Render', 'Typography'],
+  },
+  {
+    id: 'wishing-50-national-constitution-day',
+    title: 'National Constitution Day — Honoring Vision, Values & Democratic Ideals Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalConstitutionDay,
+    description: 'Dignified civic poster for National Constitution Day featuring a 3D wooden judge gavel beside a standing Indian Tricolor desktop flag and India map contour.',
+    technologies: ['Photoshop', '3D Legal Graphic', 'Patriotic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-51-national-security-day',
+    title: 'National Security Day — Commemorating Our Security Forces Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalSecurityDay,
+    description: 'Comprehensive defense poster for National Security Day (04 March) featuring a main battle tank, naval warship, fighter jet formation with Tricolor smoke, and armed forces silhouettes.',
+    technologies: ['Photoshop', 'Defense Collage Composite', 'Military Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-52-international-mother-language-day',
+    title: 'International Mother Language Day — Telugu Talli Honor Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalMotherLanguageDay,
+    description: 'Cultural linguistic poster for International Mother Language Day featuring a golden Telugu Talli statue against a traditional mandala pattern and bold Telugu typography.',
+    technologies: ['Photoshop', 'Cultural Artwork', 'Telugu Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-53-har-ghar-tiranga',
+    title: 'Har Ghar Tiranga — One Nation, One Flag, One Spirit Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingHarGharTiranga,
+    description: 'Vibrant national campaign poster for Har Ghar Tiranga featuring twin waving Indian Tricolors with Ashoka Chakra emblem, peace doves, and historic landmark silhouettes.',
+    technologies: ['Photoshop', 'Patriotic Campaign Design', 'Vector Flag Artwork', 'Typography'],
+  },
+  {
+    id: 'wishing-54-vishwakarma-puja',
+    title: 'Vishwakarma Puja — Celebrating Creativity, Skill & Innovation Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingVishwakarmaPuja,
+    description: 'Devotional festival poster for Vishwakarma Puja featuring a divine illustration of Lord Vishwakarma holding architectural tools and the globe on a rich maroon background.',
+    technologies: ['Photoshop', 'Devotional Digital Art', 'Festival Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-55-indian-navy-day',
+    title: 'Indian Navy Day — Because They Guard the Seas We Sail With Confidence Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingIndianNavyDay,
+    description: 'Majestic maritime defense poster for Indian Navy Day featuring a guided missile destroyer warship plowing through deep blue ocean waves with 3D "NAVY" text.',
+    technologies: ['Photoshop', 'Naval Aviation & Warship Composite', 'Military Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-56-indian-armed-force-flag-day',
+    title: 'Indian Armed Force Flag Day — A Flag That Stands Tall Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingIndianArmedForceFlagDay,
+    description: 'Patriotic defense poster for Armed Forces Flag Day featuring Army, Air Force, and Navy emblem badges over marching servicemen and hand holding the Tricolor.',
+    technologies: ['Photoshop', 'Tri-Services Defense Collage', 'Emblem Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-57-international-anti-corruption-day',
+    title: 'International Anti Corruption Day — Break The Chain Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalAntiCorruptionDay,
+    description: 'Impactful civic poster for International Anti Corruption Day (09th December) featuring a line art sketch of two raised fists snapping a rusty chain.',
+    technologies: ['Photoshop', 'Line Art Sketching', 'Civic Advocacy Design', 'Typography'],
+  },
+  {
+    id: 'wishing-58-human-rights-day',
+    title: 'Human Rights Day — 10th December UN Declaration Commemoration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingHumanRightsDay,
+    description: 'Global advocacy poster for Human Rights Day featuring a raised fist gripping a microphone above a tape-mounted craft paper banner backdrop.',
+    technologies: ['Photoshop', 'Advocacy Graphic Design', 'Paper Texture Collage', 'Typography'],
+  },
+  {
+    id: 'wishing-59-international-mountain-day',
+    title: 'International Mountain Day — Honor the World\'s Most Powerful Landscapes Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalMountainDay,
+    description: 'Breathtaking nature poster for International Mountain Day (11 December) featuring a sunlit snow-capped mountain peak towering into crisp blue skies.',
+    technologies: ['Photoshop', 'Landscape Photography', 'Nature Banner Art', 'Typography'],
+  },
+  {
+    id: 'wishing-60-national-farmers-day',
+    title: 'National Farmer\'s Day — Honouring the Hands That Turn Seeds Into Life Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalFarmersDay,
+    description: 'Tribute poster for National Farmer\'s Day (Kisan Diwas on 23rd December) featuring a hand-drawn sketch of an Indian farmer planting rice saplings in a paddy field.',
+    technologies: ['Photoshop', 'Hand Sketch Illustration', 'Agricultural Tribute', 'Typography'],
+  },
+  {
+    id: 'wishing-61-national-civil-services-day',
+    title: 'National Civil Services Day — Honoring the Servants of the Nation Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalCivilServicesDay,
+    description: 'Dignified governance poster for National Civil Services Day (21 April) featuring the golden Ashoka Lion Capital atop a domed monument under waving tricolor banners.',
+    technologies: ['Photoshop', '3D Monumental Artwork', 'Governance Design', 'Typography'],
+  },
+  {
+    id: 'wishing-62-good-governance-day',
+    title: 'Good Governance Day — Atal Bihari Vajpayee Birth Anniversary Tribute Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingGoodGovernanceDay,
+    description: 'Commemorative political poster for Good Governance Day honoring Shri Atal Bihari Vajpayee with an India map silhouette and jet flypast tricolor smoke trail.',
+    technologies: ['Photoshop', 'Political Tribute Design', 'Patriotic Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-63-mothers-day',
+    title: 'Happy Mother\'s Day — Behind Every Strict No is Endless Love Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingMothersDay,
+    description: 'Humorous family character illustration for Mother\'s Day featuring an Indian Amma with a stick playfully chasing a frightened little boy holding a smartphone.',
+    technologies: ['Photoshop', '3D Character Art', 'Humorous Storytelling', 'Typography'],
+  },
+  {
+    id: 'wishing-64-fathers-day',
+    title: 'Happy Father\'s Day — Behind Every Strong Family is a Stronger Father Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingFathersDay,
+    description: 'Emotional tribute poster for Father\'s Day (21 June) featuring a halftone vector silhouette of a father carrying his child on his shoulders on a deep crimson backdrop.',
+    technologies: ['Photoshop', 'Halftone Vector Illustration', 'Family Tribute Art', 'Typography'],
+  },
+  {
+    id: 'wishing-65-international-day-of-friendship',
+    title: 'International Day of Friendship — 30th July Pinky Promise Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingInternationalDayOfFriendship,
+    description: 'Pop-art comic graphic for International Day of Friendship (30th July) featuring two halftone hands making a pinky promise against a textured white paper canvas.',
+    technologies: ['Photoshop', 'Halftone Pop Art', 'Comic Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-66-makar-sankranti',
+    title: 'Happy Makar Sankranti — Kite Festival Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingMakarSankranti,
+    description: 'Vibrant harvest festival poster for Makar Sankranti featuring colorful flying kites, thread spool (firkee), til sweets bowl, and kumkum/haldi ceremonial bowls.',
+    technologies: ['Photoshop', 'Festive Photography Render', 'Harvest Festival Design', 'Typography'],
+  },
+  {
+    id: 'wishing-67-saraswati-puja',
+    title: 'Happy Saraswati Puja — Musical Coffee Fusion Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingSaraswatiPuja,
+    description: 'Artistic fusion poster for Saraswati Puja featuring a swan-shaped veena electric guitar line art with coffee beans and steaming espresso beside Goddess Saraswati playing veena.',
+    technologies: ['Photoshop', 'Line Art Fusion', 'Devotional Art', 'Typography'],
+  },
+  {
+    id: 'wishing-68-maha-shivaratri',
+    title: 'Happy Maha Shivaratri — Sacred Shiva Lingam Blessing Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingMahaShivaratri,
+    description: 'Devotional festival poster for Maha Shivaratri featuring a sacred Shiva Lingam adorned with tilak and marigold flowers against flowing red silk backdrop.',
+    technologies: ['Photoshop', '3D Devotional Rendering', 'Fabric Simulation', 'Typography'],
+  },
+  {
+    id: 'wishing-69-valentines-day-cat',
+    title: 'Happy Valentine\'s Day — Cat Under Heart Tree Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingValentinesDayCat,
+    description: 'Charming Valentine\'s Day card illustration featuring a cute black-and-white tuxedo cat in a red scarf sitting under a heart-leaf tree with gift boxes and a love letter.',
+    technologies: ['Photoshop', 'Watercolor Illustration', 'Greeting Card Design', 'Typography'],
+  },
+  {
+    id: 'wishing-70-ugadi',
+    title: 'Ugadi Subhakankshalu — Traditional Telugu New Year Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingUgadi,
+    description: 'Warm traditional Telugu New Year poster for Ugadi featuring a clay kalash with mango leaves, brass oil lamp (diya), raw mango slices, and marigold flower garland.',
+    technologies: ['Photoshop', 'Cultural Festival Photography', 'Telugu Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-71-holi',
+    title: 'Happy Holi — Vibrant Festival of Colours Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingHoli,
+    description: 'Vibrant festive poster for Holi featuring an ornamental clay pot overflowing with magenta pink gulal, traditional dholak drums, crossed pichkaris, and colorful powder plates.',
+    technologies: ['Photoshop', 'Digital Illustration', 'Festive Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-72-navratri',
+    title: 'Happy Navratri — Foundations of Faith Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNavratri,
+    description: 'Elegant Navratri festival poster featuring traditional red skirt, silver anklets, white mandala rangoli, and sacred red footprints with empowering typography.',
+    technologies: ['Photoshop', 'Cultural Branding', 'Minimalist Illustration', 'Typography'],
+  },
+  {
+    id: 'wishing-73-eid-al-fitr-2026',
+    title: 'Happy Eid Al-Fitr 2026 — Blessed Crescent & Mosque Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingEidAlFitr2026,
+    description: 'Sophisticated Eid al-Fitr 2026 poster featuring an ornate illuminated mosque minaret, golden dome, hanging crescent stars, and elegant Arabic calligraphy.',
+    technologies: ['Photoshop', 'Islamic Geometric Design', 'Arabic Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-74-ram-navami',
+    title: 'Shree Ram Navami — Divine Kodanda Bow & Arrow Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingRamNavami,
+    description: 'Magnificent Sri Ram Navami poster featuring divine blue hands lifting the golden Kodanda bow and arrow, sunburst rays, temple pillars, and Sanskrit shlokas.',
+    technologies: ['Photoshop', '3D Digital Render', 'Sanskrit Typography', 'Divine Lighting'],
+  },
+  {
+    id: 'wishing-75-mahavir-jayanti',
+    title: 'Happy Mahavir Jayanti — Peace & Compassion Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingMahavirJayanti,
+    description: 'Serene Mahavir Jayanti poster featuring a layered red papercut silhouette of Lord Mahavira in dhyana meditation within a golden temple arch.',
+    technologies: ['Photoshop', 'Papercut Art Effect', 'Spiritual Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-76-hanuman-jayanti',
+    title: 'Happy Hanuman Jayanti — Strength & Devotion Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingHanumanJayanti,
+    description: 'Awestruck devotional poster for Hanuman Jayanti featuring Lord Hanuman kneeling with Gada mace, Ram mantra halo, and hanging golden temple bells against a sunset sky.',
+    technologies: ['Photoshop', '3D Digital Rendering', 'Devotional Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-77-good-friday',
+    title: 'Good Friday — Path of Love & Sacrifice Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingGoodFriday,
+    description: 'Solemn Good Friday reflection poster featuring Jesus Christ on the wooden cross, crown of thorns, and high-contrast monochrome backdrop.',
+    technologies: ['Photoshop', 'Monochrome Digital Art', 'Religious Poster Design', 'Typography'],
+  },
+  {
+    id: 'wishing-78-buddha-purnima',
+    title: 'Happy Buddha Purnima — Enlightenment & Peace Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingBuddhaPurnima,
+    description: 'Minimalist Buddha Purnima poster featuring Lord Buddha in meditative silhouette against a glowing orange full moon sun and wild grass silhouettes.',
+    technologies: ['Photoshop', 'Minimalist Vector Art', 'Zen Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-79-narsimha-jayanti',
+    title: 'Mahavtar Narsimha Jayanti — Divine Victory Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNarsimhaJayanti,
+    description: 'Epic cinematic artwork depicting Mahavtar Narsimha defeating Hiranyakashipu in a grand marble temple courtyard with golden drapes and Sanskrit mantras.',
+    technologies: ['Photoshop', 'Cinematic Concept Art', 'Sanskrit Typography', 'Digital Illustration'],
+  },
+  {
+    id: 'wishing-80-parshuram-jayanti',
+    title: 'Parshuram Jayanti — Fearless Strength & Justice Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingParshuramJayanti,
+    description: 'Royal blue celestial artwork featuring Lord Parshuram on a mountain peak raising his bow and axe under a full moon arch.',
+    technologies: ['Photoshop', 'Vector Silhouette Illustration', 'Mythological Art', 'Typography'],
+  },
+  {
+    id: 'wishing-81-rath-yatra',
+    title: 'Happy Rath Yatra — Jai Jagannath Chariot Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingRathYatra,
+    description: 'Vibrant Odissi dancers and dholak musicians celebrating in front of the monochrome Jagannath temple chariots for Puri Rath Yatra.',
+    technologies: ['Photoshop', 'Cultural Dance Illustration', 'Festival Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-82-durga-ashtami',
+    title: 'Subho Durga Ashtami — Maa Durga Blessing Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingDurgaAshtami,
+    description: 'Crimson festive poster with ornate golden arch, Maa Durga face watermark, and black silhouette of Goddess Durga riding her lion.',
+    technologies: ['Photoshop', 'Cultural Branding', 'Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-83-raksha-bandhan',
+    title: 'Happy Raksha Bandhan — Bond of Love & Lifelong Support Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingRakshaBandhan,
+    description: 'Heartwarming polaroid style poster showcasing siblings applying tilak and tying Rakhi, set on crimson velvet texture with ornate lace.',
+    technologies: ['Photoshop', 'Polaroid Collage', 'Festive Photography', 'Typography'],
+  },
+  {
+    id: 'wishing-84-bonalu',
+    title: 'Happy Bonalu — Telangana Cultural Prosperity Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingBonalu,
+    description: 'Telangana festival creative featuring a woman carrying decorative Bonam pots with neem leaves over a red state map silhouette and street food cart.',
+    technologies: ['Photoshop', 'Regional Cultural Art', 'Map Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-85-muharram',
+    title: 'Happy Muharram — Prayer & Devotion Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingMuharram,
+    description: 'Serene spiritual poster illustrating a devout Muslim offering Sujud prayer on a prayer rug with faint mosque minaret silhouettes.',
+    technologies: ['Photoshop', 'Digital Line Art Illustration', 'Islamic Art', 'Typography'],
+  },
+  {
+    id: 'wishing-86-nag-panchami',
+    title: 'Happy Nag Panchami — Strength & Protection Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNagPanchami,
+    description: 'Spiritual Nag Panchami creative featuring Lord Shiva in black meditation silhouette, Shivling with flowers, open-hood cobra, and gold mandala on parchment.',
+    technologies: ['Photoshop', 'Spiritual Silhouette Art', 'Mythological Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-87-varalakshmi-vratham',
+    title: 'Happy Varalakshmi Vratham — Auspicious Prosperity Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingVaralakshmiVratham,
+    description: 'Divine Varalakshmi Vratham creative showing Goddess Lakshmi seated on a pink lotus with golden kalash, coins, and golden elephants.',
+    technologies: ['Photoshop', 'Devotional Art', 'Gold Foil Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-88-onam',
+    title: 'Happy Onam — Kerala Harvest & Snake Boat Race Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingOnam,
+    description: 'Colorful Onam poster split design pairing a Kathakali face mask and banana leaf Sadhya feast with Kerala Vallam Kali boat race under palm trees.',
+    technologies: ['Photoshop', 'Cultural Illustration', 'Festive Split Collage', 'Typography'],
+  },
+  {
+    id: 'wishing-89-bathukamma',
+    title: 'Happy Bathukamma — Telangana Floral Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingBathukamma,
+    description: 'Vibrant Bathukamma creative showing a stacked floral arrangement on a yellow silk saree, with Charminar and Buddha statue line art backdrop.',
+    technologies: ['Photoshop', 'Floral Arrangement Photography', 'Regional Cultural Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-90-dipawali',
+    title: 'Happy Dipawali — Festival of Lights Celebration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingDipawali,
+    description: 'Royal blue Dipawali creative featuring five glowing earthen diya oil lamps on an intricate gold mandala rangoli with hanging lamps.',
+    technologies: ['Photoshop', 'Gold Mandala Vector', 'Lighting Effects', 'Typography'],
+  },
+  {
+    id: 'wishing-91-christmas-2025',
+    title: 'Merry Christmas 2025 — Cool Modern Santa & Reindeer Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingChristmas2025,
+    description: 'Trendy Christmas calendar creative featuring a cool Santa Claus in green velvet suit and white sneakers with sunglasses next to a reindeer.',
+    technologies: ['Photoshop', 'Fashion Photography', 'Modern Festive Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-92-bhogi',
+    title: 'Bhogi Panduga Subhakankshalu — Warm Bonfire Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingBhogi,
+    description: 'Traditional Telugu festival Bhogi creative featuring a roaring bonfire over a white mandala rangoli on deep blue backdrop with golden typography.',
+    technologies: ['Photoshop', 'Cultural Festival Photography', 'Telugu Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-93-kanuma',
+    title: 'Kanuma Subhakankshalu — Cattle & Harvest Festival Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingKanuma,
+    description: 'Heartwarming Telugu harvest festival creative depicting a woman in silk saree feeding a decorated sacred cow (Gomatha) on a rangoli.',
+    technologies: ['Photoshop', 'Cultural Character Art', 'Telugu Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-94-nirjala-ekadashi',
+    title: 'Nirjala Ekadashi — Divine Vishnu & Sheshnag Grace Poster',
+    category: 'Wishing Posters',
+    shortDescription: 'Devotional Nirjala Ekadashi poster featuring Lord Vishnu resting on Sheshnag in Ksheera Sagara with Goddess Lakshmi.',
+    image: wishingNirjalaEkadashi,
+    description: 'Devotional poster for Nirjala Ekadashi featuring Lord Vishnu resting on Sheshnag with Goddess Lakshmi and Lord Brahma on crimson backdrop.',
+    technologies: ['Photoshop', 'Devotional 3D Art', 'Vedic Mythology', 'Typography'],
+  },
+  {
+    id: 'wishing-95-national-picnic-day',
+    title: 'National Picnic Day — Spring Lawn & Book Aesthetic Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalPicnicDay,
+    description: 'Aesthetic spring outdoor poster featuring a white woven picnic blanket on green dandelion grass with coffee, an open book, and apple blossom.',
+    technologies: ['Photoshop', 'Lifestyle Photography', 'Editorial Layout Design', 'Typography'],
+  },
+  {
+    id: 'wishing-96-ganesh-chaturthi',
+    title: 'Happy Ganesh Chaturthi — Dhol Tasha Festive Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingGaneshChaturthi,
+    description: 'Energetic crimson festive creative featuring Dhol Tasha drum performers with saffron flags in front of Lord Ganesha silhouette backdrop.',
+    technologies: ['Photoshop', 'Cultural Festival Illustration', 'Energetic Event Graphics', 'Typography'],
+  },
+  {
+    id: 'wishing-97-world-book-day',
+    title: 'World Book Day — Blue Sky & Open Book Inspiration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldBookDay,
+    description: 'Vibrant blue sky poster featuring a hand holding an open hardcover book facing the sun, celebrating reading and imagination.',
+    technologies: ['Photoshop', 'Conceptual Photography', 'Modern Editorial Design', 'Typography'],
+  },
+  {
+    id: 'wishing-98-world-press-freedom-day',
+    title: 'World Press Freedom Day — Courage & Power of Truth Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldPressFreedomDay,
+    description: 'Crimson textured poster featuring a large 3D news microphone over a crowd silhouette watermark, honoring journalism and free press.',
+    technologies: ['Photoshop', '3D Media Illustration', 'Editorial Advocacy Banner', 'Typography'],
+  },
+  {
+    id: 'wishing-99-autism-awareness-day',
+    title: 'Autism Awareness Day — Teddy Bear & Rainbow Infinity Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingAutismAwarenessDay,
+    description: 'Heartwarming sky blue creative featuring a plush teddy bear holding a rainbow infinity symbol, celebrating unique minds.',
+    technologies: ['Photoshop', 'Social Awareness Graphics', '3D Soft Character Art', 'Typography'],
+  },
+  {
+    id: 'wishing-100-national-dna-day',
+    title: 'National DNA Day — Building Blocks of Life Science Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingNationalDnaDay,
+    description: 'Striking crimson poster featuring a black 3D double helix molecular DNA strand structure, celebrating genetic science.',
+    technologies: ['Photoshop', 'Scientific 3D Rendering', 'Bold Typography', 'Graphic Design'],
+  },
+  {
+    id: 'wishing-101-central-excise-day',
+    title: 'Central Excise Day — Salute to Officers & Fair Taxation Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingCentralExciseDay,
+    description: 'Royal blue national tribute poster featuring the Ashoka Lion emblem seal, crossed Indian flags, and gold star honoring Central Excise officers.',
+    technologies: ['Photoshop', 'Government Emblem Branding', 'Patriotic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-102-shivaji-jayanti',
+    title: 'Chhatrapati Shivaji Jayanti — Courage & Vision Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingShivajiJayanti,
+    description: 'Heroic portrait creative of Chhatrapati Shivaji Maharaj in a saffron turban with Devanagari calligraphy watermark and flying saffron flags.',
+    technologies: ['Photoshop', 'Historical Portraiture', 'Devanagari Calligraphy', 'Typography'],
+  },
+  {
+    id: 'wishing-103-world-bartender-day',
+    title: 'World Bartender Day — Craft Drinks & Memorable Moments Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingWorldBartenderDay,
+    description: 'Vibrant crimson bar lounge creative featuring a smiling male bartender in a bow tie shaking a cocktail with halftone dot patterns.',
+    technologies: ['Photoshop', 'Hospitality Graphic Design', 'Halftone Retouching', 'Typography'],
+  },
+  {
+    id: 'wishing-104-tour-guide-day',
+    title: 'International Tour Guide Day — Travel & Exploration Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingTourGuideDay,
+    description: 'Deep starry blue travel poster featuring a cheerful female tour guide in straw hat and leather vest with binoculars and map.',
+    technologies: ['Photoshop', 'Travel & Tourism Branding', 'Lifestyle Portraiture', 'Typography'],
+  },
+  {
+    id: 'wishing-105-pravasi-bharatiya-divas',
+    title: 'Pravasi Bharatiya Divas — Celebrating Global Indian Diaspora Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingPravasiBharatiyaDivas,
+    description: 'Patriotic NRI tribute poster featuring a commercial airplane wrapped in Indian tricolor ribbon taking off over family travel silhouettes.',
+    technologies: ['Photoshop', 'Vector Diaspora Art', 'Aviation Branding', 'Typography'],
+  },
+  {
+    id: 'wishing-106-programmers-day',
+    title: 'Happy Programmer\'s Day — Code Creators & Tech Innovation Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingProgrammersDay,
+    description: 'Minimalist tech poster featuring a 3D blue developer avatar holding a code plaque in front of a binary matrix waterfall.',
+    technologies: ['Photoshop', '3D Avatar Modeling', 'Tech Graphic Design', 'Typography'],
+  },
+  {
+    id: 'wishing-107-kargil-vijay-diwas',
+    title: 'Kargil Vijay Diwas — Salute to Brave Hearts Victory Poster',
+    category: 'Wishing Posters',
+    filterCategory: 'Wishing Posters',
+    image: wishingKargilVijayDiwas,
+    description: 'Patriotic tribute creative depicting an Indian soldier saluting while hoisting the Tricolor on a snowy mountain summit.',
+    technologies: ['Photoshop', 'Patriotic Military Illustration', 'Distressed Typography', 'Digital Art'],
+  },
+  {
+    id: 'sambar-vada-authentic-dip-campaign',
+    title: 'Sambar Vada — Hot Crisp Vada Dipped in Authentic Sambar',
+    category: 'Campaigns',
+    filterCategory: 'Campaigns',
+    image: featuredSambarVadaDip,
+    description: 'Traditional South Indian culinary campaign poster featuring a golden crispy vada being dipped into rich hot sambar served on a banana leaf with coconut and tomato chutneys.',
+    technologies: ['Photoshop', 'Food Photography', 'Ad Campaign', 'Social Media'],
+  },
+  {
+    id: 'mithai-that-melts-hearts-milkcake-campaign',
+    title: 'Mithai That Melts Hearts — Milkcake Festive Campaign',
+    category: 'Campaigns',
+    filterCategory: 'Campaigns',
+    image: featuredMithaiMilkcake,
+    description: 'Mouth-watering sweet campaign creative showcasing rich granular ghee milkcake topped with pistachios, featuring a taped parchment note aesthetic.',
+    technologies: ['Photoshop', 'Food Styling', 'Festive Campaign', 'Typography'],
+  },
+  {
+    id: 'double-the-sweetness-kheer-jamun-campaign',
+    title: 'Double The Sweetness — Badam Kheer & Gulab Jamun Duo Campaign',
+    category: 'Campaigns',
+    filterCategory: 'Campaigns',
+    image: featuredBadamKheerGulabJamun,
+    description: 'Vibrant yellow scalloped border promotional banner featuring almond-loaded Badam Kheer in a carved brass bowl alongside warm Gulab Jamuns.',
+    technologies: ['Photoshop', 'Promotional Design', 'Food Photography', 'Ad Campaign'],
+  },
+  {
+    id: 'explore-malaysia-island-paradise-campaign',
+    title: 'Explore Malaysia — Island Paradise Travel Campaign',
+    category: 'Campaigns',
+    filterCategory: 'Campaigns',
+    image: featuredExploreMalaysiaTravel,
+    description: 'Breathtaking travel campaign poster featuring emerald waters, dramatic karst limestone islands, traditional boats, and irresistible package pricing starting from ₹14,999/-.',
+    technologies: ['Photoshop', 'Travel Marketing', 'Poster Design', 'Photo Composition'],
+  },
+  {
+    id: 'soft-buttery-idli-ghee-drizzle-campaign',
+    title: 'Soft & Buttery Idli — Golden Ghee Drizzle Campaign',
+    category: 'Campaigns',
+    filterCategory: 'Campaigns',
+    image: featuredSoftIdliGhee,
+    description: 'Cinematic food ad campaign showcasing a steaming stack of pillow-soft podi idlis on a banana leaf with golden aromatic ghee pouring generously from a vintage spoon.',
+    technologies: ['Photoshop', 'Food Photography Art Direction', 'Social Media Campaign', 'Lighting Composition'],
+  },
   {
     id: 'yumyum-snackit-millet-mix-box-unboxing-ad',
     title: 'YumYum Snackit 8-in-1 — Millet Mix Box Unboxing Campaign',
@@ -809,7 +1930,7 @@ const ALL_PROJECTS: ProjectItem[] = [
   },
 ];
 
-const CATEGORIES = ['All', 'Graphic', 'Poster', 'Branding', 'Social Media'];
+const CATEGORIES = ['All', 'Wishing Posters', 'Campaigns', 'Graphic', 'Poster', 'Branding', 'Social Media'];
 
 export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -854,7 +1975,7 @@ export const FeaturedProjects: React.FC = () => {
         id: dp.id,
         title: dp.title,
         category: dp.category,
-        filterCategory: dp.category === 'Branding' ? 'Branding' : dp.category === 'Packaging' ? 'Packaging' : dp.category === 'Print' ? 'Print' : 'Graphic',
+        filterCategory: dp.category === 'Campaigns' || dp.category === 'Digital Campaigns' ? 'Campaigns' : dp.category === 'Branding' ? 'Branding' : dp.category === 'Packaging' ? 'Packaging' : dp.category === 'Print' ? 'Print' : 'Graphic',
         image: validImage,
         description: dp.shortDescription,
         technologies: dp.technologies,
@@ -866,7 +1987,17 @@ export const FeaturedProjects: React.FC = () => {
   // Filter projects by selected category
   const filteredProjects = activeCategory === 'All'
     ? combinedProjects
-    : combinedProjects.filter(p => p.filterCategory === activeCategory || p.category === activeCategory);
+    : combinedProjects.filter(p => 
+        p.filterCategory === activeCategory || 
+        p.category === activeCategory ||
+        (activeCategory === 'Campaigns' && (
+          p.category === 'Campaigns' || 
+          p.category === 'Digital Campaigns' || 
+          p.filterCategory === 'Campaigns' ||
+          p.title.toLowerCase().includes('campaign') || 
+          (p.technologies && p.technologies.some(t => t.toLowerCase().includes('campaign')))
+        ))
+      );
 
   const openModal = (item: ProjectItem) => {
     const proj: Project = {

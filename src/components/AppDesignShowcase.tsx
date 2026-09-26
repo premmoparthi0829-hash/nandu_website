@@ -801,7 +801,7 @@ export const AppDesignShowcase: React.FC = () => {
             App
           </span>
           <span className="text-5xl sm:text-6xl md:text-7xl font-black select-none leading-none">&nbsp;</span>
-          <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+          <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#0284C7] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
             Design
           </span>
         </div>
@@ -813,7 +813,7 @@ export const AppDesignShowcase: React.FC = () => {
             
             {/* Client Headline */}
             <div className="mb-4">
-              <h3 className="text-2xl sm:text-3xl font-black text-[#88D900] tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-black text-[#0284C7] tracking-tight">
                 Client: Poppy
               </h3>
               <p className="text-sm sm:text-base font-semibold text-gray-600 italic mt-0.5">
@@ -827,42 +827,42 @@ export const AppDesignShowcase: React.FC = () => {
             </p>
 
             {/* Key Features Title */}
-            <h4 className="text-xl sm:text-2xl font-black text-[#88D900] tracking-tight mb-4">
+            <h4 className="text-xl sm:text-2xl font-black text-[#0284C7] tracking-tight mb-4">
               Key features
             </h4>
 
             {/* Key Features Bullet List */}
             <ul className="space-y-2.5 text-xs sm:text-sm text-gray-800 font-medium">
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Style:</strong> Minimalist, cinematic, bold visuals, immersive dark UI.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Target Audience:</strong> Age 16–45, globally distributed.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Home screen</strong> with personalized recommendations and trending content.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Search & filter</strong> with genres, actors, and more.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Watchlist</strong> and continue watching sections.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Video player</strong> with subtitles, quality settings, and playback controls.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Content detail pages</strong> with trailers, cast info, and reviews.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#88D900] font-black text-base leading-none">•</span>
+                <span className="text-[#0284C7] font-black text-base leading-none">•</span>
                 <span><strong className="font-bold text-black">Subscription management</strong> and in-app purchases.</span>
               </li>
             </ul>
@@ -907,7 +907,7 @@ export const AppDesignShowcase: React.FC = () => {
             Main
           </span>
           <span className="text-5xl sm:text-6xl md:text-7xl font-black select-none leading-none">&nbsp;</span>
-          <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+          <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#0284C7] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
             Screens
           </span>
         </div>
@@ -922,7 +922,7 @@ export const AppDesignShowcase: React.FC = () => {
                 {screen.component}
               </PhoneMockup>
               <div className="mt-3 text-center">
-                <span className="text-xs font-bold text-gray-900 group-hover:text-[#88D900] transition-colors block">
+                <span className="text-xs font-bold text-gray-900 group-hover:text-[#0284C7] transition-colors block">
                   {screen.title}
                 </span>
                 <span className="text-[10px] text-gray-500 font-medium block">
@@ -1056,7 +1056,7 @@ export const AppDesignShowcase: React.FC = () => {
               </div>
 
               <div className="mt-12 sm:mt-16 text-center text-white">
-                <h3 className="text-xl font-black text-[#88D900]">
+                <h3 className="text-xl font-black text-[#0284C7]">
                   {screensList[selectedScreenIndex].title}
                 </h3>
                 <p className="text-xs text-gray-300 font-medium mt-1">

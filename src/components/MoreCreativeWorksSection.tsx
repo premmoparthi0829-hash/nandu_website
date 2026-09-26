@@ -78,9 +78,21 @@ import invite13EarPiercedCeremonyRaha from '../assets/invite_13_ear_pierced_cere
 import invite14WeddingSumuhurthamJeelakarraBellam from '../assets/invite_14_wedding_sumuhurtham_jeelakarra_bellam.jpg';
 import invite15WeddingSupriyaArjun from '../assets/invite_15_wedding_supriya_arjun.jpg';
 
+import celeb1ChiranjeeviYellowSun from '../assets/celeb_1_chiranjeevi_yellow_sun.jpg';
+import celeb2SsRajamouliSpiral from '../assets/celeb_2_ss_rajamouli_spiral.jpg';
+import celeb3MaheshBabuSuperstar from '../assets/celeb_3_mahesh_babu_superstar.jpg';
+import celeb4ViratKohliGoat from '../assets/celeb_4_virat_kohli_goat.jpg';
+import celeb5RohitSharmaHitman from '../assets/celeb_5_rohit_sharma_hitman.jpg';
+
+import celeb6ChandrababuNaidu from '../assets/celeb_6_chandrababu_naidu.jpg';
+import celeb7JaganMohanReddy from '../assets/celeb_7_jagan_mohan_reddy.jpg';
+import celeb8ChiranjeeviTwinkleMegastar from '../assets/celeb_8_chiranjeevi_twinkle_megastar.jpg';
+import celeb9ThalapathyVijay from '../assets/celeb_9_thalapathy_vijay.jpg';
+import celeb10JrNtr from '../assets/celeb_10_jr_ntr.jpg';
+
 interface CreativeItem {
   id: string;
-  category: 'billboard' | 'brochure' | 'package' | 'standee' | 'invite';
+  category: 'billboard' | 'brochure' | 'package' | 'standee' | 'invite' | 'celebrity';
   title: string;
   subtitle?: string;
   image: string;
@@ -92,7 +104,7 @@ interface CreativeItem {
 }
 
 export const MoreCreativeWorksSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'featured' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite' | 'uiux'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'featured' | 'brochure' | 'billboard' | 'package' | 'standee' | 'invite' | 'celebrity' | 'uiux'>('all');
   const [selectedItem, setSelectedItem] = useState<CreativeItem | null>(null);
   const [currentBillboardIndex, setCurrentBillboardIndex] = useState<number>(0);
   const [billboardDirection, setBillboardDirection] = useState<number>(1);
@@ -444,6 +456,100 @@ export const MoreCreativeWorksSection: React.FC = () => {
     },
   ];
 
+  // Celebrity Design items
+  const celebrities: CreativeItem[] = [
+    {
+      id: 'cel-1',
+      category: 'celebrity',
+      title: 'Megastar Chiranjeevi Poster Design',
+      subtitle: 'Black & White Portrait Poster with Yellow Backdrop',
+      image: celeb1ChiranjeeviYellowSun,
+      fullMockupImage: celeb1ChiranjeeviYellowSun,
+      client: 'Celebrity Poster Series',
+    },
+    {
+      id: 'cel-2',
+      category: 'celebrity',
+      title: 'S.S. Rajamouli Poster Design',
+      subtitle: 'Maestro Director Optical Spiral Poster Art',
+      image: celeb2SsRajamouliSpiral,
+      fullMockupImage: celeb2SsRajamouliSpiral,
+      client: 'Celebrity Poster Series',
+    },
+    {
+      id: 'cel-3',
+      category: 'celebrity',
+      title: 'Superstar Mahesh Babu Graphic Poster',
+      subtitle: 'Superstar Typography & Blue Texture Backdrop Design',
+      image: celeb3MaheshBabuSuperstar,
+      fullMockupImage: celeb3MaheshBabuSuperstar,
+      client: 'Celebrity Poster Series',
+    },
+    {
+      id: 'cel-4',
+      category: 'celebrity',
+      title: 'Virat Kohli — Greatest Of All Time Poster',
+      subtitle: 'RCB & Indian Cricket Icon Graphic Collage Poster Design',
+      image: celeb4ViratKohliGoat,
+      fullMockupImage: celeb4ViratKohliGoat,
+      client: 'Celebrity & Sports Design',
+    },
+    {
+      id: 'cel-5',
+      category: 'celebrity',
+      title: 'Rohit Sharma — Hitman Redemption Poster',
+      subtitle: 'ICC #1 ODI Batter Redemption Poster Layout',
+      image: celeb5RohitSharmaHitman,
+      fullMockupImage: celeb5RohitSharmaHitman,
+      client: 'Celebrity & Sports Design',
+    },
+    {
+      id: 'cel-6',
+      category: 'celebrity',
+      title: 'Shri Nara Chandrababu Naidu Birthday Poster',
+      subtitle: 'Hon\'ble Chief Minister of AP Graphic Poster Design',
+      image: celeb6ChandrababuNaidu,
+      fullMockupImage: celeb6ChandrababuNaidu,
+      client: 'Political & Leadership Poster',
+    },
+    {
+      id: 'cel-7',
+      category: 'celebrity',
+      title: 'Y.S. Jagan Mohan Reddy Birthday Poster',
+      subtitle: 'Leader & Former CM Graphic Birthday Poster Layout',
+      image: celeb7JaganMohanReddy,
+      fullMockupImage: celeb7JaganMohanReddy,
+      client: 'Political & Leadership Poster',
+    },
+    {
+      id: 'cel-8',
+      category: 'celebrity',
+      title: 'Megastar Chiranjeevi — Ee Janmaki Okade Poster',
+      subtitle: 'Classic Megastar Vintage Red Texture Graphic Poster',
+      image: celeb8ChiranjeeviTwinkleMegastar,
+      fullMockupImage: celeb8ChiranjeeviTwinkleMegastar,
+      client: 'Celebrity Poster Series',
+    },
+    {
+      id: 'cel-9',
+      category: 'celebrity',
+      title: 'Thalapathy Vijay Graphic Poster Art',
+      subtitle: 'Yellow Sun & Purple Backdrop Cinematic Poster Design',
+      image: celeb9ThalapathyVijay,
+      fullMockupImage: celeb9ThalapathyVijay,
+      client: 'Celebrity Poster Series',
+    },
+    {
+      id: 'cel-10',
+      category: 'celebrity',
+      title: 'Man of Masses Jr. NTR Typography Poster',
+      subtitle: 'NTR Bold Cut-out Typography & Red Scanline Backdrop',
+      image: celeb10JrNtr,
+      fullMockupImage: celeb10JrNtr,
+      client: 'Celebrity Poster Series',
+    },
+  ];
+
   return (
     <section id="more-creative-works" className="w-full bg-[#090909] text-white relative py-14 sm:py-18 md:py-24 overflow-hidden border-t border-white/10">
       
@@ -480,6 +586,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
             { id: 'package', label: 'Package Design', icon: Package },
             { id: 'standee', label: 'Standees', icon: Upload },
             { id: 'invite', label: 'Invite Designs', icon: Heart },
+            { id: 'celebrity', label: 'Celebrity Designs', icon: Sparkles },
             { id: 'uiux', label: 'App Design (UI/UX)', icon: Smartphone },
           ].map((tab) => {
             const Icon = tab.icon;
@@ -1570,6 +1677,53 @@ export const MoreCreativeWorksSection: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
+      {/* 5.5 CELEBRITY DESIGNS SECTION */}
+      {/* ========================================================================= */}
+      {(activeTab === 'all' || activeTab === 'celebrity') && (
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-28 relative z-10">
+          
+          {/* Header Typography with Exactly One Space Gap */}
+          <div className="mb-10 flex items-baseline flex-wrap">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-sans select-none leading-none">
+              Celebrity
+            </span>
+            <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white select-none leading-none">&nbsp;</span>
+            <span className="font-creative-script text-5xl sm:text-6xl md:text-7xl text-[#88D900] rotate-[-5deg] font-bold drop-shadow-sm select-none pointer-events-none -mt-2">
+              Designs
+            </span>
+          </div>
+
+          {/* 5 Celebrity Poster Images displayed naturally with original aspect ratio & clean presentation */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
+            {celebrities.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                whileHover={{ y: -8 }}
+                onClick={() => setSelectedItem(item)}
+                className="group cursor-pointer flex flex-col items-center w-full"
+              >
+                {/* Pure Image retaining natural aspect ratio without artificial box section framing */}
+                <div className="w-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl pointer-events-none" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      )}
+
+      {/* ========================================================================= */}
       {/* 6. UI/UX APP DESIGN SHOWCASE SECTION */}
       {/* ========================================================================= */}
       {(activeTab === 'all' || activeTab === 'uiux') && (
@@ -1607,7 +1761,7 @@ export const MoreCreativeWorksSection: React.FC = () => {
               src={selectedItem.fullMockupImage || selectedItem.image}
               alt={selectedItem.title}
               className="max-h-[85vh] max-w-[85vw] w-auto h-auto object-contain rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] select-none pointer-events-auto block"
-              style={{ imageRendering: 'high-quality' }}
+              style={{ imageRendering: '-webkit-optimize-contrast' as any }}
             />
           </motion.div>
         )}
